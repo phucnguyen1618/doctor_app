@@ -86,6 +86,12 @@ class LoginPage extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: Color(0xFF888888),
             ),
+            hintText: 'Nhập tài khoản',
+            hintStyle: TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              color: Color(0xFF888888),
+            ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Color(0xFFD6D6D6),

@@ -7,4 +7,5 @@ class ImageConstants {
   static const String googleImage = AssetConstants.imageConstants + 'google.png';
   static const String facebookImage = AssetConstants.imageConstants + 'facebook.png';
   static const String twitterImage = AssetConstants.imageConstants + 'twitter.png';
+  static const String createImage = AssetConstants.imageConstants + 'create.png';
 }
