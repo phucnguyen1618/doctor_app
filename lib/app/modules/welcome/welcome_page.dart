@@ -46,7 +46,7 @@ class WelcomePage extends StatelessWidget {
             const SizedBox(
               height: 53.0,
             ),
-            Image.asset(ImageConstants.image),
+            Image.asset(ImageConstants.splash),
             const SizedBox(
               height: 24.0,
             ),
