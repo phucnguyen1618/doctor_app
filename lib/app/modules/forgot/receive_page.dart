@@ -1,4 +1,5 @@
 import 'package:doctor_app/app/core/constants/colors/app_color.dart';
+import 'package:doctor_app/app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pin_put/pin_put.dart';
 
@@ -34,7 +35,7 @@ class ReceivePage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w400,
-                      color: AppColor.labelColor,
+                      color: AppColor.subTextColor,
                     ),
                     children: [
                       TextSpan(
@@ -50,20 +51,47 @@ class ReceivePage extends StatelessWidget {
                 ),
               ),
               const PinPut(
+                textStyle: TextStyle(
+                  fontSize: 44.0,
+                  fontWeight: FontWeight.w700,
+                  color: AppColor.mainTextColor,
+                ),
                 keyboardType: TextInputType.number,
                 fieldsCount: 4,
                 fieldsAlignment: MainAxisAlignment.spaceEvenly,
-                submittedFieldDecoration: BoxDecoration(
-                  color: Colors.redAccent,
+                followingFieldDecoration: BoxDecoration(
+                  color: AppColor.pinColor,
                   shape: BoxShape.circle,
                 ),
               ),
               const SizedBox(
                 height: 50.0,
               ),
+              RichText(
+                text: const TextSpan(
+                    text: 'Không nhận được mã? ',
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.subTextColor,
+                    ),
+                    children: [
+                      TextSpan(
+                          text: 'Gửi lại (15s)',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w400,
+                          ))
+                    ]),
+              ),
             ],
           ),
         ),
+      ),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: CustomButton(content: 'Xác nhận', callback: () {}),
       ),
     );
   }
