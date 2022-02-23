@@ -1,6 +1,5 @@
 import 'package:doctor_app/app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/assets/constants/image_constants.dart';
 
@@ -14,9 +13,9 @@ class ForgotPasswordPage extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Colors.blueAccent,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Quên mật khẩu',
-          style: GoogleFonts.mulish(
+          style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.w500,
             color: Colors.white,
@@ -34,7 +33,7 @@ class ForgotPasswordPage extends StatelessWidget {
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
             labelText: 'Email hoặc số điện thoại',
-            labelStyle: TextStyle(
+            labelStyle: const TextStyle(
               fontSize: 10.0,
               fontWeight: FontWeight.w500,
               color: Color(0xFF888888),

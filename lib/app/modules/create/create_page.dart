@@ -1,6 +1,5 @@
 import 'package:doctor_app/app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/assets/constants/image_constants.dart';
 
@@ -93,21 +92,21 @@ class CreatePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 29.5, right: 29.5, top: 51.8),
       child: Column(
-        children: [
+        children: const [
           TextField(
-            style: GoogleFonts.mulish(
+            style: TextStyle(
               fontSize: 12.0,
               fontWeight: FontWeight.w600,
-              color: const Color(0xFF333333),
+              color: Color(0xFF333333),
             ),
             decoration: InputDecoration(
               labelText: 'Tên đăng nhập',
-              labelStyle: GoogleFonts.mulish(
+              labelStyle: TextStyle(
                 fontSize: 10.0,
                 fontWeight: FontWeight.w500,
-                color: const Color(0xFF888888),
+                color: Color(0xFF888888),
               ),
-              border: const OutlineInputBorder(
+              border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
@@ -115,24 +114,24 @@ class CreatePage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 23.0,
           ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Mật khẩu',
-              labelStyle: GoogleFonts.mulish(
+              labelStyle: TextStyle(
                 fontSize: 10.0,
                 fontWeight: FontWeight.w500,
-                color: const Color(0xFF888888),
+                color: Color(0xFF888888),
               ),
               hintText: 'Nhập mật khẩu của bạn ở đây',
-              hintStyle: GoogleFonts.mulish(
+              hintStyle: TextStyle(
                 fontSize: 13.0,
                 fontWeight: FontWeight.w400,
-                color: const Color(0xFFD0D0D0),
+                color: Color(0xFFD0D0D0),
               ),
-              border: const OutlineInputBorder(
+              border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
@@ -140,24 +139,24 @@ class CreatePage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 23.0,
           ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Xác nhận mật khẩu',
-              labelStyle: GoogleFonts.mulish(
+              labelStyle: TextStyle(
                 fontSize: 10.0,
                 fontWeight: FontWeight.w500,
-                color: const Color(0xFF888888),
+                color: Color(0xFF888888),
               ),
               hintText: 'Nhập mật khẩu của bạn ở đây',
-              hintStyle: GoogleFonts.mulish(
+              hintStyle: TextStyle(
                 fontSize: 13.0,
                 fontWeight: FontWeight.w400,
-                color: const Color(0xFFD0D0D0),
+                color: Color(0xFFD0D0D0),
               ),
-              border: const OutlineInputBorder(
+              border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
@@ -165,24 +164,24 @@ class CreatePage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             height: 23.0,
           ),
           TextField(
             decoration: InputDecoration(
               labelText: 'Email',
-              labelStyle: GoogleFonts.mulish(
+              labelStyle: TextStyle(
                 fontSize: 10.0,
                 fontWeight: FontWeight.w500,
-                color: const Color(0xFF888888),
+                color: Color(0xFF888888),
               ),
               hintText: 'Nhập email của bạn ở đây',
-              hintStyle: GoogleFonts.mulish(
+              hintStyle: TextStyle(
                 fontSize: 13.0,
                 fontWeight: FontWeight.w400,
-                color: const Color(0xFFD0D0D0),
+                color: Color(0xFFD0D0D0),
               ),
-              border: const OutlineInputBorder(
+              border: OutlineInputBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(12.0),
                 ),
