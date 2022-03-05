@@ -1,10 +1,7 @@
-import 'dart:ui';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/order/infor/controller/infor_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
-import 'package:doctor_app/app/shared/widgets/recall_notification_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -21,6 +18,7 @@ class InforPage extends GetView<InforController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: _buildAppBar(),
       backgroundColor: const Color(0xFFF0F3F6).withOpacity(0.5),
       body: _buildBody(),
     );

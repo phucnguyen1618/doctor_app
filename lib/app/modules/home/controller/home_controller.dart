@@ -10,4 +10,8 @@ class HomeController extends GetxController {
   handleEventAvatarPressed() {
     Get.toNamed(Routes.PROFILE);
   }
+
+  handleEventSearch() {
+    Get.toNamed(Routes.OFFER);
+  }
 }

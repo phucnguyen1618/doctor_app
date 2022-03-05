@@ -5,13 +5,14 @@ extension OfferPageChildren on OfferPage {
     return DraggableHome(
       centerTitle: false,
       backgroundColor: ColorConstants.backgroundColor,
+      alwaysShowLeadingAndAction: false,
       headerExpandedHeight: 0.3,
       leading: const SizedBox(),
-      title: const SafeArea(
-        top: true,
-        child: ListTile(
-          contentPadding: EdgeInsets.only(right: 24.0, bottom: 34.0),
-          title: Text(
+      title: const ListTile(
+        contentPadding: EdgeInsets.zero,
+        title: Padding(
+          padding: EdgeInsets.only(bottom: 3.0),
+          child: Text(
             'Hôm nay, ngày 22/02/2022',
             style: TextStyle(
               fontSize: 13.0,
@@ -19,15 +20,15 @@ extension OfferPageChildren on OfferPage {
               color: Colors.white,
             ),
           ),
-          subtitle: Padding(
-            padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
-            child: Text(
-              '16:00 - Gọi lại trong 15 phút nữa',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
+        ),
+        subtitle: Padding(
+          padding: EdgeInsets.only(top: 3.0),
+          child: Text(
+            '16:00 - Gọi lại trong 15 phút nữa',
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
             ),
           ),
         ),
@@ -35,7 +36,7 @@ extension OfferPageChildren on OfferPage {
       headerWidget: _buildHeader(),
       body: [
         Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -47,11 +48,13 @@ extension OfferPageChildren on OfferPage {
                   color: ColorConstants.titleColor,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
-                    left: 10.0, right: 10.0, top: 8.0, bottom: 10.0),
-                child: Divider(
-                  color: ColorConstants.dividerColor,
+              Container(
+                width: 65.0,
+                height: 2.0,
+                margin:
+                    const EdgeInsets.only(right: 10.0, top: 8.0, bottom: 20.0),
+                decoration: const BoxDecoration(
+                  color: ColorConstants.primaryColor,
                 ),
               ),
               _buildUserInfor(),
@@ -79,24 +82,29 @@ extension OfferPageChildren on OfferPage {
       color: ColorConstants.primaryColor,
       child: SafeArea(
         top: true,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ListTile(
-              contentPadding:
-                  const EdgeInsets.only(left: 20.0, right: 20.0, top: 22.0),
-              title: const Text(
-                'Bạn có một cuộc gọi tư vấn',
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 22.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                width: 250.0,
+                height: 76.0,
+                child: Text(
+                  'Bạn có một cuộc gọi tư vấn',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: 24.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 24.0, bottom: 34.0),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SvgPicture.asset(
                       IconConstants.timeFill,
@@ -105,41 +113,46 @@ extension OfferPageChildren on OfferPage {
                     const SizedBox(
                       width: 14.5,
                     ),
-                    const Text(
-                      'Thời gian tư vấn',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Thời gian tư vấn',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16.0,
+                        ),
+                        Text(
+                          'Hôm nay, ngày 22/02/2022',
+                          style: TextStyle(
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 12.0,
+                        ),
+                        Text(
+                          '16:00 - Gọi lại trong 15 phút nữa',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
-            ),
-            const ListTile(
-              contentPadding: EdgeInsets.only(left: 52.0, right: 24.0),
-              title: Text(
-                'Hôm nay, ngày 22/02/2022',
-                style: TextStyle(
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-              subtitle: Padding(
-                padding: EdgeInsets.only(top: 12.0),
-                child: Text(
-                  '16:00 - Gọi lại trong 15 phút nữa',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -332,13 +345,50 @@ extension OfferPageChildren on OfferPage {
                 onPressed: () {
                   controller.handleEventAcceptButtonPressed();
                 },
-                child: const Text(
-                  'Chấp nhập',
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Chấp nhập',
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 12.0,
+                    ),
+                    SleekCircularSlider(
+                      min: 0.0,
+                      max: 60.0,
+                      initialValue: 50,
+                      appearance: CircularSliderAppearance(
+                          infoProperties: InfoProperties(
+                            modifier: (value){
+                              final roundedValue = value.ceil().toInt().toString();
+                              return roundedValue;
+                            },
+                            mainLabelStyle: const TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w700,
+                              color: ColorConstants.backgroundColor,
+                            ),
+                          ),
+                          size: 24.0,
+                          customWidths: CustomSliderWidths(
+                            progressBarWidth: 1.0,
+                          ),
+                          customColors: CustomSliderColors(
+                            progressBarColor: ColorConstants.backgroundColor,
+                            shadowColor: ColorConstants.greyColor,
+                          )),
+                      onChange: (value) {
+                        log('Value is: $value');
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),

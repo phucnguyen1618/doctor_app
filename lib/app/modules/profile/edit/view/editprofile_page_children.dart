@@ -81,8 +81,8 @@ extension EditProfilePageChildren on EditProfilePage {
         ),
         const TextField(
           style: TextStyle(
-            fontSize: 13.0,
-            fontWeight: FontWeight.w500,
+            fontSize: 14.0,
+            fontWeight: FontWeight.w600,
             color: ColorConstants.titleColor,
           ),
           decoration: InputDecoration(

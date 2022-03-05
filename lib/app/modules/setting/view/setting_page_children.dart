@@ -10,11 +10,6 @@ extension SettingPageChildren on SettingPage {
       ),
       backgroundColor: ColorConstants.primaryColor,
       centerTitle: true,
-      leading: SvgPicture.asset(
-        IconConstants.expandLeft,
-        fit: BoxFit.scaleDown,
-        color: ColorConstants.backgroundColor,
-      ),
       title: const Text(
         'Cài đặt',
         style: TextStyle(
@@ -50,7 +45,14 @@ extension SettingPageChildren on SettingPage {
               ],
             ),
             leading: SvgPicture.asset(IconConstants.bellFill),
-            subtitle: const Divider(
+            minLeadingWidth: 24.0,
+            onTap: (){
+              controller.onItemMenuClicked(Routes.PROFILE);
+            },
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 56.0),
+            child: Divider(
               height: 0.5,
               color: ColorConstants.dividerColor,
             ),
@@ -74,7 +76,11 @@ extension SettingPageChildren on SettingPage {
               ],
             ),
             leading: SvgPicture.asset(IconConstants.bellFill),
-            subtitle: const Divider(
+            minLeadingWidth: 24.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 56.0),
+            child: Divider(
               height: 0.5,
               color: ColorConstants.dividerColor,
             ),
@@ -97,33 +103,14 @@ extension SettingPageChildren on SettingPage {
               ],
             ),
             leading: SvgPicture.asset(IconConstants.bellFill),
-            subtitle: const Divider(
-              height: 0.5,
-              color: ColorConstants.dividerColor,
-            ),
+            minLeadingWidth: 24.0,
             onTap: () {
-              controller.onItemMenuClicked();
+              controller.onItemMenuClicked(Routes.OFFER);
             },
           ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Hồ sơ bác sĩ',
-                  style: TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
-                ),
-                SvgPicture.asset(IconConstants.expandRight),
-              ],
-            ),
-            leading: SvgPicture.asset(IconConstants.bellFill),
-            subtitle: const Divider(
+          const Padding(
+            padding: EdgeInsets.only(left: 56.0),
+            child: Divider(
               height: 0.5,
               color: ColorConstants.dividerColor,
             ),
@@ -146,7 +133,11 @@ extension SettingPageChildren on SettingPage {
               ],
             ),
             leading: SvgPicture.asset(IconConstants.bellFill),
-            subtitle: const Divider(
+            minLeadingWidth: 24.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 56.0),
+            child: Divider(
               height: 0.5,
               color: ColorConstants.dividerColor,
             ),
@@ -169,10 +160,34 @@ extension SettingPageChildren on SettingPage {
               ],
             ),
             leading: SvgPicture.asset(IconConstants.bellFill),
-            subtitle: const Divider(
+            minLeadingWidth: 24.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 56.0),
+            child: Divider(
               height: 0.5,
               color: ColorConstants.dividerColor,
             ),
+          ),
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Hồ sơ bác sĩ',
+                  style: TextStyle(
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.titleColor,
+                  ),
+                ),
+                SvgPicture.asset(IconConstants.expandRight),
+              ],
+            ),
+            leading: SvgPicture.asset(IconConstants.bellFill),
+            minLeadingWidth: 24.0,
           ),
         ],
       ),

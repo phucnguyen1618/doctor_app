@@ -19,13 +19,16 @@ class WelcomePage extends GetView<WelcomeController> {
             const SizedBox(
               height: 40.0,
             ),
-            const Text(
-              'Chào mừng bạn đến với GoTRUST Doctor',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+            const Padding(
+              padding: EdgeInsets.only(left: 29.0, right: 29.0),
+              child: Text(
+                'Chào mừng bạn đến với GoTRUST Doctor',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
             ),
             const SizedBox(
@@ -43,7 +46,10 @@ class WelcomePage extends GetView<WelcomeController> {
             const SizedBox(
               height: 40.0,
             ),
-            Image.asset(ImageConstants.welcome),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              child: Image.asset(ImageConstants.welcome),
+            ),
           ],
         ),
       ),

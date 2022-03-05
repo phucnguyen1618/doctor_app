@@ -7,12 +7,35 @@ import 'package:get/get.dart';
 import '../../../../routes/app_routes.dart';
 
 class ForgotPasswordController extends BaseController {
-
   TextEditingController inputController = TextEditingController();
+
+  var isFocusInput = false.obs;
+  FocusNode focusNodeInput = FocusNode();
+
+  @override
+  void onReady() {
+    super.onReady();
+    focusNodeInput.addListener(() {
+      handleEventInputData();
+    });
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    focusNodeInput.removeListener(() {
+      handleEventInputData();
+    });
+    focusNodeInput.dispose();
+  }
 
   @override
   onBack() {
     Get.back();
+  }
+
+  handleEventInputData() {
+    isFocusInput.value = !isFocusInput.value;
   }
 
   handleEventContinueButtonPressed() {

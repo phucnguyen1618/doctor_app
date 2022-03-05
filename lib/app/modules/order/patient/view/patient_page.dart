@@ -11,20 +11,19 @@ class PatientPage extends GetView<PatientController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 96.0,
-        elevation: 0.0,
-        backgroundColor: ColorConstants.backgroundColor,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0),
-          child: _buildMenu(),
-        ),
-      ),
       backgroundColor: ColorConstants.backgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: _buildPatient(),
+          child: Column(
+            children: [
+              _buildMenu(),
+              const SizedBox(
+                height: 30.0,
+              ),
+              _buildPatient(),
+            ],
+          ),
         ),
       ),
     );

@@ -24,7 +24,7 @@ extension ConfirmPageChildren on ConfirmPage {
             text: const TextSpan(
               text: 'Hãy điền mã OTP gồm 4 số vừa được gửi đến số điện thoại',
               style: TextStyle(
-                fontSize: 12.0,
+                fontSize: 13.0,
                 fontWeight: FontWeight.w500,
                 color: ColorConstants.greyColor,
               ),
@@ -32,7 +32,7 @@ extension ConfirmPageChildren on ConfirmPage {
                 TextSpan(
                   text: ' 0320366268',
                   style: TextStyle(
-                    fontSize: 12.0,
+                    fontSize: 13.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.titleColor,
                   ),

@@ -5,12 +5,62 @@ extension InforPageChildren on InforPage {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const RecallNotificationWidget(),
           _buildHeader(),
           const SizedBox(height: 2.0,),
           _buildCard(),
         ],
       ),
+    );
+  }
+
+  PreferredSizeWidget _buildAppBar() {
+    return AppBar(
+      titleSpacing: 16.0,
+      centerTitle: false,
+      backgroundColor: ColorConstants.secondaryColor,
+      elevation: 0.0,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 20.0),
+        child: SvgPicture.asset(
+          IconConstants.bellFill,
+          color: ColorConstants.backgroundColor,
+          fit: BoxFit.scaleDown,
+        ),
+      ),
+      title: Padding(
+        padding: const EdgeInsets.only(top: 11.0, bottom: 11.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Hôm nay, ngày 22/02/2022',
+              style: TextStyle(
+                fontSize: 13.0,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 6.0,),
+            Text(
+              '16:00 - Gọi lại trong 15 phút nữa',
+              style: TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: SvgPicture.asset(
+            IconConstants.closeSquare,
+            color: ColorConstants.backgroundColor,
+          ),
+        ),
+      ],
     );
   }
 

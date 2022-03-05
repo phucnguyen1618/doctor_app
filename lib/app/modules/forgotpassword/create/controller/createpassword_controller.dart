@@ -9,10 +9,33 @@ class CreatePasswordController extends BaseController {
   TextEditingController passwordController = TextEditingController();
 
   var isVisiblePassword = true.obs;
+  var isFocusPassword = false.obs;
+  FocusNode focusNodePassword = FocusNode();
+
+  @override
+  void onReady() {
+    super.onReady();
+    focusNodePassword.addListener(() {
+      handleEventFocusPassword();
+    });
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    focusNodePassword.removeListener(() {
+      handleEventFocusPassword();
+    });
+    focusNodePassword.dispose();
+  }
 
   @override
   onBack() {
     Get.back();
+  }
+
+  handleEventFocusPassword() {
+    isFocusPassword.value = !isFocusPassword.value;
   }
 
   handleEventVisiblePassword() {
@@ -25,7 +48,7 @@ class CreatePasswordController extends BaseController {
       log('New password is not empty');
     } else {
       log('New password is: $newPassword');
-      Get.toNamed(Routes.CONTAINER);
+      Get.toNamed(Routes.LOGIN);
     }
   }
 }

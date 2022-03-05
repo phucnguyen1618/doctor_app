@@ -8,7 +8,6 @@ class ContainerController extends GetxController {
   var pages = [
     const HomePage(),
     const SettingPage(),
-    const SettingPage(),
   ];
 
   var index = 0.obs;

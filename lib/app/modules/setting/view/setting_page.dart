@@ -1,4 +1,5 @@
 import 'package:doctor_app/app/modules/setting/controller/setting_controller.dart';
+import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -68,6 +69,9 @@ class SettingPage extends GetView<SettingController> {
                 height: 30.0,
               ),
               _buildMenu(),
+              const SizedBox(
+                height: 46.0,
+              ),
               const Text(
                 'Đăng xuất',
                 textAlign: TextAlign.center,

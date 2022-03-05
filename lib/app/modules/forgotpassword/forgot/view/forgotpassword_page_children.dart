@@ -60,26 +60,35 @@ extension ForgotPasswordPageChildren on ForgotPasswordPage {
               color: ColorConstants.greyColor,
             ),
           ),
-          const SizedBox(
-            height: 16.0,
-          ),
-          SizedBox(
+          Obx(() => Container(
+            margin: const EdgeInsets.only(top: 16.0, bottom: 20.0),
+            decoration: BoxDecoration(
+              color: controller.isFocusInput.value
+                  ? ColorConstants.backgroundColor
+                  : ColorConstants.textInputColor,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
             width: double.infinity,
             height: 56.0,
             child: TextField(
+              focusNode: controller.focusNodeInput,
               controller: controller.inputController,
               style: const TextStyle(
-                color: ColorConstants.titleColor,
                 fontSize: 14.0,
                 fontWeight: FontWeight.w600,
+                color: Colors.black,
               ),
               decoration: const InputDecoration(
                 contentPadding:
-                    EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
-                border: OutlineInputBorder(),
+                EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: ColorConstants.primaryColor),
+                ),
+                disabledBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
               ),
             ),
-          )
+          ),),
         ],
       ),
     );

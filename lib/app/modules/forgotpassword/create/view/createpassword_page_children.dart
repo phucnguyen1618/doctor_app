@@ -19,13 +19,16 @@ extension CreatePasswordPageChildren on CreatePasswordPage {
           height: 12.0,
         ),
         const Center(
-          child: Text(
-            'Nhập mật khẩu mới để đăng nhập và trải nghiệm các tính năng của ứng dụng AI.CARE Doctor',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.subtitleColor,
+          child: Padding(
+            padding: EdgeInsets.only(left: 3.0, right: 3.0),
+            child: Text(
+              'Nhập mật khẩu mới để đăng nhập và trải nghiệm các tính năng của ứng dụng AI.CARE Doctor',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w500,
+                color: ColorConstants.subtitleColor,
+              ),
             ),
           ),
         ),
@@ -41,28 +44,46 @@ extension CreatePasswordPageChildren on CreatePasswordPage {
           ),
         ),
         Obx(
-          () => TextField(
-            controller: controller.passwordController,
-            obscureText: controller.isVisiblePassword.value,
-            style: const TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500,
-              color: Color(0xFF11142D),
+          () => Container(
+            margin: const EdgeInsets.only(bottom: 16.0),
+            decoration: BoxDecoration(
+              color: controller.isFocusPassword.value
+                  ? ColorConstants.backgroundColor
+                  : ColorConstants.textInputColor,
+              borderRadius: BorderRadius.circular(8.0),
             ),
-            decoration: InputDecoration(
-              contentPadding:
-                  const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
-              border: const OutlineInputBorder(),
-              suffixIcon: InkWell(
-                onTap: () {
-                  controller.handleEventVisiblePassword();
-                },
-                child: Icon(
-                  controller.isVisiblePassword.value
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                  color: Colors.black,
+            width: double.infinity,
+            height: 56.0,
+            child: TextField(
+              focusNode: controller.focusNodePassword,
+              controller: controller.passwordController,
+              obscureText: controller.isVisiblePassword.value,
+              style: const TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
+              ),
+              decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
+                suffixIcon: InkWell(
+                  onTap: () {
+                    controller.handleEventVisiblePassword();
+                  },
+                  child: controller.isFocusPassword.value
+                      ? Padding(
+                          padding: const EdgeInsets.only(right: 23.0),
+                          child: SvgPicture.asset(
+                            IconConstants.eye,
+                          ),
+                        )
+                      : const SizedBox(),
                 ),
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(color: ColorConstants.primaryColor),
+                ),
+                disabledBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
               ),
             ),
           ),

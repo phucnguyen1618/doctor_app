@@ -14,16 +14,18 @@ class HistoryPage extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstants.backgroundColor,
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            _buildTimeMenu(),
-            const SizedBox(
-              height: 30,
-            ),
-            _buildHistories(),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              _buildTimeMenu(),
+              const SizedBox(
+                height: 30,
+              ),
+              _buildHistories(),
+            ],
+          ),
         ),
       ),
     );
