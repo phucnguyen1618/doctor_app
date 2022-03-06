@@ -21,4 +21,5 @@ class ColorConstants {
 
   static const Color unselectedColor = Colors.white;
   static const Color selectedColor = Color(0xFF6C5DD3);
+  static const Color dataRangeColor = Color(0xFF2BA8C4);
 }

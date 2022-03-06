@@ -33,7 +33,7 @@ class NotificationPage extends GetView<NotificationController> {
               NotificationListener<ScrollNotification>(
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: notifications.length,
+                  itemCount: controller.notificationList.length,
                   itemBuilder: (context, index) {
                     return ItemNotification(notification: notifications[index]);
                   },

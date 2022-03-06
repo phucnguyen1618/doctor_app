@@ -45,7 +45,7 @@ extension NotificationPageChildren on NotificationPage {
             ),
             alignment: Alignment.center,
             child: Text(
-              "$notifications.length",
+              "${notifications.length}",
               style: const TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
