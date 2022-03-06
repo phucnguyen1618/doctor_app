@@ -44,9 +44,9 @@ extension NotificationPageChildren on NotificationPage {
               borderRadius: BorderRadius.circular(12.0),
             ),
             alignment: Alignment.center,
-            child: const Text(
-              '10',
-              style: TextStyle(
+            child: Text(
+              "$notifications.length",
+              style: const TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,

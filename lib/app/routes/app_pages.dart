@@ -10,6 +10,7 @@ import 'package:doctor_app/app/modules/forgotpassword/create/binding/createpassw
 import 'package:doctor_app/app/modules/forgotpassword/create/view/create_password_page.dart';
 import 'package:doctor_app/app/modules/forgotpassword/forgot/binding/forgotpassword_binding.dart';
 import 'package:doctor_app/app/modules/forgotpassword/forgot/view/forgot_password_page.dart';
+import 'package:doctor_app/app/modules/history/history_page.dart';
 import 'package:doctor_app/app/modules/home/view/home_page.dart';
 import 'package:doctor_app/app/modules/login/binding/login_binding.dart';
 import 'package:doctor_app/app/modules/login/view/login_page.dart';
@@ -77,6 +78,10 @@ final pages = [
     name: Routes.HOME,
     page: () => const HomePage(),
     binding: HomeBinding(),
+  ),
+  GetPage(
+    name: Routes.HISTORY,
+    page: () => const HistoryPage(),
   ),
   GetPage(
     name: Routes.NOTIFICATION,

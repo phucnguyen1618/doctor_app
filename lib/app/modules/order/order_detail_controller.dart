@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
@@ -12,16 +14,32 @@ class OrderDetailController extends BaseController
   var isSelectTypeCall = false.obs;
   var isTypeCall = 1.obs;
   var typeCallIcon = IconConstants.video.obs;
+  var currentPage = 0.obs;
 
   @override
   void onInit() {
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(
+      length: 3,
+      vsync: this,
+    );
     super.onInit();
   }
 
   @override
   onBack() {
-    Get.back();
+    if(currentPage.value == 0){
+      Get.back();
+    }
+    else if(currentPage.value > 0){
+      currentPage.value = currentPage.value - 1;
+      tabController?.animateTo(currentPage.value);
+      log('Current index is: ${currentPage.value}');
+    }
+  }
+
+  onSelectedTap(int index){
+    log('Current index: $index');
+    currentPage.value = index;
   }
 
   onCancel() {

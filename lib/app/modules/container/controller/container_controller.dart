@@ -1,3 +1,4 @@
+import 'package:doctor_app/app/modules/history/history_page.dart';
 import 'package:doctor_app/app/modules/home/view/home_page.dart';
 import 'package:doctor_app/app/modules/setting/view/setting_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,6 +8,7 @@ class ContainerController extends GetxController {
 
   var pages = [
     const HomePage(),
+    const HistoryPage(),
     const SettingPage(),
   ];
 

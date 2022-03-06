@@ -18,4 +18,7 @@ class ColorConstants {
   static const Color mainTextColor = Color(0xFF333333);
   static Color primaryShadeColor = const Color(0xFFC7DCFF).withOpacity(0.2);
   static const Color activeColor = Color(0xFF11142D);
+
+  static const Color unselectedColor = Colors.white;
+  static const Color selectedColor = Color(0xFF6C5DD3);
 }

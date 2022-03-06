@@ -1,12 +1,14 @@
+import 'package:doctor_app/app/shared/widgets/dot_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../resource/assets_constant/icon_constants.dart';
 
 class NotificationWidget extends StatelessWidget {
-  const NotificationWidget({Key? key, required this.callback})
-      : super(key: key);
+  const NotificationWidget({
+    Key? key,
+    required this.callback,
+    required this.isNotification,
+  }) : super(key: key);
 
+  final bool isNotification;
   final VoidCallback callback;
 
   @override
@@ -20,9 +22,28 @@ class NotificationWidget extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(12.0),
         ),
-        child: SvgPicture.asset(
-          IconConstants.bellPin,
-          fit: BoxFit.scaleDown,
+        child: Stack(
+          children: [
+            const Positioned(
+              left: 0.0,
+              right: 0.0,
+              top: 0.0,
+              bottom: 0.0,
+              child: Icon(
+                Icons.notifications_outlined,
+                color: Colors.black,
+              ),
+            ),
+            Positioned(
+              child: isNotification
+                  ? const DotWidget(
+                      backgroundColor: Color(0xFFFF754C),
+                    )
+                  : const SizedBox(),
+              top: 12.0,
+              right: 12.0,
+            ),
+          ],
         ),
       ),
     );

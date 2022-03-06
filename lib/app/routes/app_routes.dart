@@ -16,4 +16,5 @@ abstract class Routes {
   static const String  ORDERDETAIL = '/order_detail';
   static const String CALL = '/call';
   static const String CONTAINER = '/container';
+  static const String HISTORY = '/history';
 }

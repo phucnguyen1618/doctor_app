@@ -140,7 +140,9 @@ extension CreatePasswordPageChildren on CreatePasswordPage {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const DotWidget(),
+        const DotWidget(
+          backgroundColor: ColorConstants.dotColor,
+        ),
         const SizedBox(
           width: 6.0,
         ),

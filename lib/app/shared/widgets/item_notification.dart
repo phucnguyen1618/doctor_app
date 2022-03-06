@@ -1,43 +1,37 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
+import 'package:doctor_app/app/models/app_notification.dart';
 import 'package:flutter/material.dart';
 
 import 'call_widget.dart';
 
-class ItemNotification extends StatefulWidget {
-  const ItemNotification({Key? key}) : super(key: key);
+class ItemNotification extends StatelessWidget {
+  const ItemNotification({
+    Key? key,
+    required this.notification,
+  }) : super(key: key);
 
-  @override
-  State<ItemNotification> createState() => _ItemNotificationState();
-}
-
-class _ItemNotificationState extends State<ItemNotification> {
-  bool _isClicked = false;
-
-  Color unselectedColor = Colors.white;
-  Color selectedColor = const Color(0xFF6C5DD3);
+  final AppNotification notification;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        setState(() {
-          _isClicked = !_isClicked;
-        });
-      },
+      onTap: () {},
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
         child: Container(
           height: 60.0,
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
           decoration: BoxDecoration(
-            color: _isClicked ? selectedColor : unselectedColor,
+            color: notification.isSelected
+                ? ColorConstants.selectedColor
+                : ColorConstants.unselectedColor,
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _isClicked
+              notification.isSelected
                   ? const CallWidget(backgroundColor: Colors.white)
                   : const CallWidget(
                       backgroundColor: ColorConstants.accentColor),
@@ -50,11 +44,11 @@ class _ItemNotificationState extends State<ItemNotification> {
                     children: [
                       Expanded(
                         child: Text(
-                          'Đặt lịch bác sĩ gọi lại',
+                          notification.title,
                           style: TextStyle(
                             fontSize: 12.0,
                             fontWeight: FontWeight.w600,
-                            color: _isClicked
+                            color: notification.isSelected
                                 ? Colors.white
                                 : ColorConstants.pinColor,
                           ),
@@ -66,7 +60,7 @@ class _ItemNotificationState extends State<ItemNotification> {
                           style: TextStyle(
                             fontSize: 12.0,
                             fontWeight: FontWeight.w600,
-                            color: _isClicked
+                            color: notification.isSelected
                                 ? Colors.white
                                 : ColorConstants.greyColor,
                           ),
@@ -79,24 +73,14 @@ class _ItemNotificationState extends State<ItemNotification> {
                   ),
                   RichText(
                     text: TextSpan(
-                      text: 'Bạn có một lịch hẹn gọi lại vào lúc ',
+                      text: notification.content,
                       style: TextStyle(
                         fontSize: 10.0,
                         fontWeight: FontWeight.w500,
-                        color: _isClicked ? Colors.white : Colors.black,
+                        color: notification.isSelected
+                            ? Colors.white
+                            : Colors.black,
                       ),
-                      children: [
-                        TextSpan(
-                          text: '20:00 - 24/03/2022',
-                          style: TextStyle(
-                            fontSize: 10.0,
-                            fontWeight: FontWeight.w700,
-                            color: _isClicked
-                                ? Colors.white
-                                : ColorConstants.primaryColor,
-                          ),
-                        ),
-                      ],
                     ),
                   ),
                 ],

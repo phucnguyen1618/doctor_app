@@ -46,7 +46,7 @@ extension SettingPageChildren on SettingPage {
             ),
             leading: SvgPicture.asset(IconConstants.bellFill),
             minLeadingWidth: 24.0,
-            onTap: (){
+            onTap: () {
               controller.onItemMenuClicked(Routes.PROFILE);
             },
           ),
@@ -92,7 +92,7 @@ extension SettingPageChildren on SettingPage {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Đơn hàng mới',
+                  'Hồ sơ bác sĩ',
                   style: TextStyle(
                     fontSize: 13.0,
                     fontWeight: FontWeight.w500,
@@ -104,9 +104,6 @@ extension SettingPageChildren on SettingPage {
             ),
             leading: SvgPicture.asset(IconConstants.bellFill),
             minLeadingWidth: 24.0,
-            onTap: () {
-              controller.onItemMenuClicked(Routes.OFFER);
-            },
           ),
           const Padding(
             padding: EdgeInsets.only(left: 56.0),

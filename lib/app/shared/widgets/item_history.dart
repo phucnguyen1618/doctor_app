@@ -65,31 +65,6 @@ class ItemHistory extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
                       Text(
-                        'Chuẩn đoán',
-                        style: TextStyle(
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w500,
-                          color: ColorConstants.greyColor,
-                        ),
-                      ),
-                      Text(
-                        'Covid-19',
-                        style: TextStyle(
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w500,
-                          color: ColorConstants.activeColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
                         'Thời gian khám',
                         style: TextStyle(
                           fontSize: 13.0,
@@ -116,13 +91,31 @@ class ItemHistory extends StatelessWidget {
                       Text(
                         'Triệu chứng',
                         style: TextStyle(
-                          fontSize: 13.0,
+                          fontSize: 12.0,
                           fontWeight: FontWeight.w500,
                           color: ColorConstants.greyColor,
                         ),
                       ),
                       SizedBox(height: 16.0,),
-                      SymptomWidget(),
+                      SymptomWidget(content: 'Đau họng - Sốt - Cảm',),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'Chuẩn đoán của bác sĩ',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w500,
+                          color: ColorConstants.greyColor,
+                        ),
+                      ),
+                      SizedBox(height: 16.0,),
+                      SymptomWidget(content: 'Covid - 19',),
                     ],
                   ),
                 ),

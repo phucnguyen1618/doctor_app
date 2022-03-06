@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import '../../assets/constants/color_constants.dart';
 
 class SymptomWidget extends StatelessWidget {
-  const SymptomWidget({Key? key}) : super(key: key);
+  const SymptomWidget({Key? key, required this.content}) : super(key: key);
 
+  final String content;
   @override
   Widget build(BuildContext context) {
     double width = Get.width;
@@ -16,10 +17,10 @@ class SymptomWidget extends StatelessWidget {
         color: ColorConstants.primaryShadeColor.withOpacity(0.5),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
-      child: const Text(
-        'Đau họng - Sốt - Cảm',
+      child: Text(
+        content,
         textAlign: TextAlign.start,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 13.0,
           fontWeight: FontWeight.w700,
           color: ColorConstants.titleColor,

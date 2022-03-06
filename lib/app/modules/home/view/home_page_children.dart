@@ -35,40 +35,42 @@ extension HomePageChildren on HomePage {
                   color: Colors.white,
                 ),
               ),
-              trailing: NotificationWidget(callback: () {
-                controller.handleEventNotificationButtonPressed();
-              }),
+              trailing: NotificationWidget(
+                callback: () {
+                  controller.handleEventNotificationButtonPressed();
+                },
+                isNotification: true,
+              ),
             ),
           ),
-          InkWell(
-            onTap: (){
-              controller.handleEventSearch();
-            },
-            child: Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-              decoration: BoxDecoration(
-                color: ColorConstants.backgroundColor,
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              width: double.infinity,
-              height: 52.0,
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
-                  hintText: 'Tìm kiếm',
-                  hintStyle: const TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w600,
-                    color: ColorConstants.greyColor,
-                  ),
-                  prefixIcon: SvgPicture.asset(
-                    IconConstants.search,
-                    fit: BoxFit.scaleDown,
-                    color: ColorConstants.greyColor,
-                  ),
-                  border: InputBorder.none,
+          Container(
+            margin:
+            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+            decoration: BoxDecoration(
+              color: ColorConstants.backgroundColor,
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            width: double.infinity,
+            height: 52.0,
+            child: TextField(
+              onTap: (){
+                controller.handleEventSearch();
+              },
+              decoration: InputDecoration(
+                contentPadding:
+                const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                hintText: 'Tìm kiếm',
+                hintStyle: const TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                  color: ColorConstants.greyColor,
                 ),
+                prefixIcon: SvgPicture.asset(
+                  IconConstants.search,
+                  fit: BoxFit.scaleDown,
+                  color: ColorConstants.greyColor,
+                ),
+                border: InputBorder.none,
               ),
             ),
           ),

@@ -17,61 +17,68 @@ class OrderDetailPage extends GetView<OrderDetailController> {
   Widget build(BuildContext context) {
     double width = Get.width;
     double height = Get.height;
-    return Scaffold(
-      appBar: _buildAppBar(),
-      body: DefaultTabController(
-        length: 3,
-        child: Column(
-          children: [
-            Container(
-              color: ColorConstants.primaryColor,
-              child: TabBar(
-                controller: controller.tabController,
-                labelStyle: const TextStyle(
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-                unselectedLabelStyle: const TextStyle(
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-                indicatorColor: ColorConstants.backgroundColor,
-                indicatorSize: TabBarIndicatorSize.label,
-                tabs: const [
-                  Tab(
-                    text: 'Thông tin',
-                  ),
-                  Tab(
-                    text: 'Bệnh án',
-                  ),
-                  Tab(
-                    text: 'Lịch sử khám',
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: SizedBox(
-                width: width,
-                height: height,
-                child: TabBarView(
+    return Obx(
+      () => Scaffold(
+        appBar: _buildAppBar(),
+        body: DefaultTabController(
+          initialIndex: controller.currentPage.value,
+          length: 3,
+          child: Column(
+            children: [
+              Container(
+                color: ColorConstants.primaryColor,
+                child: TabBar(
+                  onTap: (index) {
+                    controller.onSelectedTap(index);
+                  },
                   controller: controller.tabController,
-                  children: const [
-                    InforPage(),
-                    PatientPage(),
-                    HistoryPage(),
+                  labelStyle: const TextStyle(
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                  unselectedLabelStyle: const TextStyle(
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                  indicatorColor: ColorConstants.backgroundColor,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  tabs: const [
+                    Tab(
+                      text: 'Thông tin',
+                    ),
+                    Tab(
+                      text: 'Bệnh án',
+                    ),
+                    Tab(
+                      text: 'Lịch sử khám',
+                    ),
                   ],
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                child: SizedBox(
+                  width: width,
+                  height: height,
+                  child: TabBarView(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: controller.tabController,
+                    children: const [
+                      InforPage(),
+                      PatientPage(),
+                      HistoryPage(),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
+        persistentFooterButtons: [
+          _buildFooter(),
+        ],
       ),
-      persistentFooterButtons: [
-        _buildFooter(),
-      ],
     );
   }
 }
