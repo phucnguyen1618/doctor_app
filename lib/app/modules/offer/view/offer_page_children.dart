@@ -7,7 +7,6 @@ extension OfferPageChildren on OfferPage {
       backgroundColor: ColorConstants.backgroundColor,
       alwaysShowLeadingAndAction: false,
       headerExpandedHeight: 0.3,
-      leading: const SizedBox(),
       title: const ListTile(
         contentPadding: EdgeInsets.zero,
         title: Padding(
@@ -36,7 +35,7 @@ extension OfferPageChildren on OfferPage {
       headerWidget: _buildHeader(),
       body: [
         Padding(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0,),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -83,7 +82,7 @@ extension OfferPageChildren on OfferPage {
       child: SafeArea(
         top: true,
         child: Padding(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 22.0),
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -309,11 +308,13 @@ extension OfferPageChildren on OfferPage {
   }
 
   Widget _buildFooter() {
-    return Padding(
+    return Container(
+      height: 80.0,
       padding: const EdgeInsets.only(
-          left: 20.0, right: 20.0, top: 14.0, bottom: 20.0),
+          left: 20.0, right: 20.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           InkWell(
             onTap: () {
@@ -350,7 +351,7 @@ extension OfferPageChildren on OfferPage {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Chấp nhập',
+                      'Chấp nhận',
                       style: TextStyle(
                         fontSize: 14.0,
                         fontWeight: FontWeight.w700,

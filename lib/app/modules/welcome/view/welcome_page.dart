@@ -25,8 +25,10 @@ class WelcomePage extends GetView<WelcomeController> {
                 'Chào mừng bạn đến với GoTRUST Doctor',
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  fontFamily: 'SVN-Gotham',
+                  fontStyle: FontStyle.normal,
                   fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                   color: Colors.black,
                 ),
               ),
@@ -38,6 +40,8 @@ class WelcomePage extends GetView<WelcomeController> {
               'Một ứng dụng dành cho bác sĩ ',
               textAlign: TextAlign.center,
               style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
                 color: ColorConstants.greyColor,
@@ -68,6 +72,8 @@ class WelcomePage extends GetView<WelcomeController> {
           child: const Text(
             'Bắt đầu',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 14.0,
               fontWeight: FontWeight.w700,
               color: Colors.white,

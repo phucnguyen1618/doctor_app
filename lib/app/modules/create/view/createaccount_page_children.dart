@@ -60,29 +60,34 @@ extension CreateAccountPageChildren on CreateAccountPage {
               color: ColorConstants.greyColor,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
-            decoration: BoxDecoration(
-              color: ColorConstants.textInputColor,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            width: double.infinity,
-            height: 56.0,
-            child: TextField(
-              controller: controller.nameController,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
+          Obx(
+            () => Container(
+              margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
+              decoration: BoxDecoration(
+                color: controller.isFocusUsername.value
+                    ? ColorConstants.backgroundColor
+                    : ColorConstants.textInputColor,
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants.primaryColor),
+              width: double.infinity,
+              height: 56.0,
+              child: TextField(
+                focusNode: controller.focusNodeUsername,
+                controller: controller.nameController,
+                style: const TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
                 ),
-                disabledBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                decoration: const InputDecoration(
+                  contentPadding:
+                      EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.primaryColor),
+                  ),
+                  disabledBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                ),
               ),
             ),
           ),
@@ -94,29 +99,34 @@ extension CreateAccountPageChildren on CreateAccountPage {
               color: ColorConstants.greyColor,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
-            decoration: BoxDecoration(
-              color: ColorConstants.textInputColor,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            width: double.infinity,
-            height: 56.0,
-            child: TextField(
-              controller: controller.emailController,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
+          Obx(
+            () => Container(
+              margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
+              decoration: BoxDecoration(
+                color: controller.isFocusEmail.value
+                    ? ColorConstants.backgroundColor
+                    : ColorConstants.textInputColor,
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants.primaryColor),
+              width: double.infinity,
+              height: 56.0,
+              child: TextField(
+                focusNode: controller.focusNodeEmail,
+                controller: controller.emailController,
+                style: const TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
                 ),
-                disabledBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                decoration: const InputDecoration(
+                  contentPadding:
+                      EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.primaryColor),
+                  ),
+                  disabledBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                ),
               ),
             ),
           ),
@@ -128,30 +138,48 @@ extension CreateAccountPageChildren on CreateAccountPage {
               color: ColorConstants.greyColor,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
-            decoration: BoxDecoration(
-              color: ColorConstants.textInputColor,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            width: double.infinity,
-            height: 56.0,
-            child: TextField(
-              controller: controller.passwordController,
-              obscureText: true,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
+          Obx(
+            () => Container(
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              decoration: BoxDecoration(
+                color: controller.isFocusPassword.value
+                    ? ColorConstants.backgroundColor
+                    : ColorConstants.textInputColor,
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants.primaryColor),
+              width: double.infinity,
+              height: 56.0,
+              child: TextField(
+                focusNode: controller.focusNodePassword,
+                controller: controller.passwordController,
+                obscureText: controller.isVisiblePassword.value,
+                style: const TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
                 ),
-                disabledBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.only(
+                      top: 18.0, bottom: 18.0, left: 23.0),
+                  suffixIcon: InkWell(
+                    onTap: () {
+                      controller.handleEventVisiblePassword();
+                    },
+                    child: controller.isFocusPassword.value
+                        ? Padding(
+                            padding: const EdgeInsets.only(right: 23.0),
+                            child: SvgPicture.asset(
+                              IconConstants.eye,
+                            ),
+                          )
+                        : const SizedBox(),
+                  ),
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.primaryColor),
+                  ),
+                  disabledBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                ),
               ),
             ),
           ),
@@ -163,30 +191,48 @@ extension CreateAccountPageChildren on CreateAccountPage {
               color: ColorConstants.greyColor,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
-            decoration: BoxDecoration(
-              color: ColorConstants.textInputColor,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            width: double.infinity,
-            height: 56.0,
-            child: TextField(
-              controller: controller.confirmPasswordController,
-              obscureText: true,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
+          Obx(
+            () => Container(
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              decoration: BoxDecoration(
+                color: controller.isFocusConfirmPassword.value
+                    ? ColorConstants.backgroundColor
+                    : ColorConstants.textInputColor,
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              decoration: const InputDecoration(
-                contentPadding:
-                    EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants.primaryColor),
+              width: double.infinity,
+              height: 56.0,
+              child: TextField(
+                focusNode: controller.focusNodeConfirmPassword,
+                controller: controller.confirmPasswordController,
+                obscureText: controller.isVisibleConfirmPassword.value,
+                style: const TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
                 ),
-                disabledBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.only(
+                      top: 18.0, bottom: 18.0, left: 23.0),
+                  suffixIcon: InkWell(
+                    onTap: () {
+                      controller.handleEventVisibleConfirmPassword();
+                    },
+                    child: controller.isFocusConfirmPassword.value
+                        ? Padding(
+                            padding: const EdgeInsets.only(right: 23.0),
+                            child: SvgPicture.asset(
+                              IconConstants.eye,
+                            ),
+                          )
+                        : const SizedBox(),
+                  ),
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.primaryColor),
+                  ),
+                  disabledBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                ),
               ),
             ),
           ),

@@ -1,5 +1,7 @@
-import 'package:doctor_app/app/modules/call/binding/call_binding.dart';
-import 'package:doctor_app/app/modules/call/view/call_page.dart';
+import 'package:doctor_app/app/modules/call/video/binding/video_call_binding.dart';
+import 'package:doctor_app/app/modules/call/video/view/video_call_page.dart';
+import 'package:doctor_app/app/modules/call/voice/binding/voice_call_binding.dart';
+import 'package:doctor_app/app/modules/call/voice/view/voice_call_page.dart';
 import 'package:doctor_app/app/modules/container/binding/container_binding.dart';
 import 'package:doctor_app/app/modules/container/view/container_page.dart';
 import 'package:doctor_app/app/modules/create/binding/createaccount_binding.dart';
@@ -119,9 +121,14 @@ final pages = [
     ],
   ),
   GetPage(
-    name: Routes.CALL,
-    page: () => const CallPage(),
-    binding: CallBinding(),
+    name: Routes.VOICECALL,
+    page: () => const VoiceCallPage(),
+    binding: VoiceCallBinding(),
+  ),
+  GetPage(
+    name: Routes.VIDEOCALL,
+    page: () => const VideoCallPage(),
+    binding: VideoCallBinding(),
   ),
   GetPage(
     name: Routes.CONTAINER,

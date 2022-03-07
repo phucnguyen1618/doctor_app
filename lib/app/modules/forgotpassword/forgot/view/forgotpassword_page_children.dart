@@ -44,6 +44,7 @@ extension ForgotPasswordPageChildren on ForgotPasswordPage {
           const Text(
             'Quên mật khẩu',
             style: TextStyle(
+              fontFamily: 'SVN-Gotham',
               fontSize: 24.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.titleColor,
@@ -55,40 +56,47 @@ extension ForgotPasswordPageChildren on ForgotPasswordPage {
           const Text(
             'Email hoặc số điện thoại',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
             ),
           ),
-          Obx(() => Container(
-            margin: const EdgeInsets.only(top: 16.0, bottom: 20.0),
-            decoration: BoxDecoration(
-              color: controller.isFocusInput.value
-                  ? ColorConstants.backgroundColor
-                  : ColorConstants.textInputColor,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            width: double.infinity,
-            height: 56.0,
-            child: TextField(
-              focusNode: controller.focusNodeInput,
-              controller: controller.inputController,
-              style: const TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
+          Obx(
+            () => Container(
+              margin: const EdgeInsets.only(top: 16.0, bottom: 20.0),
+              decoration: BoxDecoration(
+                color: controller.isFocusInput.value
+                    ? ColorConstants.backgroundColor
+                    : ColorConstants.textInputColor,
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              decoration: const InputDecoration(
-                contentPadding:
-                EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants.primaryColor),
+              width: double.infinity,
+              height: 56.0,
+              child: TextField(
+                focusNode: controller.focusNodeInput,
+                controller: controller.inputController,
+                style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
                 ),
-                disabledBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                decoration: const InputDecoration(
+                  contentPadding:
+                      EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: ColorConstants.primaryColor, width: 2.0),
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  ),
+                  disabledBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                ),
               ),
             ),
-          ),),
+          ),
         ],
       ),
     );
@@ -110,6 +118,8 @@ extension ForgotPasswordPageChildren on ForgotPasswordPage {
         child: const Text(
           'Tiếp theo',
           style: TextStyle(
+            fontFamily: 'Inter',
+            fontStyle: FontStyle.normal,
             fontSize: 14.0,
             fontWeight: FontWeight.w700,
             color: ColorConstants.backgroundColor,

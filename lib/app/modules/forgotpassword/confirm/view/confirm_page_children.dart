@@ -9,6 +9,8 @@ extension ConfirmPageChildren on ConfirmPage {
         const Text(
           'Xác nhận mã OTP',
           style: TextStyle(
+            fontFamily: 'SVN-Gotham',
+            fontStyle: FontStyle.normal,
             fontSize: 24.0,
             fontWeight: FontWeight.w500,
             color: ColorConstants.titleColor,
@@ -24,6 +26,8 @@ extension ConfirmPageChildren on ConfirmPage {
             text: const TextSpan(
               text: 'Hãy điền mã OTP gồm 4 số vừa được gửi đến số điện thoại',
               style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
                 fontSize: 13.0,
                 fontWeight: FontWeight.w500,
                 color: ColorConstants.greyColor,
@@ -32,6 +36,8 @@ extension ConfirmPageChildren on ConfirmPage {
                 TextSpan(
                   text: ' 0320366268',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
                     fontSize: 13.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.titleColor,
@@ -65,6 +71,8 @@ extension ConfirmPageChildren on ConfirmPage {
             text: const TextSpan(
                 text: 'Không nhận được mã? ',
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 12.0,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.greyColor,
@@ -73,6 +81,8 @@ extension ConfirmPageChildren on ConfirmPage {
                   TextSpan(
                     text: 'Gửi lại (15s)',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 12.0,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.purpleColor,
@@ -101,6 +111,8 @@ extension ConfirmPageChildren on ConfirmPage {
         child: const Text(
           'Xác nhận',
           style: TextStyle(
+            fontFamily: 'Inter',
+            fontStyle: FontStyle.normal,
             fontSize: 14.0,
             fontWeight: FontWeight.w700,
             color: ColorConstants.backgroundColor,

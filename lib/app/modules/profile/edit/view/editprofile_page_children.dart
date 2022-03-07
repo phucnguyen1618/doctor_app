@@ -79,16 +79,29 @@ extension EditProfilePageChildren on EditProfilePage {
             ),
           ),
         ),
-        const TextField(
-          style: TextStyle(
-            fontSize: 14.0,
-            fontWeight: FontWeight.w600,
-            color: ColorConstants.titleColor,
+        Container(
+          decoration: BoxDecoration(
+            color: ColorConstants.dividerColor.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(8.0),
           ),
-          decoration: InputDecoration(
-            contentPadding:
-                EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
-            border: OutlineInputBorder(),
+          child: const TextField(
+            enabled: false,
+            style: TextStyle(
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              color: ColorConstants.titleColor,
+            ),
+            decoration: InputDecoration(
+              hintText: 'Nguyễn Thanh Hiếu',
+              hintStyle: TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+                color: ColorConstants.titleColor,
+              ),
+              contentPadding:
+                  EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
+              border: InputBorder.none,
+            ),
           ),
         ),
         const Padding(

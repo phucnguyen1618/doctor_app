@@ -20,11 +20,11 @@ class NotificationPage extends GetView<NotificationController> {
       backgroundColor: ColorConstants.backgroundColor,
       appBar: _buildAppBar(),
       body: SingleChildScrollView(
-        child: Obx(
-          () => Column(
+        child: GetBuilder<NotificationController>(
+          builder: (con) => Column(
             children: [
               Visibility(
-                visible: controller.isLoading.value,
+                visible: con.isLoading,
                 child: const Padding(
                   padding: EdgeInsets.only(top: 20.0, bottom: 22.0),
                   child: CircularProgressIndicator(),
@@ -33,17 +33,17 @@ class NotificationPage extends GetView<NotificationController> {
               NotificationListener<ScrollNotification>(
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: controller.notificationList.length,
+                  itemCount: con.notificationList.length,
                   itemBuilder: (context, index) {
-                    return ItemNotification(notification: notifications[index]);
+                    return ItemNotification(index: index);
                   },
                 ),
                 onNotification: (ScrollNotification scrollInformation) {
                   if (scrollInformation.metrics.pixels ==
                       scrollInformation.metrics.maxScrollExtent) {
-                    controller.onLoading();
+                    con.onLoading();
                     Future.delayed(const Duration(milliseconds: 3000), () {
-                      controller.onEndLoading();
+                      con.onEndLoading();
                     });
                   }
                   return true;

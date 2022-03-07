@@ -49,4 +49,7 @@ class IconConstants {
   static const String bellFill = AssetsConstants.iconConstants + 'bell_fill.svg';
   static const String expandRight = AssetsConstants.iconConstants + 'expand_right.svg';
   static const String switchIcon = AssetsConstants.iconConstants + 'switch.svg';
+  static const String micIcon = AssetsConstants.iconConstants + 'mic.svg';
+  static const String speakerIcon = AssetsConstants.iconConstants + 'speaker.svg';
+  static const String callEndIcon = AssetsConstants.iconConstants + 'call_end.svg';
 }

@@ -60,9 +60,9 @@ packages:
   draggable_home:
     dependency: "direct main"
     description:
-      name: draggable_home
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "library/draggable_home"
+      relative: true
+    source: path
     version: "1.0.2"
   fake_async:
     dependency: transitive

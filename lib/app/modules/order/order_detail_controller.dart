@@ -27,17 +27,16 @@ class OrderDetailController extends BaseController
 
   @override
   onBack() {
-    if(currentPage.value == 0){
+    if (currentPage.value == 0) {
       Get.back();
-    }
-    else if(currentPage.value > 0){
+    } else if (currentPage.value > 0) {
       currentPage.value = currentPage.value - 1;
       tabController?.animateTo(currentPage.value);
       log('Current index is: ${currentPage.value}');
     }
   }
 
-  onSelectedTap(int index){
+  onSelectedTap(int index) {
     log('Current index: $index');
     currentPage.value = index;
   }
@@ -78,6 +77,16 @@ class OrderDetailController extends BaseController
   }
 
   handleEventCallButtonPressed() {
-    Get.toNamed(Routes.CALL, arguments: isTypeCall.value);
+    switch (isTypeCall.value) {
+      case 0:
+        Get.toNamed(Routes.VOICECALL);
+        break;
+      case 1:
+        Get.toNamed(Routes.VIDEOCALL);
+        break;
+      default:
+        Get.toNamed(Routes.VOICECALL);
+        break;
+    }
   }
 }

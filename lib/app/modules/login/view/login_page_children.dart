@@ -3,13 +3,15 @@ part of 'login_page.dart';
 extension LoginPageChildren on LoginPage {
   Widget _buildFormLogin() {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 19.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 18.5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             'Đăng nhập',
             style: TextStyle(
+                fontFamily: 'SVN-Gotham',
+                fontStyle: FontStyle.normal,
                 fontSize: 24.0,
                 fontWeight: FontWeight.w500,
                 color: Colors.black),
@@ -20,7 +22,9 @@ extension LoginPageChildren on LoginPage {
           const Text(
             'Tài khoản',
             style: TextStyle(
+              fontFamily: 'Inter',
               fontSize: 12.0,
+              fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
             ),
@@ -40,6 +44,8 @@ extension LoginPageChildren on LoginPage {
                 focusNode: controller.focusNodeAccount,
                 controller: controller.accountController,
                 style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
@@ -48,7 +54,13 @@ extension LoginPageChildren on LoginPage {
                   contentPadding:
                       EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorConstants.primaryColor),
+                    borderSide: BorderSide(
+                      color: ColorConstants.primaryColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8.0),
+                    ),
                   ),
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -59,6 +71,8 @@ extension LoginPageChildren on LoginPage {
           const Text(
             'Mật khẩu',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -80,6 +94,8 @@ extension LoginPageChildren on LoginPage {
                 controller: controller.passwordController,
                 obscureText: controller.isVisible.value,
                 style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
@@ -101,7 +117,13 @@ extension LoginPageChildren on LoginPage {
                         : const SizedBox(),
                   ),
                   border: const OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorConstants.primaryColor),
+                    borderSide: BorderSide(
+                      color: ColorConstants.primaryColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8.0),
+                    ),
                   ),
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -118,6 +140,8 @@ extension LoginPageChildren on LoginPage {
               child: Text(
                 'Quên mật khẩu?',
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 12.0,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.greyColor,
@@ -128,7 +152,7 @@ extension LoginPageChildren on LoginPage {
           Container(
             margin: const EdgeInsets.symmetric(vertical: 30.0),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(16.0),
               color: ColorConstants.primaryColor,
             ),
             width: double.infinity,
@@ -140,6 +164,8 @@ extension LoginPageChildren on LoginPage {
               child: const Text(
                 'Đăng nhập',
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
@@ -147,31 +173,34 @@ extension LoginPageChildren on LoginPage {
               ),
             ),
           ),
-          Center(
-            child: RichText(
-              text: TextSpan(
-                text: 'Chưa có tài khoản? ',
-                style: const TextStyle(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Chưa có tài khoản?',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 12.0,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.greyColor,
                 ),
-                children: [
-                  TextSpan(
-                    text: 'Đăng ký ngay',
-                    style: const TextStyle(
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.w500,
-                      color: ColorConstants.purpleColor,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        controller.handleEventSignUpPressed();
-                      },
-                  ),
-                ],
               ),
-            ),
+              SizedBox(
+                width: 12.0,
+              ),
+              Text(
+                'Đăng ký ngay',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w500,
+                  color: ColorConstants.purpleColor,
+                ),
+              ),
+            ],
           ),
         ],
       ),
