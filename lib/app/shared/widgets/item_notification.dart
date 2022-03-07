@@ -79,6 +79,7 @@ class ItemNotification extends StatelessWidget {
                             fontFamily: 'Inter',
                             fontStyle: FontStyle.normal,
                             fontWeight: FontWeight.w600,
+                            height: 1.3,
                             color: controller.notificationList[index].isSelected
                                 ? Colors.white
                                 : ColorConstants.pinColor,
@@ -91,6 +92,7 @@ class ItemNotification extends StatelessWidget {
                           text: TextSpan(
                             text: controller.notificationList[index].content,
                             style: TextStyle(
+                              height: 1.6,
                               fontSize: 10.0,
                               fontFamily: 'Inter',
                               fontStyle: FontStyle.normal,
@@ -111,8 +113,11 @@ class ItemNotification extends StatelessWidget {
                   child: Text(
                     controller.notificationList[index].timeReceive,
                     style: TextStyle(
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.w600,
+                      fontSize: 10.0,
+                      fontWeight: FontWeight.w500,
+                      height: 1.6,
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       color: controller.notificationList[index].isSelected
                           ? Colors.white
                           : ColorConstants.greyColor,

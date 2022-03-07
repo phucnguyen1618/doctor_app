@@ -35,6 +35,9 @@ extension InforPageChildren on InforPage {
             Text(
               'Hôm nay, ngày 22/02/2022',
               style: TextStyle(
+                fontStyle: FontStyle.normal,
+                fontFamily: 'Inter',
+                height: 1.34,
                 fontSize: 13.0,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
@@ -44,6 +47,9 @@ extension InforPageChildren on InforPage {
             Text(
               '16:00 - Gọi lại trong 15 phút nữa',
               style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
+                height: 1.43,
                 fontSize: 14.0,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
@@ -76,6 +82,9 @@ extension InforPageChildren on InforPage {
             text: const TextSpan(
               text: 'Mã đơn hàng\n',
               style: TextStyle(
+                fontFamily: 'Inter',
+                height: 1.3,
+                fontStyle: FontStyle.normal,
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
                 color: ColorConstants.subTextColor,
@@ -84,6 +93,9 @@ extension InforPageChildren on InforPage {
                 TextSpan(
                   text: '#123456789',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.34,
                     fontSize: 13.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.mainTextColor,
@@ -97,6 +109,9 @@ extension InforPageChildren on InforPage {
             text: const TextSpan(
               text: 'Đã xác nhận\n',
               style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
+                height: 1.34,
                 fontSize: 13.0,
                 fontWeight: FontWeight.w500,
                 color: ColorConstants.secondaryColor,
@@ -105,6 +120,9 @@ extension InforPageChildren on InforPage {
                 TextSpan(
                   text: '28/12/2022',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    height: 1.5,
+                    fontStyle: FontStyle.normal,
                     fontSize: 12.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.mainTextColor,
@@ -121,6 +139,9 @@ extension InforPageChildren on InforPage {
                 TextSpan(
                   text: '14:33',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    height: 1.3,
+                    fontStyle: FontStyle.normal,
                     fontSize: 12.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.mainTextColor,
@@ -156,6 +177,9 @@ extension InforPageChildren on InforPage {
                 decoration: InputDecoration(
                   hintText: 'Nhắn tin với bệnh nhân',
                   hintStyle: const TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.143,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w600,
                     color: ColorConstants.greyColor,

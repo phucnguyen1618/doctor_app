@@ -35,10 +35,16 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                   labelStyle: const TextStyle(
                     fontSize: 13.0,
                     fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.normal,
+                    fontFamily: 'Inter',
+                    height: 1.34,
                     color: Colors.white,
                   ),
                   unselectedLabelStyle: const TextStyle(
                     fontSize: 13.0,
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.34,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                   ),

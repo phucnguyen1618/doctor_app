@@ -34,6 +34,9 @@ class SettingPage extends GetView<SettingController> {
               const Text(
                 'Nguyễn Thanh Hiếu',
                 style: TextStyle(
+                  fontFamily: 'SVN-Gotham',
+                  height: 1.3,
+                  fontStyle: FontStyle.normal,
                   fontSize: 24.0,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.mainTextColor,
@@ -50,6 +53,9 @@ class SettingPage extends GetView<SettingController> {
                 child: const Text(
                   'Chuyên khoa tim mạch',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.54,
                     fontSize: 13.0,
                     fontWeight: FontWeight.w700,
                     color: ColorConstants.accentColor,
@@ -60,6 +66,9 @@ class SettingPage extends GetView<SettingController> {
                 '“Sức khỏe tốt và trí tuệ minh mẫn là hai điều hạnh phúc nhất của cuộc đời”',
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  height: 1.3,
+                  fontStyle: FontStyle.normal,
                   fontSize: 12.0,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.greyColor,
@@ -76,6 +85,9 @@ class SettingPage extends GetView<SettingController> {
                 'Đăng xuất',
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  height: 1.3,
+                  fontStyle: FontStyle.normal,
                   fontSize: 12.0,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.greyColor,

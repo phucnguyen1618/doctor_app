@@ -21,8 +21,11 @@ class ItemQuestion extends StatelessWidget {
         'Có phải bị Covid 19 không bác sĩ?\nEm lo quá trời luôn á',
         textAlign: TextAlign.start,
         style: TextStyle(
-          fontSize: 13.0,
-          fontWeight: FontWeight.w700,
+          fontFamily: 'Inter',
+          fontStyle: FontStyle.normal,
+          height: 1.43,
+          fontSize: 14.0,
+          fontWeight: FontWeight.w600,
           color: ColorConstants.titleColor,
         ),
       ),

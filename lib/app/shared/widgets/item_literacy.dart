@@ -24,6 +24,9 @@ class ItemLiteracy extends StatelessWidget {
             "Tốt nghiệp Thạc sĩ tại Đại học Y Hà Nội",
             textAlign: TextAlign.start,
             style: TextStyle(
+              fontFamily: 'Inter',
+              height: 1.43,
+              fontStyle: FontStyle.normal,
               fontSize: 14.0,
               fontWeight: FontWeight.w600,
               color: ColorConstants.titleColor,
@@ -58,6 +61,9 @@ class ItemLiteracy extends StatelessWidget {
                   child: Text(
                     '2018',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      height: 1.43,
+                      fontStyle: FontStyle.normal,
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,
                       color: ColorConstants.titleColor,
@@ -91,6 +97,9 @@ class ItemLiteracy extends StatelessWidget {
             child: const Text(
               'Loại giỏi',
               style: TextStyle(
+                fontFamily: 'Inter',
+                height: 1.43,
+                fontStyle: FontStyle.normal,
                 fontSize: 14.0,
                 fontWeight: FontWeight.w600,
                 color: ColorConstants.titleColor,

@@ -28,6 +28,9 @@ extension NotificationPageChildren on NotificationPage {
           const Text(
             'Thông báo gần đây',
             style: TextStyle(
+              fontFamily: 'SVN-Gotham',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
               color: Colors.white,
               fontSize: 18.0,
               fontWeight: FontWeight.w500,
@@ -47,6 +50,9 @@ extension NotificationPageChildren on NotificationPage {
             child: Text(
               "${notifications.length}",
               style: const TextStyle(
+                fontFamily: 'Inter',
+                height: 1.3,
+                fontStyle: FontStyle.normal,
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,

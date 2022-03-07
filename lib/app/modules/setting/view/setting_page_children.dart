@@ -13,6 +13,9 @@ extension SettingPageChildren on SettingPage {
       title: const Text(
         'Cài đặt',
         style: TextStyle(
+          fontFamily: 'SVN-Gotham',
+          height: 1.3,
+          fontStyle: FontStyle.normal,
           fontSize: 18.0,
           fontWeight: FontWeight.w500,
           color: Colors.white,
@@ -36,6 +39,9 @@ extension SettingPageChildren on SettingPage {
                 const Text(
                   'Hồ sơ bác sĩ',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.85,
                     fontSize: 13.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.titleColor,
@@ -44,7 +50,7 @@ extension SettingPageChildren on SettingPage {
                 SvgPicture.asset(IconConstants.expandRight),
               ],
             ),
-            leading: SvgPicture.asset(IconConstants.bellFill),
+            leading: SvgPicture.asset(IconConstants.profileIcon),
             minLeadingWidth: 24.0,
             onTap: () {
               controller.onItemMenuClicked(Routes.PROFILE);
@@ -67,6 +73,9 @@ extension SettingPageChildren on SettingPage {
                 const Text(
                   'Group bác sĩ',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.85,
                     fontSize: 13.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.titleColor,
@@ -75,115 +84,7 @@ extension SettingPageChildren on SettingPage {
                 SvgPicture.asset(IconConstants.expandRight),
               ],
             ),
-            leading: SvgPicture.asset(IconConstants.bellFill),
-            minLeadingWidth: 24.0,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 56.0),
-            child: Divider(
-              height: 0.5,
-              color: ColorConstants.dividerColor,
-            ),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Hồ sơ bác sĩ',
-                  style: TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
-                ),
-                SvgPicture.asset(IconConstants.expandRight),
-              ],
-            ),
-            leading: SvgPicture.asset(IconConstants.bellFill),
-            minLeadingWidth: 24.0,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 56.0),
-            child: Divider(
-              height: 0.5,
-              color: ColorConstants.dividerColor,
-            ),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Hồ sơ bác sĩ',
-                  style: TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
-                ),
-                SvgPicture.asset(IconConstants.expandRight),
-              ],
-            ),
-            leading: SvgPicture.asset(IconConstants.bellFill),
-            minLeadingWidth: 24.0,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 56.0),
-            child: Divider(
-              height: 0.5,
-              color: ColorConstants.dividerColor,
-            ),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Hồ sơ bác sĩ',
-                  style: TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
-                ),
-                SvgPicture.asset(IconConstants.expandRight),
-              ],
-            ),
-            leading: SvgPicture.asset(IconConstants.bellFill),
-            minLeadingWidth: 24.0,
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 56.0),
-            child: Divider(
-              height: 0.5,
-              color: ColorConstants.dividerColor,
-            ),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Hồ sơ bác sĩ',
-                  style: TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
-                ),
-                SvgPicture.asset(IconConstants.expandRight),
-              ],
-            ),
-            leading: SvgPicture.asset(IconConstants.bellFill),
+            leading: SvgPicture.asset(IconConstants.groupIcon),
             minLeadingWidth: 24.0,
           ),
         ],

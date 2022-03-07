@@ -52,4 +52,6 @@ class IconConstants {
   static const String micIcon = AssetsConstants.iconConstants + 'mic.svg';
   static const String speakerIcon = AssetsConstants.iconConstants + 'speaker.svg';
   static const String callEndIcon = AssetsConstants.iconConstants + 'call_end.svg';
+  static const String profileIcon = AssetsConstants.iconConstants + 'profile.svg';
+  static const String groupIcon = AssetsConstants.iconConstants + 'group.svg';
 }

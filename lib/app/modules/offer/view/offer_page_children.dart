@@ -14,6 +14,8 @@ extension OfferPageChildren on OfferPage {
           child: Text(
             'Hôm nay, ngày 22/02/2022',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 13.0,
               fontWeight: FontWeight.w500,
               color: Colors.white,
@@ -25,6 +27,8 @@ extension OfferPageChildren on OfferPage {
           child: Text(
             '16:00 - Gọi lại trong 15 phút nữa',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
               color: Colors.white,
@@ -42,6 +46,8 @@ extension OfferPageChildren on OfferPage {
               const Text(
                 'Thông tin',
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   color: ColorConstants.titleColor,
@@ -87,12 +93,14 @@ extension OfferPageChildren on OfferPage {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                width: 250.0,
-                height: 76.0,
+                width: 270.0,
+                height: 100.0,
                 child: Text(
                   'Bạn có một cuộc gọi tư vấn',
                   textAlign: TextAlign.start,
                   style: TextStyle(
+                    fontFamily: 'SVN-Gotham',
+                    fontStyle: FontStyle.normal,
                     fontSize: 32.0,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
@@ -118,6 +126,8 @@ extension OfferPageChildren on OfferPage {
                         Text(
                           'Thời gian tư vấn',
                           style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontStyle: FontStyle.normal,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w600,
                             color: Colors.white,
@@ -129,6 +139,8 @@ extension OfferPageChildren on OfferPage {
                         Text(
                           'Hôm nay, ngày 22/02/2022',
                           style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontStyle: FontStyle.normal,
                             fontSize: 13.0,
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
@@ -140,6 +152,8 @@ extension OfferPageChildren on OfferPage {
                         Text(
                           '16:00 - Gọi lại trong 15 phút nữa',
                           style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontStyle: FontStyle.normal,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w600,
                             color: Colors.white,
@@ -173,6 +187,7 @@ extension OfferPageChildren on OfferPage {
                   const Text(
                     'Bách Thị',
                     style: TextStyle(
+                      fontStyle: FontStyle.normal,
                       fontSize: 18.0,
                       fontWeight: FontWeight.w600,
                       color: ColorConstants.titleColor,
@@ -219,6 +234,8 @@ extension OfferPageChildren on OfferPage {
         const Text(
           'Triệu chứng:',
           style: TextStyle(
+            fontFamily: 'Inter',
+            fontStyle: FontStyle.normal,
             fontSize: 12.0,
             fontWeight: FontWeight.w500,
             color: ColorConstants.greyColor,
@@ -246,6 +263,8 @@ extension OfferPageChildren on OfferPage {
         const Text(
           'Câu hỏi cần tư vấn',
           style: TextStyle(
+            fontFamily: 'Inter',
+            fontStyle: FontStyle.normal,
             fontSize: 12.0,
             fontWeight: FontWeight.w500,
             color: ColorConstants.greyColor,
@@ -271,6 +290,8 @@ extension OfferPageChildren on OfferPage {
         const Text(
           'Hình ảnh',
           style: TextStyle(
+            fontFamily: 'Inter',
+            fontStyle: FontStyle.normal,
             fontSize: 12.0,
             fontWeight: FontWeight.w500,
             color: ColorConstants.greyColor,
@@ -309,7 +330,7 @@ extension OfferPageChildren on OfferPage {
 
   Widget _buildFooter() {
     return Container(
-      height: 80.0,
+      height: 60.0,
       padding: const EdgeInsets.only(
           left: 20.0, right: 20.0),
       child: Row(
@@ -325,8 +346,8 @@ extension OfferPageChildren on OfferPage {
                 borderRadius: BorderRadius.circular(12.0),
                 border: Border.all(color: Colors.black, width: 1.5),
               ),
-              width: 56.0,
-              height: 56.0,
+              width: 46.0,
+              height: 46.0,
               child: SvgPicture.asset(
                 IconConstants.closeSquare,
                 color: ColorConstants.primaryColor,
@@ -338,10 +359,10 @@ extension OfferPageChildren on OfferPage {
             child: Container(
               margin: const EdgeInsets.only(left: 12.0),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(16.0),
                 color: ColorConstants.primaryColor,
               ),
-              height: 56.0,
+              height: 46.0,
               child: MaterialButton(
                 onPressed: () {
                   controller.handleEventAcceptButtonPressed();
@@ -353,6 +374,8 @@ extension OfferPageChildren on OfferPage {
                     const Text(
                       'Chấp nhận',
                       style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w700,
                         color: Colors.white,

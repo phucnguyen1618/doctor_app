@@ -23,6 +23,9 @@ class ItemWorkplace extends StatelessWidget {
             "Phòng khám Doctor Anywhere Hà Nội",
             textAlign: TextAlign.start,
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.43,
               fontSize: 14.0,
               fontWeight: FontWeight.w600,
               color: ColorConstants.titleColor,
@@ -55,8 +58,11 @@ class ItemWorkplace extends StatelessWidget {
               children: [
                 const Center(
                   child: Text(
-                    '2018',
+                    'Năm',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                      height: 1.43,
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,
                       color: ColorConstants.titleColor,
@@ -88,8 +94,11 @@ class ItemWorkplace extends StatelessWidget {
               color: const Color.fromRGBO(228, 228, 228, 0.5),
             ),
             child: const Text(
-              'Loại giỏi',
+              'Thành tích',
               style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
+                height: 1.43,
                 fontSize: 14.0,
                 fontWeight: FontWeight.w600,
                 color: ColorConstants.titleColor,

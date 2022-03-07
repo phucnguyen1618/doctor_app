@@ -13,6 +13,9 @@ extension EditProfilePageChildren on EditProfilePage {
       title: const Text(
         'Chỉnh sửa',
         style: TextStyle(
+          height: 1.3,
+          fontFamily: 'SVN-Gotham',
+          fontStyle: FontStyle.normal,
           fontSize: 18.0,
           fontWeight: FontWeight.w500,
           color: Colors.white,
@@ -35,6 +38,9 @@ extension EditProfilePageChildren on EditProfilePage {
             child: Text(
               'Xong',
               style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
+                height: 1.5,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
@@ -62,6 +68,9 @@ extension EditProfilePageChildren on EditProfilePage {
           child: Text(
             'Thay đổi ảnh đại diện',
             style: TextStyle(
+              fontFamily: 'Inter',
+              height: 1.4,
+              fontStyle: FontStyle.normal,
               fontSize: 13.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.secondaryColor,
@@ -73,7 +82,10 @@ extension EditProfilePageChildren on EditProfilePage {
           child: Text(
             'Họ và tên',
             style: TextStyle(
-              fontSize: 13.0,
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
+              fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
             ),
@@ -94,6 +106,9 @@ extension EditProfilePageChildren on EditProfilePage {
             decoration: InputDecoration(
               hintText: 'Nguyễn Thanh Hiếu',
               hintStyle: TextStyle(
+                fontFamily: 'Inter',
+                height: 1.43,
+                fontStyle: FontStyle.normal,
                 fontSize: 14.0,
                 fontWeight: FontWeight.w600,
                 color: ColorConstants.titleColor,
@@ -109,6 +124,9 @@ extension EditProfilePageChildren on EditProfilePage {
           child: Text(
             'Lời khuyên từ bác sĩ',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -125,7 +143,10 @@ extension EditProfilePageChildren on EditProfilePage {
             '“Sức khỏe tốt và trí tuệ minh mẫn là hai điều hạnh phúc nhất của cuộc đời”',
             textAlign: TextAlign.start,
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 14.0,
+              height: 1.43,
               fontWeight: FontWeight.w600,
               color: ColorConstants.titleColor,
             ),
@@ -136,6 +157,9 @@ extension EditProfilePageChildren on EditProfilePage {
           child: Text(
             'Giới thiệu',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -152,6 +176,9 @@ extension EditProfilePageChildren on EditProfilePage {
             "Bác sĩ phụ trách chuyên môn tại phòng khám Doctor Anywhere Việt Nam. Gần 10 năm khám điều trị các bệnh Cơ xương khớp - Nội tổng quát.",
             textAlign: TextAlign.start,
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.43,
               fontSize: 14.0,
               fontWeight: FontWeight.w600,
               color: ColorConstants.titleColor,
@@ -165,7 +192,10 @@ extension EditProfilePageChildren on EditProfilePage {
           child: Text(
             'Các mặt bệnh hay điều trị',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 12.0,
+              height: 1.3,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
             ),
@@ -181,7 +211,10 @@ extension EditProfilePageChildren on EditProfilePage {
             "Nội khoa - Cơ Xương Khớp (Các bệnh Thoái hóa khớp, đau thần kinh tọa, đau vai gáy, hội chứng ống cổ tay, v.v.)",
             textAlign: TextAlign.start,
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
               fontSize: 14.0,
+              height: 1.43,
               fontWeight: FontWeight.w600,
               color: ColorConstants.titleColor,
             ),
@@ -203,6 +236,9 @@ extension EditProfilePageChildren on EditProfilePage {
           child: Text(
             'Trình độ học vấn',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -235,6 +271,9 @@ extension EditProfilePageChildren on EditProfilePage {
           child: Text(
             'Nơi công tác',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -278,7 +317,9 @@ extension EditProfilePageChildren on EditProfilePage {
                 const Text(
                   'Thêm',
                   style: TextStyle(
-                    fontSize: 14.0,
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w600,
                     color: ColorConstants.secondaryColor,
                   ),
