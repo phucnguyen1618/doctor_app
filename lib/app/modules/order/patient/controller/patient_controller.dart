@@ -6,7 +6,7 @@ class PatientController extends GetxController {
     'Tất cả',
     'Thuốc đang sử dụng',
     'Tiền sử dị ứng',
-    'Tiền sử bệnh',
+    'Tiền sử bệnh án',
   ].obs;
   var patientValue = 'Tất cả'.obs;
   var keyText = GlobalKey();

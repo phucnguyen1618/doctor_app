@@ -6,13 +6,15 @@ import 'package:doctor_app/app/modules/container/binding/container_binding.dart'
 import 'package:doctor_app/app/modules/container/view/container_page.dart';
 import 'package:doctor_app/app/modules/create/binding/createaccount_binding.dart';
 import 'package:doctor_app/app/modules/create/view/create_account_page.dart';
+import 'package:doctor_app/app/modules/diagnostic/binding/diagnostic_bindng.dart';
+import 'package:doctor_app/app/modules/diagnostic/view/diagnostic_page.dart';
 import 'package:doctor_app/app/modules/forgotpassword/confirm/binding/confirm_binding.dart';
 import 'package:doctor_app/app/modules/forgotpassword/confirm/view/confirm_page.dart';
 import 'package:doctor_app/app/modules/forgotpassword/create/binding/createpassword_binding.dart';
 import 'package:doctor_app/app/modules/forgotpassword/create/view/create_password_page.dart';
 import 'package:doctor_app/app/modules/forgotpassword/forgot/binding/forgotpassword_binding.dart';
 import 'package:doctor_app/app/modules/forgotpassword/forgot/view/forgot_password_page.dart';
-import 'package:doctor_app/app/modules/history/history_page.dart';
+import 'package:doctor_app/app/modules/history/view/history_page.dart';
 import 'package:doctor_app/app/modules/home/view/home_page.dart';
 import 'package:doctor_app/app/modules/login/binding/login_binding.dart';
 import 'package:doctor_app/app/modules/login/view/login_page.dart';
@@ -84,6 +86,7 @@ final pages = [
   GetPage(
     name: Routes.HISTORY,
     page: () => const HistoryPage(),
+    binding: HistoryBinding(),
   ),
   GetPage(
     name: Routes.NOTIFICATION,
@@ -131,11 +134,17 @@ final pages = [
     binding: VideoCallBinding(),
   ),
   GetPage(
+    name: Routes.DIAGNOSTIC,
+    page: () => const DiagnosticPage(),
+    binding: DiagnosticBinding(),
+  ),
+  GetPage(
     name: Routes.CONTAINER,
     page: () => const ContainerPage(),
     bindings: [
       ContainerBinding(),
       HomeBinding(),
+      HistoryBinding(),
       SettingBinding(),
     ],
   ),

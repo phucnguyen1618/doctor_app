@@ -35,6 +35,9 @@ class TypeCallWidget extends StatelessWidget {
                     child: Text(
                       'Gọi cuộc thoại',
                       style: TextStyle(
+                        height: 1.43,
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                         color: ColorConstants.titleColor,
@@ -57,6 +60,9 @@ class TypeCallWidget extends StatelessWidget {
                     child: Text(
                       'Gọi video',
                       style: TextStyle(
+                        height: 1.43,
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                         color: ColorConstants.titleColor,
@@ -79,6 +85,9 @@ class TypeCallWidget extends StatelessWidget {
                     child: Text(
                       'Gọi di động',
                       style: TextStyle(
+                        height: 1.43,
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w600,
                         color: ColorConstants.titleColor,

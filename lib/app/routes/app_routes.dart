@@ -18,4 +18,5 @@ abstract class Routes {
   static const String HISTORY = '/history';
   static const String VOICECALL = '/voice_call';
   static const String VIDEOCALL = '/video_call';
+  static const String DIAGNOSTIC = '/diagnostic';
 }

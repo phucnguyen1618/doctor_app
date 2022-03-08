@@ -22,10 +22,9 @@ class OfferPage extends GetView<OfferController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildContent(),
-      persistentFooterButtons : [
-      _buildFooter(),
+      persistentFooterButtons: [
+        _buildFooter(),
       ],
-   //   _buildFooter(),
     );
   }
 }

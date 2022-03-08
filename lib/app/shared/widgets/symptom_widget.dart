@@ -21,8 +21,10 @@ class SymptomWidget extends StatelessWidget {
         content,
         textAlign: TextAlign.start,
         style: const TextStyle(
-          fontSize: 13.0,
-          fontWeight: FontWeight.w700,
+          fontFamily: 'Inter',
+          fontStyle: FontStyle.normal,
+          fontSize: 14.0,
+          fontWeight: FontWeight.w600,
           color: ColorConstants.titleColor,
         ),
       ),

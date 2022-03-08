@@ -16,6 +16,9 @@ class ItemHistory extends StatelessWidget {
           const Text(
             '20/02/2022',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.43,
               fontSize: 14.0,
               fontWeight: FontWeight.w600,
               color: ColorConstants.titleColor,
@@ -42,7 +45,10 @@ class ItemHistory extends StatelessWidget {
                       Text(
                         'Bác sĩ',
                         style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
                           fontSize: 13.0,
+                          height: 1.34,
                           fontWeight: FontWeight.w500,
                           color: ColorConstants.greyColor,
                         ),
@@ -50,7 +56,41 @@ class ItemHistory extends StatelessWidget {
                       Text(
                         'Nguyễn Văn A',
                         style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
                           fontSize: 13.0,
+                          height: 1.34,
+                          fontWeight: FontWeight.w500,
+                          color: ColorConstants.activeColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        'Chuyên khoa',
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
+                          height: 1.34,
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w500,
+                          color: ColorConstants.greyColor,
+                        ),
+                      ),
+                      Text(
+                        'Đa khoa',
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
+                          fontSize: 13.0,
+                          height: 1.34,
                           fontWeight: FontWeight.w500,
                           color: ColorConstants.activeColor,
                         ),
@@ -67,6 +107,9 @@ class ItemHistory extends StatelessWidget {
                       Text(
                         'Thời gian khám',
                         style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
+                          height: 1.34,
                           fontSize: 13.0,
                           fontWeight: FontWeight.w500,
                           color: ColorConstants.greyColor,
@@ -75,7 +118,10 @@ class ItemHistory extends StatelessWidget {
                       Text(
                         '20/02/2021',
                         style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
                           fontSize: 13.0,
+                          height: 1.34,
                           fontWeight: FontWeight.w500,
                           color: ColorConstants.activeColor,
                         ),
@@ -91,6 +137,9 @@ class ItemHistory extends StatelessWidget {
                       Text(
                         'Triệu chứng',
                         style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
+                          height: 1.3,
                           fontSize: 12.0,
                           fontWeight: FontWeight.w500,
                           color: ColorConstants.greyColor,
@@ -109,6 +158,8 @@ class ItemHistory extends StatelessWidget {
                       Text(
                         'Chuẩn đoán của bác sĩ',
                         style: TextStyle(
+                          fontFamily: 'Inter',
+                          fontStyle: FontStyle.normal,
                           fontSize: 12.0,
                           fontWeight: FontWeight.w500,
                           color: ColorConstants.greyColor,
@@ -122,6 +173,8 @@ class ItemHistory extends StatelessWidget {
                 const Text(
                   'Hình ảnh',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
                     fontSize: 12.0,
                     fontWeight: FontWeight.w500,
                     color: ColorConstants.greyColor,

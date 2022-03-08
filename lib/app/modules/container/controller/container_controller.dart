@@ -1,4 +1,4 @@
-import 'package:doctor_app/app/modules/history/history_page.dart';
+import 'package:doctor_app/app/modules/history/view/history_page.dart';
 import 'package:doctor_app/app/modules/home/view/home_page.dart';
 import 'package:doctor_app/app/modules/setting/view/setting_page.dart';
 import 'package:flutter/cupertino.dart';

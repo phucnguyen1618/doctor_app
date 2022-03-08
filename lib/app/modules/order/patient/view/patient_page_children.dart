@@ -51,6 +51,8 @@ extension PatientPageChildren on PatientPage {
         const Text(
           'Thuốc đang sử dụng',
           style: TextStyle(
+            fontFamily: 'Inter',
+            fontStyle: FontStyle.normal,
             fontSize: 16.0,
             fontWeight: FontWeight.w600,
             color: ColorConstants.titleColor,
@@ -67,6 +69,9 @@ extension PatientPageChildren on PatientPage {
           child: const Text(
             'Kháng sinh, corticoid, thuốc an thần',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.43,
               fontSize: 14.0,
               fontWeight: FontWeight.w600,
               color: ColorConstants.titleColor,
@@ -76,6 +81,8 @@ extension PatientPageChildren on PatientPage {
         const Text(
           'Tiền sử dị ứng',
           style: TextStyle(
+            fontStyle: FontStyle.normal,
+            fontFamily: 'Inter',
             fontSize: 16.0,
             fontWeight: FontWeight.w600,
             color: ColorConstants.titleColor,
@@ -98,6 +105,8 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Nhóm dị ứng',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.greyColor,
@@ -106,8 +115,11 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Thuốc',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
                       fontWeight: FontWeight.w500,
+                      height: 1.34,
                       color: ColorConstants.activeColor,
                     ),
                   ),
@@ -123,6 +135,8 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Biểu hiện dị ứng',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.greyColor,
@@ -131,8 +145,11 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Phản ứng',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
                       fontWeight: FontWeight.w500,
+                      height: 1.34,
                       color: ColorConstants.activeColor,
                     ),
                   ),
@@ -144,6 +161,8 @@ extension PatientPageChildren on PatientPage {
               const Text(
                 'Thuốc dị ứng',
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 13.0,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.greyColor,
@@ -161,6 +180,9 @@ extension PatientPageChildren on PatientPage {
                 child: const Text(
                   'Aspirin, Paracetamol',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.43,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w600,
                     color: ColorConstants.titleColor,
@@ -174,6 +196,8 @@ extension PatientPageChildren on PatientPage {
           'Tiền sử bệnh',
           key: controller.keyText,
           style: const TextStyle(
+            fontStyle: FontStyle.normal,
+            fontFamily: 'Inter',
             fontSize: 16.0,
             fontWeight: FontWeight.w600,
             color: ColorConstants.titleColor,
@@ -196,7 +220,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Lí do nhập viện',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.greyColor,
                     ),
@@ -204,7 +231,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Đau bụng',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.activeColor,
                     ),
@@ -221,7 +251,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Bệnh viện',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.greyColor,
                     ),
@@ -229,7 +262,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Bệnh viện Chợ Rẫy',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.activeColor,
                     ),
@@ -246,7 +282,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Thời gian',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.greyColor,
                     ),
@@ -254,7 +293,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     '20/02/2021',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.activeColor,
                     ),
@@ -271,7 +313,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Chuẩn đoán',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.greyColor,
                     ),
@@ -279,7 +324,10 @@ extension PatientPageChildren on PatientPage {
                   Text(
                     'Viên dạ dày cấp',
                     style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
                       fontSize: 13.0,
+                      height: 1.34,
                       fontWeight: FontWeight.w500,
                       color: ColorConstants.activeColor,
                     ),
@@ -292,7 +340,10 @@ extension PatientPageChildren on PatientPage {
               const Text(
                 'Bệnh sử',
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 13.0,
+                  height: 1.34,
                   fontWeight: FontWeight.w500,
                   color: ColorConstants.greyColor,
                 ),
@@ -309,6 +360,9 @@ extension PatientPageChildren on PatientPage {
                 child: const Text(
                   'Đột ngột đau vùng bụng vùng thượng vị, đau quặn từng cơn, liên tục, lan ra vùng hạ sườn trái và sau lưng, không tư thế giảm đau, kèm vã nhiều mồ hôi, mệt lã người, bụng trướng, buồn nôn, nôn khan, nôn sau không giảm đâu và cường độ đau ngày càng tăng dần.',
                   style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.43,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w600,
                     color: ColorConstants.titleColor,

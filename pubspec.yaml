@@ -41,6 +41,7 @@ dependencies:
   get: ^4.6.1
   carousel_slider: ^4.0.0
   sleek_circular_slider: ^2.0.1
+  flutter_slidable: ^1.2.0
   draggable_home:
     path: library/draggable_home
 

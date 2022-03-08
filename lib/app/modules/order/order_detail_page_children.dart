@@ -95,11 +95,12 @@ extension OrderDetailPageChildren on OrderDetailPage {
                               color: ColorConstants.primaryColor,
                             ),
                           ),
-                          const Padding(
-                              padding: EdgeInsets.only(left: 8.0, right: 8.0),
-                              child: Divider(
-                                color: ColorConstants.dividerColor,
-                              )),
+                          Container(
+                            margin: const EdgeInsets.only(left: 8.0),
+                            height: 20.0,
+                            width: 2.0,
+                            color: ColorConstants.dividerColor,
+                          ),
                           const Icon(
                             Icons.arrow_drop_up,
                             color: ColorConstants.greyColor,

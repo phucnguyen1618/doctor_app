@@ -330,7 +330,7 @@ extension OfferPageChildren on OfferPage {
 
   Widget _buildFooter() {
     return Container(
-      height: 60.0,
+      height: 45.0,
       padding: const EdgeInsets.only(
           left: 20.0, right: 20.0),
       child: Row(

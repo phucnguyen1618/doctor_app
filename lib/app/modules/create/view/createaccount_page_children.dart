@@ -44,6 +44,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
           const Text(
             'Tạo tài khoản',
             style: TextStyle(
+              height: 1.3,
+              fontFamily: 'SVN-Gotham',
+              fontStyle: FontStyle.normal,
               fontSize: 24.0,
               fontWeight: FontWeight.w500,
               color: Colors.black,
@@ -55,6 +58,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
           const Text(
             'Tên đăng nhập',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -75,8 +81,10 @@ extension CreateAccountPageChildren on CreateAccountPage {
                 focusNode: controller.focusNodeUsername,
                 controller: controller.nameController,
                 style: const TextStyle(
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 14.0,
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
                 decoration: const InputDecoration(
@@ -94,6 +102,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
           const Text(
             'Email',
             style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -114,8 +125,10 @@ extension CreateAccountPageChildren on CreateAccountPage {
                 focusNode: controller.focusNodeEmail,
                 controller: controller.emailController,
                 style: const TextStyle(
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.normal,
+                  fontFamily: 'Inter',
                   color: Colors.black,
                 ),
                 decoration: const InputDecoration(
@@ -133,6 +146,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
           const Text(
             'Mật khẩu',
             style: TextStyle(
+              fontFamily: 'Inter',
+              height: 1.3,
+              fontStyle: FontStyle.normal,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -154,6 +170,8 @@ extension CreateAccountPageChildren on CreateAccountPage {
                 controller: controller.passwordController,
                 obscureText: controller.isVisiblePassword.value,
                 style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
@@ -186,6 +204,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
           const Text(
             'Xác nhận mật khẩu',
             style: TextStyle(
+              fontFamily: 'Inter',
+              height: 1.3,
+              fontStyle: FontStyle.normal,
               fontSize: 12.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.greyColor,
@@ -207,6 +228,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
                 controller: controller.confirmPasswordController,
                 obscureText: controller.isVisibleConfirmPassword.value,
                 style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  height: 1.43,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
@@ -262,6 +286,8 @@ extension CreateAccountPageChildren on CreateAccountPage {
               child: const Text(
                 'Tạo tài khoản',
                 style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w700,
                   color: ColorConstants.backgroundColor,
@@ -276,6 +302,8 @@ extension CreateAccountPageChildren on CreateAccountPage {
             text: TextSpan(
               text: 'Đã có tài khoản? ',
               style: const TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
                 fontSize: 12.0,
                 fontWeight: FontWeight.w700,
                 color: ColorConstants.greyColor,
@@ -284,6 +312,8 @@ extension CreateAccountPageChildren on CreateAccountPage {
                 TextSpan(
                   text: 'Đăng nhập ngay!',
                   style: const TextStyle(
+                    fontStyle: FontStyle.normal,
+                    fontFamily: 'Inter',
                     fontSize: 12.0,
                     fontWeight: FontWeight.w700,
                     color: ColorConstants.purpleColor,
