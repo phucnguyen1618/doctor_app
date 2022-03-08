@@ -19,4 +19,7 @@ abstract class Routes {
   static const String VOICECALL = '/voice_call';
   static const String VIDEOCALL = '/video_call';
   static const String DIAGNOSTIC = '/diagnostic';
+  static const String SCHEDULE = '/schedule';
+  static const String GROUP = '/group';
+  static const String STATISTICAL = '/statistical';
 }

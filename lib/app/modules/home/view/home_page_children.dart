@@ -1,16 +1,20 @@
 part of 'home_page.dart';
 
 extension HomePageChildren on HomePage {
-  Widget _buildHeader(BuildContext context) {
+  Widget _buildHeader() {
     return Container(
-      decoration: BoxDecoration(
-        color: ColorConstants.primaryColor,
-        borderRadius: BorderRadius.circular(16.0),
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(ImageConstants.heading),
+          fit: BoxFit.fill,
+        ),
       ),
       child: Column(
         children: [
           SafeArea(
             top: true,
+            bottom: false,
             child: ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
               leading: InkWell(
@@ -44,8 +48,7 @@ extension HomePageChildren on HomePage {
             ),
           ),
           Container(
-            margin:
-            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+            margin: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: ColorConstants.backgroundColor,
               borderRadius: BorderRadius.circular(16.0),
@@ -53,7 +56,7 @@ extension HomePageChildren on HomePage {
             width: double.infinity,
             height: 52.0,
             child: TextField(
-              onTap: (){
+              onTap: () {
                 controller.handleEventSearch();
               },
               decoration: InputDecoration(
@@ -75,16 +78,21 @@ extension HomePageChildren on HomePage {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(bottom: 30.0, left: 47.5, right: 47.5),
+            padding: const EdgeInsets.only(
+                bottom: 24.0, left: 47.5, right: 47.5),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildColumn(),
-                _buildColumn(),
-                _buildColumn(),
-                _buildColumn(),
+                _buildColumn(IconConstants.dateRangeFill, 'Lịch hẹn', () {
+                  controller.handleEventMenuItemClicked(0);
+                }),
+                _buildColumn(IconConstants.groupIcon, 'Nhóm bác sĩ', () {
+                  controller.handleEventMenuItemClicked(1);
+                }),
+                _buildColumn(IconConstants.lineUp, 'Thống kê', () {
+                  controller.handleEventMenuItemClicked(2);
+                }),
               ],
             ),
           ),
@@ -93,23 +101,78 @@ extension HomePageChildren on HomePage {
     );
   }
 
-  Widget _buildColumn() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SvgPicture.asset(IconConstants.barcode),
-        const SizedBox(
-          height: 8.0,
+  //TabBar(
+  //                   onTap: (index) {
+  //                     controller.onSelectedTap(index);
+  //                   },
+  //                   controller: controller.tabController,
+  //                   labelStyle: const TextStyle(
+  //                     fontSize: 13.0,
+  //                     fontWeight: FontWeight.w700,
+  //                     fontStyle: FontStyle.normal,
+  //                     fontFamily: 'Inter',
+  //                     height: 1.34,
+  //                     color: Colors.white,
+  //                   ),
+  //                   unselectedLabelStyle: const TextStyle(
+  //                     fontSize: 13.0,
+  //                     fontFamily: 'Inter',
+  //                     fontStyle: FontStyle.normal,
+  //                     height: 1.34,
+  //                     fontWeight: FontWeight.w600,
+  //                     color: Colors.white,
+  //                   ),
+  //                   indicatorColor: ColorConstants.backgroundColor,
+  //                   indicatorSize: TabBarIndicatorSize.label,
+  //                   tabs: const [
+  //                     Tab(
+  //                       text: 'Thông tin',
+  //                     ),
+  //                     Tab(
+  //                       text: 'Bệnh án',
+  //                     ),
+  //                     Tab(
+  //                       text: 'Lịch sử khám',
+  //                     ),
+  //                   ],
+  //                 ),
+
+  Widget _buildColumn(String icon, String name, VoidCallback callback) {
+    return InkWell(
+      onTap: callback,
+      child: Obx(
+        () => Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 58.0,
+              height: 58.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                color: controller.isClicked.value
+                    ? const Color(0xFF2F75FD)
+                    : Colors.transparent,
+              ),
+              child: SvgPicture.asset(
+                icon,
+                fit: BoxFit.scaleDown,
+                color: ColorConstants.backgroundColor,
+              ),
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            Text(
+              name,
+              style: const TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
-        const Text(
-          'Lịch hẹn',
-          style: TextStyle(
-            fontSize: 12.0,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

@@ -13,4 +13,5 @@ class ImageConstants {
   static const String background = AssetsConstants.imageConstants + 'background.png';
   static const String channel = AssetsConstants.imageConstants + 'channel.png';
   static const String girlImage = AssetsConstants.imageConstants + 'image.jpg';
+  static const String heading = AssetsConstants.imageConstants + 'heading.png';
 }

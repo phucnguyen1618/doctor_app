@@ -154,7 +154,9 @@ extension VideoCallPageChildren on VideoCallPage {
                 FloatingActionButton(
                   elevation: 0.0,
                   backgroundColor: const Color(0xFFFF754C),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.handleEventEndCallClicked();
+                  },
                   child: SvgPicture.asset(
                     IconConstants.callEndIcon,
                     color: ColorConstants.backgroundColor,

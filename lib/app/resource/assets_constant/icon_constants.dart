@@ -54,4 +54,5 @@ class IconConstants {
   static const String callEndIcon = AssetsConstants.iconConstants + 'call_end.svg';
   static const String profileIcon = AssetsConstants.iconConstants + 'profile.svg';
   static const String groupIcon = AssetsConstants.iconConstants + 'group.svg';
+  static const String lineUp = AssetsConstants.iconConstants + 'line_up.svg';
 }

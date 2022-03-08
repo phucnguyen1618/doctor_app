@@ -14,6 +14,8 @@ import 'package:doctor_app/app/modules/forgotpassword/create/binding/createpassw
 import 'package:doctor_app/app/modules/forgotpassword/create/view/create_password_page.dart';
 import 'package:doctor_app/app/modules/forgotpassword/forgot/binding/forgotpassword_binding.dart';
 import 'package:doctor_app/app/modules/forgotpassword/forgot/view/forgot_password_page.dart';
+import 'package:doctor_app/app/modules/group/binding/group_binding.dart';
+import 'package:doctor_app/app/modules/group/view/group_page.dart';
 import 'package:doctor_app/app/modules/history/view/history_page.dart';
 import 'package:doctor_app/app/modules/home/view/home_page.dart';
 import 'package:doctor_app/app/modules/login/binding/login_binding.dart';
@@ -31,10 +33,14 @@ import 'package:doctor_app/app/modules/profile/edit/binding/editprofile_binding.
 import 'package:doctor_app/app/modules/profile/edit/view/edit_profile_page.dart';
 import 'package:doctor_app/app/modules/profile/profile_binding.dart';
 import 'package:doctor_app/app/modules/profile/profile_page.dart';
+import 'package:doctor_app/app/modules/schedule/binding/schedule_binding.dart';
+import 'package:doctor_app/app/modules/schedule/view/schedule_page.dart';
 import 'package:doctor_app/app/modules/setting/binding/setting_binding.dart';
 import 'package:doctor_app/app/modules/setting/view/setting_page.dart';
 import 'package:doctor_app/app/modules/splash/binding/splash_binding.dart';
 import 'package:doctor_app/app/modules/splash/view/splash_page.dart';
+import 'package:doctor_app/app/modules/statistical/binding/statistical_binding.dart';
+import 'package:doctor_app/app/modules/statistical/view/statistical_page.dart';
 import 'package:doctor_app/app/modules/welcome/binding/welcome_binding.dart';
 import 'package:doctor_app/app/modules/welcome/view/welcome_page.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
@@ -81,7 +87,12 @@ final pages = [
   GetPage(
     name: Routes.HOME,
     page: () => const HomePage(),
-    binding: HomeBinding(),
+    bindings: [
+      HomeBinding(),
+      ScheduleBinding(),
+      GroupBinding(),
+      StatisticalBinding(),
+    ]
   ),
   GetPage(
     name: Routes.HISTORY,
@@ -137,6 +148,21 @@ final pages = [
     name: Routes.DIAGNOSTIC,
     page: () => const DiagnosticPage(),
     binding: DiagnosticBinding(),
+  ),
+  GetPage(
+    name: Routes.SCHEDULE,
+    page: () => const SchedulePage(),
+    binding: ScheduleBinding(),
+  ),
+  GetPage(
+    name: Routes.GROUP,
+    page: () => const GroupPage(),
+    binding: GroupBinding(),
+  ),
+  GetPage(
+    name: Routes.STATISTICAL,
+    page: () => const StatisticalPage(),
+    binding: StatisticalBinding(),
   ),
   GetPage(
     name: Routes.CONTAINER,
