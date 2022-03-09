@@ -77,101 +77,82 @@ extension HomePageChildren on HomePage {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-                bottom: 24.0, left: 47.5, right: 47.5),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildColumn(IconConstants.dateRangeFill, 'Lịch hẹn', () {
-                  controller.handleEventMenuItemClicked(0);
-                }),
-                _buildColumn(IconConstants.groupIcon, 'Nhóm bác sĩ', () {
-                  controller.handleEventMenuItemClicked(1);
-                }),
-                _buildColumn(IconConstants.lineUp, 'Thống kê', () {
-                  controller.handleEventMenuItemClicked(2);
-                }),
-              ],
+          Obx(() => TabBar(
+            padding: const EdgeInsets.only(bottom: 24.0, left: 37.5, right: 37.5),
+            onTap: (index) {
+              controller.handleEventMenuItemClicked(index);
+            },
+            controller: controller.tabController,
+            labelStyle: const TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.w600,
+              fontStyle: FontStyle.normal,
+              color: Colors.white,
             ),
-          ),
+            indicatorWeight: 1.0,
+            indicatorColor: ColorConstants.primaryColor,
+            indicatorSize: TabBarIndicatorSize.tab,
+            tabs: [
+              Tab(
+                icon: Container(
+                  width: 48.0,
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: controller.isClickedSchedule.value
+                        ? const Color(0xFF2F75FD)
+                        : Colors.transparent,
+                  ),
+                  child: SvgPicture.asset(
+                    IconConstants.dateRangeFill,
+                    fit: BoxFit.scaleDown,
+                    color: ColorConstants.backgroundColor,
+                  ),
+                ),
+                iconMargin: const EdgeInsets.only(bottom: 6.0),
+                text: 'Lịch hẹn',
+              ),
+              Tab(
+                icon: Container(
+                  width: 48.0,
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: controller.isClickedGroup.value
+                        ? const Color(0xFF2F75FD)
+                        : Colors.transparent,
+                  ),
+                  child: SvgPicture.asset(
+                    IconConstants.groupIcon,
+                    fit: BoxFit.scaleDown,
+                    color: ColorConstants.backgroundColor,
+                  ),
+                ),
+                iconMargin: const EdgeInsets.only(bottom: 6.0),
+                text: 'Nhóm bác sĩ',
+              ),
+              Tab(
+                icon: Container(
+                  width: 48.0,
+                  height: 48.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: controller.isClickedLineUp.value
+                        ? const Color(0xFF2F75FD)
+                        : Colors.transparent,
+                  ),
+                  child: SvgPicture.asset(
+                    IconConstants.lineUp,
+                    fit: BoxFit.scaleDown,
+                    color: ColorConstants.backgroundColor,
+                  ),
+                ),
+                iconMargin: const EdgeInsets.only(bottom: 6.0),
+                text: 'Thống kê',
+              ),
+            ],
+          ),),
         ],
-      ),
-    );
-  }
-
-  //TabBar(
-  //                   onTap: (index) {
-  //                     controller.onSelectedTap(index);
-  //                   },
-  //                   controller: controller.tabController,
-  //                   labelStyle: const TextStyle(
-  //                     fontSize: 13.0,
-  //                     fontWeight: FontWeight.w700,
-  //                     fontStyle: FontStyle.normal,
-  //                     fontFamily: 'Inter',
-  //                     height: 1.34,
-  //                     color: Colors.white,
-  //                   ),
-  //                   unselectedLabelStyle: const TextStyle(
-  //                     fontSize: 13.0,
-  //                     fontFamily: 'Inter',
-  //                     fontStyle: FontStyle.normal,
-  //                     height: 1.34,
-  //                     fontWeight: FontWeight.w600,
-  //                     color: Colors.white,
-  //                   ),
-  //                   indicatorColor: ColorConstants.backgroundColor,
-  //                   indicatorSize: TabBarIndicatorSize.label,
-  //                   tabs: const [
-  //                     Tab(
-  //                       text: 'Thông tin',
-  //                     ),
-  //                     Tab(
-  //                       text: 'Bệnh án',
-  //                     ),
-  //                     Tab(
-  //                       text: 'Lịch sử khám',
-  //                     ),
-  //                   ],
-  //                 ),
-
-  Widget _buildColumn(String icon, String name, VoidCallback callback) {
-    return InkWell(
-      onTap: callback,
-      child: Obx(
-        () => Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 58.0,
-              height: 58.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.0),
-                color: controller.isClicked.value
-                    ? const Color(0xFF2F75FD)
-                    : Colors.transparent,
-              ),
-              child: SvgPicture.asset(
-                icon,
-                fit: BoxFit.scaleDown,
-                color: ColorConstants.backgroundColor,
-              ),
-            ),
-            const SizedBox(
-              height: 8.0,
-            ),
-            Text(
-              name,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

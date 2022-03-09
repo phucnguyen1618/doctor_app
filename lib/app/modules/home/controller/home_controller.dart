@@ -4,13 +4,15 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController with GetSingleTickerProviderStateMixin {
 
-  var isClicked = false.obs;
+  var isClickedSchedule = true.obs;
+  var isClickedGroup = false.obs;
+  var isClickedLineUp =  false.obs;
   var currentPage = 0.obs;
   TabController? tabController;
 
   @override
-  void onReady() {
-    super.onReady();
+  void onInit() {
+    super.onInit();
     tabController = TabController(length: 3, vsync: this);
   }
 
@@ -27,7 +29,23 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
   }
 
   handleEventMenuItemClicked(int index) {
-    isClicked.value = !isClicked.value;
+    switch(index){
+      case 0:
+        isClickedSchedule.value = !isClickedSchedule.value;
+        isClickedGroup.value = false;
+        isClickedLineUp.value = false;
+        break;
+      case 1:
+        isClickedSchedule.value = false;
+        isClickedGroup.value = !isClickedGroup.value;
+        isClickedLineUp.value = false;
+        break;
+      case 2:
+        isClickedSchedule.value = false;
+        isClickedGroup.value = false;
+        isClickedLineUp.value = !isClickedLineUp.value;
+        break;
+    }
     currentPage.value = index;
   }
 }

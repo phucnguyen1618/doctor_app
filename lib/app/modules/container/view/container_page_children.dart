@@ -1,7 +1,7 @@
 part of 'container_page.dart';
 
 extension ContainerPageChildren on ContainerPage {
-  Widget _buildNavBar(BuildContext context) {
+  Widget _buildNavBar() {
     return Container(
       decoration: BoxDecoration(
         color: ColorConstants.backgroundColor,
@@ -24,29 +24,30 @@ extension ContainerPageChildren on ContainerPage {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           tabBorderRadius: 18.0,
           tabs: [
-            const GButton(
-              margin: EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
-              padding: EdgeInsets.all(8.0),
-              icon: Icons.home,
-              iconActiveColor: Colors.white,
-              iconColor: ColorConstants.subTextColor,
-              text: 'Home',
-              textStyle: TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
+            GButton(
+              borderRadius: BorderRadius.circular(38.0),
+              leading: Padding(
+                padding: const EdgeInsets.only(right: 7.0),
+                child: controller.index.value == 0
+                    ? SvgPicture.asset(
+                        IconConstants.homeFill,
+                        color: ColorConstants.backgroundColor,
+                      )
+                    : SvgPicture.asset(
+                        IconConstants.homeLight,
+                        color: ColorConstants.greyColor,
+                      ),
               ),
-            ),
-            const GButton(
-              margin: EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
-              padding: EdgeInsets.all(8.0),
-              icon: Icons.history,
-              iconActiveColor: Colors.white,
-              iconColor: ColorConstants.subTextColor,
-              text: 'History',
-              textStyle: TextStyle(
-                fontSize: 12.0,
+              margin:
+                  const EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
+              padding: const EdgeInsets.all(8.0),
+              icon: Icons.home,
+              text: 'Home',
+              textStyle: const TextStyle(
+                fontSize: 13.0,
                 fontWeight: FontWeight.w500,
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
                 color: Colors.white,
               ),
             ),
@@ -54,13 +55,53 @@ extension ContainerPageChildren on ContainerPage {
               margin:
                   const EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
               padding: const EdgeInsets.all(8.0),
-              icon: Icons.person,
-              iconActiveColor: Colors.white,
-              iconColor: ColorConstants.subTextColor,
-              text: 'User',
+              leading: Padding(
+                padding: const EdgeInsets.only(right: 7.0),
+                child: controller.index.value == 1
+                    ? SvgPicture.asset(
+                        IconConstants.timeFill,
+                        color: ColorConstants.backgroundColor,
+                      )
+                    : SvgPicture.asset(
+                        IconConstants.timeLight,
+                        color: ColorConstants.greyColor,
+                      ),
+              ),
+              icon: Icons.history,
+              borderRadius: BorderRadius.circular(38.0),
+              text: 'Lịch sử',
               textStyle: const TextStyle(
-                fontSize: 12.0,
+                fontSize: 13.0,
                 fontWeight: FontWeight.w500,
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
+                color: Colors.white,
+              ),
+            ),
+            GButton(
+              borderRadius: BorderRadius.circular(38.0),
+              margin:
+                  const EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
+              padding: const EdgeInsets.all(8.0),
+              icon: Icons.person,
+              leading: Padding(
+                padding: const EdgeInsets.only(right: 7.0),
+                child: controller.index.value == 2
+                    ? SvgPicture.asset(
+                        IconConstants.userFill,
+                        color: ColorConstants.backgroundColor,
+                      )
+                    : SvgPicture.asset(
+                        IconConstants.userLight,
+                        color: ColorConstants.greyColor,
+                      ),
+              ),
+              text: 'Người dùng',
+              textStyle: const TextStyle(
+                fontSize: 13.0,
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
                 color: Colors.white,
               ),
               onPressed: () {},

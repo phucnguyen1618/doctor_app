@@ -87,12 +87,7 @@ final pages = [
   GetPage(
     name: Routes.HOME,
     page: () => const HomePage(),
-    bindings: [
-      HomeBinding(),
-      ScheduleBinding(),
-      GroupBinding(),
-      StatisticalBinding(),
-    ]
+    binding: HomeBinding(),
   ),
   GetPage(
     name: Routes.HISTORY,
@@ -172,6 +167,9 @@ final pages = [
       HomeBinding(),
       HistoryBinding(),
       SettingBinding(),
+      ScheduleBinding(),
+      GroupBinding(),
+      StatisticalBinding(),
     ],
   ),
 ];

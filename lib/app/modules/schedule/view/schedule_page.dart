@@ -6,11 +6,14 @@ class SchedulePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.redAccent,
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
 
-        ],
+          ],
+        ),
       ),
     );
   }

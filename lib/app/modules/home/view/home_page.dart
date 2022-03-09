@@ -19,9 +19,8 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     double width = Get.width;
-    return Obx(() => Scaffold(
-      backgroundColor: ColorConstants.backgroundColor,
-      body: DefaultTabController(
+    return Scaffold(
+      body: Obx(() => DefaultTabController(
         length: 3,
         initialIndex: controller.currentPage.value,
         child: Column(
@@ -43,7 +42,7 @@ class HomePage extends GetView<HomeController> {
             )
           ],
         ),
-      ),
-    ),);
+      ),),
+    );
   }
 }
