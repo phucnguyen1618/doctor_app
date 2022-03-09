@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class HistoryController extends GetxController {
+class ExaminationHistoryController extends GetxController {
 
   var historyValue = '30 ngày trước'.obs;
 

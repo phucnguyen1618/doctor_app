@@ -15,7 +15,7 @@ abstract class Routes {
   static const String OFFER = '/offer';
   static const String  ORDERDETAIL = '/order_detail';
   static const String CONTAINER = '/container';
-  static const String HISTORY = '/history';
+  static const String HISTORY = '/examinationhistory';
   static const String VOICECALL = '/voice_call';
   static const String VIDEOCALL = '/video_call';
   static const String DIAGNOSTIC = '/diagnostic';

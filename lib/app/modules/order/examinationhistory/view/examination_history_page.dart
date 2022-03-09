@@ -2,13 +2,13 @@ import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../shared/widgets/item_history.dart';
-import '../controller/history_controller.dart';
+import '../../../../shared/widgets/item_examination_history.dart';
+import '../controller/examination_history_controller.dart';
 
-part 'history_page_children.dart';
+part 'examination_history_page_children.dart';
 
-class HistoryPage extends GetView<HistoryController> {
-  const HistoryPage({Key? key}) : super(key: key);
+class ExaminationHistoryPage extends GetView<ExaminationHistoryController> {
+  const ExaminationHistoryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

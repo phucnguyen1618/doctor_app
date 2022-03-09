@@ -1,5 +1,4 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
-import 'package:doctor_app/app/modules/order/history/view/history_page.dart';
 import 'package:doctor_app/app/modules/order/infor/view/infor_page.dart';
 import 'package:doctor_app/app/modules/order/order_detail_controller.dart';
 import 'package:doctor_app/app/modules/order/patient/view/patient_page.dart';
@@ -7,6 +6,8 @@ import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import 'examinationhistory/view/examination_history_page.dart';
 
 part 'order_detail_page_children.dart';
 
@@ -73,7 +74,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
                     children: const [
                       InforPage(),
                       PatientPage(),
-                      HistoryPage(),
+                      ExaminationHistoryPage(),
                     ],
                   ),
                 ),

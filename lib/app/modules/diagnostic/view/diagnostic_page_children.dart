@@ -3,6 +3,8 @@ part of 'diagnostic_page.dart';
 extension DiagnosticPageChildren on DiagnosticPage {
   PreferredSizeWidget _buildHeader() {
     return AppBar(
+      centerTitle: true,
+      leading: const SizedBox(),
       elevation: 0.0,
       backgroundColor: ColorConstants.primaryColor,
       title: const Text(

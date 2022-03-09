@@ -24,7 +24,6 @@ import 'package:doctor_app/app/modules/notification/binding/notification_binding
 import 'package:doctor_app/app/modules/notification/view/notification_page.dart';
 import 'package:doctor_app/app/modules/offer/binding/offer_binding.dart';
 import 'package:doctor_app/app/modules/offer/view/offer_page.dart';
-import 'package:doctor_app/app/modules/order/history/binding/history_binding.dart';
 import 'package:doctor_app/app/modules/order/infor/binding/infor_binding.dart';
 import 'package:doctor_app/app/modules/order/order_detail_binding.dart';
 import 'package:doctor_app/app/modules/order/order_detail_page.dart';
@@ -46,7 +45,9 @@ import 'package:doctor_app/app/modules/welcome/view/welcome_page.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
+import '../modules/history/binding/history_binding.dart';
 import '../modules/home/binding/home_binding.dart';
+import '../modules/order/examinationhistory/binding/examination_history_binding.dart';
 
 final pages = [
   GetPage(
@@ -125,7 +126,7 @@ final pages = [
     bindings: [
       OrderDetailBinding(),
       InforBinding(),
-      HistoryBinding(),
+      ExaminationHistoryBinding(),
       PatientBinding(),
     ],
   ),

@@ -3,6 +3,8 @@ import 'package:doctor_app/app/modules/history/controller/history_controller.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../shared/widgets/item_history.dart';
+
 part 'history_page_children.dart';
 
 class HistoryPage extends GetView<HistoryController> {
@@ -12,7 +14,12 @@ class HistoryPage extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: _buildContent(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: _buildContent(),
+        ),
+      ),
     );
   }
 }

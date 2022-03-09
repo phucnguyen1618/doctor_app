@@ -1,13 +1,13 @@
-part of 'history_page.dart';
+part of 'examination_history_page.dart';
 
-extension HistoryPageChildren on HistoryPage {
+extension ExaminationHistoryPageChildren on ExaminationHistoryPage {
   Widget _buildHistories() {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: 10,
       itemBuilder: (context, index) {
-        return const ItemHistory();
+        return const ItemExaminationHistory();
       },
     );
   }
