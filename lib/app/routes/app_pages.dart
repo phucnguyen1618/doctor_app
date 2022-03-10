@@ -6,6 +6,11 @@ import 'package:doctor_app/app/modules/container/binding/container_binding.dart'
 import 'package:doctor_app/app/modules/container/view/container_page.dart';
 import 'package:doctor_app/app/modules/create/binding/createaccount_binding.dart';
 import 'package:doctor_app/app/modules/create/view/create_account_page.dart';
+import 'package:doctor_app/app/modules/detail/detail_binding.dart';
+import 'package:doctor_app/app/modules/detail/detail_page.dart';
+import 'package:doctor_app/app/modules/detail/diagnostic/binding/detail_diagnostic_binding.dart';
+import 'package:doctor_app/app/modules/detail/diagnostic/view/detail_diagnostic_page.dart';
+import 'package:doctor_app/app/modules/detail/infor/view/detail_infor_page.dart';
 import 'package:doctor_app/app/modules/diagnostic/binding/diagnostic_bindng.dart';
 import 'package:doctor_app/app/modules/diagnostic/view/diagnostic_page.dart';
 import 'package:doctor_app/app/modules/forgotpassword/confirm/binding/confirm_binding.dart';
@@ -24,10 +29,12 @@ import 'package:doctor_app/app/modules/notification/binding/notification_binding
 import 'package:doctor_app/app/modules/notification/view/notification_page.dart';
 import 'package:doctor_app/app/modules/offer/binding/offer_binding.dart';
 import 'package:doctor_app/app/modules/offer/view/offer_page.dart';
+import 'package:doctor_app/app/modules/order/examinationhistory/view/examination_history_page.dart';
 import 'package:doctor_app/app/modules/order/infor/binding/infor_binding.dart';
 import 'package:doctor_app/app/modules/order/order_detail_binding.dart';
 import 'package:doctor_app/app/modules/order/order_detail_page.dart';
 import 'package:doctor_app/app/modules/order/patient/binding/patient_binding.dart';
+import 'package:doctor_app/app/modules/order/patient/view/patient_page.dart';
 import 'package:doctor_app/app/modules/profile/edit/binding/editprofile_binding.dart';
 import 'package:doctor_app/app/modules/profile/edit/view/edit_profile_page.dart';
 import 'package:doctor_app/app/modules/profile/profile_binding.dart';
@@ -45,9 +52,11 @@ import 'package:doctor_app/app/modules/welcome/view/welcome_page.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
+import '../modules/detail/infor/binding/detail_infor_binding.dart';
 import '../modules/history/binding/history_binding.dart';
 import '../modules/home/binding/home_binding.dart';
 import '../modules/order/examinationhistory/binding/examination_history_binding.dart';
+import '../modules/order/infor/view/infor_page.dart';
 
 final pages = [
   GetPage(
@@ -121,6 +130,21 @@ final pages = [
     binding: OfferBinding(),
   ),
   GetPage(
+    name: Routes.INFOR,
+    page: () => const InforPage(),
+    binding: InforBinding(),
+  ),
+  GetPage(
+    name: Routes.EXAMINATIONHISTORY,
+    page: () => const ExaminationHistoryPage(),
+    binding: ExaminationHistoryBinding(),
+  ),
+  GetPage(
+    name: Routes.PATIENT,
+    page: () => const PatientPage(),
+    binding: PatientBinding(),
+  ),
+  GetPage(
     name: Routes.ORDERDETAIL,
     page: () => const OrderDetailPage(),
     bindings: [
@@ -171,6 +195,25 @@ final pages = [
       ScheduleBinding(),
       GroupBinding(),
       StatisticalBinding(),
+    ],
+  ),
+  GetPage(
+    name: Routes.DETAILINFOR,
+    page: () => const DetailInforPage(),
+    binding: DetailInforBinding(),
+  ),
+  GetPage(
+    name: Routes.DETAILDIAGNOSTIC,
+    page: () => const DetailDiagnosticPage(),
+    binding: DetailDiagnosticBinding(),
+  ),
+  GetPage(
+    name: Routes.DETAIL,
+    page: () => const DetailPage(),
+    bindings: [
+      DetailBinding(),
+      DetailInforBinding(),
+      DetailDiagnosticBinding(),
     ],
   ),
 ];
