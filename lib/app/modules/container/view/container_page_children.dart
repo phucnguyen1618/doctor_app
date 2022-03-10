@@ -45,7 +45,7 @@ extension ContainerPageChildren on ContainerPage {
               text: 'Home',
               textStyle: const TextStyle(
                 fontSize: 13.0,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w700,
                 fontFamily: 'Inter',
                 fontStyle: FontStyle.normal,
                 color: Colors.white,

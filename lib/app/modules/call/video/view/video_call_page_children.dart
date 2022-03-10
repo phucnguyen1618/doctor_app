@@ -115,7 +115,10 @@ extension VideoCallPageChildren on VideoCallPage {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const VideoCallWidget(),
+            Visibility(
+              visible: controller.isEnabled.value,
+              child: const VideoCallWidget(),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
