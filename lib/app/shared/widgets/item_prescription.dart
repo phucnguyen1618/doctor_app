@@ -2,15 +2,12 @@ import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../modules/diagnostic/controller/diagnostic_controller.dart';
-
-class ItemAddPrescription extends StatelessWidget {
-  const ItemAddPrescription({Key? key}) : super(key: key);
+class ItemPrescription extends StatelessWidget {
+  const ItemPrescription({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.find<DiagnosticController>();
-    return Obx(() => Container(
+    return Container(
       margin: const EdgeInsets.only(bottom: 24.0),
       width: double.infinity,
       child: Row(
@@ -53,42 +50,20 @@ class ItemAddPrescription extends StatelessWidget {
                   height: 16.0,
                 ),
                 Container(
+                  padding: const EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
                   decoration: BoxDecoration(
                     color: ColorConstants.dividerColor.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   width: Get.width,
                   height: 56.0,
-                  child: const TextField(
+                  child: const Text(
+                    'EXOMUC 200 mg',
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,
                       fontStyle: FontStyle.normal,
                       fontFamily: 'Inter',
-                    ),
-                    decoration: InputDecoration(
-                      contentPadding:
-                      EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                      hintText: 'Nhập ghi chú ở đây',
-                      hintStyle: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w600,
-                        fontStyle: FontStyle.normal,
-                        fontFamily: 'Inter',
-                        height: 1.43,
-                        color: ColorConstants.greyColor,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 2.0,
-                          color: ColorConstants.primaryColor,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(8.0),
-                        ),
-                      ),
-                      disabledBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
                     ),
                   ),
                 ),
@@ -122,35 +97,17 @@ class ItemAddPrescription extends StatelessWidget {
                               ColorConstants.dividerColor.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            padding: const EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
                             width: Get.width,
                             height: 56.0,
-                            child: DropdownButton(
-                              dropdownColor: ColorConstants.backgroundColor,
-                              borderRadius: BorderRadius.circular(16.0),
-                              underline: const SizedBox(),
-                              value: controller.value.value,
-                              isExpanded: true,
-                              style: const TextStyle(
+                            child: const Text(
+                              'Viên',
+                              style: TextStyle(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.w600,
-                                color: ColorConstants.pinColor,
+                                fontStyle: FontStyle.normal,
+                                fontFamily: 'Inter',
                               ),
-                              icon: const Icon(Icons.arrow_drop_down),
-                              items: controller.values.map((String item) {
-                                return DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: const TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: ColorConstants.pinColor,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {},
                             ),
                           ),
                         ],
@@ -182,35 +139,17 @@ class ItemAddPrescription extends StatelessWidget {
                               ColorConstants.dividerColor.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            padding: const EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
                             width: Get.width,
                             height: 56.0,
-                            child: DropdownButton(
-                              dropdownColor: ColorConstants.backgroundColor,
-                              borderRadius: BorderRadius.circular(16.0),
-                              underline: const SizedBox(),
-                              value: controller.value.value,
-                              isExpanded: true,
-                              style: const TextStyle(
+                            child: const Text(
+                              'Uống',
+                              style: TextStyle(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.w600,
-                                color: ColorConstants.pinColor,
+                                fontStyle: FontStyle.normal,
+                                fontFamily: 'Inter',
                               ),
-                              icon: const Icon(Icons.arrow_drop_down),
-                              items: controller.values.map((String item) {
-                                return DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: const TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: ColorConstants.pinColor,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {},
                             ),
                           ),
                         ],
@@ -248,35 +187,17 @@ class ItemAddPrescription extends StatelessWidget {
                               ColorConstants.dividerColor.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            padding: const EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
                             width: Get.width,
                             height: 56.0,
-                            child: DropdownButton(
-                              dropdownColor: ColorConstants.backgroundColor,
-                              borderRadius: BorderRadius.circular(16.0),
-                              underline: const SizedBox(),
-                              value: controller.value.value,
-                              isExpanded: true,
-                              style: const TextStyle(
+                            child: const Text(
+                              '01',
+                              style: TextStyle(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.w600,
-                                color: ColorConstants.pinColor,
+                                fontStyle: FontStyle.normal,
+                                fontFamily: 'Inter',
                               ),
-                              icon: const Icon(Icons.arrow_drop_down),
-                              items: controller.values.map((String item) {
-                                return DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: const TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: ColorConstants.pinColor,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {},
                             ),
                           ),
                         ],
@@ -308,35 +229,17 @@ class ItemAddPrescription extends StatelessWidget {
                               ColorConstants.dividerColor.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            padding: const EdgeInsets.all(16.0),
+                            padding: const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
                             width: Get.width,
                             height: 56.0,
-                            child: DropdownButton(
-                              dropdownColor: ColorConstants.backgroundColor,
-                              borderRadius: BorderRadius.circular(16.0),
-                              underline: const SizedBox(),
-                              value: controller.value.value,
-                              isExpanded: true,
-                              style: const TextStyle(
+                            child: const Text(
+                              '03',
+                              style: TextStyle(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.w600,
-                                color: ColorConstants.pinColor,
+                                fontStyle: FontStyle.normal,
+                                fontFamily: 'Inter',
                               ),
-                              icon: const Icon(Icons.arrow_drop_down),
-                              items: controller.values.map((String item) {
-                                return DropdownMenuItem<String>(
-                                  value: item,
-                                  child: Text(
-                                    item,
-                                    style: const TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: ColorConstants.pinColor,
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {},
                             ),
                           ),
                         ],
@@ -345,6 +248,7 @@ class ItemAddPrescription extends StatelessWidget {
                   ],
                 ),
                 Container(
+                  padding: const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
                   margin: const EdgeInsets.symmetric(vertical: 24.0),
                   decoration: BoxDecoration(
                     color: ColorConstants.dividerColor.withOpacity(0.5),
@@ -352,47 +256,25 @@ class ItemAddPrescription extends StatelessWidget {
                   ),
                   width: Get.width,
                   height: 56.0,
-                  child: const TextField(
+                  child: const Text(
+                    'Uống trước bữa ăn',
                     style: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w600,
                       fontStyle: FontStyle.normal,
                       fontFamily: 'Inter',
                     ),
-                    decoration: InputDecoration(
-                      contentPadding:
-                      EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                      hintText: 'Nhập ghi chú ở đây',
-                      hintStyle: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w600,
-                        fontStyle: FontStyle.normal,
-                        fontFamily: 'Inter',
-                        height: 1.43,
-                        color: ColorConstants.greyColor,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 2.0,
-                          color: ColorConstants.primaryColor,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(8.0),
-                        ),
-                      ),
-                      disabledBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                    ),
                   ),
                 ),
                 const Divider(
-                  color: ColorConstants.dividerColor,
+                  color: ColorConstants.greyColor,
+                  height: 0.5,
                 ),
               ],
             ),
           ),
         ],
       ),
-    ),);
+    );
   }
 }

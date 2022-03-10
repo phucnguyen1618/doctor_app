@@ -34,6 +34,7 @@ class ItemSchedule extends StatelessWidget {
             children: [
               ListView.builder(
                 padding: const EdgeInsets.only(left: 12.0),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: 2,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
