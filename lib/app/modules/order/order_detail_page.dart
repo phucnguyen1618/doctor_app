@@ -82,9 +82,10 @@ class OrderDetailPage extends GetView<OrderDetailController> {
             ],
           ),
         ),
-        persistentFooterButtons: [
-          _buildFooter(),
-        ],
+        bottomNavigationBar: SafeArea(
+          bottom: true,
+          child: _buildFooter(),
+        ),
       ),
     );
   }

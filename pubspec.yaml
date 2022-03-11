@@ -93,7 +93,8 @@ flutter:
         - asset: assets/fonts/svn_gotham_regular.otf
     - family: Inter
       fonts:
-        - asset: assets/fonts/inter_regular.ttf
+        - asset: assets/fonts/inter_medium.ttf
+        - asset: assets/fonts/inter_semibold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

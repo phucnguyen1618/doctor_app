@@ -106,7 +106,7 @@ class AppointmentNoticeWidget extends StatelessWidget {
                         'Chi tiết',
                         style: TextStyle(
                           fontSize: 13.0,
-                          fontWeight: FontWeight.w200,
+                          fontWeight: FontWeight.w700,
                           color: ColorConstants.primaryColor,
                           fontFamily: 'Inter',
                           fontStyle: FontStyle.normal,

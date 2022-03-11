@@ -1,7 +1,6 @@
 part of 'profile_page.dart';
 
 extension ProfilePageChildren on ProfilePage {
-
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
       elevation: 0.0,
@@ -12,7 +11,7 @@ extension ProfilePageChildren on ProfilePage {
       backgroundColor: ColorConstants.primaryColor,
       centerTitle: true,
       leading: InkWell(
-        onTap: (){
+        onTap: () {
           controller.onBack();
         },
         child: SvgPicture.asset(
@@ -75,7 +74,7 @@ extension ProfilePageChildren on ProfilePage {
               borderRadius: BorderRadius.circular(8.0),
             ),
             padding:
-            const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
+                const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
             child: const Text(
               'Chuyên khoa tim mạch',
               style: TextStyle(
@@ -160,155 +159,9 @@ extension ProfilePageChildren on ProfilePage {
             ),
           ),
           const SizedBox(height: 20.5),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  IconConstants.education,
-                  color: ColorConstants.primaryColor,
-                ),
-                const SizedBox(
-                  width: 12.0,
-                ),
-                const Text(
-                  'Trình độ học vấn',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0,
-                    height: 1.21,
-                    fontWeight: FontWeight.w600,
-                    color: ColorConstants.primaryColor,
-                  ),
-                ),
-              ],
-            ),
-            subtitle: ListView.builder(
-                padding: const EdgeInsets.only(left: 32.0),
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: const Text(
-                      'Tốt nghiệp Thạc sĩ tại Đại học Y Hà Nội',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        height: 1.4,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.titleColor,
-                      ),
-                    ),
-                    subtitle: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 6.0,
-                          height: 6.0,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorConstants.accentColor,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        const Text(
-                          'Năm 2012',
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontStyle: FontStyle.normal,
-                            height: 1.3,
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w500,
-                            color: ColorConstants.greyColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-          ),
+          _buildAcademicLevel(),
           const SizedBox(height: 20.5),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  IconConstants.hospital,
-                  color: ColorConstants.primaryColor,
-                ),
-                const SizedBox(
-                  width: 12.0,
-                ),
-                const Text(
-                  'Nơi công tác',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0,
-                    height: 1.21,
-                    fontWeight: FontWeight.w600,
-                    color: ColorConstants.primaryColor,
-                  ),
-                ),
-              ],
-            ),
-            subtitle: ListView.builder(
-                padding: const EdgeInsets.only(left: 32.0),
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: const Text(
-                      'Phòng khám Doctor Anywhere Hà Nội',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        fontSize: 13.0,
-                        height: 1.4,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.titleColor,
-                      ),
-                    ),
-                    subtitle: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 6.0,
-                          height: 6.0,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: ColorConstants.accentColor,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 8.0,
-                        ),
-                        const Text(
-                          'Năm 2012',
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontStyle: FontStyle.normal,
-                            height: 1.3,
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w500,
-                            color: ColorConstants.greyColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-          ),
+          _buildWorkPlace(),
         ],
       ),
     );
@@ -321,38 +174,36 @@ extension ProfilePageChildren on ProfilePage {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  '09',
-                  style: TextStyle(
-                    fontFamily: 'SVN-Gotham',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 24.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text(
+                '09',
+                style: TextStyle(
+                  fontFamily: 'SVN-Gotham',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 24.0,
+                  height: 1.3,
+                  fontWeight: FontWeight.w500,
+                  color: ColorConstants.titleColor,
                 ),
-                SizedBox(
-                  height: 6.0,
+              ),
+              SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                'Năm kinh nghiệm',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 12.0,
+                  height: 1.3,
+                  fontWeight: FontWeight.w500,
+                  color: ColorConstants.greyColor,
                 ),
-                Text(
-                  'Năm kinh nghiệm',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.greyColor,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 26.25),
@@ -361,38 +212,36 @@ extension ProfilePageChildren on ProfilePage {
             width: 1.0,
             child: const SizedBox(),
           ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  '430',
-                  style: TextStyle(
-                    fontFamily: 'SVN-Gotham',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 24.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text(
+                '430',
+                style: TextStyle(
+                  fontFamily: 'SVN-Gotham',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 24.0,
+                  height: 1.3,
+                  fontWeight: FontWeight.w500,
+                  color: ColorConstants.titleColor,
                 ),
-                SizedBox(
-                  height: 6.0,
+              ),
+              SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                'Lượt yêu thích',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 12.0,
+                  height: 1.3,
+                  fontWeight: FontWeight.w500,
+                  color: ColorConstants.greyColor,
                 ),
-                Text(
-                  'Lượt yêu thích',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.greyColor,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 26.25),
@@ -401,42 +250,220 @@ extension ProfilePageChildren on ProfilePage {
             width: 1.0,
             child: const SizedBox(),
           ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  '500',
-                  style: TextStyle(
-                    fontFamily: 'SVN-Gotham',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 24.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.titleColor,
-                  ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text(
+                '500',
+                style: TextStyle(
+                  fontFamily: 'SVN-Gotham',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 24.0,
+                  height: 1.3,
+                  fontWeight: FontWeight.w500,
+                  color: ColorConstants.titleColor,
                 ),
-                SizedBox(
-                  height: 6.0,
+              ),
+              SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                'Lượt tư vấn',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 12.0,
+                  height: 1.3,
+                  fontWeight: FontWeight.w500,
+                  color: ColorConstants.greyColor,
                 ),
-                Text(
-                  'Lượt tư vấn',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.greyColor,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
+  Widget _buildAcademicLevel() {
+    return SizedBox(
+      width: Get.width,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SvgPicture.asset(
+            IconConstants.education,
+            color: ColorConstants.primaryColor,
+          ),
+          const SizedBox(
+            width: 12.0,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                width: 12.0,
+              ),
+              const Text(
+                'Trình độ học vấn',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 16.0,
+                  height: 1.21,
+                  fontWeight: FontWeight.w600,
+                  color: ColorConstants.primaryColor,
+                ),
+              ),
+              SingleChildScrollView(
+                physics: const NeverScrollableScrollPhysics(),
+                child: Column(
+                  children: List.generate(
+                    2,
+                    (index) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Tốt nghiệp Thạc sĩ tại Đại học Y Hà Nội',
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              height: 1.4,
+                              fontStyle: FontStyle.normal,
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w500,
+                              color: ColorConstants.titleColor,
+                            ),
+                          ),
+                          const SizedBox(height: 6.0,),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 6.0,
+                                height: 6.0,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: ColorConstants.accentColor,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 8.0,
+                              ),
+                              const Text(
+                                'Năm 2012',
+                                style: TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontStyle: FontStyle.normal,
+                                  height: 1.3,
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorConstants.greyColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWorkPlace() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SvgPicture.asset(
+          IconConstants.hospital,
+          color: ColorConstants.primaryColor,
+        ),
+        const SizedBox(
+          width: 12.0,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Nơi công tác',
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
+                fontSize: 16.0,
+                height: 1.21,
+                fontWeight: FontWeight.w600,
+                color: ColorConstants.primaryColor,
+              ),
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: List.generate(
+                  2,
+                  (index) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Phòng khám Doctor Anywhere Hà Nội',
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontStyle: FontStyle.normal,
+                            fontSize: 13.0,
+                            height: 1.4,
+                            fontWeight: FontWeight.w500,
+                            color: ColorConstants.titleColor,
+                          ),
+                        ),
+                        const SizedBox(height: 6.0,),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 6.0,
+                              height: 6.0,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: ColorConstants.accentColor,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 8.0,
+                            ),
+                            const Text(
+                              'Năm 2012',
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontStyle: FontStyle.normal,
+                                height: 1.3,
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500,
+                                color: ColorConstants.greyColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ],
+    );
+  }
 }

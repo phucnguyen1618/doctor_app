@@ -14,7 +14,7 @@ class ItemHistory extends StatelessWidget {
         controller.onItemHistoryClicked();
       },
       child: Padding(
-        padding: const EdgeInsets.only(top: 22.5, bottom: 10.0),
+        padding: const EdgeInsets.only(bottom: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

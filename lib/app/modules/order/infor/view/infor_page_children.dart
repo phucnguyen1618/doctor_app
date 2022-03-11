@@ -15,7 +15,8 @@ extension InforPageChildren on InforPage {
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
-      titleSpacing: 16.0,
+      toolbarHeight: 66.0,
+      titleSpacing: 12.0,
       centerTitle: false,
       backgroundColor: ColorConstants.secondaryColor,
       elevation: 0.0,
@@ -27,36 +28,33 @@ extension InforPageChildren on InforPage {
           fit: BoxFit.scaleDown,
         ),
       ),
-      title: Padding(
-        padding: const EdgeInsets.only(top: 11.0, bottom: 11.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              'Hôm nay, ngày 22/02/2022',
-              style: TextStyle(
-                fontStyle: FontStyle.normal,
-                fontFamily: 'Inter',
-                height: 1.34,
-                fontSize: 13.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-              ),
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            'Hôm nay, ngày 22/02/2022',
+            style: TextStyle(
+              fontStyle: FontStyle.normal,
+              fontFamily: 'Inter',
+              height: 1.34,
+              fontSize: 13.0,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
             ),
-            SizedBox(height: 6.0,),
-            Text(
-              '16:00 - Gọi lại trong 15 phút nữa',
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontStyle: FontStyle.normal,
-                height: 1.43,
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
+          ),
+          SizedBox(height: 6.0,),
+          Text(
+            '16:00 - Gọi lại trong 15 phút nữa',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.43,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       actions: [
         Padding(
@@ -74,81 +72,54 @@ extension InforPageChildren on InforPage {
     return Container(
       color: ColorConstants.backgroundColor,
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          RichText(
-            text: const TextSpan(
-              text: 'Mã đơn hàng\n',
-              style: TextStyle(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('Mã đơn hàng', style: TextStyle(
                 fontFamily: 'Inter',
                 height: 1.3,
                 fontStyle: FontStyle.normal,
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
                 color: ColorConstants.subTextColor,
-              ),
-              children: [
-                TextSpan(
-                  text: '#123456789',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    height: 1.34,
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.mainTextColor,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          RichText(
-            textAlign: TextAlign.end,
-            text: const TextSpan(
-              text: 'Đã xác nhận\n',
-              style: TextStyle(
+              ),),
+              Text('Đã xác nhận', style: TextStyle(
                 fontFamily: 'Inter',
                 fontStyle: FontStyle.normal,
                 height: 1.34,
                 fontSize: 13.0,
                 fontWeight: FontWeight.w500,
                 color: ColorConstants.secondaryColor,
-              ),
-              children: [
-                TextSpan(
-                  text: '28/12/2022',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    height: 1.5,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.mainTextColor,
-                  ),
-                ),
-                TextSpan(
-                  text: ' | ',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.subTextColor,
-                  ),
-                ),
-                TextSpan(
-                  text: '14:33',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    height: 1.3,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.mainTextColor,
-                  ),
-                ),
-              ],
-            ),
+              ),),
+            ],
+          ),
+          const SizedBox(height: 4.0,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('#123456789', style: TextStyle(
+                fontFamily: 'Inter',
+                fontStyle: FontStyle.normal,
+                height: 1.34,
+                fontSize: 13.0,
+                fontWeight: FontWeight.w500,
+                color: ColorConstants.mainTextColor,
+              ),),
+              Text('28/12/2022 | 14:33', style: TextStyle(
+                fontFamily: 'Inter',
+                height: 1.5,
+                fontStyle: FontStyle.normal,
+                fontSize: 12.0,
+                fontWeight: FontWeight.w500,
+                color: ColorConstants.mainTextColor,
+              ),),
+            ],
           ),
         ],
       ),

@@ -12,7 +12,6 @@ class ItemMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
       children: [
         Slidable(
           child: ListTile(
@@ -60,14 +59,20 @@ class ItemMessage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  message.content,
-                  style: const TextStyle(
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF7A7A7A),
-                    fontStyle: FontStyle.normal,
-                    fontFamily: 'Inter',
+                SizedBox(
+                  width: 240.0,
+                  child: Text(
+                    message.content,
+                    maxLines: 1,
+                    softWrap: true,
+                    style: const TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF7A7A7A),
+                      fontStyle: FontStyle.normal,
+                      fontFamily: 'Inter',
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
                 Text(

@@ -123,6 +123,9 @@ extension HistoryPageChildren on HistoryPage {
             ),
           ],
         ),
+        const SizedBox(
+          height: 22.5,
+        ),
         ListView.builder(
           itemCount: 2,
           shrinkWrap: true,

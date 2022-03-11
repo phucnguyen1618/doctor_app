@@ -175,7 +175,7 @@ extension OfferPageChildren on OfferPage {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset(ImageConstants.avatar),
+        Image.asset(ImageConstants.avatar, width: 50.0, height: 50.0,),
         Padding(
           padding: const EdgeInsets.only(left: 12.0),
           child: Column(

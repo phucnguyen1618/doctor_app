@@ -31,8 +31,8 @@ class LeadingMessage extends StatelessWidget {
           top: 0.0,
           right: 0.0,
           child: Container(
-            width: 10.0,
-            height: 10.0,
+            width: 12.0,
+            height: 12.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: AppUtils.setStatus(status),
