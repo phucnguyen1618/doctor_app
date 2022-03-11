@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 
 class ProfileController extends BaseController {
 
+  var isPersonal = Get.arguments;
+
   @override
   onBack() {
     Get.back();

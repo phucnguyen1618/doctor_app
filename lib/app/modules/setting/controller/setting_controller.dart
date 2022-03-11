@@ -3,6 +3,6 @@ import 'package:get/get.dart';
 class SettingController extends GetxController {
 
   onItemMenuClicked(String destination) {
-    Get.toNamed(destination);
+    Get.toNamed(destination, arguments: true);
   }
 }

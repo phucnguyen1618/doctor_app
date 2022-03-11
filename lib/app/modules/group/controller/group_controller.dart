@@ -1,5 +1,6 @@
 import 'package:doctor_app/app/models/message.dart';
 import 'package:doctor_app/app/resource/assets_constant/image_constants.dart';
+import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class GroupController extends GetxController {
@@ -16,4 +17,8 @@ class GroupController extends GetxController {
   ];
 
   var messageList = messages;
+
+  onItemGroupDoctorClicked() {
+    Get.toNamed(Routes.PROFILE, arguments: false);
+  }
 }

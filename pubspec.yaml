@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.1 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -43,11 +43,8 @@ dependencies:
   sleek_circular_slider: ^2.0.1
   fl_chart: ^0.45.1
   flutter_local_notifications: ^9.4.0
-  flutter_slidable:
-    path: library/slidable/flutter_slidable
-  draggable_home:
-    path: library/draggable/draggable_home
-
+  flutter_slidable: ^1.2.0
+  draggable_home: ^1.0.2
 
 dev_dependencies:
   flutter_test:

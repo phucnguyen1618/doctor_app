@@ -100,6 +100,13 @@ extension ProfilePageChildren on ProfilePage {
               ),
             ),
           ),
+          Visibility(
+            visible: !controller.isPersonal,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: _buildCommunicationMethod(),
+            ),
+          ),
           _buildRowStatistical(),
           const SizedBox(height: 30.0),
           const ListTile(
@@ -194,16 +201,20 @@ extension ProfilePageChildren on ProfilePage {
                 SizedBox(
                   height: 6.0,
                 ),
-                Text(
-                  'Năm kinh nghiệm',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.greyColor,
+                SizedBox(
+                  width: 70.0,
+                  height: 32.0,
+                  child: Text(
+                    'Năm kinh nghiệm',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                      fontSize: 12.0,
+                      height: 1.3,
+                      fontWeight: FontWeight.w500,
+                      color: ColorConstants.greyColor,
+                    ),
                   ),
                 ),
               ],
@@ -235,16 +246,20 @@ extension ProfilePageChildren on ProfilePage {
                 SizedBox(
                   height: 6.0,
                 ),
-                Text(
-                  'Lượt yêu thích',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.greyColor,
+                SizedBox(
+                  width: 70.0,
+                  height: 32.0,
+                  child: Text(
+                    'Lượt yêu thích',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                      fontSize: 12.0,
+                      height: 1.3,
+                      fontWeight: FontWeight.w500,
+                      color: ColorConstants.greyColor,
+                    ),
                   ),
                 ),
               ],
@@ -276,16 +291,20 @@ extension ProfilePageChildren on ProfilePage {
                 SizedBox(
                   height: 6.0,
                 ),
-                Text(
-                  'Lượt tư vấn',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    height: 1.3,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.greyColor,
+                SizedBox(
+                  width: 70.0,
+                  height: 32.0,
+                  child: Text(
+                    'Lượt tư vấn',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                      fontSize: 12.0,
+                      height: 1.3,
+                      fontWeight: FontWeight.w500,
+                      color: ColorConstants.greyColor,
+                    ),
                   ),
                 ),
               ],
@@ -349,7 +368,9 @@ extension ProfilePageChildren on ProfilePage {
                               color: ColorConstants.titleColor,
                             ),
                           ),
-                          const SizedBox(height: 6.0,),
+                          const SizedBox(
+                            height: 6.0,
+                          ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -437,7 +458,9 @@ extension ProfilePageChildren on ProfilePage {
                             color: ColorConstants.titleColor,
                           ),
                         ),
-                        const SizedBox(height: 6.0,),
+                        const SizedBox(
+                          height: 6.0,
+                        ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -474,6 +497,47 @@ extension ProfilePageChildren on ProfilePage {
           ],
         ),
       ],
+    );
+  }
+
+  Widget _buildCommunicationMethod() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        _buildCommunicationButton(IconConstants.phone, 'Gọi thoại', const Color(0xFF9E73FF)),
+        _buildCommunicationButton(IconConstants.video, 'Gọi Video', const Color(0xFFFF754C)),
+        _buildCommunicationButton(IconConstants.messenger, 'Nhắn tin', const Color(0xFF2BA8C4)),
+      ],
+    );
+  }
+  Widget _buildCommunicationButton(String icon, String name, Color backgroundColor) {
+    return Container(
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            icon,
+            color: ColorConstants.backgroundColor,
+          ),
+          const SizedBox(width: 8.0,),
+          Text(
+            name,
+            style: const TextStyle(
+              fontSize: 13.0,
+              fontWeight: FontWeight.w500,
+              fontStyle: FontStyle.normal,
+              fontFamily: 'Inter',
+              color: ColorConstants.backgroundColor,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
