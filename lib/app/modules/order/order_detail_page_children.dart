@@ -40,7 +40,17 @@ extension OrderDetailPageChildren on OrderDetailPage {
   }
 
   Widget _buildFooter() {
-    return Padding(
+    return Container(
+      decoration: BoxDecoration(
+        color: ColorConstants.backgroundColor,
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(Color.getAlphaFromOpacity(0.2), 137, 138, 141),
+            offset: const Offset(0, -2),
+            blurRadius: 10.0,
+          )
+        ]
+      ),
       padding: const EdgeInsets.only(
           left: 20.0, right: 20.0, bottom: 12.0, top: 12.0),
       child: Obx(

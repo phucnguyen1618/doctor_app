@@ -86,9 +86,10 @@ class ItemNotification extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(
-                          height: 4.0,
+                          height: 2.0,
                         ),
                         RichText(
+                          textAlign: TextAlign.center,
                           text: TextSpan(
                             text: controller.notificationList[index].content,
                             style: TextStyle(

@@ -330,9 +330,19 @@ extension OfferPageChildren on OfferPage {
 
   Widget _buildFooter() {
     return Container(
-      height: 45.0,
       padding: const EdgeInsets.only(
-          left: 20.0, right: 20.0),
+          left: 20.0, right: 20.0, top: 12.0, bottom: 12.0),
+      decoration: BoxDecoration(
+        color: ColorConstants.backgroundColor,
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(Color.getAlphaFromOpacity(0.2), 137, 138, 141),
+            offset: const Offset(0.0, -2.0),
+            blurRadius: 10.0,
+            spreadRadius: 0.0,
+          ),
+        ]
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

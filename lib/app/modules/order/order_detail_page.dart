@@ -20,6 +20,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
     double height = Get.height;
     return Obx(
       () => Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: _buildAppBar(),
         body: DefaultTabController(
           initialIndex: controller.currentPage.value,
@@ -82,8 +83,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
             ],
           ),
         ),
-        bottomNavigationBar: SafeArea(
-          bottom: true,
+        bottomSheet: SafeArea(
           child: _buildFooter(),
         ),
       ),

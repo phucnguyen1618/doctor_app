@@ -21,10 +21,11 @@ class OfferPage extends GetView<OfferController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: _buildContent(),
-      persistentFooterButtons: [
-        _buildFooter(),
-      ],
+      bottomSheet: SafeArea(
+        child: _buildFooter(),
+      ),
     );
   }
 }

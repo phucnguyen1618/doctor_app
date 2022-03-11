@@ -70,205 +70,219 @@ extension StatisticalPageChildren on StatisticalPage {
 
   Widget _buildPatientCard(
       String title, String number, String percentage, Color color) {
-    return Card(
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
+        color: ColorConstants.backgroundColor,
         borderRadius: BorderRadius.circular(16.0),
+        boxShadow: [
+          BoxShadow(
+            color:
+            Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+            spreadRadius: 0.0,
+            blurRadius: 10.0,
+            offset: const Offset(0.0, 4.0), // changes position of shadow
+          ),
+        ],
       ),
-      elevation: 6.0,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-                fontStyle: FontStyle.normal,
-                fontFamily: 'Inter',
-                color: ColorConstants.greyColor,
-              ),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              fontStyle: FontStyle.normal,
+              fontFamily: 'Inter',
+              color: ColorConstants.greyColor,
             ),
-            const SizedBox(
-              height: 4.0,
+          ),
+          const SizedBox(
+            height: 4.0,
+          ),
+          Text(
+            number,
+            style: const TextStyle(
+              height: 1.34,
+              fontSize: 32.0,
+              fontWeight: FontWeight.w500,
+              fontStyle: FontStyle.normal,
+              fontFamily: 'SVN-Gotham',
+              color: ColorConstants.pinColor,
             ),
-            Text(
-              number,
-              style: const TextStyle(
-                height: 1.34,
-                fontSize: 32.0,
-                fontWeight: FontWeight.w500,
-                fontStyle: FontStyle.normal,
-                fontFamily: 'SVN-Gotham',
-                color: ColorConstants.pinColor,
-              ),
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(16.0),
             ),
-            const SizedBox(
-              height: 12.0,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: color.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-              padding: const EdgeInsets.only(
-                  left: 4.0, top: 2.0, right: 4.0, bottom: 2.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(
-                    Icons.arrow_drop_up,
+            padding: const EdgeInsets.only(
+                left: 4.0, top: 2.0, right: 4.0, bottom: 2.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Icon(
+                  Icons.arrow_drop_up,
+                  color: color,
+                  size: 16.0,
+                ),
+                Text(
+                  percentage,
+                  style: TextStyle(
+                    height: 1.6,
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 10.0,
+                    fontWeight: FontWeight.w500,
                     color: color,
-                    size: 16.0,
                   ),
-                  Text(
-                    percentage,
-                    style: TextStyle(
-                      height: 1.6,
-                      fontFamily: 'Inter',
-                      fontStyle: FontStyle.normal,
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.w500,
-                      color: color,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildTotalOrders() {
     return Expanded(
-      child: Card(
-        shape: RoundedRectangleBorder(
+      child: Container(
+        decoration: BoxDecoration(
+          color: ColorConstants.backgroundColor,
           borderRadius: BorderRadius.circular(16.0),
+          boxShadow: [
+            BoxShadow(
+              color:
+              Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+              spreadRadius: 0.0,
+              blurRadius: 10.0,
+              offset: const Offset(0.0, 4.0), // changes position of shadow
+            ),
+          ],
         ),
-        elevation: 6.0,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Positioned(
-                      child: SleekCircularSlider(
-                        min: 0.0,
-                        initialValue: 112,
-                        max: 140,
-                        appearance: CircularSliderAppearance(
-                            startAngle: 230.0,
-                            customWidths: CustomSliderWidths(
-                              progressBarWidth: 13.0,
-                              trackWidth: 13.0,
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    child: SleekCircularSlider(
+                      min: 0.0,
+                      initialValue: 112,
+                      max: 140,
+                      appearance: CircularSliderAppearance(
+                          startAngle: 230.0,
+                          customWidths: CustomSliderWidths(
+                            progressBarWidth: 13.0,
+                            trackWidth: 13.0,
+                          ),
+                          customColors: CustomSliderColors(
+                            dotColor: Colors.transparent,
+                            progressBarColor: const Color(0xFFFF754C),
+                            trackColor: const Color(0xFFF3F4F6),
+                          )),
+                    ),
+                  ),
+                  Positioned(
+                    left: 16.0,
+                    right: 16.0,
+                    top: 16.0,
+                    bottom: 16.0,
+                    child: SleekCircularSlider(
+                      min: 0.0,
+                      initialValue: 28,
+                      max: 140,
+                      appearance: CircularSliderAppearance(
+                          startAngle: 120.0,
+                          infoProperties: InfoProperties(
+                            mainLabelStyle: const TextStyle(
+                              fontSize: 32.0,
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FontStyle.normal,
+                              fontFamily: 'SVN-Gotham',
                             ),
-                            customColors: CustomSliderColors(
-                              dotColor: Colors.transparent,
-                              progressBarColor: const Color(0xFFFF754C),
-                              trackColor: const Color(0xFFF3F4F6),
-                            )),
+                            modifier: (value) {
+                              final roundedValue =
+                              value.ceil().toInt().toString();
+                              return roundedValue;
+                            },
+                          ),
+                          customWidths: CustomSliderWidths(
+                            progressBarWidth: 13.0,
+                            trackWidth: 13.0,
+                          ),
+                          customColors: CustomSliderColors(
+                            dotColor: Colors.transparent,
+                            progressBarColor: const Color(0xFF7FBA7A),
+                            trackColor: const Color(0xFFF3F4F6),
+                          )),
+                    ),
+                  ),
+                  Positioned(
+                    left: 29.0,
+                    right: 29.0,
+                    top: 29.0,
+                    bottom: 29.0,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: ColorConstants.backgroundColor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            '140',
+                            style: TextStyle(
+                              fontSize: 32.0,
+                              fontWeight: FontWeight.w500,
+                              color: ColorConstants.pinColor,
+                              fontStyle: FontStyle.normal,
+                              fontFamily: 'SVN-Gotham',
+                            ),
+                          ),
+                          Text(
+                            'Đơn',
+                            style: TextStyle(
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w500,
+                              color: ColorConstants.greyColor,
+                              fontFamily: 'Inter',
+                              fontStyle: FontStyle.normal,
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    Positioned(
-                      left: 16.0,
-                      right: 16.0,
-                      top: 16.0,
-                      bottom: 16.0,
-                      child: SleekCircularSlider(
-                        min: 0.0,
-                        initialValue: 28,
-                        max: 140,
-                        appearance: CircularSliderAppearance(
-                            startAngle: 120.0,
-                            infoProperties: InfoProperties(
-                              mainLabelStyle: const TextStyle(
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.normal,
-                                fontFamily: 'SVN-Gotham',
-                              ),
-                              modifier: (value) {
-                                final roundedValue =
-                                    value.ceil().toInt().toString();
-                                return roundedValue;
-                              },
-                            ),
-                            customWidths: CustomSliderWidths(
-                              progressBarWidth: 13.0,
-                              trackWidth: 13.0,
-                            ),
-                            customColors: CustomSliderColors(
-                              dotColor: Colors.transparent,
-                              progressBarColor: const Color(0xFF7FBA7A),
-                              trackColor: const Color(0xFFF3F4F6),
-                            )),
-                      ),
-                    ),
-                    Positioned(
-                      left: 29.0,
-                      right: 29.0,
-                      top: 29.0,
-                      bottom: 29.0,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: ColorConstants.backgroundColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
-                              '140',
-                              style: TextStyle(
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorConstants.pinColor,
-                                fontStyle: FontStyle.normal,
-                                fontFamily: 'SVN-Gotham',
-                              ),
-                            ),
-                            Text(
-                              'Đơn',
-                              style: TextStyle(
-                                fontSize: 13.0,
-                                fontWeight: FontWeight.w500,
-                                color: ColorConstants.greyColor,
-                                fontFamily: 'Inter',
-                                fontStyle: FontStyle.normal,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: 30.0,
-              ),
-              _buildRow(
-                'Nam 80%',
-                const Color(0xFFFF754C),
-              ),
-              const SizedBox(
-                height: 9.5,
-              ),
-              _buildRow(
-                'Nữ 20%',
-                const Color(0xFF7FBA7A),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            _buildRow(
+              'Nam 80%',
+              const Color(0xFFFF754C),
+            ),
+            const SizedBox(
+              height: 9.5,
+            ),
+            _buildRow(
+              'Nữ 20%',
+              const Color(0xFF7FBA7A),
+            ),
+          ],
         ),
       ),
     );
@@ -303,63 +317,69 @@ extension StatisticalPageChildren on StatisticalPage {
   }
 
   Widget _buildOrderChart() {
-    return Card(
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
+        color: ColorConstants.backgroundColor,
         borderRadius: BorderRadius.circular(20.0),
+        boxShadow: [
+          BoxShadow(
+            color:
+            Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+            spreadRadius: 0.0,
+            blurRadius: 10.0,
+            offset: const Offset(0.0, 4.0), // changes position of shadow
+          ),
+        ],
       ),
-      elevation: 6.0,
-      color: ColorConstants.backgroundColor,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
-                  'Biểu đồ số đơn hàng',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FontStyle.normal,
-                    fontFamily: 'Inter',
-                    color: ColorConstants.titleColor,
-                  ),
-                ),
-                Text(
-                  '160 đơn',
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    color: ColorConstants.secondaryColor,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 33.0,
-            ),
-            SizedBox(
-              height: 200.0,
-              child: BarChart(
-                BarChartData(
-                  barTouchData: barTouchData,
-                  titlesData: titlesData,
-                  borderData: borderData,
-                  barGroups: barGroups,
-                  alignment: BarChartAlignment.spaceAround,
-                  gridData: FlGridData(
-                    show: false,
-                  ),
-                  maxY: 150,
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text(
+                'Biểu đồ số đơn hàng',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.normal,
+                  fontFamily: 'Inter',
+                  color: ColorConstants.titleColor,
                 ),
               ),
+              Text(
+                '160 đơn',
+                style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  color: ColorConstants.secondaryColor,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 33.0,
+          ),
+          SizedBox(
+            height: 200.0,
+            child: BarChart(
+              BarChartData(
+                barTouchData: barTouchData,
+                titlesData: titlesData,
+                borderData: borderData,
+                barGroups: barGroups,
+                alignment: BarChartAlignment.spaceAround,
+                gridData: FlGridData(
+                  show: false,
+                ),
+                maxY: 150,
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
