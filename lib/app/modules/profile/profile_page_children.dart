@@ -174,36 +174,40 @@ extension ProfilePageChildren on ProfilePage {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Text(
-                '09',
-                style: TextStyle(
-                  fontFamily: 'SVN-Gotham',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 24.0,
-                  height: 1.3,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.titleColor,
+          Expanded(
+            child: Wrap(
+              direction: Axis.vertical,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: const [
+                Text(
+                  '09',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'SVN-Gotham',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 24.0,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.titleColor,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              Text(
-                'Năm kinh nghiệm',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12.0,
-                  height: 1.3,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.greyColor,
+                SizedBox(
+                  height: 6.0,
                 ),
-              ),
-            ],
+                Text(
+                  'Năm kinh nghiệm',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 12.0,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.greyColor,
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 26.25),
@@ -212,36 +216,39 @@ extension ProfilePageChildren on ProfilePage {
             width: 1.0,
             child: const SizedBox(),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Text(
-                '430',
-                style: TextStyle(
-                  fontFamily: 'SVN-Gotham',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 24.0,
-                  height: 1.3,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.titleColor,
+          Expanded(
+            child: Wrap(
+              direction: Axis.vertical,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: const [
+                Text(
+                  '430',
+                  style: TextStyle(
+                    fontFamily: 'SVN-Gotham',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 24.0,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.titleColor,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              Text(
-                'Lượt yêu thích',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12.0,
-                  height: 1.3,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.greyColor,
+                SizedBox(
+                  height: 6.0,
                 ),
-              ),
-            ],
+                Text(
+                  'Lượt yêu thích',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 12.0,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.greyColor,
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 26.25),
@@ -250,36 +257,39 @@ extension ProfilePageChildren on ProfilePage {
             width: 1.0,
             child: const SizedBox(),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Text(
-                '500',
-                style: TextStyle(
-                  fontFamily: 'SVN-Gotham',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 24.0,
-                  height: 1.3,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.titleColor,
+          Expanded(
+            child: Wrap(
+              direction: Axis.vertical,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: const [
+                Text(
+                  '500',
+                  style: TextStyle(
+                    fontFamily: 'SVN-Gotham',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 24.0,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.titleColor,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              Text(
-                'Lượt tư vấn',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12.0,
-                  height: 1.3,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.greyColor,
+                SizedBox(
+                  height: 6.0,
                 ),
-              ),
-            ],
+                Text(
+                  'Lượt tư vấn',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 12.0,
+                    height: 1.3,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.greyColor,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
