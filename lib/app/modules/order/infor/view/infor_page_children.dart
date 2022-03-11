@@ -108,7 +108,7 @@ extension InforPageChildren on InforPage {
                 fontStyle: FontStyle.normal,
                 height: 1.34,
                 fontSize: 13.0,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w700,
                 color: ColorConstants.mainTextColor,
               ),),
               Text('28/12/2022 | 14:33', style: TextStyle(
@@ -116,7 +116,7 @@ extension InforPageChildren on InforPage {
                 height: 1.5,
                 fontStyle: FontStyle.normal,
                 fontSize: 12.0,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w700,
                 color: ColorConstants.mainTextColor,
               ),),
             ],
@@ -347,6 +347,7 @@ extension InforPageChildren on InforPage {
         Text(
           content,
           style: const TextStyle(
+            fontFamily: 'Mulish',
             fontSize: 12.0,
             fontWeight: FontWeight.w700,
             color: ColorConstants.greyColor,

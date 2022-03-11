@@ -95,6 +95,9 @@ flutter:
       fonts:
         - asset: assets/fonts/inter_medium.ttf
         - asset: assets/fonts/inter_semibold.ttf
+    - family: Mulish
+      fonts:
+        - asset: assets/fonts/mulish_bold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

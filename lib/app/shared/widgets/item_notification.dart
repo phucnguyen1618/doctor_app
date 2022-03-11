@@ -96,7 +96,7 @@ class ItemNotification extends StatelessWidget {
                               fontSize: 10.0,
                               fontFamily: 'Inter',
                               fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w700,
                               color: controller.notificationList[index].isSelected
                                   ? Colors.white
                                   : Colors.black,

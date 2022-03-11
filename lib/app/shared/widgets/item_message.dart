@@ -29,7 +29,7 @@ class ItemMessage extends StatelessWidget {
                   message.nameSender,
                   style: const TextStyle(
                     fontSize: 13.0,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w700,
                     color: ColorConstants.titleColor,
                     fontStyle: FontStyle.normal,
                     fontFamily: 'Inter',
