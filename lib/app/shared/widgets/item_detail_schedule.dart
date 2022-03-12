@@ -22,7 +22,7 @@ class ItemDetailSchedule extends StatelessWidget {
         controller.onItemScheduleClicked();
       },
       child: Container(
-          margin: const EdgeInsets.only(bottom: 12.0),
+          margin: const EdgeInsets.only(bottom: 8.0),
           width: Get.width,
           decoration: BoxDecoration(
             color: backgroundColor,
