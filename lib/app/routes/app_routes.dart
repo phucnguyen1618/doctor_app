@@ -1,6 +1,6 @@
 
 abstract class Routes {
-  static const String SPLASH = '/splash';
+  static const String SPLASH = '/';
   static const String WELCOME = '/welcome';
   static const String LOGIN = '/login';
   static const String CREATEACCOUNT = '/create_account';
