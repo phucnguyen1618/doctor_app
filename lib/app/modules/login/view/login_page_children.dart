@@ -176,8 +176,8 @@ extension LoginPageChildren on LoginPage {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 'Chưa có tài khoản?',
                 style: TextStyle(
                   fontFamily: 'Inter',
@@ -187,17 +187,22 @@ extension LoginPageChildren on LoginPage {
                   color: ColorConstants.greyColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 12.0,
               ),
-              Text(
-                'Đăng ký ngay',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.purpleColor,
+              InkWell(
+                onTap: () {
+                  controller.handleEventSignUpPressed();
+                },
+                child: const Text(
+                  'Đăng ký ngay',
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.purpleColor,
+                  ),
                 ),
               ),
             ],

@@ -11,24 +11,26 @@ class ItemGroupDoctor extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.find<GroupController>();
     return InkWell(
-      onTap: (){
-        controller.onItemGroupDoctorClicked();
-      },
-      child: Container(
-        width: 46.0,
-        height: 46.0,
-        margin: const EdgeInsets.only(right: 15.0),
-        padding: const EdgeInsets.all(3.0),
-        decoration: BoxDecoration(
-          color: const Color(0xFFC7DCFF),
-          shape: BoxShape.circle,
-          border: Border.all(color: Colors.white, width: 2.0),
-        ),
-        child: Image.asset(
-          avatar,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
+        onTap: () {
+          controller.onItemGroupDoctorClicked();
+        },
+        child: Container(
+          padding: const EdgeInsets.all(1.5),
+          margin: const EdgeInsets.only(right: 12.0),
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color(0xFFC7DCFF),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white, width: 3.0),
+            ),
+            child: Image.asset(
+              avatar,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),);
   }
 }

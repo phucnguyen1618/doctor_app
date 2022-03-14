@@ -24,7 +24,7 @@ class EditProfilePage extends GetView<EditProfileController> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 34.0, left: 20.0, right: 20.0),
-            child: _buildContent(context),
+            child: _buildContent(),
           ),
         ),
       ),

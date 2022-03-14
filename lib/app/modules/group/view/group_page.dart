@@ -23,6 +23,7 @@ class GroupPage extends GetView<GroupController> {
             children: [
               _buildGroupDoctor(),
               _buildGeneral(),
+              const SizedBox(height: 20.0,),
               _buildListMessages(),
             ],
           ),

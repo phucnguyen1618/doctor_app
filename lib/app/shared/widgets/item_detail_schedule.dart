@@ -57,6 +57,7 @@ class ItemDetailSchedule extends StatelessWidget {
                             color: ColorConstants.pinColor,
                           ),
                         ),
+                        const SizedBox(height: 6.0,),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

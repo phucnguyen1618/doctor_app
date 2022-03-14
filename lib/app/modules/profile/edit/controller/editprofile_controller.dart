@@ -3,6 +3,14 @@ import 'package:get/get.dart';
 
 class EditProfileController extends BaseController {
 
+  var isDeletedItem = false.obs;
+
+  handleEventDeleteButtonPressed() {
+    isDeletedItem.value = !isDeletedItem.value;
+  }
+
+
+
   @override
   onBack() {
     Get.back();

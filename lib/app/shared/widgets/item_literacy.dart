@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../assets/constants/color_constants.dart';
@@ -9,35 +10,57 @@ class ItemLiteracy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(228, 228, 228, 0.5),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          padding: const EdgeInsets.symmetric(
-              horizontal: 23.0, vertical: 18.0),
-          child: const Text(
-            "Tốt nghiệp Thạc sĩ tại Đại học Y Hà Nội",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontFamily: 'Inter',
-              height: 1.43,
-              fontStyle: FontStyle.normal,
-              fontSize: 14.0,
-              fontWeight: FontWeight.w600,
-              color: ColorConstants.titleColor,
+    return Slidable(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: const Color.fromRGBO(228, 228, 228, 0.5),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+            child: const Text(
+              "Tốt nghiệp Thạc sĩ tại Đại học Y Hà Nội",
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontFamily: 'Inter',
+                height: 1.43,
+                fontStyle: FontStyle.normal,
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+                color: ColorConstants.titleColor,
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: 16.0,
-        ),
-        _buildRowValue(),
-      ],
+          const SizedBox(
+            height: 16.0,
+          ),
+          _buildRowValue(),
+        ],
+      ),
+      endActionPane: ActionPane(
+        motion: const ScrollMotion(),
+        children: [
+          SlidableAction(
+            onPressed: (context) {},
+            backgroundColor: const Color(0xFFFF754C).withOpacity(0.2),
+            foregroundColor: Colors.white,
+            icon: Container(
+              width: 56.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: SvgPicture.asset(
+                IconConstants.trash,
+                color: const Color(0xFFFF754C),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -48,7 +71,7 @@ class ItemLiteracy extends StatelessWidget {
         Expanded(
           child: Container(
             padding:
-            const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               color: const Color.fromRGBO(228, 228, 228, 0.5),
@@ -89,7 +112,7 @@ class ItemLiteracy extends StatelessWidget {
           child: Container(
             height: 56.0,
             padding:
-            const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               color: const Color.fromRGBO(228, 228, 228, 0.5),

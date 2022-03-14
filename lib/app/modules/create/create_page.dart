@@ -1,7 +1,5 @@
-import 'package:doctor_app/app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-
-import '../../core/assets/constants/image_constants.dart';
+import '../../resource/assets_constant/image_constants.dart';
 
 class CreatePage extends StatelessWidget {
   const CreatePage({Key? key}) : super(key: key);
@@ -34,13 +32,13 @@ class CreatePage extends StatelessWidget {
             const SizedBox(
               height: 39.5,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 29.0, right: 29.0),
-              child: CustomButton(
-                content: 'Continue',
-                callback: () {},
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 29.0, right: 29.0),
+            //   child: CustomButton(
+            //     content: 'Continue',
+            //     callback: () {},
+            //   ),
+            // ),
             const SizedBox(
               height: 24.0,
             ),
@@ -81,7 +79,7 @@ class CreatePage extends StatelessWidget {
       child: Stack(
         children: [
           Image.asset(
-            ImageConstants.createImage,
+            ImageConstants.createAccount,
           ),
         ],
       ),

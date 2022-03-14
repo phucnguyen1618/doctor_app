@@ -1,7 +1,6 @@
 part of 'group_page.dart';
 
 extension GroupPageChildren on GroupPage {
-
   Widget _buildGroupDoctor() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,14 +53,26 @@ extension GroupPageChildren on GroupPage {
           itemCount: controller.messageList.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return ItemMessage(message: controller.messageList[index]);
+            return index >= 0
+                ? Column(
+                    children: [
+                      ItemMessage(message: controller.messageList[index]),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: Divider(
+                          color: ColorConstants.dividerColor,
+                        ),
+                      ),
+                    ],
+                  )
+                : ItemMessage(message: controller.messageList[index]);
           },
         ),
       ],
     );
   }
 
-  Widget _buildGeneral(){
+  Widget _buildGeneral() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -81,7 +92,19 @@ extension GroupPageChildren on GroupPage {
           itemCount: 1,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return ItemMessage(message: controller.messageList[index]);
+            return index == 0
+                ? ItemMessage(message: controller.messageList[index])
+                : Column(
+                    children: [
+                      ItemMessage(message: controller.messageList[index]),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: Divider(
+                          color: ColorConstants.dividerColor,
+                        ),
+                      ),
+                    ],
+                  );
           },
         ),
       ],

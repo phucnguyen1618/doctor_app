@@ -9,9 +9,9 @@ class ItemAddDoctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 15.0),
-      width: 46.0,
-      height: 46.0,
+      margin: const EdgeInsets.only(right: 12.0),
+      width: 52.0,
+      height: 52.0,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: ColorConstants.secondaryColor,

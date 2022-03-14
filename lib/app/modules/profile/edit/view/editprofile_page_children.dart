@@ -52,7 +52,7 @@ extension EditProfilePageChildren on EditProfilePage {
     );
   }
 
-  Widget _buildContent(BuildContext context) {
+  Widget _buildContent() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
