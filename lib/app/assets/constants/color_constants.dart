@@ -23,4 +23,6 @@ class ColorConstants {
   static const Color selectedColor = Color(0xFF6C5DD3);
   static const Color dataRangeColor = Color(0xFF2BA8C4);
   static const Color orangeColor = Color(0xFFFF754C);
+  static const Color trackColor = Color(0xFFF3F4F6);
+  static const Color progressBarColor = ColorConstants.orangeColor;
 }

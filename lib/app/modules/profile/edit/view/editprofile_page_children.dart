@@ -257,7 +257,33 @@ extension EditProfilePageChildren on EditProfilePage {
         const SizedBox(
           height: 20.0,
         ),
-        _buildRowEditAndDelete(),
+        Obx(
+          () => controller.isDeletedItemLiteracy.value
+              ? Container(
+                  width: double.infinity,
+                  height: 56.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: const Color(0xFF505D7C).withOpacity(0.2),
+                  ),
+                  child: MaterialButton(
+                    onPressed: () {
+                      controller.handleEventCancelDeleteItemLiteracy();
+                    },
+                    child: const Text(
+                      'Hủy',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF505D7C),
+                      ),
+                    ),
+                  ),
+                )
+              : _buildRowEditAndDelete(() {
+                  controller.handleEventDeleteLiteracyButtonPressed();
+                }),
+        )
       ],
     );
   }
@@ -292,12 +318,38 @@ extension EditProfilePageChildren on EditProfilePage {
         const SizedBox(
           height: 20.0,
         ),
-        _buildRowEditAndDelete(),
+        Obx(
+          () => controller.isDeletedItemWorkPlace.value
+              ? Container(
+                  width: double.infinity,
+                  height: 56.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: const Color(0xFF505D7C).withOpacity(0.2),
+                  ),
+                  child: MaterialButton(
+                    onPressed: () {
+                      controller.handleEventCancelDeleteItemWorkPlace();
+                    },
+                    child: const Text(
+                      'Hủy',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF505D7C),
+                      ),
+                    ),
+                  ),
+                )
+              : _buildRowEditAndDelete(() {
+                  controller.handleEventDeleteWorkPlaceButtonPressed();
+                }),
+        ),
       ],
     );
   }
 
-  Widget _buildRowEditAndDelete() {
+  Widget _buildRowEditAndDelete(VoidCallback callback) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -343,18 +395,21 @@ extension EditProfilePageChildren on EditProfilePage {
         const SizedBox(
           width: 10.0,
         ),
-        Expanded(
-          child: Container(
-            height: 56.0,
-            padding:
-                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-              color: const Color(0xFFFF754C).withOpacity(0.2),
-            ),
-            child: SvgPicture.asset(
-              IconConstants.trash,
-              color: const Color(0xFFFF754C),
+        InkWell(
+          onTap: callback,
+          child: Expanded(
+            child: Container(
+              height: 56.0,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: const Color(0xFFFF754C).withOpacity(0.2),
+              ),
+              child: SvgPicture.asset(
+                IconConstants.trash,
+                color: const Color(0xFFFF754C),
+              ),
             ),
           ),
         ),

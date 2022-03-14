@@ -83,7 +83,7 @@ class OrderDetailPage extends GetView<OrderDetailController> {
             ],
           ),
         ),
-        bottomSheet: SafeArea(
+        bottomNavigationBar: SafeArea(
           child: _buildFooter(),
         ),
       ),

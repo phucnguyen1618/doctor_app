@@ -76,8 +76,7 @@ extension StatisticalPageChildren on StatisticalPage {
         borderRadius: BorderRadius.circular(16.0),
         boxShadow: [
           BoxShadow(
-            color:
-            Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+            color: Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
             spreadRadius: 0.0,
             blurRadius: 10.0,
             offset: const Offset(0.0, 4.0), // changes position of shadow
@@ -158,8 +157,7 @@ extension StatisticalPageChildren on StatisticalPage {
           borderRadius: BorderRadius.circular(16.0),
           boxShadow: [
             BoxShadow(
-              color:
-              Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+              color: Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
               spreadRadius: 0.0,
               blurRadius: 10.0,
               offset: const Offset(0.0, 4.0), // changes position of shadow
@@ -171,101 +169,84 @@ extension StatisticalPageChildren on StatisticalPage {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Positioned(
-                    child: SleekCircularSlider(
-                      min: 0.0,
-                      initialValue: 112,
-                      max: 140,
-                      appearance: CircularSliderAppearance(
-                          startAngle: 230.0,
-                          customWidths: CustomSliderWidths(
-                            progressBarWidth: 13.0,
-                            trackWidth: 13.0,
-                          ),
-                          customColors: CustomSliderColors(
-                            dotColor: Colors.transparent,
-                            progressBarColor: const Color(0xFFFF754C),
-                            trackColor: const Color(0xFFF3F4F6),
-                          )),
-                    ),
-                  ),
-                  Positioned(
-                    left: 16.0,
-                    right: 16.0,
-                    top: 16.0,
-                    bottom: 16.0,
-                    child: SleekCircularSlider(
-                      min: 0.0,
-                      initialValue: 28,
-                      max: 140,
-                      appearance: CircularSliderAppearance(
-                          startAngle: 120.0,
-                          infoProperties: InfoProperties(
-                            mainLabelStyle: const TextStyle(
-                              fontSize: 32.0,
-                              fontWeight: FontWeight.w500,
-                              fontStyle: FontStyle.normal,
-                              fontFamily: 'SVN-Gotham',
+              child: SleekCircularSlider(
+                appearance: CircularSliderAppearance(
+                    customWidths: CustomSliderWidths(
+                        trackWidth: 14, progressBarWidth: 14, shadowWidth: 20),
+                    customColors: CustomSliderColors(
+                        dotColor: Colors.transparent,
+                        trackColor: ColorConstants.trackColor,
+                        progressBarColor: ColorConstants.progressBarColor,
+                        shadowColor: Colors.white,
+                        shadowStep: 8.0,
+                        shadowMaxOpacity: 0.6),
+                    startAngle: 270,
+                    angleRange: 360,
+                    size: 146.0,
+                    animationEnabled: false),
+                min: 0,
+                max: 100,
+                initialValue: 80,
+                innerWidget: (double value) {
+                  return Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: SleekCircularSlider(
+                        appearance: CircularSliderAppearance(
+                            customWidths: CustomSliderWidths(
+                                trackWidth: 14,
+                                progressBarWidth: 14,
+                                shadowWidth: 20),
+                            customColors: CustomSliderColors(
+                                dotColor: Colors.transparent,
+                                trackColor: ColorConstants.trackColor,
+                                progressBarColor: ColorConstants.accentColor,
+                                shadowColor: Colors.white,
+                                shadowStep: 8.0,
+                                shadowMaxOpacity: 0.6),
+                            startAngle: 100,
+                            angleRange: 360,
+                            size: 145.0,
+                            animationEnabled: false),
+                        min: 0,
+                        max: 100,
+                        initialValue: 20,
+                        innerWidget: (value) {
+                          return Align(
+                            alignment: Alignment.center,
+                            child: Center(
+                              child: RichText(
+                                textAlign: TextAlign.center,
+                                text: const TextSpan(
+                                  text: '140\n',
+                                  style: TextStyle(
+                                      fontStyle: FontStyle.normal,
+                                      fontFamily: 'SVN-Gotham',
+                                      color: ColorConstants.pinColor,
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500),
+                                  children: [
+                                    TextSpan(
+                                      text: 'Đơn',
+                                      style: TextStyle(
+                                        fontSize: 13.0,
+                                        fontStyle: FontStyle.normal,
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w500,
+                                        color: ColorConstants.greyColor,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
-                            modifier: (value) {
-                              final roundedValue =
-                              value.ceil().toInt().toString();
-                              return roundedValue;
-                            },
-                          ),
-                          customWidths: CustomSliderWidths(
-                            progressBarWidth: 13.0,
-                            trackWidth: 13.0,
-                          ),
-                          customColors: CustomSliderColors(
-                            dotColor: Colors.transparent,
-                            progressBarColor: const Color(0xFF7FBA7A),
-                            trackColor: const Color(0xFFF3F4F6),
-                          )),
-                    ),
-                  ),
-                  Positioned(
-                    left: 29.0,
-                    right: 29.0,
-                    top: 29.0,
-                    bottom: 29.0,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: ColorConstants.backgroundColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            '140',
-                            style: TextStyle(
-                              fontSize: 32.0,
-                              fontWeight: FontWeight.w500,
-                              color: ColorConstants.pinColor,
-                              fontStyle: FontStyle.normal,
-                              fontFamily: 'SVN-Gotham',
-                            ),
-                          ),
-                          Text(
-                            'Đơn',
-                            style: TextStyle(
-                              fontSize: 13.0,
-                              fontWeight: FontWeight.w500,
-                              color: ColorConstants.greyColor,
-                              fontFamily: 'Inter',
-                              fontStyle: FontStyle.normal,
-                            ),
-                          )
-                        ],
+                          );
+                        },
                       ),
                     ),
-                  ),
-                ],
+                  );
+                },
               ),
             ),
             const SizedBox(
@@ -323,8 +304,7 @@ extension StatisticalPageChildren on StatisticalPage {
         borderRadius: BorderRadius.circular(20.0),
         boxShadow: [
           BoxShadow(
-            color:
-            Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+            color: Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
             spreadRadius: 0.0,
             blurRadius: 10.0,
             offset: const Offset(0.0, 4.0), // changes position of shadow
