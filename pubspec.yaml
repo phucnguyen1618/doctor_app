@@ -45,8 +45,6 @@ dependencies:
   flutter_local_notifications: ^9.4.0
   flutter_slidable:
     path: library/flutter_slidable/flutter_slidable
-  draggable_home:
-    path: library/draggable/draggable_home
 
 dev_dependencies:
   flutter_test:

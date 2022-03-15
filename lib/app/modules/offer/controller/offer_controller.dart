@@ -12,6 +12,9 @@ class OfferController extends GetxController {
     ImageConstants.image,
   ];
 
+  var xOffset = 0.0.obs;
+  var yOffset = 0.0.obs;
+
   var symptoms = [
     'Đau họng',
     'Sốt',
@@ -19,6 +22,11 @@ class OfferController extends GetxController {
     'Ho',
     'Khó thở',
   ];
+
+  moveContent(double x, double y) {
+    xOffset.value = x;
+    yOffset.value = y;
+  }
 
   handleEventAcceptButtonPressed() {
     Get.toNamed(Routes.ORDERDETAIL);
