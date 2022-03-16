@@ -1,14 +1,12 @@
 import 'dart:developer';
 
 import 'package:doctor_app/app/base/base_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../routes/app_routes.dart';
 
 class VideoCallController extends BaseController {
   var isEnabled = false.obs;
-  final keyText = GlobalKey();
   var xOffset = 0.0.obs;
   var yOffset = 0.0.obs;
 

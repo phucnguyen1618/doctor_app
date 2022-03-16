@@ -53,6 +53,7 @@ extension VideoCallPageChildren on VideoCallPage {
 
   Widget _buildContent() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Visibility(
           visible: controller.isEnabled.value ? false : true,
