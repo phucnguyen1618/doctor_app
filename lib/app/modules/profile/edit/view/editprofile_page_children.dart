@@ -57,7 +57,7 @@ extension EditProfilePageChildren on EditProfilePage {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Center(
-          child: AvatarWidget(
+          child: DoctorAvatarWidget(
             isOnline: false,
           ),
         ),

@@ -40,7 +40,11 @@ extension OfferPageChildren on OfferPage {
       headerWidget: _buildHeader(),
       body: [
         Padding(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0,),
+          padding: const EdgeInsets.only(
+            left: 20.0,
+            right: 20.0,
+            bottom: 20.0,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -176,10 +180,9 @@ extension OfferPageChildren on OfferPage {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset(
-          ImageConstants.avatar,
-          width: 50.0,
-          height: 50.0,
+        const PatientAvatarWidget(
+          avatar: ImageConstants.patient,
+          isOnline: true,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 12.0),

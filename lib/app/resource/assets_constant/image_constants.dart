@@ -23,4 +23,5 @@ class ImageConstants {
   static const String image7 = AssetsConstants.imageConstants + 'image7.png';
   static const String image8 = AssetsConstants.imageConstants + 'image8.png';
   static const String image9 = AssetsConstants.imageConstants + 'image9.png';
+  static const String patient = AssetsConstants.imageConstants + 'patient.png';
 }

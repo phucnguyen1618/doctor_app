@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 import '../../../assets/constants/color_constants.dart';
 import '../../../resource/assets_constant/icon_constants.dart';
-import '../../../shared/widgets/avatar_widget.dart';
+import '../../../shared/widgets/doctor_avatar_widget.dart';
 
 part 'setting_page_children.dart';
 
@@ -25,7 +25,7 @@ class SettingPage extends GetView<SettingController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const AvatarWidget(
+              const DoctorAvatarWidget(
                 isOnline: true,
               ),
               const SizedBox(

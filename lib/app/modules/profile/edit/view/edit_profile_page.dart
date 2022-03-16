@@ -1,7 +1,7 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/profile/edit/controller/editprofile_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
-import 'package:doctor_app/app/shared/widgets/avatar_widget.dart';
+import 'package:doctor_app/app/shared/widgets/doctor_avatar_widget.dart';
 import 'package:doctor_app/app/shared/widgets/item_workplace.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

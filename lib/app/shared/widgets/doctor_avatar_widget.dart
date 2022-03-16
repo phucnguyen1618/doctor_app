@@ -2,8 +2,8 @@ import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/resource/assets_constant/image_constants.dart';
 import 'package:flutter/material.dart';
 
-class AvatarWidget extends StatelessWidget {
-  const AvatarWidget({
+class DoctorAvatarWidget extends StatelessWidget {
+  const DoctorAvatarWidget({
     Key? key,
     required this.isOnline,
   }) : super(key: key);

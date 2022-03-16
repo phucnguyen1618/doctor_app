@@ -53,7 +53,7 @@ extension ProfilePageChildren on ProfilePage {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const AvatarWidget(
+          const DoctorAvatarWidget(
             isOnline: true,
           ),
           const SizedBox(height: 24.0),

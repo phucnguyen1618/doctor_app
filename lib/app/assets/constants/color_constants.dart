@@ -25,4 +25,5 @@ class ColorConstants {
   static const Color orangeColor = Color(0xFFFF754C);
   static const Color trackColor = Color(0xFFF3F4F6);
   static const Color progressBarColor = ColorConstants.orangeColor;
+  static const Color semanticColor = Color(0xFF22C55E);
 }
