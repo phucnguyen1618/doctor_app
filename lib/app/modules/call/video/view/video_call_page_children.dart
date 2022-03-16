@@ -52,49 +52,45 @@ extension VideoCallPageChildren on VideoCallPage {
   }
 
   Widget _buildContent() {
-    return Obx(
-      () => Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Visibility(
-              visible: controller.isEnabled.value ? false : true,
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: 137.0,
-                    height: 137.0,
-                    child: Image.asset(ImageConstants.channel),
-                  ),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
-                  const Text(
-                    'Thị Bách',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+    return Column(
+      children: [
+        Visibility(
+          visible: controller.isEnabled.value ? false : true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 137.0,
+                height: 137.0,
+                child: Image.asset(ImageConstants.channel),
               ),
-            ),
-            const SizedBox(
-              height: 8.0,
-            ),
-            Text(
-              controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
-              style: const TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
+              const SizedBox(
+                height: 16.0,
               ),
-            ),
-          ],
+              const Text(
+                'Thị Bách',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
+        const SizedBox(
+          height: 8.0,
+        ),
+        Text(
+          controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
+          style: const TextStyle(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
+        ),
+      ],
     );
   }
 

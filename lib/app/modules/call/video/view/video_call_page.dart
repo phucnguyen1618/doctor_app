@@ -44,12 +44,15 @@ class VideoCallPage extends GetView<VideoCallController> {
               right: 0.0,
               child: _buildHeader(),
             ),
-            Positioned(
-              left: 0.0,
-              right: 0.0,
-              top: 0.0,
-              bottom: 0.0,
-              child: _buildContent(),
+            Obx(
+              () => Container(
+                transform: Matrix4.translationValues(
+                  controller.xOffset.value,
+                  controller.yOffset.value,
+                  0.0,
+                ),
+                child: _buildContent(),
+              ),
             ),
             Positioned(
               bottom: 0.0,
