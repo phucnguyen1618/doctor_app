@@ -43,6 +43,8 @@ dependencies:
   sleek_circular_slider: ^2.0.1
   fl_chart: ^0.45.1
   flutter_local_notifications: ^9.4.0
+  draggable_home:
+    path: library/draggable_home/draggable_home
   flutter_slidable:
     path: library/flutter_slidable/flutter_slidable
 

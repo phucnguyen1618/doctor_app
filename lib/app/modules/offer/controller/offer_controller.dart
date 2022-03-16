@@ -3,7 +3,6 @@ import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class OfferController extends GetxController {
-
   var imageList = [
     ImageConstants.image,
     ImageConstants.image,
@@ -14,6 +13,7 @@ class OfferController extends GetxController {
 
   var xOffset = 0.0.obs;
   var yOffset = 0.0.obs;
+  var isVisibleText = true.obs;
 
   var symptoms = [
     'Đau họng',
@@ -23,9 +23,8 @@ class OfferController extends GetxController {
     'Khó thở',
   ];
 
-  moveContent(double x, double y) {
-    xOffset.value = x;
-    yOffset.value = y;
+  animation() {
+    isVisibleText.value = false;
   }
 
   handleEventAcceptButtonPressed() {

@@ -2,70 +2,81 @@ part of 'offer_page.dart';
 
 extension OfferPageChildren on OfferPage {
   Widget _buildContent() {
-    return Stack(
-      children: [
-        _buildHeader(),
-        Positioned(
-          bottom: 0.0,
-          left: 0.0,
-          right: 0.0,
-          child: InkWell(
-            onTap: (){
-              controller.moveContent(0, -139.0);
-            },
-            child: Obx(() => Container(
-              transform: Matrix4.translationValues(controller.xOffset.value, controller.yOffset.value, 0.0),
-              margin: const EdgeInsets.only(top: 34.0),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(24.0),
-                    topRight: Radius.circular(24.0)),
+    return DraggableHome(
+      leading: const SizedBox(),
+      centerTitle: false,
+      backgroundColor: ColorConstants.backgroundColor,
+      alwaysShowLeadingAndAction: false,
+      headerExpandedHeight: 0.3,
+      title: const ListTile(
+        contentPadding: EdgeInsets.only(bottom: 24.0, top: 22.0),
+        title: Padding(
+          padding: EdgeInsets.only(bottom: 6.0),
+          child: Text(
+            'Hôm nay, ngày 22/02/2022',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              fontSize: 13.0,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        subtitle: Padding(
+          padding: EdgeInsets.only(top: 6.0),
+          child: Text(
+            '16:00 - Gọi lại trong 15 phút nữa',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+      headerWidget: _buildHeader(),
+      body: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0,),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Thông tin',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w600,
+                  color: ColorConstants.titleColor,
+                ),
               ),
-              padding: const EdgeInsets.only(
-                left: 20.0,
-                right: 20.0,
-                bottom: 20.0,
-                top: 20.0,
+              Container(
+                width: 65.0,
+                height: 2.0,
+                margin:
+                    const EdgeInsets.only(right: 10.0, top: 8.0, bottom: 20.0),
+                decoration: const BoxDecoration(
+                  color: ColorConstants.primaryColor,
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Thông tin',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w600,
-                      color: ColorConstants.titleColor,
-                    ),
-                  ),
-                  Container(
-                    width: 65.0,
-                    height: 2.0,
-                    margin: const EdgeInsets.only(
-                        right: 10.0, top: 8.0, bottom: 20.0),
-                    decoration: const BoxDecoration(
-                      color: ColorConstants.primaryColor,
-                    ),
-                  ),
-                  _buildUserInfor(),
-                  const SizedBox(
-                    height: 27.0,
-                  ),
-                  _buildSymptom(),
-                  const SizedBox(
-                    height: 24.0,
-                  ),
-                  _buildQuestionToConsult(),
-                  const SizedBox(
-                    height: 24.0,
-                  ),
-                  _buildImageList(),
-                ],
+              _buildUserInfor(),
+              const SizedBox(
+                height: 27.0,
               ),
-            ),),
+              _buildSymptom(),
+              const SizedBox(
+                height: 24.0,
+              ),
+              _buildQuestionToConsult(),
+              const SizedBox(
+                height: 24.0,
+              ),
+              _buildImageList(),
+            ],
           ),
         ),
       ],

@@ -7,6 +7,7 @@ import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:doctor_app/app/resource/assets_constant/image_constants.dart';
 import 'package:doctor_app/app/shared/widgets/item_question.dart';
 import 'package:doctor_app/app/shared/widgets/item_symptom.dart';
+import 'package:draggable_home/draggable_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class OfferPage extends GetView<OfferController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.backgroundColor,
+      backgroundColor: ColorConstants.primaryColor,
       resizeToAvoidBottomInset: false,
       body: _buildContent(),
       bottomSheet: SafeArea(
