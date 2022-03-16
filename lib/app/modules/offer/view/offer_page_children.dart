@@ -183,6 +183,7 @@ extension OfferPageChildren on OfferPage {
         const PatientAvatarWidget(
           avatar: ImageConstants.patient,
           isOnline: true,
+          strokeColor: Colors.white,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 12.0),

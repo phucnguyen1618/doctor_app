@@ -9,6 +9,7 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
   var isClickedLineUp =  false.obs;
   var currentPage = 0.obs;
   TabController? tabController;
+  var isUnreadNotification = true.obs;
 
   @override
   void onInit() {
@@ -16,8 +17,8 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
     tabController = TabController(length: 3, vsync: this);
   }
 
-  handleEventNotificationButtonPressed() {
-    Get.toNamed(Routes.NOTIFICATION);
+  handleEventNotificationButtonPressed() async {
+    isUnreadNotification.value = await Get.toNamed(Routes.NOTIFICATION);
   }
 
   handleEventAvatarPressed() {

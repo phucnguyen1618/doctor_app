@@ -1,7 +1,6 @@
 part of 'notification_page.dart';
 
 extension NotificationPageChildren on NotificationPage {
-
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
       elevation: 0.0,
@@ -12,7 +11,7 @@ extension NotificationPageChildren on NotificationPage {
       backgroundColor: ColorConstants.primaryColor,
       centerTitle: true,
       leading: InkWell(
-        onTap: (){
+        onTap: () {
           controller.onBack();
         },
         child: SvgPicture.asset(
@@ -39,26 +38,32 @@ extension NotificationPageChildren on NotificationPage {
           const SizedBox(
             width: 4.0,
           ),
-          Container(
-            width: 24.0,
-            height: 24.0,
-            decoration: BoxDecoration(
-              color: Colors.deepOrange,
-              borderRadius: BorderRadius.circular(12.0),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              "${notifications.length}",
-              style: const TextStyle(
-                fontFamily: 'Inter',
-                height: 1.3,
-                fontStyle: FontStyle.normal,
-                fontSize: 12.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
+          Obx(
+            () => Visibility(
+              visible:
+                  controller.totalNewNotification.value == 0 ? false : true,
+              child: Container(
+                width: 24.0,
+                height: 24.0,
+                decoration: BoxDecoration(
+                  color: Colors.deepOrange,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  "${controller.totalNewNotification}",
+                  style: const TextStyle(
+                    fontFamily: 'Inter',
+                    height: 1.3,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
-          )
+          ),
         ],
       ),
       actions: [

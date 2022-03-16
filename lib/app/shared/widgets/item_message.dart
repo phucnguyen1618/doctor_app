@@ -60,7 +60,7 @@ class ItemMessage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              width: 240.0,
+              width: 260.0,
               child: Text(
                 message.content,
                 maxLines: 1,
@@ -75,6 +75,7 @@ class ItemMessage extends StatelessWidget {
                 ),
               ),
             ),
+            SvgPicture.asset(IconConstants.checkAllIcon),
             Text(
               message.time,
               style: const TextStyle(

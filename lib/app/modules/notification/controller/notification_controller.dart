@@ -1,13 +1,12 @@
-import 'dart:developer';
-
 import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/models/app_notification.dart';
 import 'package:get/get.dart';
 
 class NotificationController extends BaseController {
-
   var isLoading = false;
   var notificationList = notifications.obs;
+  int preIndex = 0;
+  var totalNewNotification = 2.obs;
 
   onLoading() {
     isLoading = true;
@@ -16,21 +15,32 @@ class NotificationController extends BaseController {
 
   onEndLoading() {
     isLoading = false;
-    for(var i = 0; i < notificationList.length; i++){
+    for (var i = 0; i < notificationList.length; i++) {
       notificationList[i].isRead = true;
     }
+    totalNewNotification.value = 0;
     update();
   }
 
   @override
   onBack() {
-    Get.back();
+    bool isUnread = isUnreadNotifications();
+    Get.back(result: isUnread);
   }
 
-  onItemNotificationClicked(int index) {
-    log('Value isSelected: ${notificationList[index].isSelected}');
-    notificationList[index].isSelected = !notificationList[index].isSelected;
-    notificationList[index].isRead = true;
+  onItemNotificationClicked(int currentIndex) {
+    notificationList[preIndex].isSelected = false;
+    notificationList[currentIndex].isSelected =
+        !notificationList[preIndex].isSelected;
+    preIndex = currentIndex;
+    if (!notificationList[currentIndex].isRead) {
+      notificationList[currentIndex].isRead = true;
+      totalNewNotification.value--;
+    }
     update();
+  }
+
+  bool isUnreadNotifications() {
+    return totalNewNotification.value == 0 ? false : true;
   }
 }

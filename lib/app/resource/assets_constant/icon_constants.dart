@@ -56,4 +56,5 @@ class IconConstants {
   static const String groupIcon = AssetsConstants.iconConstants + 'group.svg';
   static const String lineUp = AssetsConstants.iconConstants + 'line_up.svg';
   static const String addIcon = AssetsConstants.iconConstants + 'add_square_fill.svg';
+  static const String checkAllIcon = AssetsConstants.iconConstants + 'check_all.svg';
 }

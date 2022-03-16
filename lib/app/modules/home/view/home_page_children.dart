@@ -21,7 +21,11 @@ extension HomePageChildren on HomePage {
                 onTap: () {
                   controller.handleEventAvatarPressed();
                 },
-                child: Image.asset(ImageConstants.avatar),
+                child: const PatientAvatarWidget(
+                  avatar: ImageConstants.patient,
+                  isOnline: true,
+                  strokeColor: ColorConstants.primaryColor,
+                ),
               ),
               title: const Text(
                 'Xin chào!',
@@ -39,11 +43,13 @@ extension HomePageChildren on HomePage {
                   color: Colors.white,
                 ),
               ),
-              trailing: NotificationWidget(
-                callback: () {
-                  controller.handleEventNotificationButtonPressed();
-                },
-                isNotification: true,
+              trailing: Obx(
+                () => NotificationWidget(
+                  callback: () {
+                    controller.handleEventNotificationButtonPressed();
+                  },
+                  isNotification: controller.isUnreadNotification.value,
+                ),
               ),
             ),
           ),
@@ -60,8 +66,7 @@ extension HomePageChildren on HomePage {
                 controller.handleEventSearch();
               },
               decoration: InputDecoration(
-                contentPadding:
-                const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                contentPadding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
                 hintText: 'Tìm kiếm',
                 hintStyle: const TextStyle(
                   fontSize: 14.0,
@@ -77,81 +82,84 @@ extension HomePageChildren on HomePage {
               ),
             ),
           ),
-          Obx(() => TabBar(
-            padding: const EdgeInsets.only(bottom: 24.0, left: 37.5, right: 37.5),
-            onTap: (index) {
-              controller.handleEventMenuItemClicked(index);
-            },
-            controller: controller.tabController,
-            labelStyle: const TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.normal,
-              color: Colors.white,
+          Obx(
+            () => TabBar(
+              padding:
+                  const EdgeInsets.only(bottom: 24.0, left: 37.5, right: 37.5),
+              onTap: (index) {
+                controller.handleEventMenuItemClicked(index);
+              },
+              controller: controller.tabController,
+              labelStyle: const TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w600,
+                fontStyle: FontStyle.normal,
+                color: Colors.white,
+              ),
+              indicatorWeight: 1.0,
+              indicatorColor: ColorConstants.primaryColor,
+              indicatorSize: TabBarIndicatorSize.tab,
+              tabs: [
+                Tab(
+                  icon: Container(
+                    width: 48.0,
+                    height: 48.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.0),
+                      color: controller.isClickedSchedule.value
+                          ? const Color(0xFF2F75FD)
+                          : Colors.transparent,
+                    ),
+                    child: SvgPicture.asset(
+                      IconConstants.dateRangeFill,
+                      fit: BoxFit.scaleDown,
+                      color: ColorConstants.backgroundColor,
+                    ),
+                  ),
+                  iconMargin: const EdgeInsets.only(bottom: 6.0),
+                  text: 'Lịch hẹn',
+                ),
+                Tab(
+                  icon: Container(
+                    width: 48.0,
+                    height: 48.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.0),
+                      color: controller.isClickedGroup.value
+                          ? const Color(0xFF2F75FD)
+                          : Colors.transparent,
+                    ),
+                    child: SvgPicture.asset(
+                      IconConstants.groupIcon,
+                      fit: BoxFit.scaleDown,
+                      color: ColorConstants.backgroundColor,
+                    ),
+                  ),
+                  iconMargin: const EdgeInsets.only(bottom: 6.0),
+                  text: 'Nhóm bác sĩ',
+                ),
+                Tab(
+                  icon: Container(
+                    width: 48.0,
+                    height: 48.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.0),
+                      color: controller.isClickedLineUp.value
+                          ? const Color(0xFF2F75FD)
+                          : Colors.transparent,
+                    ),
+                    child: SvgPicture.asset(
+                      IconConstants.lineUp,
+                      fit: BoxFit.scaleDown,
+                      color: ColorConstants.backgroundColor,
+                    ),
+                  ),
+                  iconMargin: const EdgeInsets.only(bottom: 6.0),
+                  text: 'Thống kê',
+                ),
+              ],
             ),
-            indicatorWeight: 1.0,
-            indicatorColor: ColorConstants.primaryColor,
-            indicatorSize: TabBarIndicatorSize.tab,
-            tabs: [
-              Tab(
-                icon: Container(
-                  width: 48.0,
-                  height: 48.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: controller.isClickedSchedule.value
-                        ? const Color(0xFF2F75FD)
-                        : Colors.transparent,
-                  ),
-                  child: SvgPicture.asset(
-                    IconConstants.dateRangeFill,
-                    fit: BoxFit.scaleDown,
-                    color: ColorConstants.backgroundColor,
-                  ),
-                ),
-                iconMargin: const EdgeInsets.only(bottom: 6.0),
-                text: 'Lịch hẹn',
-              ),
-              Tab(
-                icon: Container(
-                  width: 48.0,
-                  height: 48.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: controller.isClickedGroup.value
-                        ? const Color(0xFF2F75FD)
-                        : Colors.transparent,
-                  ),
-                  child: SvgPicture.asset(
-                    IconConstants.groupIcon,
-                    fit: BoxFit.scaleDown,
-                    color: ColorConstants.backgroundColor,
-                  ),
-                ),
-                iconMargin: const EdgeInsets.only(bottom: 6.0),
-                text: 'Nhóm bác sĩ',
-              ),
-              Tab(
-                icon: Container(
-                  width: 48.0,
-                  height: 48.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: controller.isClickedLineUp.value
-                        ? const Color(0xFF2F75FD)
-                        : Colors.transparent,
-                  ),
-                  child: SvgPicture.asset(
-                    IconConstants.lineUp,
-                    fit: BoxFit.scaleDown,
-                    color: ColorConstants.backgroundColor,
-                  ),
-                ),
-                iconMargin: const EdgeInsets.only(bottom: 6.0),
-                text: 'Thống kê',
-              ),
-            ],
-          ),),
+          ),
         ],
       ),
     );

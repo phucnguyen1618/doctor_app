@@ -1,5 +1,7 @@
+import 'package:doctor_app/app/modules/profile/edit/controller/editprofile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 import '../../assets/constants/color_constants.dart';
 import '../../resource/assets_constant/icon_constants.dart';
@@ -9,33 +11,58 @@ class ItemWorkplace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+    var controller = Get.find<EditProfileController>();
+    return Stack(
       children: [
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(228, 228, 228, 0.5),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
-          child: const Text(
-            "Phòng khám Doctor Anywhere Hà Nội",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              height: 1.43,
-              fontSize: 14.0,
-              fontWeight: FontWeight.w600,
-              color: ColorConstants.titleColor,
+        Positioned(
+          right: 0.0,
+          child: Container(
+            padding:
+            const EdgeInsets.symmetric(horizontal: 24.0, vertical: 52.0),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFF754C).withOpacity(0.2),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: SvgPicture.asset(
+              IconConstants.trash,
+              color: const Color(0xFFFF754C),
             ),
           ),
         ),
-        const SizedBox(
-          height: 16.0,
-        ),
-        _buildRowValue(),
+        Obx(() => Container(
+          transform: Matrix4.translationValues(controller.xOffsetWorkPlace.value, 0.0, 0.0),
+          color: ColorConstants.backgroundColor,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(228, 228, 228, 0.5),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                padding:
+                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+                child: const Text(
+                  "Phòng khám Doctor Anywhere Hà Nội",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.43,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w600,
+                    color: ColorConstants.titleColor,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 16.0,
+              ),
+              _buildRowValue(),
+            ],
+          ),
+        ),),
       ],
     );
   }
@@ -47,7 +74,7 @@ class ItemWorkplace extends StatelessWidget {
         Expanded(
           child: Container(
             padding:
-            const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               color: const Color.fromRGBO(228, 228, 228, 0.5),
@@ -88,7 +115,7 @@ class ItemWorkplace extends StatelessWidget {
           child: Container(
             height: 56.0,
             padding:
-            const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               color: const Color.fromRGBO(228, 228, 228, 0.5),

@@ -6,10 +6,12 @@ class PatientAvatarWidget extends StatelessWidget {
     Key? key,
     required this.avatar,
     required this.isOnline,
+    required this.strokeColor,
   }) : super(key: key);
 
   final String avatar;
   final bool isOnline;
+  final Color strokeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class PatientAvatarWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.white, width: 3.0),
+              border: Border.all(color: strokeColor, width: 3.0),
             ),
             child: Image.asset(
               avatar,
@@ -34,7 +36,7 @@ class PatientAvatarWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 0.0,
+          top: 4.0,
           right: 4.0,
           child: Container(
             width: 13.7,

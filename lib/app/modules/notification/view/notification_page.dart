@@ -1,5 +1,4 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
-import 'package:doctor_app/app/models/app_notification.dart';
 import 'package:doctor_app/app/modules/notification/controller/notification_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:flutter/material.dart';
@@ -42,9 +41,12 @@ class NotificationPage extends GetView<NotificationController> {
                   if (scrollInformation.metrics.pixels ==
                       scrollInformation.metrics.maxScrollExtent) {
                     con.onLoading();
-                    Future.delayed(const Duration(milliseconds: 3000), () {
-                      con.onEndLoading();
-                    });
+                    Future.delayed(
+                      const Duration(milliseconds: 3000),
+                      () {
+                        con.onEndLoading();
+                      },
+                    );
                   }
                   return true;
                 },
