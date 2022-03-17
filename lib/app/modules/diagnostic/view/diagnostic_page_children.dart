@@ -307,7 +307,7 @@ extension DiagnosticPageChildren on DiagnosticPage {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Đơn thuốc',
+            'Đơn thuốc ',
             style: TextStyle(
               fontStyle: FontStyle.normal,
               fontSize: 16.0,
@@ -321,11 +321,40 @@ extension DiagnosticPageChildren on DiagnosticPage {
           ),
           controller.isAddPrescription.value
               ? ListView.builder(
+                  padding: EdgeInsets.zero,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 2,
+                  itemCount: 3,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return const ItemAddPrescription();
+                    return index != 2
+                        ? ItemAddPrescription(
+                            index: index,
+                          )
+                        : controller.isDeletedItem.value
+                            ? Container(
+                                width: double.infinity,
+                                height: 56.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  color:
+                                      const Color(0xFF505D7C).withOpacity(0.2),
+                                ),
+                                child: MaterialButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Hủy',
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF505D7C),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : ItemRowAddDeleted(
+                                addCallback: () {},
+                                deleteCallback: () {},
+                              );
                   },
                 )
               : const SizedBox(),
@@ -333,41 +362,44 @@ extension DiagnosticPageChildren on DiagnosticPage {
             onTap: () {
               controller.addPrescription();
             },
-            child: Container(
-              width: double.infinity,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: ColorConstants.secondaryColor.withOpacity(0.2),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Thêm',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w600,
-                      color: ColorConstants.secondaryColor,
+            child: Visibility(
+              visible: !controller.isAddPrescription.value,
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 23.0, vertical: 18.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  color: ColorConstants.secondaryColor.withOpacity(0.2),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Thêm',
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: ColorConstants.secondaryColor,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 15.0,
-                  ),
-                  SizedBox(
-                    width: 20.0,
-                    height: 20.0,
-                    child: SvgPicture.asset(
-                      IconConstants.subtract,
-                      fit: BoxFit.scaleDown,
-                      color: ColorConstants.secondaryColor,
+                    const SizedBox(
+                      width: 15.0,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      width: 20.0,
+                      height: 20.0,
+                      child: SvgPicture.asset(
+                        IconConstants.subtract,
+                        fit: BoxFit.scaleDown,
+                        color: ColorConstants.secondaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -378,8 +410,7 @@ extension DiagnosticPageChildren on DiagnosticPage {
 
   Widget _buildFooter() {
     return Container(
-      margin: const EdgeInsets.only(
-          left: 20.0, right: 20.0, top: 12.0),
+      margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 12.0),
       decoration: BoxDecoration(
         color: ColorConstants.primaryColor,
         borderRadius: BorderRadius.circular(16.0),
