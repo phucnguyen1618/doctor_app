@@ -91,17 +91,32 @@ class ItemNotification extends StatelessWidget {
                         RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
-                            text: controller.notificationList[index].content,
+                            text: 'Bạn có một lịch hẹn gọi lại vào lúc ',
                             style: TextStyle(
                               height: 1.6,
                               fontSize: 10.0,
                               fontFamily: 'Inter',
                               fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w500,
                               color: controller.notificationList[index].isSelected
                                   ? Colors.white
                                   : Colors.black,
                             ),
+                            children: [
+                              TextSpan(
+                                text: '20:00 - 24/03/2022',
+                                style: TextStyle(
+                                  height: 1.6,
+                                  fontSize: 10.0,
+                                  fontFamily: 'Inter',
+                                  fontStyle: FontStyle.normal,
+                                  fontWeight: FontWeight.w700,
+                                  color: controller.notificationList[index].isSelected
+                                      ? Colors.white
+                                      : ColorConstants.primaryColor,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],

@@ -317,8 +317,8 @@ extension StatisticalPageChildren on StatisticalPage {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 'Biểu đồ số đơn hàng',
                 style: TextStyle(
                   fontSize: 16.0,
@@ -329,8 +329,8 @@ extension StatisticalPageChildren on StatisticalPage {
                 ),
               ),
               Text(
-                '160 đơn',
-                style: TextStyle(
+                '${controller.numberOfOrders} đơn',
+                style: const TextStyle(
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   fontFamily: 'Inter',
@@ -343,190 +343,133 @@ extension StatisticalPageChildren on StatisticalPage {
           const SizedBox(
             height: 33.0,
           ),
-          SizedBox(
-            height: 200.0,
-            child: BarChart(
-              BarChartData(
-                barTouchData: barTouchData,
-                titlesData: titlesData,
-                borderData: borderData,
-                barGroups: barGroups,
-                alignment: BarChartAlignment.spaceAround,
-                gridData: FlGridData(
-                  show: false,
-                ),
-                maxY: 150,
-              ),
-            ),
-          ),
+          _buildChart(),
         ],
       ),
     );
   }
 
-  BarTouchData get barTouchData => BarTouchData(
-        enabled: false,
-        touchTooltipData: BarTouchTooltipData(
-          tooltipBgColor: Colors.transparent,
-          tooltipPadding: const EdgeInsets.all(0),
-          tooltipMargin: 8,
-          getTooltipItem: (
-            BarChartGroupData group,
-            int groupIndex,
-            BarChartRodData rod,
-            int rodIndex,
-          ) {
-            return BarTooltipItem(
-              rod.y.round().toString(),
-              const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+  Widget _buildChart() {
+    return GetBuilder<StatisticalController>(
+      init: StatisticalController(),
+      builder: (controller) => SizedBox(
+        height: 200.0,
+        child: BarChart(
+          BarChartData(
+            barTouchData: BarTouchData(
+              touchCallback: (FlTouchEvent event, BarTouchResponse? response) {
+                if (!event.isInterestedForInteractions ||
+                    response == null ||
+                    response.spot == null) {
+                  return;
+                }
+                controller.handleEventTouchedBarChart(
+                    response.spot!.touchedBarGroupIndex);
+              },
+              enabled: false,
+              touchTooltipData: BarTouchTooltipData(
+                tooltipBgColor: Colors.transparent,
+                tooltipPadding: const EdgeInsets.all(0),
+                tooltipMargin: 8,
+                getTooltipItem: (
+                  BarChartGroupData group,
+                  int groupIndex,
+                  BarChartRodData rod,
+                  int rodIndex,
+                ) {
+                  return BarTooltipItem(
+                    rod.y.round().toString(),
+                    const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-      );
-
-  FlTitlesData get titlesData => FlTitlesData(
-        show: true,
-        bottomTitles: SideTitles(
-          showTitles: true,
-          getTextStyles: (context, value) => const TextStyle(
-            color: ColorConstants.greyColor,
-            fontWeight: FontWeight.w500,
-            fontStyle: FontStyle.normal,
-            fontFamily: 'Inter',
-            fontSize: 12,
+            ),
+            titlesData: FlTitlesData(
+              show: true,
+              bottomTitles: SideTitles(
+                showTitles: true,
+                getTextStyles: (context, value) => TextStyle(
+                  color:
+                      controller.dailyFigures[controller.touchedIndex].isTouched
+                          ? ColorConstants.titleColor
+                          : ColorConstants.greyColor,
+                  fontWeight: FontWeight.w500,
+                  fontStyle: FontStyle.normal,
+                  fontFamily: 'Inter',
+                  fontSize: 12,
+                ),
+                margin: 16.0,
+                getTitles: (double value) {
+                  switch (value.toInt()) {
+                    case 0:
+                      return 'T2';
+                    case 1:
+                      return 'T3';
+                    case 2:
+                      return 'T4';
+                    case 3:
+                      return 'T5';
+                    case 4:
+                      return 'T6';
+                    case 5:
+                      return 'T7';
+                    case 6:
+                      return 'CN';
+                    default:
+                      return '';
+                  }
+                },
+              ),
+              leftTitles: SideTitles(showTitles: false),
+              topTitles: SideTitles(showTitles: false),
+              rightTitles: SideTitles(showTitles: false),
+            ),
+            borderData: borderData,
+            barGroups: controller.dailyFigures
+                .map<BarChartGroupData>((Data item) => makeGroupData(
+                    item.index, item.statistics,
+                    isTouched: item.isTouched))
+                .toList(),
+            alignment: BarChartAlignment.spaceAround,
+            gridData: FlGridData(
+              show: false,
+            ),
+            maxY: 150,
           ),
-          margin: 16.0,
-          getTitles: (double value) {
-            switch (value.toInt()) {
-              case 0:
-                return 'T2';
-              case 1:
-                return 'T3';
-              case 2:
-                return 'T4';
-              case 3:
-                return 'T5';
-              case 4:
-                return 'T6';
-              case 5:
-                return 'T7';
-              case 6:
-                return 'CN';
-              default:
-                return '';
-            }
-          },
         ),
-        leftTitles: SideTitles(showTitles: false),
-        topTitles: SideTitles(showTitles: false),
-        rightTitles: SideTitles(showTitles: false),
-      );
+      ),
+    );
+  }
 
   FlBorderData get borderData => FlBorderData(
         show: false,
       );
 
-  List<BarChartGroupData> get barGroups => [
-        BarChartGroupData(
-          x: 0,
-          barRods: [
-            BarChartRodData(
-              width: 16.0,
-              y: 150,
-              rodStackItems: [
-                BarChartRodStackItem(0, 86, const Color(0xFFC7DCFF)),
-                BarChartRodStackItem(86, 150, const Color(0xFFE9EDF7)),
-              ],
-            )
+  BarChartGroupData makeGroupData(
+    int x,
+    double y, {
+    bool isTouched = false,
+    Color barColor = const Color(0xFFC7DCFF),
+    double width = 16.0,
+    List<int> showTooltips = const [],
+  }) {
+    return BarChartGroupData(
+      x: x,
+      barRods: [
+        BarChartRodData(
+          width: width,
+          rodStackItems: [
+            BarChartRodStackItem(
+                0, y, isTouched ? ColorConstants.primaryColor : barColor),
+            BarChartRodStackItem(y, 150, const Color(0xFFE9EDF7)),
           ],
-          showingTooltipIndicators: [0],
+          y: 150,
         ),
-        BarChartGroupData(
-          x: 1,
-          barRods: [
-            BarChartRodData(
-              width: 16.0,
-              y: 150,
-              rodStackItems: [
-                BarChartRodStackItem(0, 46, const Color(0xFFC7DCFF)),
-                BarChartRodStackItem(46, 150, const Color(0xFFE9EDF7)),
-              ],
-            )
-          ],
-          showingTooltipIndicators: [0],
-        ),
-        BarChartGroupData(
-          x: 2,
-          barRods: [
-            BarChartRodData(
-              width: 16.0,
-              y: 150,
-              rodStackItems: [
-                BarChartRodStackItem(0, 110, const Color(0xFFC7DCFF)),
-                BarChartRodStackItem(110, 150, const Color(0xFFE9EDF7)),
-              ],
-            )
-          ],
-          showingTooltipIndicators: [0],
-        ),
-        BarChartGroupData(
-          x: 3,
-          barRods: [
-            BarChartRodData(
-              width: 16.0,
-              y: 150,
-              rodStackItems: [
-                BarChartRodStackItem(0, 74, const Color(0xFFC7DCFF)),
-                BarChartRodStackItem(74, 150, const Color(0xFFE9EDF7)),
-              ],
-            )
-          ],
-          showingTooltipIndicators: [0],
-        ),
-        BarChartGroupData(
-          x: 4,
-          barRods: [
-            BarChartRodData(
-              width: 16.0,
-              y: 150,
-              rodStackItems: [
-                BarChartRodStackItem(0, 101, const Color(0xFFC7DCFF)),
-                BarChartRodStackItem(101, 150, const Color(0xFFE9EDF7)),
-              ],
-            )
-          ],
-          showingTooltipIndicators: [0],
-        ),
-        BarChartGroupData(
-          x: 5,
-          barRods: [
-            BarChartRodData(
-              width: 16.0,
-              y: 150,
-              rodStackItems: [
-                BarChartRodStackItem(0, 132, const Color(0xFFC7DCFF)),
-                BarChartRodStackItem(132, 150, const Color(0xFFE9EDF7)),
-              ],
-            )
-          ],
-          showingTooltipIndicators: [0],
-        ),
-        BarChartGroupData(
-          x: 6,
-          barRods: [
-            BarChartRodData(
-              width: 16.0,
-              y: 150,
-              rodStackItems: [
-                BarChartRodStackItem(0, 81, const Color(0xFFC7DCFF)),
-                BarChartRodStackItem(81, 150, const Color(0xFFE9EDF7)),
-              ],
-            )
-          ],
-          showingTooltipIndicators: [0],
-        ),
-      ];
+      ],
+      showingTooltipIndicators: showTooltips,
+    );
+  }
 }

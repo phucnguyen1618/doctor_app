@@ -11,7 +11,6 @@ class ItemQuestion extends StatelessWidget {
     double width = Get.width - 40;
     return Container(
       width: width,
-      margin: const EdgeInsets.only(right: 20.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         color: const Color(0xFFF0F3F6).withOpacity(0.5),

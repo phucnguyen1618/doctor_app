@@ -39,4 +39,6 @@ class AppUtils {
   static Future showNotification({int id = 0, String? title, String? content, String? time }) async {
     _notifications.show(id, title, content, await _notificationDetails());
   }
+
+
 }

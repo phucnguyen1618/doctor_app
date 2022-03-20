@@ -9,13 +9,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      defaultTransition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 800),
       debugShowCheckedModeBanner: false,
       title: 'Doctor App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       getPages: pages,
-      initialRoute: Routes.SPLASH,
+      initialRoute: Routes.CONTAINER,
     );
   }
 }

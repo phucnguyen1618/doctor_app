@@ -1,17 +1,23 @@
 import 'dart:developer';
 
+import 'package:doctor_app/app/models/account.dart';
+import 'package:doctor_app/app/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_routes.dart';
 
 class LoginController extends GetxController {
-  TextEditingController accountController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  var phoneNumberController = TextEditingController();
+  var passController = TextEditingController();
 
   var isVisible = false.obs;
   var isFocusPassword = false.obs;
   var isFocusAccount = false.obs;
+  var accountError = ''.obs;
+  var passError = ''.obs;
+  var accountValue = ''.obs;
+  var passValue = ''.obs;
 
   FocusNode focusNodePassword = FocusNode();
   FocusNode focusNodeAccount = FocusNode();
@@ -23,6 +29,10 @@ class LoginController extends GetxController {
     });
     focusNodePassword.addListener(() {
       handleFocusTextFieldPassword();
+    });
+
+    phoneNumberController.removeListener(() {
+      accountValue.value = 'AAAAAAA';
     });
   }
 
@@ -38,15 +48,23 @@ class LoginController extends GetxController {
     focusNodeAccount.dispose();
   }
 
-  handleEventLoginButtonPressed() {
-    String account = accountController.text.trim();
-    String password = passwordController.text.trim();
+  getAccountFromTextInput(String content) {
+    accountValue.value = content;
+    accountError.value = '';
+  }
 
-    if (account.isEmpty || password.isEmpty) {
-      log('Data is not empty');
-    } else {
-      log('Account: $account - Password: $password');
-      Get.offAllNamed(Routes.CONTAINER);
+  getPasswordFromTextInput(String content) {
+    passValue.value = content;
+    passError.value = '';
+  }
+
+  handleEventLoginButtonPressed() {
+    accountError.value = Validation.validatorPhoneNumber(accountValue.value);
+    passError.value = Validation.validatorPassword(passValue.value);
+    Account account = Account(accountValue.value, passValue.value);
+    log('Acc error: ${accountError.value} - Pass error: ${passError.value}');
+    if(accountError.value == '' && passError.value == ''){
+      Get.toNamed(Routes.CONTAINER);
     }
   }
 

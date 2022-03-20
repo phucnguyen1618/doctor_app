@@ -13,7 +13,7 @@ class Message {
 
 final messages = [
   Message('Bác sĩ DHA', ImageConstants.image3,
-      'Chào mọi người, mình tên là Nguyễn Hoàng Long. Mình hiện đang làm việc trong lĩnh vực công nghệ thông tin', '2:14', 0),
+      'Bác sĩ @Thư ơi, cho mình hỏi bệnh án...', '2:14', 0),
   Message(
     'Vương Trung Tín',
     ImageConstants.image1,

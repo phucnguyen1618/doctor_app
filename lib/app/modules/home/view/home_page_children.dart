@@ -14,12 +14,11 @@ extension HomePageChildren on HomePage {
         children: [
           SafeArea(
             top: true,
-            bottom: false,
             child: ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
               leading: InkWell(
                 onTap: () {
-                  controller.handleEventAvatarPressed();
+                  log('Clicked');
                 },
                 child: const PatientAvatarWidget(
                   avatar: ImageConstants.patient,
@@ -91,19 +90,22 @@ extension HomePageChildren on HomePage {
               },
               controller: controller.tabController,
               labelStyle: const TextStyle(
+                fontFamily: 'Mulish',
                 fontSize: 12.0,
                 fontWeight: FontWeight.w600,
                 fontStyle: FontStyle.normal,
                 color: Colors.white,
+                height: 1.26,
+                overflow: TextOverflow.visible,
               ),
               indicatorWeight: 1.0,
               indicatorColor: ColorConstants.primaryColor,
               indicatorSize: TabBarIndicatorSize.tab,
               tabs: [
                 Tab(
+                  height: 80.0,
                   icon: Container(
-                    width: 48.0,
-                    height: 48.0,
+                    padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.0),
                       color: controller.isClickedSchedule.value
@@ -114,15 +116,27 @@ extension HomePageChildren on HomePage {
                       IconConstants.dateRangeFill,
                       fit: BoxFit.scaleDown,
                       color: ColorConstants.backgroundColor,
+                      width: 26.0,
+                      height: 26.0,
                     ),
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 6.0),
                   text: 'Lịch hẹn',
+                  // child: const Text(
+                  //   'Lịch hẹn',
+                  //   maxLines: 2,
+                  //   textAlign: TextAlign.center,
+                  //   style: TextStyle(
+                  //     color: Colors.white,
+                  //     fontSize: 12.0,
+                  //     fontStyle: FontStyle.normal,
+                  //   ),
+                  // ),
                 ),
                 Tab(
+                  height: 80.0,
                   icon: Container(
-                    width: 48.0,
-                    height: 48.0,
+                    padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.0),
                       color: controller.isClickedGroup.value
@@ -133,15 +147,26 @@ extension HomePageChildren on HomePage {
                       IconConstants.groupIcon,
                       fit: BoxFit.scaleDown,
                       color: ColorConstants.backgroundColor,
+                      width: 26.0,
+                      height: 26.0,
                     ),
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 6.0),
                   text: 'Nhóm bác sĩ',
+                  // child: const Text(
+                  //   'Nhóm\nbác sĩ',
+                  //   textAlign: TextAlign.center,
+                  //   style: TextStyle(
+                  //     color: Colors.white,
+                  //     fontSize: 12.0,
+                  //     fontStyle: FontStyle.normal,
+                  //   ),
+                  // ),
                 ),
                 Tab(
+                  height: 80.0,
                   icon: Container(
-                    width: 48.0,
-                    height: 48.0,
+                    padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.0),
                       color: controller.isClickedLineUp.value
@@ -152,10 +177,22 @@ extension HomePageChildren on HomePage {
                       IconConstants.lineUp,
                       fit: BoxFit.scaleDown,
                       color: ColorConstants.backgroundColor,
+                      width: 26.0,
+                      height: 26.0,
                     ),
                   ),
                   iconMargin: const EdgeInsets.only(bottom: 6.0),
                   text: 'Thống kê',
+                  // child: const Text(
+                  //   'Thống kê',
+                  //   maxLines: 2,
+                  //   textAlign: TextAlign.center,
+                  //   style: TextStyle(
+                  //     color: Colors.white,
+                  //     fontSize: 12.0,
+                  //     fontStyle: FontStyle.normal,
+                  //   ),
+                  // ),
                 ),
               ],
             ),

@@ -43,10 +43,15 @@ dependencies:
   sleek_circular_slider: ^2.0.1
   fl_chart: ^0.45.1
   flutter_local_notifications: ^9.4.0
+  rxdart: ^0.27.3
   draggable_home:
     path: library/draggable_home/draggable_home
   flutter_slidable:
     path: library/flutter_slidable/flutter_slidable
+#  agora_uikit:
+#    path: library/agora_uikit/agora_uikit
+  shared_preferences: ^2.0.13
+
 
 dev_dependencies:
   flutter_test:
@@ -97,6 +102,7 @@ flutter:
     - family: Mulish
       fonts:
         - asset: assets/fonts/mulish_bold.ttf
+        - asset: assets/fonts/mulish_semibold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

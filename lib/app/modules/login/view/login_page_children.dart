@@ -31,7 +31,7 @@ extension LoginPageChildren on LoginPage {
           ),
           Obx(
             () => Container(
-              margin: const EdgeInsets.only(top: 16.0, bottom: 20.0),
+              margin: const EdgeInsets.only(top: 16.0),
               decoration: BoxDecoration(
                 color: controller.isFocusAccount.value
                     ? ColorConstants.backgroundColor
@@ -39,10 +39,9 @@ extension LoginPageChildren on LoginPage {
                 borderRadius: BorderRadius.circular(8.0),
               ),
               width: double.infinity,
-              height: 56.0,
               child: TextField(
+                keyboardType: TextInputType.phone,
                 focusNode: controller.focusNodeAccount,
-                controller: controller.accountController,
                 style: const TextStyle(
                   fontFamily: 'Inter',
                   fontStyle: FontStyle.normal,
@@ -53,7 +52,17 @@ extension LoginPageChildren on LoginPage {
                 decoration: const InputDecoration(
                   contentPadding:
                       EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                  border: OutlineInputBorder(
+                  border: InputBorder.none,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: ColorConstants.primaryColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8.0),
+                    ),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorConstants.primaryColor,
                       width: 2.0,
@@ -65,8 +74,28 @@ extension LoginPageChildren on LoginPage {
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                 ),
+                onChanged: (content) {
+                  controller.getAccountFromTextInput(content);
+                },
               ),
             ),
+          ),
+          Obx(
+            () => controller.accountError.value.length != 1
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    child: Text(
+                      controller.accountError.value,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
           ),
           const Text(
             'Mật khẩu',
@@ -80,7 +109,7 @@ extension LoginPageChildren on LoginPage {
           ),
           Obx(
             () => Container(
-              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              margin: const EdgeInsets.only(top: 16.0),
               decoration: BoxDecoration(
                 color: controller.isFocusPassword.value
                     ? ColorConstants.backgroundColor
@@ -88,10 +117,8 @@ extension LoginPageChildren on LoginPage {
                 borderRadius: BorderRadius.circular(8.0),
               ),
               width: double.infinity,
-              height: 56.0,
               child: TextField(
                 focusNode: controller.focusNodePassword,
-                controller: controller.passwordController,
                 obscureText: controller.isVisible.value,
                 style: const TextStyle(
                   fontFamily: 'Inter',
@@ -116,7 +143,7 @@ extension LoginPageChildren on LoginPage {
                           )
                         : const SizedBox(),
                   ),
-                  border: const OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorConstants.primaryColor,
                       width: 2.0,
@@ -127,9 +154,38 @@ extension LoginPageChildren on LoginPage {
                   ),
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
+                  focusedErrorBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: ColorConstants.primaryColor,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8.0),
+                    ),
+                  ),
                 ),
+                onChanged: (content) {
+                  controller.getPasswordFromTextInput(content);
+                },
               ),
             ),
+          ),
+          Obx(
+            () => controller.passError.value.length != 1
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      controller.passError.value,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
           ),
           InkWell(
             onTap: () {

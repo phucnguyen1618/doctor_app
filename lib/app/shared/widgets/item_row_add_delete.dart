@@ -72,7 +72,7 @@ class ItemRowAddDeleted extends StatelessWidget {
           child: Container(
             height: 56.0,
             padding:
-            const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               color: const Color(0xFFFF754C).withOpacity(0.2),

@@ -68,6 +68,7 @@ class DetailPage extends GetView<DetailController> {
             ),
             Expanded(
               child: TabBarView(
+                physics: const NeverScrollableScrollPhysics(),
                 controller: controller.tabController,
                 children: const [
                   DetailInforPage(),

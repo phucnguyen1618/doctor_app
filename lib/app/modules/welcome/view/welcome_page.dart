@@ -47,11 +47,8 @@ class WelcomePage extends GetView<WelcomeController> {
                 color: ColorConstants.greyColor,
               ),
             ),
-            const SizedBox(
-              height: 40.0,
-            ),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 80.0),
               child: Image.asset(ImageConstants.welcome),
             ),
           ],

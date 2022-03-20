@@ -302,24 +302,24 @@ extension DiagnosticPageChildren on DiagnosticPage {
   }
 
   Widget _buildPrescription() {
-    return Obx(
-      () => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Đơn thuốc ',
-            style: TextStyle(
-              fontStyle: FontStyle.normal,
-              fontSize: 16.0,
-              fontFamily: 'Inter',
-              fontWeight: FontWeight.w600,
-              color: ColorConstants.pinColor,
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Đơn thuốc ',
+          style: TextStyle(
+            fontStyle: FontStyle.normal,
+            fontSize: 16.0,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w600,
+            color: ColorConstants.pinColor,
           ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          controller.isAddPrescription.value
+        ),
+        const SizedBox(
+          height: 20.0,
+        ),
+        Obx(
+          () => controller.isAddPrescription.value
               ? ListView.builder(
                   padding: EdgeInsets.zero,
                   physics: const NeverScrollableScrollPhysics(),
@@ -330,39 +330,20 @@ extension DiagnosticPageChildren on DiagnosticPage {
                         ? ItemAddPrescription(
                             index: index,
                           )
-                        : controller.isDeletedItem.value
-                            ? Container(
-                                width: double.infinity,
-                                height: 56.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  color:
-                                      const Color(0xFF505D7C).withOpacity(0.2),
-                                ),
-                                child: MaterialButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    'Hủy',
-                                    style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0xFF505D7C),
-                                    ),
-                                  ),
-                                ),
-                              )
-                            : ItemRowAddDeleted(
-                                addCallback: () {},
-                                deleteCallback: () {},
-                              );
+                        : ItemRowAddDeleted(
+                            addCallback: () {},
+                            deleteCallback: () {},
+                          );
                   },
                 )
               : const SizedBox(),
-          InkWell(
-            onTap: () {
-              controller.addPrescription();
-            },
-            child: Visibility(
+        ),
+        InkWell(
+          onTap: () {
+            controller.addPrescription();
+          },
+          child: Obx(
+            () => Visibility(
               visible: !controller.isAddPrescription.value,
               child: Container(
                 width: double.infinity,
@@ -403,8 +384,8 @@ extension DiagnosticPageChildren on DiagnosticPage {
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

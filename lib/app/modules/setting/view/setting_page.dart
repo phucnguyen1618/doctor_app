@@ -1,5 +1,4 @@
 import 'package:doctor_app/app/modules/setting/controller/setting_controller.dart';
-import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../assets/constants/color_constants.dart';
 import '../../../resource/assets_constant/icon_constants.dart';
+import '../../../routes/app_routes.dart';
 import '../../../shared/widgets/doctor_avatar_widget.dart';
 
 part 'setting_page_children.dart';

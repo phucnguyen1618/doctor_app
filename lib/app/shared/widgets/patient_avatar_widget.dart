@@ -22,16 +22,23 @@ class PatientAvatarWidget extends StatelessWidget {
           padding: const EdgeInsets.all(1.5),
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            color: ColorConstants.semanticColor,
+            color: Color(0xFFB3E0C8),
           ),
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: strokeColor, width: 3.0),
             ),
-            child: Image.asset(
-              avatar,
-              fit: BoxFit.cover,
+            child: Container(
+              padding: const EdgeInsets.all(1.5),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: ColorConstants.semanticColor,
+              ),
+              child: Image.asset(
+                avatar,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),

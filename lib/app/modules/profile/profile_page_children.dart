@@ -443,7 +443,7 @@ extension ProfilePageChildren on ProfilePage {
                 children: List.generate(
                   2,
                   (index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -518,12 +518,15 @@ extension ProfilePageChildren on ProfilePage {
         borderRadius: BorderRadius.circular(8.0),
       ),
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+      height: 34.0,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SvgPicture.asset(
             icon,
             color: ColorConstants.backgroundColor,
+            width: 16.0,
+            height: 16.0,
           ),
           const SizedBox(width: 8.0,),
           Text(

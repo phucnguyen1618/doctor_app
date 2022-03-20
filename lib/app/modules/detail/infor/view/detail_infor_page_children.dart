@@ -14,8 +14,7 @@ extension DetailInforPageChildren on DetailInforPage {
           Container(
             padding:
                 const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
-            margin: const EdgeInsets.only(
-                right: 20.0, top: 20.0, bottom: 30.0, left: 20.0),
+            margin: const EdgeInsets.only(top: 20.0, bottom: 30.0),
             decoration: BoxDecoration(
               color: ColorConstants.backgroundColor,
               borderRadius: BorderRadius.circular(16.0),
@@ -215,8 +214,8 @@ extension DetailInforPageChildren on DetailInforPage {
   Widget _buildQuestionToConsult() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
+      children: const [
+        Text(
           'Câu hỏi cần tư vấn',
           style: TextStyle(
             fontFamily: 'Inter',
@@ -226,15 +225,10 @@ extension DetailInforPageChildren on DetailInforPage {
             color: ColorConstants.greyColor,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 16.0,
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: List.generate(3, (index) => const ItemQuestion()),
-          ),
-        )
+        ItemQuestion(),
       ],
     );
   }

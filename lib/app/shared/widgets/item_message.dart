@@ -60,19 +60,45 @@ class ItemMessage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              width: 260.0,
-              child: Text(
-                message.content,
-                maxLines: 1,
-                softWrap: true,
-                style: const TextStyle(
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF7A7A7A),
-                  fontStyle: FontStyle.normal,
-                  fontFamily: 'Inter',
-                  overflow: TextOverflow.ellipsis,
-                ),
+              width: 231.0,
+              child: RichText(
+                text: TextSpan(
+                    text: message.content.substring(0, 7),
+                    style: const TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF7A7A7A),
+                      fontStyle: FontStyle.normal,
+                      fontFamily: 'Inter',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: message.content.substring(7, 13),
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w600,
+                          color: ColorConstants.primaryColor,
+                          fontStyle: FontStyle.normal,
+                          fontFamily: 'Inter',
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: message.content
+                                .substring(13, message.content.length),
+                            style: const TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF7A7A7A),
+                              fontStyle: FontStyle.normal,
+                              fontFamily: 'Inter',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ]
+                      ),
+                    ],),
               ),
             ),
             SvgPicture.asset(IconConstants.checkAllIcon),

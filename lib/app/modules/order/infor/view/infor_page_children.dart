@@ -267,8 +267,8 @@ extension InforPageChildren on InforPage {
   Widget _buildQuestionToConsult() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
+      children: const [
+        Text(
           'Câu hỏi cần tư vấn',
           style: TextStyle(
             fontSize: 12.0,
@@ -276,15 +276,10 @@ extension InforPageChildren on InforPage {
             color: ColorConstants.greyColor,
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 16.0,
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: List.generate(3, (index) => const ItemQuestion()),
-          ),
-        )
+        ItemQuestion(),
       ],
     );
   }
