@@ -25,8 +25,6 @@ class Validation {
   static String validatorPassword(String password) {
     if (password.isEmpty) {
       return 'Mật khẩu không được để trống';
-    } else if (password.length <= 6) {
-      return 'Mật khẩu quá ngắn!!!';
     }
     return '';
   }

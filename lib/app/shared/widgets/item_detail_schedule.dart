@@ -10,9 +10,11 @@ class ItemDetailSchedule extends StatelessWidget {
   const ItemDetailSchedule({
     Key? key,
     required this.backgroundColor,
+    required this.index,
   }) : super(key: key);
 
   final Color backgroundColor;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,9 @@ class ItemDetailSchedule extends StatelessWidget {
         controller.onItemScheduleClicked();
       },
       child: Container(
-          margin: const EdgeInsets.only(bottom: 8.0),
+          margin: EdgeInsets.only(
+            bottom: index % 2 != 0 ? 8.0 : 12.0,
+          ),
           width: Get.width,
           decoration: BoxDecoration(
             color: backgroundColor,
@@ -57,7 +61,9 @@ class ItemDetailSchedule extends StatelessWidget {
                             color: ColorConstants.pinColor,
                           ),
                         ),
-                        const SizedBox(height: 6.0,),
+                        const SizedBox(
+                          height: 6.0,
+                        ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

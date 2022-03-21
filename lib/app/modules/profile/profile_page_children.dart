@@ -295,7 +295,7 @@ extension ProfilePageChildren on ProfilePage {
                   width: 70.0,
                   height: 32.0,
                   child: Text(
-                    'Lượt tư vấn',
+                    'Lượt\ntư vấn',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Inter',

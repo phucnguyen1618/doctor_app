@@ -138,7 +138,9 @@ extension LoginPageChildren on LoginPage {
                         ? Padding(
                             padding: const EdgeInsets.only(right: 23.0),
                             child: SvgPicture.asset(
-                              IconConstants.eye,
+                              controller.isVisible.value
+                                  ? IconConstants.eye
+                                  : IconConstants.invisibleIcon,
                             ),
                           )
                         : const SizedBox(),

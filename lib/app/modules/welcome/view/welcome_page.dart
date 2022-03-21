@@ -9,6 +9,7 @@ class WelcomePage extends GetView<WelcomeController> {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(WelcomeController());
     return Scaffold(
       backgroundColor: ColorConstants.backgroundColor,
       body: SafeArea(
@@ -22,7 +23,7 @@ class WelcomePage extends GetView<WelcomeController> {
             const Padding(
               padding: EdgeInsets.only(left: 29.0, right: 29.0),
               child: Text(
-                'Chào mừng bạn đến với GoTRUST Doctor',
+                'Chào mừng bạn đến với GoTRUST Doctor',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'SVN-Gotham',

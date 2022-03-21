@@ -12,7 +12,10 @@ class OfferController extends GetxController {
   ];
 
   var xOffset = 0.0.obs;
-  var yOffset = 0.0.obs;
+  var yOffset = 285.0.obs;
+
+  var mOffset = 0.0.obs;
+  var nOffset = 0.0.obs;
   var isVisibleText = true.obs;
 
   var symptoms = [
@@ -23,7 +26,11 @@ class OfferController extends GetxController {
     'Khó thở',
   ];
 
-  animation() {
+  animation(double x, double y) {
+    xOffset.value = x;
+    yOffset.value = y;
+    mOffset.value = 22.0;
+    nOffset.value = 22.0;
     isVisibleText.value = false;
   }
 

@@ -257,6 +257,7 @@ class SlidableController {
 
   /// Opens the current [ActionPane].
   Future<void> openCurrentActionPane({
+
     Duration duration = _defaultMovementDuration,
     Curve curve = _defaultCurve,
   }) async {

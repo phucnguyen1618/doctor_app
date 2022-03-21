@@ -11,12 +11,37 @@ class ContainerController extends GetxController {
     const HistoryPage(),
     const SettingPage(),
   ];
+  var homeItem = true.obs;
+  var historyItem = false.obs;
+  var userItem = false.obs;
 
   var index = 0.obs;
   var pageController = PageController(initialPage: 0);
 
+  handleEventItemMenuBarClicked(int index) {
+    switch (index) {
+      case 0:
+        homeItem.value = !homeItem.value;
+        historyItem.value = false;
+        userItem.value = false;
+        changePage(0);
+        break;
+      case 1:
+        homeItem.value = false;
+        historyItem.value = !historyItem.value;
+        userItem.value = false;
+        changePage(1);
+        break;
+      case 2:
+        homeItem.value = false;
+        historyItem.value = false;
+        userItem.value = !userItem.value;
+        changePage(2);
+        break;
+    }
+  }
+
   changePage(int pageIndex) {
-    index.value = pageIndex;
     pageController.jumpToPage(pageIndex);
   }
 }

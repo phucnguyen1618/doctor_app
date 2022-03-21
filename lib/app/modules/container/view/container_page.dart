@@ -3,7 +3,6 @@ import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../../../assets/constants/color_constants.dart';
 
@@ -22,7 +21,7 @@ class ContainerPage extends GetView<ContainerController> {
           return controller.pages[index];
         },
       ),
-      bottomNavigationBar: _buildNavBar(),
+      bottomNavigationBar: _buildMenuBar(),
     );
   }
 }

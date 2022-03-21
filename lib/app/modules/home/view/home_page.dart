@@ -1,10 +1,7 @@
 import 'dart:developer';
 
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
-import 'package:doctor_app/app/modules/group/view/group_page.dart';
 import 'package:doctor_app/app/modules/home/controller/home_controller.dart';
-import 'package:doctor_app/app/modules/schedule/view/schedule_page.dart';
-import 'package:doctor_app/app/modules/statistical/view/statistical_page.dart';
 import 'package:doctor_app/app/resource/assets_constant/image_constants.dart';
 import 'package:doctor_app/app/shared/widgets/patient_avatar_widget.dart';
 import 'package:flutter/material.dart';
@@ -22,30 +19,27 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     double width = Get.width;
+    double height = Get.height - 370;
     return Scaffold(
-      body: Obx(() => DefaultTabController(
-        length: 3,
-        initialIndex: controller.currentPage.value,
+      body: SingleChildScrollView(
         child: Column(
           children: [
             _buildHeader(),
-            Expanded(
-              child: SizedBox(
-                width: width,
-                child: TabBarView(
-                  controller: controller.tabController,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: const [
-                    SchedulePage(),
-                    GroupPage(),
-                    StatisticalPage(),
-                  ],
-                ),
+            SizedBox(
+              width: width,
+              height: height,
+              child: PageView.builder(
+                controller: controller.pageController,
+                itemCount: controller.pages.length,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return controller.pages[index];
+                },
               ),
-            )
+            ),
           ],
         ),
-      ),),
+      ),
     );
   }
 }

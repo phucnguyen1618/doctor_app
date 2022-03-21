@@ -19,21 +19,24 @@ class TypeCallWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
             decoration: BoxDecoration(
               color: ColorConstants.backgroundColor,
               borderRadius: BorderRadius.circular(8.0),
             ),
             margin: const EdgeInsets.only(bottom: 16.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(
                   onTap: () {
                     controller.selectTypeCall(0);
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
-                    child: Text(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: const Text(
                       'Gọi cuộc thoại',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         height: 1.43,
                         fontFamily: 'Inter',
@@ -45,19 +48,16 @@ class TypeCallWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 11.0),
-                  child: Divider(
-                    color: ColorConstants.dividerColor,
-                  ),
+                const Divider(
+                  color: ColorConstants.dividerColor,
                 ),
                 InkWell(
                   onTap: () {
                     controller.selectTypeCall(1);
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
-                    child: Text(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: const Text(
                       'Gọi video',
                       style: TextStyle(
                         height: 1.43,
@@ -70,20 +70,18 @@ class TypeCallWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 11.0),
-                  child: Divider(
-                    color: ColorConstants.dividerColor,
-                  ),
+                const Divider(
+                  color: ColorConstants.dividerColor,
                 ),
                 InkWell(
                   onTap: () {
                     controller.selectTypeCall(2);
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16.0),
-                    child: Text(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: const Text(
                       'Gọi di động',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         height: 1.43,
                         fontFamily: 'Inter',

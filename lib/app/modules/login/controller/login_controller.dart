@@ -11,7 +11,7 @@ class LoginController extends GetxController {
   var phoneNumberController = TextEditingController();
   var passController = TextEditingController();
 
-  var isVisible = false.obs;
+  var isVisible = true.obs;
   var isFocusPassword = false.obs;
   var isFocusAccount = false.obs;
   var accountError = ''.obs;

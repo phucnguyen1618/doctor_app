@@ -2,20 +2,22 @@ import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController with GetSingleTickerProviderStateMixin {
+import '../../group/view/group_page.dart';
+import '../../schedule/view/schedule_page.dart';
+import '../../statistical/view/statistical_page.dart';
+
+class HomeController extends GetxController {
 
   var isClickedSchedule = true.obs;
   var isClickedGroup = false.obs;
   var isClickedLineUp =  false.obs;
-  var currentPage = 0.obs;
-  TabController? tabController;
   var isUnreadNotification = true.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-    tabController = TabController(length: 3, vsync: this);
-  }
+  var pages = [
+    const SchedulePage(),
+    const GroupPage(),
+    const StatisticalPage(),
+  ];
+  var pageController = PageController(initialPage: 0);
 
   handleEventNotificationButtonPressed() async {
     isUnreadNotification.value = await Get.toNamed(Routes.NOTIFICATION);
@@ -35,18 +37,20 @@ class HomeController extends GetxController with GetSingleTickerProviderStateMix
         isClickedSchedule.value = !isClickedSchedule.value;
         isClickedGroup.value = false;
         isClickedLineUp.value = false;
+        pageController.jumpToPage(0);
         break;
       case 1:
         isClickedSchedule.value = false;
         isClickedGroup.value = !isClickedGroup.value;
         isClickedLineUp.value = false;
+        pageController.jumpToPage(1);
         break;
       case 2:
         isClickedSchedule.value = false;
         isClickedGroup.value = false;
         isClickedLineUp.value = !isClickedLineUp.value;
+        pageController.jumpToPage(2);
         break;
     }
-    currentPage.value = index;
   }
 }

@@ -3,6 +3,7 @@ part of 'history_page.dart';
 extension HistoryPageChildren on HistoryPage {
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
+      leading: const SizedBox(),
       elevation: 0.0,
       backgroundColor: ColorConstants.primaryColor,
       centerTitle: true,

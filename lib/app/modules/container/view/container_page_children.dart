@@ -1,7 +1,7 @@
 part of 'container_page.dart';
 
 extension ContainerPageChildren on ContainerPage {
-  Widget _buildNavBar() {
+  Widget _buildMenuBar() {
     return Container(
       decoration: BoxDecoration(
         color: ColorConstants.backgroundColor,
@@ -18,100 +18,143 @@ extension ContainerPageChildren on ContainerPage {
           ),
         ],
       ),
-      child: Obx(
-        () => GNav(
-          tabBackgroundColor: ColorConstants.primaryColor,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          tabBorderRadius: 18.0,
-          tabs: [
-            GButton(
-              borderRadius: BorderRadius.circular(38.0),
-              leading: Padding(
-                padding: const EdgeInsets.only(right: 7.0),
-                child: controller.index.value == 0
-                    ? SvgPicture.asset(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          InkWell(
+            onTap: () {
+              controller.handleEventItemMenuBarClicked(0);
+            },
+            child: Obx(
+              () => controller.homeItem.value
+                  ? Container(
+                height: 36.0,
+                margin: const EdgeInsets.only(
+                    left: 13.25, top: 16.0, bottom: 18.0),
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(38.0),
+                  color: ColorConstants.primaryColor,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 4.0),
+                      child: SvgPicture.asset(
                         IconConstants.homeFill,
                         color: ColorConstants.backgroundColor,
-                      )
-                    : SvgPicture.asset(
-                        IconConstants.homeLight,
-                        color: ColorConstants.greyColor,
                       ),
-              ),
-              margin:
-                  const EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
-              padding: const EdgeInsets.all(8.0),
-              icon: Icons.home,
-              text: 'Home',
-              textStyle: const TextStyle(
-                fontSize: 13.0,
-                fontWeight: FontWeight.w700,
-                fontFamily: 'Inter',
-                fontStyle: FontStyle.normal,
-                color: Colors.white,
-              ),
-            ),
-            GButton(
-              margin:
-                  const EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
-              padding: const EdgeInsets.all(8.0),
-              leading: Padding(
-                padding: const EdgeInsets.only(right: 7.0),
-                child: controller.index.value == 1
-                    ? SvgPicture.asset(
-                        IconConstants.timeFill,
-                        color: ColorConstants.backgroundColor,
-                      )
-                    : SvgPicture.asset(
-                        IconConstants.timeLight,
-                        color: ColorConstants.greyColor,
+                    ),
+                    const Text(
+                      'Home',
+                      style: TextStyle(
+                        fontSize: 13.0,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        color: Colors.white,
                       ),
-              ),
-              icon: Icons.history,
-              borderRadius: BorderRadius.circular(38.0),
-              text: 'Lịch sử',
-              textStyle: const TextStyle(
-                fontSize: 13.0,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Inter',
-                fontStyle: FontStyle.normal,
-                color: Colors.white,
-              ),
+                    ),
+                  ],
+                ),
+              )
+                  : SvgPicture.asset(
+                      IconConstants.homeLight,
+                      color: ColorConstants.greyColor,
+                    ),
             ),
-            GButton(
-              borderRadius: BorderRadius.circular(38.0),
-              margin:
-                  const EdgeInsets.only(left: 13.25, top: 16.0, bottom: 18.0),
-              padding: const EdgeInsets.all(8.0),
-              icon: Icons.person,
-              leading: Padding(
-                padding: const EdgeInsets.only(right: 7.0),
-                child: controller.index.value == 2
-                    ? SvgPicture.asset(
-                        IconConstants.userFill,
-                        color: ColorConstants.backgroundColor,
-                      )
-                    : SvgPicture.asset(
-                        IconConstants.userLight,
-                        color: ColorConstants.greyColor,
+          ),
+          InkWell(
+            onTap: () {
+              controller.handleEventItemMenuBarClicked(1);
+            },
+            child: Obx(
+              () => controller.historyItem.value
+                  ? Container(
+                      height: 36.0,
+                      margin: const EdgeInsets.only(
+                          left: 13.25, top: 16.0, bottom: 18.0),
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(38.0),
+                        color: ColorConstants.primaryColor,
                       ),
-              ),
-              text: 'Người dùng',
-              textStyle: const TextStyle(
-                fontSize: 13.0,
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Inter',
-                fontStyle: FontStyle.normal,
-                color: Colors.white,
-              ),
-              onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 4.0),
+                            child: SvgPicture.asset(
+                              IconConstants.timeFill,
+                              color: ColorConstants.backgroundColor,
+                            ),
+                          ),
+                          const Text(
+                            'Lịch sử',
+                            style: TextStyle(
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Inter',
+                              fontStyle: FontStyle.normal,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : SvgPicture.asset(
+                      IconConstants.timeLight,
+                      color: ColorConstants.greyColor,
+                    ),
             ),
-          ],
-          onTabChange: (int currentIndex) {
-            controller.changePage(currentIndex);
-          },
-          selectedIndex: controller.index.value,
-        ),
+          ),
+          InkWell(
+            onTap: () {
+              controller.handleEventItemMenuBarClicked(2);
+            },
+            child: Obx(
+              () => controller.userItem.value
+                  ? Container(
+                      height: 36.0,
+                      margin: const EdgeInsets.only(
+                          left: 13.25, top: 16.0, bottom: 18.0),
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(38.0),
+                        color: ColorConstants.primaryColor,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 4.0),
+                            child: SvgPicture.asset(
+                              IconConstants.userFill,
+                              color: ColorConstants.backgroundColor,
+                            ),
+                          ),
+                          const Text(
+                            'Người dùng',
+                            style: TextStyle(
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Inter',
+                              fontStyle: FontStyle.normal,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : SvgPicture.asset(
+                      IconConstants.userLight,
+                      color: ColorConstants.greyColor,
+                    ),
+            ),
+          ),
+        ],
       ),
     );
   }

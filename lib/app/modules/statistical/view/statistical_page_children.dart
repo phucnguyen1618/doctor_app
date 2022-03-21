@@ -328,8 +328,8 @@ extension StatisticalPageChildren on StatisticalPage {
                   color: ColorConstants.titleColor,
                 ),
               ),
-              Text(
-                '${controller.numberOfOrders} đơn',
+              Obx(() => Text(
+                controller.totalOrders.value,
                 style: const TextStyle(
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
@@ -337,7 +337,7 @@ extension StatisticalPageChildren on StatisticalPage {
                   fontStyle: FontStyle.normal,
                   color: ColorConstants.secondaryColor,
                 ),
-              ),
+              ),),
             ],
           ),
           const SizedBox(
@@ -363,8 +363,7 @@ extension StatisticalPageChildren on StatisticalPage {
                     response.spot == null) {
                   return;
                 }
-                controller.handleEventTouchedBarChart(
-                    response.spot!.touchedBarGroupIndex);
+                controller.handleEventTouchedBarChart(response.spot!.touchedBarGroupIndex);
               },
               enabled: false,
               touchTooltipData: BarTouchTooltipData(
@@ -393,7 +392,7 @@ extension StatisticalPageChildren on StatisticalPage {
                 showTitles: true,
                 getTextStyles: (context, value) => TextStyle(
                   color:
-                      controller.dailyFigures[controller.touchedIndex].isTouched
+                      controller.dailyFigures[value.toInt()].isTouched
                           ? ColorConstants.titleColor
                           : ColorConstants.greyColor,
                   fontWeight: FontWeight.w500,

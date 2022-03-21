@@ -3,6 +3,7 @@ part of 'setting_page.dart';
 extension SettingPageChildren on SettingPage {
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
+      leading: const SizedBox(),
       elevation: 0.0,
       systemOverlayStyle: const SystemUiOverlayStyle(
         statusBarColor: ColorConstants.primaryColor,

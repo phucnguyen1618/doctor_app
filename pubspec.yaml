@@ -36,22 +36,17 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.0.3
   pinput: ^1.2.2
-  google_nav_bar: ^5.0.5
   step_progress_indicator: ^1.0.2
   get: ^4.6.1
   carousel_slider: ^4.0.0
   sleek_circular_slider: ^2.0.1
   fl_chart: ^0.45.1
   flutter_local_notifications: ^9.4.0
-  rxdart: ^0.27.3
-  draggable_home:
-    path: library/draggable_home/draggable_home
   flutter_slidable:
     path: library/flutter_slidable/flutter_slidable
 #  agora_uikit:
 #    path: library/agora_uikit/agora_uikit
   shared_preferences: ^2.0.13
-
 
 dev_dependencies:
   flutter_test:

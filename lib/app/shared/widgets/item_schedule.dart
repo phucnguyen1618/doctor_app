@@ -34,7 +34,6 @@ class ItemSchedule extends StatelessWidget {
                   height: 116.0,
                   color: ColorConstants.secondaryColor,
                 ),
-
               ],
             ),
             Expanded(
@@ -47,17 +46,20 @@ class ItemSchedule extends StatelessWidget {
                     itemCount: 3,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      return index != 2 ? ItemDetailSchedule(
-                        backgroundColor: index % 2 == 0
-                            ? const Color(0xFFEAEEFD)
-                            : const Color(0xFFFFF3EC),
-                      ) : const Padding(
-                        padding: EdgeInsets.only(bottom: 8.0),
-                        child: Divider(
-                          height: 0.5,
-                          color: ColorConstants.dividerColor,
-                        ),
-                      );
+                      return index != 2
+                          ? ItemDetailSchedule(
+                              backgroundColor: index % 2 == 0
+                                  ? const Color(0xFFEAEEFD)
+                                  : const Color(0xFFFFF3EC),
+                              index: index,
+                            )
+                          : const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
+                              child: Divider(
+                                height: 0.5,
+                                color: ColorConstants.dividerColor,
+                              ),
+                            );
                     },
                   ),
                 ],

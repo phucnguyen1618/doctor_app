@@ -47,7 +47,6 @@ import 'package:doctor_app/app/modules/splash/binding/splash_binding.dart';
 import 'package:doctor_app/app/modules/splash/view/splash_page.dart';
 import 'package:doctor_app/app/modules/statistical/binding/statistical_binding.dart';
 import 'package:doctor_app/app/modules/statistical/view/statistical_page.dart';
-import 'package:doctor_app/app/modules/welcome/binding/welcome_binding.dart';
 import 'package:doctor_app/app/modules/welcome/view/welcome_page.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:get/get.dart';
@@ -67,7 +66,6 @@ final pages = [
   GetPage(
     name: Routes.WELCOME,
     page: () => const WelcomePage(),
-    binding: WelcomeBinding(),
   ),
   GetPage(
     name: Routes.FORGOTPASSWORD,
