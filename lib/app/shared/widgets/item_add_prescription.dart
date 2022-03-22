@@ -459,6 +459,8 @@ class ItemAddPrescription extends StatelessWidget {
                           width: Get.width,
                           height: 56.0,
                           child: const TextField(
+                            keyboardType: TextInputType.multiline,
+                            maxLines: null,
                             style: TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.w600,
@@ -466,6 +468,7 @@ class ItemAddPrescription extends StatelessWidget {
                               fontFamily: 'Inter',
                             ),
                             decoration: InputDecoration(
+                              filled: true,
                               contentPadding: EdgeInsets.only(
                                   top: 18.0, bottom: 18.0, left: 23.0),
                               hintText: 'Nhập ghi chú ở đây',

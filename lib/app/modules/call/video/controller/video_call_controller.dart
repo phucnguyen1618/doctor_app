@@ -7,7 +7,7 @@ import '../../../../routes/app_routes.dart';
 
 class VideoCallController extends BaseController {
   var isEnabled = false.obs;
-  var xOffset = 0.0.obs;
+  var xOffset = 422.0.obs;
   var yOffset = 0.0.obs;
 
   @override

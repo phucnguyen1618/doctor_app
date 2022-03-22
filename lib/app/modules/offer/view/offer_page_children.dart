@@ -21,7 +21,7 @@ extension OfferPageChildren on OfferPage {
       },
       child: Obx(
         () => AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
+          duration: const Duration(milliseconds: 300),
           transform: Matrix4.translationValues(
             controller.xOffset.value,
             controller.yOffset.value,
@@ -152,12 +152,13 @@ extension OfferPageChildren on OfferPage {
                               ),
                             ),
                           ),
-                          Container(
+                          AnimatedContainer(
                             transform: Matrix4.translationValues(
                               controller.mOffset.value,
                               controller.nOffset.value,
                               0.0,
                             ),
+                            duration: const Duration(milliseconds: 300),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [

@@ -13,9 +13,8 @@ class OfferController extends GetxController {
 
   var xOffset = 0.0.obs;
   var yOffset = 285.0.obs;
-
   var mOffset = 0.0.obs;
-  var nOffset = 0.0.obs;
+  var nOffset = 8.0.obs;
   var isVisibleText = true.obs;
 
   var symptoms = [
@@ -29,9 +28,11 @@ class OfferController extends GetxController {
   animation(double x, double y) {
     xOffset.value = x;
     yOffset.value = y;
-    mOffset.value = 22.0;
-    nOffset.value = 22.0;
     isVisibleText.value = false;
+    Future.delayed(const Duration(milliseconds: 100)).then((value){
+      mOffset.value = 0.0;
+      nOffset.value = -18.0;
+    });
   }
 
   handleEventAcceptButtonPressed() {

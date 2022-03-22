@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:doctor_app/app/models/account.dart';
 import 'package:doctor_app/app/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +5,6 @@ import 'package:get/get.dart';
 import '../../../routes/app_routes.dart';
 
 class LoginController extends GetxController {
-  var phoneNumberController = TextEditingController();
-  var passController = TextEditingController();
 
   var isVisible = true.obs;
   var isFocusPassword = false.obs;
@@ -31,9 +26,6 @@ class LoginController extends GetxController {
       handleFocusTextFieldPassword();
     });
 
-    phoneNumberController.removeListener(() {
-      accountValue.value = 'AAAAAAA';
-    });
   }
 
   @override
@@ -60,9 +52,7 @@ class LoginController extends GetxController {
 
   handleEventLoginButtonPressed() {
     accountError.value = Validation.validatorPhoneNumber(accountValue.value);
-    passError.value = Validation.validatorPassword(passValue.value);
-    Account account = Account(accountValue.value, passValue.value);
-    log('Acc error: ${accountError.value} - Pass error: ${passError.value}');
+    passError.value = Validation.validatorPassword(passValue.value).toString();
     if(accountError.value == '' && passError.value == ''){
       Get.toNamed(Routes.CONTAINER);
     }

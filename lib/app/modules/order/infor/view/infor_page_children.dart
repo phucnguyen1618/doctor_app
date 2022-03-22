@@ -128,6 +128,7 @@ extension InforPageChildren on InforPage {
 
   Widget _buildCard() {
     return Card(
+      elevation: 0.0,
       color: ColorConstants.backgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(20.0),

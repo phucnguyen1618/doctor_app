@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../assets/constants/color_constants.dart';
 import '../../../../shared/widgets/images_widget.dart';
-import '../../../../shared/widgets/item_add_prescription.dart';
 import '../../../../shared/widgets/item_prescription.dart';
 
 part 'detail_diagnostic_page_children.dart';

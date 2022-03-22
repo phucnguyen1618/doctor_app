@@ -81,7 +81,7 @@ extension LoginPageChildren on LoginPage {
             ),
           ),
           Obx(
-            () => controller.accountError.value.length != 1
+            () => controller.accountError.value.isNotEmpty
                 ? Padding(
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                     child: Text(
@@ -173,7 +173,7 @@ extension LoginPageChildren on LoginPage {
             ),
           ),
           Obx(
-            () => controller.passError.value.length != 1
+            () => controller.passError.value.isNotEmpty
                 ? Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(

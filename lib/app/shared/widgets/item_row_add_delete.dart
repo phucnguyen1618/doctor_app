@@ -26,6 +26,7 @@ class ItemRowAddDeleted extends StatelessWidget {
         InkWell(
           onTap: addCallback,
           child: Container(
+            width: 222.0,
             padding:
                 const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
             decoration: BoxDecoration(

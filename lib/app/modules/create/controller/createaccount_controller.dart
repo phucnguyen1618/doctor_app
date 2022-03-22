@@ -1,16 +1,11 @@
-import 'dart:developer';
-
 import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class CreateAccountController extends BaseController {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
+import '../../../utils/validation.dart';
 
+class CreateAccountController extends BaseController {
   FocusNode focusNodeUsername = FocusNode();
   FocusNode focusNodeEmail = FocusNode();
   FocusNode focusNodePassword = FocusNode();
@@ -23,6 +18,16 @@ class CreateAccountController extends BaseController {
 
   var isVisiblePassword = true.obs;
   var isVisibleConfirmPassword = true.obs;
+
+  var usernameValue = ''.obs;
+  var passValue = ''.obs;
+  var confirmPassValue = ''.obs;
+  var emailValue = ''.obs;
+
+  var usernameError = ''.obs;
+  var passError = ''.obs;
+  var confirmError = ''.obs;
+  var emailError = ''.obs;
 
   @override
   onBack() {
@@ -48,10 +53,6 @@ class CreateAccountController extends BaseController {
 
   @override
   onClose() {
-    nameController.dispose();
-    emailController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
     focusNodeUsername.removeListener(() {
       handleEventFocusUsername();
     });
@@ -68,6 +69,27 @@ class CreateAccountController extends BaseController {
     focusNodeEmail.dispose();
     focusNodePassword.dispose();
     focusNodeConfirmPassword.dispose();
+  }
+
+  getTextUsernameInput(String content) {
+    usernameValue.value = content;
+    usernameError.value = Validation.validatorUsername(content);
+  }
+
+  getTextPasswordInput(String content) {
+    passValue.value = content;
+    passError.value = Validation.validatorPassword(content);
+  }
+
+  getTextConfirmPasswordInput(String content) {
+    confirmPassValue.value = content;
+    confirmError.value =
+        Validation.validatorConfirmPassword(content, passValue.value);
+  }
+
+  getTextEmailInput(String content) {
+    emailValue.value = content;
+    emailError.value = Validation.validatorEmail(content);
   }
 
   handleEventFocusUsername() {
@@ -95,22 +117,15 @@ class CreateAccountController extends BaseController {
   }
 
   handleEventCreateButtonPressed() {
-    String name = nameController.text.trim();
-    String email = emailController.text.trim();
-    String password = passwordController.text.trim();
-    String confirmPassword = passwordController.text.trim();
-
-    if (name.isEmpty ||
-        email.isEmpty ||
-        password.isEmpty ||
-        confirmPassword.isEmpty) {
-      log('Data input is not empty');
-    } else {
-      if (password.toString().compareTo(confirmPassword.toString()) != 0) {
-        log('Confirm password is not compare password');
-      } else {
-        Get.toNamed(Routes.CONTAINER);
-      }
+    usernameError.value = Validation.validatorUsername(usernameValue.value);
+    emailError.value = Validation.validatorEmail(emailValue.value);
+    passError.value = Validation.validatorPassword(passValue.value);
+    confirmError.value = Validation.validatorConfirmPassword(confirmPassValue.value, passValue.value);
+    if (usernameError.value == '' &&
+        emailError.value == '' &&
+        passError.value == '' &&
+        confirmError.value == '') {
+      Get.toNamed(Routes.CONTAINER);
     }
   }
 

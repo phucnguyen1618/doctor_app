@@ -52,11 +52,11 @@ extension VideoCallPageChildren on VideoCallPage {
   }
 
   Widget _buildContent() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Visibility(
-          visible: controller.isEnabled.value ? false : true,
+    return Padding(
+      padding: const EdgeInsets.only(top: 60.0, bottom: 8.0),
+      child: Visibility(
+        visible: controller.isEnabled.value ? false : true,
+        child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -80,18 +80,26 @@ extension VideoCallPageChildren on VideoCallPage {
             ],
           ),
         ),
-        const SizedBox(
-          height: 8.0,
-        ),
-        Text(
-          controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
-          style: const TextStyle(
-            fontSize: 14.0,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
+      ),
+    );
+  }
+
+  Widget _buildTime() {
+    return Obx(
+      () => Center(
+        child: Container(
+          transform: Matrix4.translationValues(
+              controller.xOffset.value, controller.yOffset.value, 0.0),
+          child: Text(
+            controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
+            style: const TextStyle(
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+            ),
           ),
         ),
-      ],
+      ),
     );
   }
 

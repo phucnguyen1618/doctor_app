@@ -68,7 +68,7 @@ extension CreateAccountPageChildren on CreateAccountPage {
           ),
           Obx(
             () => Container(
-              margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
+              margin: const EdgeInsets.only(top: 16.0),
               decoration: BoxDecoration(
                 color: controller.isFocusUsername.value
                     ? ColorConstants.backgroundColor
@@ -79,7 +79,6 @@ extension CreateAccountPageChildren on CreateAccountPage {
               height: 56.0,
               child: TextField(
                 focusNode: controller.focusNodeUsername,
-                controller: controller.nameController,
                 style: const TextStyle(
                   fontSize: 14.0,
                   fontFamily: 'Inter',
@@ -96,8 +95,31 @@ extension CreateAccountPageChildren on CreateAccountPage {
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                 ),
+                onChanged: (text) {
+                  controller.getTextUsernameInput(text);
+                },
               ),
             ),
+          ),
+          Obx(
+            () => controller.usernameError.value.length != 1
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      controller.usernameError.value,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
+          ),
+          const SizedBox(
+            height: 16.0,
           ),
           const Text(
             'Email',
@@ -112,7 +134,7 @@ extension CreateAccountPageChildren on CreateAccountPage {
           ),
           Obx(
             () => Container(
-              margin: const EdgeInsets.only(top: 16.0, bottom: 24.0),
+              margin: const EdgeInsets.only(top: 16.0),
               decoration: BoxDecoration(
                 color: controller.isFocusEmail.value
                     ? ColorConstants.backgroundColor
@@ -123,7 +145,6 @@ extension CreateAccountPageChildren on CreateAccountPage {
               height: 56.0,
               child: TextField(
                 focusNode: controller.focusNodeEmail,
-                controller: controller.emailController,
                 style: const TextStyle(
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
@@ -140,8 +161,31 @@ extension CreateAccountPageChildren on CreateAccountPage {
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                 ),
+                onChanged: (text) {
+                  controller.getTextEmailInput(text);
+                },
               ),
             ),
+          ),
+          Obx(
+            () => controller.emailError.value.length != 1
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      controller.emailError.value,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
+          ),
+          const SizedBox(
+            height: 16.0,
           ),
           const Text(
             'Mật khẩu',
@@ -156,7 +200,7 @@ extension CreateAccountPageChildren on CreateAccountPage {
           ),
           Obx(
             () => Container(
-              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              margin: const EdgeInsets.only(top: 16.0),
               decoration: BoxDecoration(
                 color: controller.isFocusPassword.value
                     ? ColorConstants.backgroundColor
@@ -167,7 +211,6 @@ extension CreateAccountPageChildren on CreateAccountPage {
               height: 56.0,
               child: TextField(
                 focusNode: controller.focusNodePassword,
-                controller: controller.passwordController,
                 obscureText: controller.isVisiblePassword.value,
                 style: const TextStyle(
                   fontFamily: 'Inter',
@@ -187,7 +230,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
                         ? Padding(
                             padding: const EdgeInsets.only(right: 23.0),
                             child: SvgPicture.asset(
-                              IconConstants.eye,
+                              controller.isVisiblePassword.value
+                                  ? IconConstants.eye
+                                  : IconConstants.invisibleIcon,
                             ),
                           )
                         : const SizedBox(),
@@ -198,8 +243,31 @@ extension CreateAccountPageChildren on CreateAccountPage {
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                 ),
+                onChanged: (text) {
+                  controller.getTextPasswordInput(text);
+                },
               ),
             ),
+          ),
+          Obx(
+            () => controller.passError.value.length != 1
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      controller.passError.value,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
+          ),
+          const SizedBox(
+            height: 16.0,
           ),
           const Text(
             'Xác nhận mật khẩu',
@@ -214,7 +282,7 @@ extension CreateAccountPageChildren on CreateAccountPage {
           ),
           Obx(
             () => Container(
-              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              margin: const EdgeInsets.only(top: 16.0),
               decoration: BoxDecoration(
                 color: controller.isFocusConfirmPassword.value
                     ? ColorConstants.backgroundColor
@@ -225,7 +293,6 @@ extension CreateAccountPageChildren on CreateAccountPage {
               height: 56.0,
               child: TextField(
                 focusNode: controller.focusNodeConfirmPassword,
-                controller: controller.confirmPasswordController,
                 obscureText: controller.isVisibleConfirmPassword.value,
                 style: const TextStyle(
                   fontFamily: 'Inter',
@@ -246,7 +313,9 @@ extension CreateAccountPageChildren on CreateAccountPage {
                         ? Padding(
                             padding: const EdgeInsets.only(right: 23.0),
                             child: SvgPicture.asset(
-                              IconConstants.eye,
+                              controller.isVisibleConfirmPassword.value
+                                  ? IconConstants.eye
+                                  : IconConstants.invisibleIcon,
                             ),
                           )
                         : const SizedBox(),
@@ -257,8 +326,31 @@ extension CreateAccountPageChildren on CreateAccountPage {
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                 ),
+                onChanged: (text) {
+                  controller.getTextConfirmPasswordInput(text);
+                },
               ),
             ),
+          ),
+          Obx(
+            () => controller.confirmError.value.length != 1
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      controller.confirmError.value,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
+                : const SizedBox(),
+          ),
+          const SizedBox(
+            height: 16.0,
           ),
         ],
       ),

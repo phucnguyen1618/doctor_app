@@ -40,7 +40,9 @@ class NotificationPage extends GetView<NotificationController> {
                 onNotification: (ScrollNotification scrollInformation) {
                   if (scrollInformation.metrics.pixels ==
                       scrollInformation.metrics.maxScrollExtent) {
-                    con.onLoading();
+                    if(controller.totalNewNotification .value != 0){
+                      con.onLoading();
+                    }
                     Future.delayed(
                       const Duration(milliseconds: 3000),
                       () {
