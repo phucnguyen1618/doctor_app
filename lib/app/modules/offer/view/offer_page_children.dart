@@ -19,14 +19,8 @@ extension OfferPageChildren on OfferPage {
       onTap: () {
         controller.animation(0.0, 139.0);
       },
-      child: Obx(
-        () => AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          transform: Matrix4.translationValues(
-            controller.xOffset.value,
-            controller.yOffset.value,
-            0.0,
-          ),
+      child: SingleChildScrollView(
+        child: Container(
           width: newWidth,
           decoration: const BoxDecoration(
             color: Colors.white,

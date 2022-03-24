@@ -52,54 +52,60 @@ extension VideoCallPageChildren on VideoCallPage {
   }
 
   Widget _buildContent() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 60.0, bottom: 8.0),
-      child: Visibility(
-        visible: controller.isEnabled.value ? false : true,
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 137.0,
-                height: 137.0,
-                child: Image.asset(ImageConstants.channel),
-              ),
-              const SizedBox(
-                height: 16.0,
-              ),
-              const Text(
-                'Thị Bách',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-            ],
+    return Stack(
+      children: [
+        SizedBox(
+          width: Get.width,
+          height: Get.height,
+          child: Image.asset(
+            ImageConstants.background,
+            fit: BoxFit.fill,
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildTime() {
-    return Obx(
-      () => Center(
-        child: Container(
-          transform: Matrix4.translationValues(
-              controller.xOffset.value, controller.yOffset.value, 0.0),
-          child: Text(
-            controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
-            style: const TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Visibility(
+            visible: controller.isEnabled.value ? false : true,
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomPaint(
+                    painter: CirclePainter(
+                      controller.animController!,
+                      color: const Color(0xFFC7DCFF),
+                    ),
+                    child: SizedBox(
+                      width: 80.0 * 2.575,
+                      height: 80.0 * 2.575,
+                      child: _buildAvatar(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
+                  const Text(
+                    'Thị Bách',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
+        _buildHeader(),
+        Positioned(
+          bottom: 0.0,
+          left: 0.0,
+          right: 0.0,
+          child: _buildFooter(),
+        ),
+      ],
     );
   }
 
@@ -173,6 +179,45 @@ extension VideoCallPageChildren on VideoCallPage {
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAvatar() {
+    return Center(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(80.0),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: RadialGradient(
+              colors: <Color>[
+                const Color(0xFFC7DCFF),
+                const Color(0xFFC7DCFF).withOpacity(0.15),
+                const Color(0xFFC7DCFF).withOpacity(0.2),
+              ],
+            ),
+          ),
+          child: ScaleTransition(
+            scale: Tween(begin: 0.95, end: 1.0).animate(
+              CurvedAnimation(
+                parent: controller.animController!,
+                curve: CurveWave(),
+              ),
+            ),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.green,
+                shape: BoxShape.circle,
+              ),
+              child: Image.asset(
+                ImageConstants.patient,
+                fit: BoxFit.fill,
+                width: 120.0,
+                height: 120.0,
+              ),
+            ),
+          ),
         ),
       ),
     );

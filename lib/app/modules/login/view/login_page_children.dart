@@ -40,7 +40,7 @@ extension LoginPageChildren on LoginPage {
               ),
               width: double.infinity,
               child: TextField(
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.emailAddress,
                 focusNode: controller.focusNodeAccount,
                 style: const TextStyle(
                   fontFamily: 'Inter',
@@ -83,7 +83,7 @@ extension LoginPageChildren on LoginPage {
           Obx(
             () => controller.accountError.value.isNotEmpty
                 ? Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                     child: Text(
                       controller.accountError.value,
                       style: const TextStyle(

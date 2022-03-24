@@ -95,7 +95,7 @@ extension GroupPageChildren on GroupPage {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return index == 0
-                ? const ItemMessage(index: 2,)
+                ? ItemMessage(index: index,)
                 : Column(
                     children: [
                       ItemMessage(index: index,),
