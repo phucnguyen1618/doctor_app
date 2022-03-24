@@ -127,12 +127,13 @@ extension HistoryPageChildren on HistoryPage {
         const SizedBox(
           height: 22.5,
         ),
-        ListView.builder(
-          itemCount: 2,
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return const ItemHistory();
-          },
+        SingleChildScrollView(
+          child: Column(
+            children: List.generate(
+              3,
+              (index) => const ItemHistory(),
+            ).toList(),
+          ),
         ),
       ],
     );

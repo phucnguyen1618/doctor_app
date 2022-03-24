@@ -37,42 +37,43 @@ extension VoiceCallPageChildren on VoiceCallPage {
   }
 
   Widget _buildContent() {
-    return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 137.0,
-            height: 137.0,
-            child: Image.asset(ImageConstants.channel),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CustomPaint(
+          painter: CirclePainter(
+            controller.animController!,
+            color: const Color(0xFFC7DCFF),
           ),
-          const SizedBox(
-            height: 16.0,
+          child: SizedBox(
+            width: 80.0 * 2.575,
+            height: 80.0 * 2.575,
+            child: _buildAvatar(),
           ),
-          const Text(
-            'Thị Bách',
-            style: TextStyle(
-              fontSize: 24.0,
+        ),
+        const Text(
+          'Thị Bách',
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(
+          height: 8.0,
+        ),
+        Obx(
+              () => Text(
+            controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
+            style: const TextStyle(
+              fontSize: 14.0,
               fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ),
-          const SizedBox(
-            height: 8.0,
-          ),
-          Obx(
-            () => Text(
-              controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
-              style: const TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -114,6 +115,45 @@ extension VoiceCallPageChildren on VoiceCallPage {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildAvatar() {
+    return Center(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(80.0),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: RadialGradient(
+              colors: <Color>[
+                const Color(0xFFC7DCFF),
+                const Color(0xFFC7DCFF).withOpacity(0.15),
+                const Color(0xFFC7DCFF).withOpacity(0.2),
+              ],
+            ),
+          ),
+          child: ScaleTransition(
+            scale: Tween(begin: 0.95, end: 1.0).animate(
+              CurvedAnimation(
+                parent: controller.animController!,
+                curve: CurveWave(),
+              ),
+            ),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.green,
+                shape: BoxShape.circle,
+              ),
+              child: Image.asset(
+                ImageConstants.patient,
+                fit: BoxFit.fill,
+                width: 120.0,
+                height: 120.0,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

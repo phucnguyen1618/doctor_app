@@ -6,7 +6,7 @@ class NotificationController extends BaseController {
   var isLoading = false;
   var notificationList = notifications.obs;
   int preIndex = 0;
-  var totalNewNotification = 2.obs;
+  var totalNewNotification = 10.obs;
 
   onLoading() {
     isLoading = true;
@@ -35,7 +35,9 @@ class NotificationController extends BaseController {
     preIndex = currentIndex;
     if (!notificationList[currentIndex].isRead) {
       notificationList[currentIndex].isRead = true;
-      totalNewNotification.value--;
+      totalNewNotification.value > 0
+          ? totalNewNotification.value--
+          : totalNewNotification.value = 0;
     }
     update();
   }

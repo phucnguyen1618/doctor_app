@@ -16,10 +16,12 @@ class DetailInforPage extends GetView<DetailInforController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          _buildContent(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _buildContent(),
+          ],
+        ),
       ),
     );
   }

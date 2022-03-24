@@ -56,7 +56,7 @@ extension GroupPageChildren on GroupPage {
             return index >= 0
                 ? Column(
                     children: [
-                      ItemMessage(message: controller.messageList[index]),
+                      ItemMessage(index: index,),
                       const Padding(
                         padding: EdgeInsets.only(right: 10.0),
                         child: Divider(
@@ -65,7 +65,9 @@ extension GroupPageChildren on GroupPage {
                       ),
                     ],
                   )
-                : ItemMessage(message: controller.messageList[index]);
+                : ItemMessage(
+                    index: controller.messageList.length,
+                  );
           },
         ),
       ],
@@ -93,10 +95,10 @@ extension GroupPageChildren on GroupPage {
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return index == 0
-                ? ItemMessage(message: controller.messageList[index])
+                ? const ItemMessage(index: 2,)
                 : Column(
                     children: [
-                      ItemMessage(message: controller.messageList[index]),
+                      ItemMessage(index: index,),
                       const Padding(
                         padding: EdgeInsets.only(right: 10.0),
                         child: Divider(

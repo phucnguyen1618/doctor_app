@@ -83,7 +83,7 @@ extension LoginPageChildren on LoginPage {
           Obx(
             () => controller.accountError.value.isNotEmpty
                 ? Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
                       controller.accountError.value,
                       style: const TextStyle(
@@ -95,7 +95,7 @@ extension LoginPageChildren on LoginPage {
                       ),
                     ),
                   )
-                : const SizedBox(),
+                : const SizedBox(height: 20.0,),
           ),
           const Text(
             'Mật khẩu',
@@ -187,7 +187,7 @@ extension LoginPageChildren on LoginPage {
                       ),
                     ),
                   )
-                : const SizedBox(),
+                : const SizedBox(height: 16.0,),
           ),
           InkWell(
             onTap: () {

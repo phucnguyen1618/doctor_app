@@ -139,13 +139,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
-  flutter_slidable:
-    dependency: "direct main"
-    description:
-      path: "library/flutter_slidable/flutter_slidable"
-      relative: true
-    source: path
-    version: "1.2.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -261,6 +254,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.2"
+  pixel_perfect:
+    dependency: "direct main"
+    description:
+      name: pixel_perfect
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.1"
   platform:
     dependency: transitive
     description:
