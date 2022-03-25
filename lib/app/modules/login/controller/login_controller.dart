@@ -51,7 +51,7 @@ class LoginController extends GetxController {
   }
 
   handleEventLoginButtonPressed() {
-    accountError.value = Validation.validatorEmail(accountValue.value);
+    accountError.value = Validation.validatorPhoneNumber(accountValue.value);
     passError.value = Validation.validatorPassword(passValue.value).toString();
     if(accountError.value == '' && passError.value == ''){
       Get.toNamed(Routes.CONTAINER);

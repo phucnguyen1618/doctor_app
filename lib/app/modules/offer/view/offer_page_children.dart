@@ -2,12 +2,169 @@ part of 'offer_page.dart';
 
 extension OfferPageChildren on OfferPage {
   Widget _buildBody() {
-    return Stack(
-      children: [
-        _buildHeader(),
-        Positioned(
-          top: 0.0,
-          child: _buildContent(),
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          pinned: true,
+          elevation: 0.0,
+          leadingWidth: 0.0,
+          centerTitle: false,
+          automaticallyImplyLeading: false,
+          leading: const SizedBox(),
+          expandedHeight: 234.0,
+          flexibleSpace: FlexibleSpaceBar(
+            background: Container(
+              padding: const EdgeInsets.only(left: 60.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [
+                  Text(
+                    'Hôm nay, ngày 22/02/2022',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                      fontSize: 13.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 12.0, bottom: 34.0),
+                    child: Text(
+                      '16:00 - Gọi lại trong 15 phút nữa',
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            titlePadding: EdgeInsets.zero,
+            centerTitle: false,
+            title: SafeArea(
+              top: true,
+              left: false,
+              child: Container(
+                color: ColorConstants.primaryColor,
+                padding:
+                    const EdgeInsets.only(right: 20.0, top: 20.0, left: 22.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Obx(
+                      () => Visibility(
+                        visible: controller.isVisibleText.value,
+                        child: const SizedBox(
+                          width: 270.0,
+                          height: 76.0,
+                          child: Text(
+                            'Bạn có một cuộc gọi tư vấn',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              fontFamily: 'SVN-Gotham',
+                              fontStyle: FontStyle.normal,
+                              fontSize: 32.0,
+                              height: 1.19,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 24.0, bottom: 34.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Obx(
+                            () => Visibility(
+                              visible: controller.isVisibleText.value,
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 14.5),
+                                child: SvgPicture.asset(
+                                  IconConstants.timeFill,
+                                  color: ColorConstants.backgroundColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Obx(
+                            () => Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Visibility(
+                                  visible: controller.isVisibleText.value,
+                                  child: const Padding(
+                                    padding: EdgeInsets.only(bottom: 16.0),
+                                    child: Text(
+                                      'Thời gian tư vấn',
+                                      style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Hôm nay, ngày 22/02/2022',
+                                      style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 13.0,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 12.0, bottom: 34.0),
+                                      child: Text(
+                                        '16:00 - Gọi lại trong 15 phút nữa',
+                                        style: TextStyle(
+                                          fontFamily: 'Inter',
+                                          fontStyle: FontStyle.normal,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            expandedTitleScale: 1.0,
+          ),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              return _buildContent();
+            },
+            childCount: 1,
+          ),
         ),
       ],
     );
@@ -15,64 +172,57 @@ extension OfferPageChildren on OfferPage {
 
   Widget _buildContent() {
     double newWidth = Get.width;
-    return InkWell(
-      onTap: () {
-        controller.animation(0.0, 139.0);
-      },
-      child: SingleChildScrollView(
-        child: Container(
-          width: newWidth,
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(24.0),
-              topRight: Radius.circular(24.0),
+    return Container(
+      width: newWidth,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(24.0),
+          topRight: Radius.circular(24.0),
+        ),
+      ),
+      padding: const EdgeInsets.only(
+        top: 20.0,
+        left: 20.0,
+        right: 20.0,
+        bottom: 20.0,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Thông tin',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              color: ColorConstants.titleColor,
             ),
           ),
-          padding: const EdgeInsets.only(
-            top: 20.0,
-            left: 20.0,
-            right: 20.0,
-            bottom: 20.0,
+          Container(
+            width: 65.0,
+            height: 2.0,
+            margin:
+            const EdgeInsets.only(right: 10.0, top: 8.0, bottom: 20.0),
+            decoration: const BoxDecoration(
+              color: ColorConstants.primaryColor,
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Thông tin',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                  color: ColorConstants.titleColor,
-                ),
-              ),
-              Container(
-                width: 65.0,
-                height: 2.0,
-                margin:
-                    const EdgeInsets.only(right: 10.0, top: 8.0, bottom: 20.0),
-                decoration: const BoxDecoration(
-                  color: ColorConstants.primaryColor,
-                ),
-              ),
-              _buildUserInfor(),
-              const SizedBox(
-                height: 27.0,
-              ),
-              _buildSymptom(),
-              const SizedBox(
-                height: 24.0,
-              ),
-              _buildQuestionToConsult(),
-              const SizedBox(
-                height: 24.0,
-              ),
-              _buildImageList(),
-            ],
+          _buildUserInfor(),
+          const SizedBox(
+            height: 27.0,
           ),
-        ),
+          _buildSymptom(),
+          const SizedBox(
+            height: 24.0,
+          ),
+          _buildQuestionToConsult(),
+          const SizedBox(
+            height: 24.0,
+          ),
+          _buildImageList(),
+        ],
       ),
     );
   }

@@ -54,49 +54,8 @@ extension VideoCallPageChildren on VideoCallPage {
   Widget _buildContent() {
     return Stack(
       children: [
-        SizedBox(
-          width: Get.width,
-          height: Get.height,
-          child: Image.asset(
-            ImageConstants.background,
-            fit: BoxFit.fill,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: Visibility(
-            visible: controller.isEnabled.value ? false : true,
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomPaint(
-                    painter: CirclePainter(
-                      controller.animController!,
-                      color: const Color(0xFFC7DCFF),
-                    ),
-                    child: SizedBox(
-                      width: 80.0 * 2.575,
-                      height: 80.0 * 2.575,
-                      child: _buildAvatar(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
-                  const Text(
-                    'Thị Bách',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+        Center(
+          child: _remoteVideo(),
         ),
         _buildHeader(),
         Positioned(
@@ -106,6 +65,23 @@ extension VideoCallPageChildren on VideoCallPage {
           child: _buildFooter(),
         ),
       ],
+    );
+  }
+
+  Widget _remoteVideo() {
+    return Obx(
+      () => controller.remoteId.value != 1111
+          ? rtcRemoteView.SurfaceView(
+              uid: controller.remoteId.value,
+              channelId: '',
+            )
+          : Container(
+              color: Colors.white,
+              child: const Text(
+                'Please wait for remote user to join',
+                textAlign: TextAlign.center,
+              ),
+            ),
     );
   }
 
@@ -124,11 +100,25 @@ extension VideoCallPageChildren on VideoCallPage {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Visibility(
-              visible: controller.isEnabled.value,
-              child: const VideoCallWidget(),
+            Obx(
+              () => Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  margin: const EdgeInsets.only(left: 27.0),
+                  width: 124.0,
+                  height: 161.0,
+                  child: Center(
+                    child: controller.localUserJoined.value
+                        ? const rtcLocalView.SurfaceView()
+                        : const CircularProgressIndicator(),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 26.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -149,7 +139,7 @@ extension VideoCallPageChildren on VideoCallPage {
                   onPressed: () {},
                   child: SvgPicture.asset(
                     IconConstants.speakerIcon,
-                    color: controller.isEnabled.value
+                    color: controller.localUserJoined.value
                         ? ColorConstants.backgroundColor
                         : ColorConstants.backgroundColor.withOpacity(0.3),
                   ),
@@ -160,7 +150,7 @@ extension VideoCallPageChildren on VideoCallPage {
                   onPressed: () {},
                   child: SvgPicture.asset(
                     IconConstants.micIcon,
-                    color: controller.isEnabled.value
+                    color: controller.localUserJoined.value
                         ? ColorConstants.backgroundColor
                         : ColorConstants.backgroundColor.withOpacity(0.3),
                   ),

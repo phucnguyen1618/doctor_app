@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/statistical/controller/statistical_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';

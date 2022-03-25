@@ -1,25 +1,23 @@
-import 'package:agora_uikit/agora_uikit.dart';
+import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../routes/app_routes.dart';
 
 class VideoCallController extends BaseController
     with GetSingleTickerProviderStateMixin {
-  var isEnabled = false.obs;
   var xOffset = 422.0.obs;
   var yOffset = 0.0.obs;
 
   AnimationController? animController;
-  final AgoraClient client = AgoraClient(
-    agoraConnectionData: AgoraConnectionData(
-        channelName: 'test123', appId: '3e0d008352494f0191d523f31f95a97f'),
-    enabledPermission: [
-      Permission.camera,
-      Permission.microphone,
-    ],
-  );
+  final appId = '3e0d008352494f0191d523f31f95a97f';
+  final token = '0063e0d008352494f0191d523f31f95a97fIADj651QE/e7m+kVpPWTZDOobih+/UwcKMAy8n0jg+9w1ruiVPAAAAAAEAAJmhJvNck+YgEAAQAzyT5i';
+  var remoteId = 11111.obs;
+  late RtcEngine engine;
+  var localUserJoined = false.obs;
+
 
   @override
   void onInit() {
@@ -44,10 +42,26 @@ class VideoCallController extends BaseController
   }
 
   void initAgora() async {
-    await Future.delayed(const Duration(seconds: 5)).then((value) async {
-      isEnabled.value = true;
-      await client.initialize();
-    });
+    await [Permission.camera, Permission.microphone].request();
+
+    engine = await RtcEngine.create(appId);
+    await engine.enableVideo();
+    engine.setEventHandler(RtcEngineEventHandler(
+        joinChannelSuccess: (String channel, int uid, int elapsed) {
+          print("local user $uid joined");
+          localUserJoined.value = false;
+        },
+        userJoined: (int uid, int elapsed) {
+          print("remote user $uid joined");
+          remoteId.value = uid;
+          localUserJoined.value = true;
+        },
+        userOffline: (int uid, UserOfflineReason reason) {
+          print("remote user $uid left channel");
+          remoteId.value = uid;
+        }
+    ));
+    await engine.joinChannel(token, 'test123', null, 0);
   }
 
   @override

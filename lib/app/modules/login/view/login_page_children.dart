@@ -40,7 +40,7 @@ extension LoginPageChildren on LoginPage {
               ),
               width: double.infinity,
               child: TextField(
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.phone,
                 focusNode: controller.focusNodeAccount,
                 style: const TextStyle(
                   fontFamily: 'Inter',

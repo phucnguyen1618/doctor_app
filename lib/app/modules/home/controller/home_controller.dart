@@ -7,10 +7,9 @@ import '../../schedule/view/schedule_page.dart';
 import '../../statistical/view/statistical_page.dart';
 
 class HomeController extends GetxController {
-
   var isClickedSchedule = true.obs;
   var isClickedGroup = false.obs;
-  var isClickedLineUp =  false.obs;
+  var isClickedLineUp = false.obs;
   var isUnreadNotification = true.obs;
   var pages = [
     const SchedulePage(),
@@ -31,24 +30,41 @@ class HomeController extends GetxController {
     Get.toNamed(Routes.OFFER);
   }
 
+  @override
+  void onClose() {
+    super.onClose();
+
+    pageController.dispose();
+
+    isClickedSchedule.close();
+    isClickedGroup.close();
+    isClickedLineUp.close();
+  }
+
   handleEventMenuItemClicked(int index) {
-    switch(index){
+    switch (index) {
       case 0:
-        isClickedSchedule.value = !isClickedSchedule.value;
+        isClickedSchedule.value
+            ? isClickedSchedule.value = isClickedSchedule.value
+            : isClickedSchedule.value = !isClickedSchedule.value;
         isClickedGroup.value = false;
         isClickedLineUp.value = false;
         pageController.jumpToPage(0);
         break;
       case 1:
         isClickedSchedule.value = false;
-        isClickedGroup.value = !isClickedGroup.value;
+        isClickedGroup.value
+            ? isClickedGroup.value = isClickedGroup.value
+            : isClickedGroup.value = !isClickedGroup.value;
         isClickedLineUp.value = false;
         pageController.jumpToPage(1);
         break;
       case 2:
         isClickedSchedule.value = false;
         isClickedGroup.value = false;
-        isClickedLineUp.value = !isClickedLineUp.value;
+        isClickedLineUp.value
+            ? isClickedLineUp.value = isClickedLineUp.value
+            : isClickedLineUp.value = !isClickedLineUp.value;
         pageController.jumpToPage(2);
         break;
     }

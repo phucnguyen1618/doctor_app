@@ -83,7 +83,7 @@ extension SettingPageChildren on SettingPage {
                   ),
                   const Expanded(
                     child: Text(
-                      'Group bác sĩ',
+                      'Nhóm bác sĩ',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,

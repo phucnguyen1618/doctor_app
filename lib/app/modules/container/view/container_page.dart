@@ -15,13 +15,14 @@ class ContainerPage extends GetView<ContainerController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
+        itemCount: controller.pages.length,
         physics: const NeverScrollableScrollPhysics(),
         controller: controller.pageController,
         itemBuilder: (context, index) {
           return controller.pages[index];
         },
       ),
-      bottomNavigationBar: _buildMenuBar(),
+      bottomNavigationBar: _buildMenuBottomBar(),
     );
   }
 }
