@@ -42,6 +42,7 @@ extension LoginPageChildren on LoginPage {
               child: TextField(
                 keyboardType: TextInputType.phone,
                 focusNode: controller.focusNodeAccount,
+                controller: controller.usernameController,
                 style: const TextStyle(
                   fontFamily: 'Inter',
                   fontStyle: FontStyle.normal,
@@ -74,9 +75,6 @@ extension LoginPageChildren on LoginPage {
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                 ),
-                onChanged: (content) {
-                  controller.getAccountFromTextInput(content);
-                },
               ),
             ),
           ),
@@ -119,6 +117,7 @@ extension LoginPageChildren on LoginPage {
               width: double.infinity,
               child: TextField(
                 focusNode: controller.focusNodePassword,
+                controller: controller.passwordController,
                 obscureText: controller.isVisible.value,
                 style: const TextStyle(
                   fontFamily: 'Inter',
@@ -166,9 +165,6 @@ extension LoginPageChildren on LoginPage {
                     ),
                   ),
                 ),
-                onChanged: (content) {
-                  controller.getPasswordFromTextInput(content);
-                },
               ),
             ),
           ),

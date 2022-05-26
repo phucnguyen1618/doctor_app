@@ -1,8 +1,7 @@
-import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DetailController extends BaseController with GetSingleTickerProviderStateMixin {
+class DetailController extends GetxController with GetSingleTickerProviderStateMixin {
 
   TabController? tabController;
 
@@ -10,11 +9,6 @@ class DetailController extends BaseController with GetSingleTickerProviderStateM
   void onInit() {
     tabController = TabController(length: 2, vsync: this);
     super.onInit();
-  }
-
-  @override
-  onBack() {
-    Get.back();
   }
 
 }

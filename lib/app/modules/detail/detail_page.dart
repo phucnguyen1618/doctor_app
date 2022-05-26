@@ -19,7 +19,7 @@ class DetailPage extends GetView<DetailController> {
         centerTitle: true,
         leading: InkWell(
           onTap: () {
-            controller.onBack();
+            Get.back();
           },
           child: SvgPicture.asset(
             IconConstants.expandLeft,

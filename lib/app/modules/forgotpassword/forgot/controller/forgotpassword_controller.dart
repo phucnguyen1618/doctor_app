@@ -1,12 +1,11 @@
 import 'dart:developer';
 
-import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../../../routes/app_routes.dart';
 
-class ForgotPasswordController extends BaseController {
+class ForgotPasswordController extends GetxController {
   TextEditingController inputController = TextEditingController();
 
   var isFocusInput = false.obs;
@@ -27,11 +26,6 @@ class ForgotPasswordController extends BaseController {
       handleEventInputData();
     });
     focusNodeInput.dispose();
-  }
-
-  @override
-  onBack() {
-    Get.back();
   }
 
   handleEventInputData() {

@@ -1,13 +1,12 @@
 import 'dart:developer';
 
-import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:doctor_app/app/shared/widgets/type_call_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class OrderDetailController extends BaseController
+class OrderDetailController extends GetxController
     with GetSingleTickerProviderStateMixin {
   TabController? tabController;
 

@@ -16,7 +16,7 @@ extension ForgotPasswordPageChildren on ForgotPasswordPage {
           top: 20.0,
           child: InkWell(
             onTap: () {
-              controller.onBack();
+              Get.back();
             },
             child: SafeArea(
               top: true,
@@ -88,7 +88,8 @@ extension ForgotPasswordPageChildren on ForgotPasswordPage {
                   contentPadding:
                       EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: ColorConstants.primaryColor, width: 2.0),
+                    borderSide: BorderSide(
+                        color: ColorConstants.primaryColor, width: 2.0),
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                   ),
                   disabledBorder: InputBorder.none,

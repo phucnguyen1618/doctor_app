@@ -10,7 +10,7 @@
     <uses-permission  android:name="android.permission.BLUETOOTH"  />
 
    <application
-        android:label="doctor_app"
+        android:label="AI Care Doctor"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

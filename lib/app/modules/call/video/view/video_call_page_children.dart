@@ -23,7 +23,7 @@ extension VideoCallPageChildren on VideoCallPage {
             children: [
               InkWell(
                 onTap: () {
-                  controller.onBack();
+                  Get.back();
                 },
                 child: SvgPicture.asset(
                   IconConstants.expandLeft,

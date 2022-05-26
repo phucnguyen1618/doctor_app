@@ -1,11 +1,10 @@
 import 'dart:developer';
 
-import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class CreatePasswordController extends BaseController {
+class CreatePasswordController extends GetxController {
   TextEditingController passwordController = TextEditingController();
 
   var isVisiblePassword = true.obs;
@@ -27,11 +26,6 @@ class CreatePasswordController extends BaseController {
       handleEventFocusPassword();
     });
     focusNodePassword.dispose();
-  }
-
-  @override
-  onBack() {
-    Get.back();
   }
 
   handleEventFocusPassword() {

@@ -10,7 +10,7 @@ extension VoiceCallPageChildren on VoiceCallPage {
         children: [
           InkWell(
             onTap: () {
-              controller.onBack();
+              Get.back();
             },
             child: SvgPicture.asset(
               IconConstants.expandLeft,
@@ -64,7 +64,7 @@ extension VoiceCallPageChildren on VoiceCallPage {
           height: 8.0,
         ),
         Obx(
-              () => Text(
+          () => Text(
             controller.isEnabled.value ? '00:01' : 'Đang đổ chuông',
             style: const TextStyle(
               fontSize: 14.0,

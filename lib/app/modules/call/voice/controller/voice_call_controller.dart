@@ -1,9 +1,8 @@
-import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class VoiceCallController extends BaseController
+class VoiceCallController extends GetxController
     with GetSingleTickerProviderStateMixin {
   var isEnabled = false.obs;
   AnimationController? animController;
@@ -26,11 +25,6 @@ class VoiceCallController extends BaseController
   void onClose() {
     super.onClose();
     animController!.dispose();
-  }
-
-  @override
-  onBack() {
-    Get.back();
   }
 
   handleEventEndCallClicked() {

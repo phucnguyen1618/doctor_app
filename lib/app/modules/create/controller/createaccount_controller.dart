@@ -1,11 +1,10 @@
-import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/validation.dart';
 
-class CreateAccountController extends BaseController {
+class CreateAccountController extends GetxController {
   FocusNode focusNodeUsername = FocusNode();
   FocusNode focusNodeEmail = FocusNode();
   FocusNode focusNodePassword = FocusNode();
