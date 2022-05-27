@@ -50,14 +50,13 @@ class LoginController extends GetxController {
         Validation.validatorPhoneNumber(usernameController.text);
     passError.value = Validation.validatorPassword(passwordController.text);
     if (accountError.value == '' && passError.value == '') {
-      Get.toNamed(Routes.CONTAINER);
-      // final signRequest =
-      //     SignInRequest(usernameController.text, passwordController.text, null);
-      // doctorRepository.signIn(signRequest).then((response) {
-      //   if (response.isSuccess! && response.signInModel != null) {
-      //     Get.toNamed(Routes.CONTAINER);
-      //   }
-      // });
+      final signRequest =
+          SignInRequest(usernameController.text, passwordController.text, null);
+      doctorRepository.signIn(signRequest).then((response) {
+        if (response.isSuccess! && response.signInModel != null) {
+          Get.toNamed(Routes.CONTAINER);
+        }
+      });
     }
   }
 
