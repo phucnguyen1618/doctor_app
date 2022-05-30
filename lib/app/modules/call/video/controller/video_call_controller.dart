@@ -18,7 +18,7 @@ class VideoCallController extends GetxController
   Rx<String> appId = ''.obs;
   Rx<String> token = ''.obs;
   Rx<String> channelName = ''.obs;
-  var userId = 0.obs;
+  RxnInt userId = RxnInt();
   late RtcEngine engine;
   var localUserJoined = false.obs;
 
@@ -36,37 +36,45 @@ class VideoCallController extends GetxController
   @override
   void onReady() async {
     super.onReady();
+
     await call();
-    initAgora();
+    await initAgora();
   }
 
   @override
   void onClose() {
-    super.onClose();
-
     animController!.dispose();
+    engine.leaveChannel();
+    engine.destroy();
+    super.onClose();
   }
 
-  void initAgora() async {
+  Future initAgora() async {
     await [Permission.camera, Permission.microphone].request();
 
     engine = await RtcEngine.createWithContext(RtcEngineContext(appId.value));
     await engine.enableVideo();
     engine.setEventHandler(RtcEngineEventHandler(
         joinChannelSuccess: (String channel, int uid, int elapsed) {
-      print("local user $uid joined");
-      localUserJoined.value = false;
-    }, userJoined: (int uid, int elapsed) {
-      print("remote user $uid joined");
-      userId.value = uid;
-      localUserJoined.value = true;
-    }, userOffline: (int uid, UserOfflineReason reason) {
-      print("remote user $uid left channel");
-      userId.value = uid;
-    }));
+          log("local user $uid joined");
+          localUserJoined.value = false;
+        },
+        userJoined: (int uid, int elapsed) {
+          log("remote user $uid joined");
+          userId.value = uid;
+          localUserJoined.value = true;
+        },
+        userOffline: (int uid, UserOfflineReason reason) {
+          log("remote user $uid left channel");
+          userId.value = null;
+        },
+        error: (errorCode) {
+          log('Error code: $errorCode');
+        },
+        leaveChannel: (RtcStats stats) {}));
     log('Value: ${appId.value} ${token.value} ${channelName.value}');
     await engine.joinChannel(
-        token.value, channelName.value, null, userId.value);
+        token.value, channelName.value, null, userId.value ?? 0);
   }
 
   handleEventEndCallClicked() {

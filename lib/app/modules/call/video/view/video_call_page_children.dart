@@ -72,7 +72,7 @@ extension VideoCallPageChildren on VideoCallPage {
     return Obx(
       () => controller.userId.value != 1111
           ? rtcRemoteView.SurfaceView(
-              uid: controller.userId.value,
+              uid: controller.userId.value ?? 0,
               channelId: '',
             )
           : Container(
