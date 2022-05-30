@@ -18,7 +18,7 @@ class VideoCallController extends GetxController
   Rx<String> appId = ''.obs;
   Rx<String> token = ''.obs;
   Rx<String> channelName = ''.obs;
-  var remoteId = 11111.obs;
+  var userId = 0.obs;
   late RtcEngine engine;
   var localUserJoined = false.obs;
 
@@ -50,7 +50,7 @@ class VideoCallController extends GetxController
   void initAgora() async {
     await [Permission.camera, Permission.microphone].request();
 
-    engine = await RtcEngine.create(appId.value);
+    engine = await RtcEngine.createWithContext(RtcEngineContext(appId.value));
     await engine.enableVideo();
     engine.setEventHandler(RtcEngineEventHandler(
         joinChannelSuccess: (String channel, int uid, int elapsed) {
@@ -58,13 +58,15 @@ class VideoCallController extends GetxController
       localUserJoined.value = false;
     }, userJoined: (int uid, int elapsed) {
       print("remote user $uid joined");
-      remoteId.value = uid;
+      userId.value = uid;
       localUserJoined.value = true;
     }, userOffline: (int uid, UserOfflineReason reason) {
       print("remote user $uid left channel");
-      remoteId.value = uid;
+      userId.value = uid;
     }));
-    await engine.joinChannel(token.value, channelName.value, null, 0);
+    log('Value: ${appId.value} ${token.value} ${channelName.value}');
+    await engine.joinChannel(
+        token.value, channelName.value, null, userId.value);
   }
 
   handleEventEndCallClicked() {
@@ -79,6 +81,7 @@ class VideoCallController extends GetxController
         appId.value = response.callModel.appId ?? '';
         token.value = response.callModel.token ?? '';
         channelName.value = response.callModel.channelName ?? '';
+        userId.value = int.parse(response.callModel.uid ?? '0');
       }
     });
   }

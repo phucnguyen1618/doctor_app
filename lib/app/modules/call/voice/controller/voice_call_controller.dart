@@ -30,4 +30,6 @@ class VoiceCallController extends GetxController
   handleEventEndCallClicked() {
     Get.toNamed(Routes.DIAGNOSTIC);
   }
+
+  
 }

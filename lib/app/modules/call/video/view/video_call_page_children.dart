@@ -70,9 +70,9 @@ extension VideoCallPageChildren on VideoCallPage {
 
   Widget _remoteVideo() {
     return Obx(
-      () => controller.remoteId.value != 1111
+      () => controller.userId.value != 1111
           ? rtcRemoteView.SurfaceView(
-              uid: controller.remoteId.value,
+              uid: controller.userId.value,
               channelId: '',
             )
           : Container(
