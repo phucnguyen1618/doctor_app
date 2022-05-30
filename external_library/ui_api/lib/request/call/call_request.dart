@@ -6,8 +6,9 @@ part 'call_request.g.dart';
 class CallRequest {
   String? userNameFrom;
   String? userNameTo;
+  bool? isDev;
 
-  CallRequest(this.userNameFrom, this.userNameTo);
+  CallRequest(this.userNameFrom, this.userNameTo, this.isDev);
 
   factory CallRequest.fromJson(Map<String, dynamic> json) =>
       _$CallRequestFromJson(json);

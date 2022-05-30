@@ -83,7 +83,7 @@ class VideoCallController extends GetxController
 
   Future<void> call() async {
     doctorRepository
-        .call(CallRequest('0969427306', '0386013468'))
+        .call(CallRequest('0969427306', '0386013468', true))
         .then((response) {
       if (response.isSuccess! && response.callModel != null) {
         appId.value = response.callModel.appId ?? '';
