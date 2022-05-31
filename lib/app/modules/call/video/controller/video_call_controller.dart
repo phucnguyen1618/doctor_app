@@ -52,38 +52,40 @@ class VideoCallController extends GetxController
   Future initAgora() async {
     await [Permission.camera, Permission.microphone].request();
 
-    engine = await RtcEngine.createWithContext(RtcEngineContext(appId.value));
+    engine = await RtcEngine.createWithContext(
+        RtcEngineContext('3e0d008352494f0191d523f31f95a97f'));
     await engine.enableVideo();
     engine.setEventHandler(RtcEngineEventHandler(
         joinChannelSuccess: (String channel, int uid, int elapsed) {
-          log("local user $uid joined");
-          localUserJoined.value = false;
-        },
-        userJoined: (int uid, int elapsed) {
-          log("remote user $uid joined");
-          userId.value = uid;
-          localUserJoined.value = true;
-        },
-        userOffline: (int uid, UserOfflineReason reason) {
-          log("remote user $uid left channel");
-          userId.value = null;
-        },
-        error: (errorCode) {
-          log('Error code: $errorCode');
-        },
-        leaveChannel: (RtcStats stats) {}));
-    log('Value: ${appId.value} ${token.value} ${channelName.value}');
+      log("local user $uid joined");
+      log('Value: ${appId.value} ${token.value} ${channelName.value}');
+      localUserJoined.value = false;
+    }, userJoined: (int uid, int elapsed) {
+      log("remote user $uid joined");
+      userId.value = uid;
+      localUserJoined.value = true;
+    }, userOffline: (int uid, UserOfflineReason reason) {
+      log("remote user $uid left channel");
+      userId.value = null;
+    }, error: (errorCode) {
+      log('Error code: $errorCode');
+    }, leaveChannel: (RtcStats stats) {
+      log("User leaved channel");
+    }));
     await engine.joinChannel(
-        token.value, channelName.value, null, userId.value ?? 0);
+        '0063e0d008352494f0191d523f31f95a97fIAAbCg4GiyOfHicvpi/qxMsuwXgNMp5S6v263l4e5I/u2ExP8IYh39v0IgBa1p123CSXYgQAAQAAAAAAAgAAAAAABAAAAAAA6AMAAAAA',
+        'PLTCKFMSPGEO',
+        null,
+        0);
   }
 
   handleEventEndCallClicked() {
-    Get.toNamed(Routes.DIAGNOSTIC);
+    Get.offAndToNamed(Routes.DIAGNOSTIC);
   }
 
   Future<void> call() async {
     doctorRepository
-        .call(CallRequest('0969427306', '0386013468', true))
+        .call(CallRequest('0386013468', '0969427306', true))
         .then((response) {
       if (response.isSuccess! && response.callModel != null) {
         appId.value = response.callModel.appId ?? '';
