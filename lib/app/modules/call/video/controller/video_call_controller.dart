@@ -21,7 +21,6 @@ class VideoCallController extends GetxController
   RxnInt userId = RxnInt();
   late RtcEngine engine;
   var localUserJoined = false.obs;
-
   final doctorRepository = Get.find<DoctorAppRepository>();
 
   @override
@@ -37,7 +36,7 @@ class VideoCallController extends GetxController
   void onReady() async {
     super.onReady();
 
-    await call();
+    // await call();
     await initAgora();
   }
 
@@ -83,16 +82,16 @@ class VideoCallController extends GetxController
     Get.offAndToNamed(Routes.DIAGNOSTIC);
   }
 
-  Future<void> call() async {
-    doctorRepository
-        .call(CallRequest('0386013468', '0969427306', true))
-        .then((response) {
-      if (response.isSuccess! && response.callModel != null) {
-        appId.value = response.callModel.appId ?? '';
-        token.value = response.callModel.token ?? '';
-        channelName.value = response.callModel.channelName ?? '';
-        userId.value = int.parse(response.callModel.uid ?? '0');
-      }
-    });
-  }
+  // Future<void> call() async {
+  //   doctorRepository
+  //       .call(CallRequest('0386013468', '0969427306', true))
+  //       .then((response) {
+  //     if (response.isSuccess! && response.callModel != null) {
+  //       appId.value = response.callModel.appId ?? '';
+  //       token.value = response.callModel.token ?? '';
+  //       channelName.value = response.callModel.channelName ?? '';
+  //       userId.value = int.parse(response.callModel.uid ?? '0');
+  //     }
+  //   });
+  // }
 }
