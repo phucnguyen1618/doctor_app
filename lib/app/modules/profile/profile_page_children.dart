@@ -11,9 +11,7 @@ extension ProfilePageChildren on ProfilePage {
       backgroundColor: ColorConstants.primaryColor,
       centerTitle: true,
       leading: InkWell(
-        onTap: () {
-          controller.onBack();
-        },
+        onTap: () {},
         child: SvgPicture.asset(
           IconConstants.expandLeft,
           fit: BoxFit.scaleDown,
@@ -58,13 +56,15 @@ extension ProfilePageChildren on ProfilePage {
           ),
           const SizedBox(height: 24.0),
           const Text(
-            'Nguyễn Thanh Hiếu',
+            'Ths. Bs\nVÕ THỊ MINH ĐỨC',
+            textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'SVN-Gotham',
               fontStyle: FontStyle.normal,
-              fontSize: 24.0,
+              fontSize: 18.0,
               fontWeight: FontWeight.w500,
               color: ColorConstants.titleColor,
+              height: 1.3,
             ),
           ),
           const SizedBox(height: 12.0),
@@ -231,54 +231,54 @@ extension ProfilePageChildren on ProfilePage {
     );
   }
 
-  Widget _buildCommunicationMethod() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _buildCommunicationButton(
-            IconConstants.phone, 'Gọi thoại', const Color(0xFF9E73FF)),
-        _buildCommunicationButton(
-            IconConstants.video, 'Gọi Video', const Color(0xFFFF754C)),
-        _buildCommunicationButton(
-            IconConstants.messenger, 'Nhắn tin', const Color(0xFF2BA8C4)),
-      ],
-    );
-  }
+  // Widget _buildCommunicationMethod() {
+  //   return Row(
+  //     crossAxisAlignment: CrossAxisAlignment.center,
+  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //     children: [
+  //       _buildCommunicationButton(
+  //           IconConstants.phone, 'Gọi thoại', const Color(0xFF9E73FF)),
+  //       _buildCommunicationButton(
+  //           IconConstants.video, 'Gọi Video', const Color(0xFFFF754C)),
+  //       _buildCommunicationButton(
+  //           IconConstants.messenger, 'Nhắn tin', const Color(0xFF2BA8C4)),
+  //     ],
+  //   );
+  // }
 
-  Widget _buildCommunicationButton(
-      String icon, String name, Color backgroundColor) {
-    return Container(
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
-      height: 34.0,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            icon,
-            color: ColorConstants.backgroundColor,
-            width: 16.0,
-            height: 16.0,
-          ),
-          const SizedBox(
-            width: 8.0,
-          ),
-          Text(
-            name,
-            style: const TextStyle(
-              fontSize: 13.0,
-              fontWeight: FontWeight.w500,
-              fontStyle: FontStyle.normal,
-              fontFamily: 'Inter',
-              color: ColorConstants.backgroundColor,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildCommunicationButton(
+  //     String icon, String name, Color backgroundColor) {
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //       color: backgroundColor,
+  //       borderRadius: BorderRadius.circular(8.0),
+  //     ),
+  //     padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+  //     height: 34.0,
+  //     child: Row(
+  //       crossAxisAlignment: CrossAxisAlignment.center,
+  //       children: [
+  //         SvgPicture.asset(
+  //           icon,
+  //           color: ColorConstants.backgroundColor,
+  //           width: 16.0,
+  //           height: 16.0,
+  //         ),
+  //         const SizedBox(
+  //           width: 8.0,
+  //         ),
+  //         Text(
+  //           name,
+  //           style: const TextStyle(
+  //             fontSize: 13.0,
+  //             fontWeight: FontWeight.w500,
+  //             fontStyle: FontStyle.normal,
+  //             fontFamily: 'Inter',
+  //             color: ColorConstants.backgroundColor,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

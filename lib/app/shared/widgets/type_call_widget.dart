@@ -32,10 +32,10 @@ class TypeCallWidget extends StatelessWidget {
                   onTap: () {
                     controller.selectTypeCall(0);
                   },
-                  child: Container(
+                  child: Container( 
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: const Text(
-                      'Gọi cuộc thoại',
+                      'Gọi qua APP',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         height: 1.43,
@@ -58,7 +58,7 @@ class TypeCallWidget extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: const Text(
-                      'Gọi video',
+                      'Gọi video qua APP',
                       style: TextStyle(
                         height: 1.43,
                         fontFamily: 'Inter',

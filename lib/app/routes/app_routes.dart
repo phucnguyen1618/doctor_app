@@ -1,4 +1,3 @@
-
 abstract class Routes {
   static const String SPLASH = '/';
   static const String WELCOME = '/welcome';
@@ -28,4 +27,5 @@ abstract class Routes {
   static const String PATIENT = '/patient';
   static const String DETAILINFOR = '/detail_infor';
   static const String DETAILDIAGNOSTIC = '/detail_diagnostic';
+  static const String OTHER_DOCTOR = '/view_doctor';
 }

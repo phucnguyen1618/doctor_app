@@ -28,9 +28,7 @@ class EditProfileController extends BaseController {
     isDeletedItemWorkPlace.value = false;
   }
 
-
-  @override
-  onBack() {
+  void onBack() {
     Get.back();
   }
 }

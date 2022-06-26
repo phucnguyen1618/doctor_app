@@ -22,9 +22,7 @@ extension EditProfilePageChildren on EditProfilePage {
         ),
       ),
       leading: InkWell(
-        onTap: () {
-          controller.onBack();
-        },
+        onTap: controller.onBack,
         child: SvgPicture.asset(
           IconConstants.expandLeft,
           color: Colors.white,
@@ -77,113 +75,15 @@ extension EditProfilePageChildren on EditProfilePage {
             ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(top: 30.0, bottom: 16.0),
-          child: Text(
-            'Họ và tên',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              height: 1.3,
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.greyColor,
-            ),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: ColorConstants.dividerColor.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: const TextField(
-            enabled: false,
-            style: TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.w600,
-              color: ColorConstants.titleColor,
-            ),
-            decoration: InputDecoration(
-              hintText: 'Nguyễn Thanh Hiếu',
-              hintStyle: TextStyle(
-                fontFamily: 'Inter',
-                height: 1.43,
-                fontStyle: FontStyle.normal,
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-                color: ColorConstants.titleColor,
-              ),
-              contentPadding:
-                  EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
-              border: InputBorder.none,
-            ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
-          child: Text(
-            'Lời khuyên từ bác sĩ',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              height: 1.3,
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.greyColor,
-            ),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(228, 228, 228, 0.5),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
-          child: const Text(
-            '“Sức khỏe tốt và trí tuệ minh mẫn là hai điều hạnh phúc nhất của cuộc đời”',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              fontSize: 14.0,
-              height: 1.43,
-              fontWeight: FontWeight.w600,
-              color: ColorConstants.titleColor,
-            ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
-          child: Text(
-            'Giới thiệu',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              height: 1.3,
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.greyColor,
-            ),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(228, 228, 228, 0.5),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
-          child: const Text(
-            "Bác sĩ phụ trách chuyên môn tại phòng khám Doctor Anywhere Việt Nam. Gần 10 năm khám điều trị các bệnh Cơ xương khớp - Nội tổng quát.",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              height: 1.43,
-              fontSize: 14.0,
-              fontWeight: FontWeight.w600,
-              color: ColorConstants.titleColor,
-            ),
-          ),
+        _buildTextInput('Họ và tên', 'Nguyễn Thanh Bách', false),
+        _buildTextInput(
+            'Trích dẫn yêu thích',
+            "“Sức khỏe tốt và trí tuệ minh mẫn là hai điều hạnh phúc nhất của cuộc đời”",
+            true),
+        _buildTextInput(
+          'Giới thiệu',
+          'Bác sĩ phụ trách chuyên môn tại phòng khám Doctor Anywhere Việt Nam. Gần 10 năm khám điều trị các bệnh Cơ xương khớp - Nội tổng quát.',
+          true,
         ),
         _buildLiteracy(),
         _buildWorkPlace(),
@@ -227,6 +127,58 @@ extension EditProfilePageChildren on EditProfilePage {
     );
   }
 
+  Widget _buildTextInput(String title, String content, bool isMultiline) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 30.0, bottom: 16.0),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              color: ColorConstants.greyColor,
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            color: ColorConstants.dividerColor.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: TextField(
+            enabled: false,
+            style: const TextStyle(
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              color: ColorConstants.titleColor,
+            ),
+            keyboardType: TextInputType.multiline,
+            maxLines: isMultiline ? 3 : 1,
+            decoration: InputDecoration(
+              hintText: content,
+              hintStyle: const TextStyle(
+                fontFamily: 'Inter',
+                height: 1.43,
+                fontStyle: FontStyle.normal,
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+                color: ColorConstants.titleColor,
+              ),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+              border: InputBorder.none,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _buildLiteracy() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,7 +186,7 @@ extension EditProfilePageChildren on EditProfilePage {
         const Padding(
           padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
           child: Text(
-            'Trình độ học vấn',
+            'Văn bằng',
             style: TextStyle(
               fontFamily: 'Inter',
               fontStyle: FontStyle.normal,

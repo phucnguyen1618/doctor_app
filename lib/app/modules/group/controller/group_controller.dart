@@ -33,6 +33,6 @@ class GroupController extends GetxController {
   }
 
   onItemGroupDoctorClicked() {
-    Get.toNamed(Routes.PROFILE, arguments: false);
+    Get.toNamed(Routes.OTHER_DOCTOR);
   }
 }

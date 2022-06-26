@@ -37,6 +37,8 @@ import 'package:doctor_app/app/modules/order/patient/binding/patient_binding.dar
 import 'package:doctor_app/app/modules/order/patient/view/patient_page.dart';
 import 'package:doctor_app/app/modules/profile/edit/binding/editprofile_binding.dart';
 import 'package:doctor_app/app/modules/profile/edit/view/edit_profile_page.dart';
+import 'package:doctor_app/app/modules/profile/other_doctor/binding/other_doctor_binding.dart';
+import 'package:doctor_app/app/modules/profile/other_doctor/view/other_doctor_page.dart';
 import 'package:doctor_app/app/modules/profile/profile_binding.dart';
 import 'package:doctor_app/app/modules/profile/profile_page.dart';
 import 'package:doctor_app/app/modules/schedule/binding/schedule_binding.dart';
@@ -214,5 +216,10 @@ final pages = [
       DetailInforBinding(),
       DetailDiagnosticBinding(),
     ],
+  ),
+  GetPage(
+    name: Routes.OTHER_DOCTOR,
+    page: () => const OtherDoctorPage(),
+    binding: OtherDoctorBinding(),
   ),
 ];

@@ -81,4 +81,10 @@ class IconConstants {
       AssetsConstants.iconConstants + 'ic_message.svg';
   static const String locationIcon =
       AssetsConstants.iconConstants + 'ic_location.svg';
+  static const String degreeIcon =
+      AssetsConstants.iconConstants + 'ic_degree.svg';
+  static const String awardIcon =
+      AssetsConstants.iconConstants + 'ic_award.svg';
+  static const String downloadIcon =
+      AssetsConstants.iconConstants + 'ic_download.svg';
 }

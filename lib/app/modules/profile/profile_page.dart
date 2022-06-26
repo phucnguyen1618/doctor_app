@@ -4,7 +4,7 @@ import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:doctor_app/app/shared/styles/text_app_style.dart';
 import 'package:doctor_app/app/shared/widgets/doctor_avatar_widget.dart';
 import 'package:doctor_app/app/shared/widgets/infor_widget.dart';
-import 'package:doctor_app/app/shared/widgets/items/item_literacy.dart';
+import 'package:doctor_app/app/shared/widgets/tabbar/tab_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -91,54 +91,7 @@ class ProfilePage extends GetView<ProfileController> {
               _buildLabelInfor(
                 'Chuyên môn',
                 'Nội khoa - Cơ Xương Khớp (Các bệnh Thoái hóa khớp, đau thần kinh tọa, đau vai gáy, hội chứng ống cổ tay, v.v.)',
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const InforWidget(
-                        icon: IconConstants.personIcon, content: 'Nam'),
-                    const SizedBox(
-                      height: 12.0,
-                    ),
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.certificateIcon,
-                              content: '046096000176'),
-                        ),
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.calendarIcon,
-                              content: '10/12/1996'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12.0,
-                    ),
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.callingIcon,
-                              content: '0969427306'),
-                        ),
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.messageIcon,
-                              content: 'vothiminhduc@gmail.com'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12.0,
-                    ),
-                    const InforWidget(
-                        icon: IconConstants.locationIcon,
-                        content:
-                            '245E/1 Hoàng Văn Thụ Phường 1, Tân Bình, Thành phố Hồ Chí Minh')
-                  ],
-                ),
+                const SizedBox(),
               ),
               const SizedBox(
                 height: 18.0,
@@ -152,32 +105,111 @@ class ProfilePage extends GetView<ProfileController> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      ItemPersonResult(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 12),
+                        child: Row(
+                          children: [
+                            Obx(
+                              () => InkWell(
+                                onTap: () {
+                                  controller.handleEventItemTabClicked();
+                                },
+                                child: TabBarWidget(
+                                    backgroundColor:
+                                        controller.onItemTabClicked.value
+                                            ? AppColor.primaryColor
+                                            : Colors.white,
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                            IconConstants.degreeIcon,
+                                            color: controller
+                                                    .onItemTabClicked.value
+                                                ? Colors.white
+                                                : AppColor.primaryColor),
+                                        const SizedBox(
+                                          width: 9.0,
+                                        ),
+                                        Text(
+                                          'Bằng cấp',
+                                          style: TextStyle(
+                                              fontFamily: 'Inter',
+                                              fontSize: 13.0,
+                                              color: controller
+                                                      .onItemTabClicked.value
+                                                  ? Colors.white
+                                                  : AppColor.primaryColor),
+                                        ),
+                                      ],
+                                    )),
+                              ),
+                            ),
+                            Obx(
+                              () => InkWell(
+                                onTap: () {
+                                  controller.handleEventItemTabClicked();
+                                },
+                                child: TabBarWidget(
+                                    backgroundColor:
+                                        !controller.onItemTabClicked.value
+                                            ? AppColor.primaryColor
+                                            : Colors.white,
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                          IconConstants.awardIcon,
+                                          color:
+                                              !controller.onItemTabClicked.value
+                                                  ? Colors.white
+                                                  : AppColor.primaryColor,
+                                        ),
+                                        const SizedBox(
+                                          width: 9.0,
+                                        ),
+                                        Text(
+                                          'Chứng chỉ',
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontSize: 13.0,
+                                            color: !controller
+                                                    .onItemTabClicked.value
+                                                ? Colors.white
+                                                : AppColor.primaryColor,
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const ItemPersonResult(
                         address: 'Đại học Y Dược TP.HCM',
                         position: null,
                         time: 'Năm 2014',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16.0,
                       ),
-                      ItemPersonResult(
+                      const ItemPersonResult(
                         address: 'Đại học ngoại ngữ Hà Nội',
                         position: 'Cử nhân ngoại ngữ',
                         time: 'Năm 2008',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16.0,
                       ),
-                      ItemPersonResult(
+                      const ItemPersonResult(
                         address: 'Đại học Y Dược TP.HCM',
                         position: 'Bác sĩ đa khoa',
                         time: 'Năm 2004',
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16.0,
                       ),
-                      ItemPersonResult(
+                      const ItemPersonResult(
                         address:
                             'Tốt nghiệp chuyên ngành BS Đa khoa tại Đại học Y Dược Thái Nguyên',
                         position: 'Đại học Y khoa Phạm Ngọc Thạch',
