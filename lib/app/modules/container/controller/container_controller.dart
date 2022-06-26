@@ -1,5 +1,6 @@
 import 'package:doctor_app/app/modules/history/view/history_page.dart';
 import 'package:doctor_app/app/modules/home/view/home_page.dart';
+import 'package:doctor_app/app/modules/profile/profile_page.dart';
 import 'package:doctor_app/app/modules/setting/view/setting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ class ContainerController extends GetxController {
     const HomePage(),
     const HistoryPage(),
     const SettingPage(),
+    const ProfilePage(),
   ];
 
   var currentIndex = 0.obs;

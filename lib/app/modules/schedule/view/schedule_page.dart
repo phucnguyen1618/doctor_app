@@ -1,5 +1,5 @@
 import 'package:doctor_app/app/shared/widgets/appointment_notice_widget.dart';
-import 'package:doctor_app/app/shared/widgets/item_schedule.dart';
+import 'package:doctor_app/app/shared/widgets/items/item_schedule.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

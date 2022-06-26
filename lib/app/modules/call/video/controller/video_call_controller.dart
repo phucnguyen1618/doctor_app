@@ -36,7 +36,7 @@ class VideoCallController extends GetxController
   void onReady() async {
     super.onReady();
 
-    // await call();
+    await call();
     await initAgora();
   }
 
@@ -51,8 +51,7 @@ class VideoCallController extends GetxController
   Future initAgora() async {
     await [Permission.camera, Permission.microphone].request();
 
-    engine = await RtcEngine.createWithContext(
-        RtcEngineContext('3e0d008352494f0191d523f31f95a97f'));
+    engine = await RtcEngine.createWithContext(RtcEngineContext(appId.value));
     await engine.enableVideo();
     engine.setEventHandler(RtcEngineEventHandler(
         joinChannelSuccess: (String channel, int uid, int elapsed) {
@@ -72,26 +71,23 @@ class VideoCallController extends GetxController
       log("User leaved channel");
     }));
     await engine.joinChannel(
-        '0063e0d008352494f0191d523f31f95a97fIAAbCg4GiyOfHicvpi/qxMsuwXgNMp5S6v263l4e5I/u2ExP8IYh39v0IgBa1p123CSXYgQAAQAAAAAAAgAAAAAABAAAAAAA6AMAAAAA',
-        'PLTCKFMSPGEO',
-        null,
-        0);
+        token.value, channelName.value, null, userId.value ?? 0);
   }
 
   handleEventEndCallClicked() {
     Get.offAndToNamed(Routes.DIAGNOSTIC);
   }
 
-  // Future<void> call() async {
-  //   doctorRepository
-  //       .call(CallRequest('0386013468', '0969427306', true))
-  //       .then((response) {
-  //     if (response.isSuccess! && response.callModel != null) {
-  //       appId.value = response.callModel.appId ?? '';
-  //       token.value = response.callModel.token ?? '';
-  //       channelName.value = response.callModel.channelName ?? '';
-  //       userId.value = int.parse(response.callModel.uid ?? '0');
-  //     }
-  //   });
-  // }
+  Future<void> call() async {
+    doctorRepository
+        .call(CallRequest('0386013468', '0969427306', true))
+        .then((response) {
+      if (response.isSuccess! && response.callModel != null) {
+        appId.value = response.callModel.appId ?? '';
+        token.value = response.callModel.token ?? '';
+        channelName.value = response.callModel.channelName ?? '';
+        userId.value = int.parse(response.callModel.uid ?? '0');
+      }
+    });
+  }
 }

@@ -33,36 +33,28 @@ extension StatisticalPageChildren on StatisticalPage {
   }
 
   Widget _buildContent() {
-    return Column(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Column(
-              children: [
-                _buildPatientCard(
-                  'Bệnh nhân mới',
-                  '16',
-                  '12%',
-                  ColorConstants.accentColor,
-                ),
-                const SizedBox(
-                  height: 12.0,
-                ),
-                _buildPatientCard(
-                  'Bệnh nhân cũ ',
-                  '05',
-                  '2%',
-                  const Color(0xFFFF754C),
-                ),
-              ],
-            ),
-            const SizedBox(
-              width: 16.0,
-            ),
-            _buildTotalOrders(),
-          ],
+        _buildPatientCard(
+          'Lượt yêu cầu',
+          '120',
+          '12%',
+          ColorConstants.accentColor,
+        ),
+        _buildPatientCard(
+          'Lượt yêu thích',
+          '16',
+          '12%',
+          ColorConstants.accentColor,
+        ),
+        _buildPatientCard(
+          'Tái khám',
+          '05',
+          '2%',
+          ColorConstants.orangeColor,
         ),
       ],
     );
@@ -71,6 +63,7 @@ extension StatisticalPageChildren on StatisticalPage {
   Widget _buildPatientCard(
       String title, String number, String percentage, Color color) {
     return Container(
+      width: (Get.width - 20 * 2 - 16 * 2) / 3,
       decoration: BoxDecoration(
         color: ColorConstants.backgroundColor,
         borderRadius: BorderRadius.circular(16.0),
@@ -123,7 +116,7 @@ extension StatisticalPageChildren on StatisticalPage {
                 left: 4.0, top: 2.0, right: 4.0, bottom: 2.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
                   Icons.arrow_drop_up,
@@ -150,121 +143,119 @@ extension StatisticalPageChildren on StatisticalPage {
   }
 
   Widget _buildTotalOrders() {
-    return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          color: ColorConstants.backgroundColor,
-          borderRadius: BorderRadius.circular(16.0),
-          boxShadow: [
-            BoxShadow(
-              color: Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
-              spreadRadius: 0.0,
-              blurRadius: 10.0,
-              offset: const Offset(0.0, 4.0), // changes position of shadow
-            ),
-          ],
-        ),
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: SleekCircularSlider(
-                appearance: CircularSliderAppearance(
-                    customWidths: CustomSliderWidths(
-                        trackWidth: 14, progressBarWidth: 14, shadowWidth: 20),
-                    customColors: CustomSliderColors(
-                        dotColor: Colors.transparent,
-                        trackColor: ColorConstants.trackColor,
-                        progressBarColor: ColorConstants.progressBarColor,
-                        shadowColor: Colors.white,
-                        shadowStep: 8.0,
-                        shadowMaxOpacity: 0.1),
-                    startAngle: 270,
-                    angleRange: 360,
-                    size: 146.0,
-                    animationEnabled: false),
-                min: 0,
-                max: 100,
-                initialValue: 80,
-                innerWidget: (double value) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: SleekCircularSlider(
-                        appearance: CircularSliderAppearance(
-                            customWidths: CustomSliderWidths(
-                                trackWidth: 14,
-                                progressBarWidth: 14,
-                                shadowWidth: 20),
-                            customColors: CustomSliderColors(
-                                dotColor: Colors.transparent,
-                                trackColor: ColorConstants.trackColor,
-                                progressBarColor: ColorConstants.accentColor,
-                                shadowColor: Colors.white,
-                                shadowStep: 8.0,
-                                shadowMaxOpacity: 0.1),
-                            startAngle: 100,
-                            angleRange: 360,
-                            size: 145.0,
-                            animationEnabled: false),
-                        min: 0,
-                        max: 100,
-                        initialValue: 20,
-                        innerWidget: (value) {
-                          return Align(
-                            alignment: Alignment.center,
-                            child: Center(
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: const TextSpan(
-                                  text: '140\n',
-                                  style: TextStyle(
+    return Container(
+      decoration: BoxDecoration(
+        color: ColorConstants.backgroundColor,
+        borderRadius: BorderRadius.circular(16.0),
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+            spreadRadius: 0.0,
+            blurRadius: 10.0,
+            offset: const Offset(0.0, 4.0), // changes position of shadow
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: SleekCircularSlider(
+              appearance: CircularSliderAppearance(
+                  customWidths: CustomSliderWidths(
+                      trackWidth: 14, progressBarWidth: 14, shadowWidth: 20),
+                  customColors: CustomSliderColors(
+                      dotColor: Colors.transparent,
+                      trackColor: ColorConstants.trackColor,
+                      progressBarColor: ColorConstants.progressBarColor,
+                      shadowColor: Colors.white,
+                      shadowStep: 8.0,
+                      shadowMaxOpacity: 0.1),
+                  startAngle: 270,
+                  angleRange: 360,
+                  size: 146.0,
+                  animationEnabled: false),
+              min: 0,
+              max: 100,
+              initialValue: 80,
+              innerWidget: (double value) {
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: SleekCircularSlider(
+                      appearance: CircularSliderAppearance(
+                          customWidths: CustomSliderWidths(
+                              trackWidth: 14,
+                              progressBarWidth: 14,
+                              shadowWidth: 20),
+                          customColors: CustomSliderColors(
+                              dotColor: Colors.transparent,
+                              trackColor: ColorConstants.trackColor,
+                              progressBarColor: ColorConstants.accentColor,
+                              shadowColor: Colors.white,
+                              shadowStep: 8.0,
+                              shadowMaxOpacity: 0.1),
+                          startAngle: 100,
+                          angleRange: 360,
+                          size: 145.0,
+                          animationEnabled: false),
+                      min: 0,
+                      max: 100,
+                      initialValue: 20,
+                      innerWidget: (value) {
+                        return Align(
+                          alignment: Alignment.center,
+                          child: Center(
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: const TextSpan(
+                                text: '140\n',
+                                style: TextStyle(
+                                    fontStyle: FontStyle.normal,
+                                    fontFamily: 'SVN-Gotham',
+                                    color: ColorConstants.pinColor,
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.w500),
+                                children: [
+                                  TextSpan(
+                                    text: 'Đơn',
+                                    style: TextStyle(
+                                      fontSize: 13.0,
                                       fontStyle: FontStyle.normal,
-                                      fontFamily: 'SVN-Gotham',
-                                      color: ColorConstants.pinColor,
-                                      fontSize: 32,
-                                      fontWeight: FontWeight.w500),
-                                  children: [
-                                    TextSpan(
-                                      text: 'Đơn',
-                                      style: TextStyle(
-                                        fontSize: 13.0,
-                                        fontStyle: FontStyle.normal,
-                                        fontFamily: 'Inter',
-                                        fontWeight: FontWeight.w500,
-                                        color: ColorConstants.greyColor,
-                                      ),
-                                    )
-                                  ],
-                                ),
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                      color: ColorConstants.greyColor,
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            _buildRow(
-              'Nam 80%',
-              const Color(0xFFFF754C),
-            ),
-            const SizedBox(
-              height: 9.5,
-            ),
-            _buildRow(
-              'Nữ 20%',
-              const Color(0xFF7FBA7A),
-            ),
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 30.0,
+          ),
+          _buildRow(
+            'Nam 80%',
+            const Color(0xFFFF754C),
+          ),
+          const SizedBox(
+            height: 9.5,
+          ),
+          _buildRow(
+            'Nữ 20%',
+            const Color(0xFF7FBA7A),
+          ),
+        ],
       ),
     );
   }
@@ -316,28 +307,41 @@ extension StatisticalPageChildren on StatisticalPage {
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Biểu đồ số đơn hàng',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w600,
-                  fontStyle: FontStyle.normal,
-                  fontFamily: 'Inter',
-                  color: ColorConstants.titleColor,
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Icon(
+                      Icons.arrow_drop_down,
+                      color: Colors.black,
+                    ),
+                    Text(
+                      'Theo tuần',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.normal,
+                        fontFamily: 'Inter',
+                        color: ColorConstants.titleColor,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Obx(() => Text(
-                controller.totalOrders.value,
-                style: const TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  color: ColorConstants.secondaryColor,
+              Obx(
+                () => Text(
+                  controller.totalOrders.value,
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    color: ColorConstants.secondaryColor,
+                  ),
                 ),
-              ),),
+              ),
             ],
           ),
           const SizedBox(
@@ -363,7 +367,8 @@ extension StatisticalPageChildren on StatisticalPage {
                     response.spot == null) {
                   return;
                 }
-                controller.handleEventTouchedBarChart(response.spot!.touchedBarGroupIndex);
+                controller.handleEventTouchedBarChart(
+                    response.spot!.touchedBarGroupIndex);
               },
               enabled: false,
               touchTooltipData: BarTouchTooltipData(
@@ -391,10 +396,9 @@ extension StatisticalPageChildren on StatisticalPage {
               bottomTitles: SideTitles(
                 showTitles: true,
                 getTextStyles: (context, value) => TextStyle(
-                  color:
-                      controller.dailyFigures[value.toInt()].isTouched
-                          ? ColorConstants.titleColor
-                          : ColorConstants.greyColor,
+                  color: controller.dailyFigures[value.toInt()].isTouched
+                      ? ColorConstants.titleColor
+                      : ColorConstants.greyColor,
                   fontWeight: FontWeight.w500,
                   fontStyle: FontStyle.normal,
                   fontFamily: 'Inter',

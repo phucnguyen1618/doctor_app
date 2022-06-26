@@ -3,7 +3,7 @@ import 'package:doctor_app/app/modules/history/controller/history_controller.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../shared/widgets/item_history.dart';
+import '../../../shared/widgets/items/item_history.dart';
 
 part 'history_page_children.dart';
 

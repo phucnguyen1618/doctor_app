@@ -1,13 +1,13 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/diagnostic/controller/diagnostic_controller.dart';
-import 'package:doctor_app/app/shared/widgets/item_add_prescription.dart';
-import 'package:doctor_app/app/shared/widgets/item_row_add_delete.dart';
+import 'package:doctor_app/app/shared/widgets/items/item_row_add_delete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../resource/assets_constant/icon_constants.dart';
 import '../../../shared/widgets/images_widget.dart';
+import '../../../shared/widgets/items/item_add_prescription.dart';
 
 part 'diagnostic_page_children.dart';
 

@@ -1,10 +1,11 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/group/controller/group_controller.dart';
-import 'package:doctor_app/app/shared/widgets/item_add_doctor.dart';
-import 'package:doctor_app/app/shared/widgets/item_group_doctor.dart';
-import 'package:doctor_app/app/shared/widgets/item_message.dart';
+import 'package:doctor_app/app/shared/widgets/items/item_group_doctor.dart';
+import 'package:doctor_app/app/shared/widgets/items/item_message.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../shared/widgets/items/item_add_doctor.dart';
 
 part 'group_page_children.dart';
 

@@ -10,7 +10,7 @@ class DioClient {
   static FutureOr<Dio> setup({required String baseUrl}) async {
     final options = BaseOptions(
       responseType: ResponseType.json,
-      contentType: 'application/json',
+      contentType: 'application/json; charset=utf-8',
       validateStatus: (status) {
         return true;
       },

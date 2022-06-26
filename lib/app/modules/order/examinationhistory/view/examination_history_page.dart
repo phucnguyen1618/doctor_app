@@ -2,7 +2,7 @@ import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../shared/widgets/item_examination_history.dart';
+import '../../../../shared/widgets/items/item_examination_history.dart';
 import '../controller/examination_history_controller.dart';
 
 part 'examination_history_page_children.dart';

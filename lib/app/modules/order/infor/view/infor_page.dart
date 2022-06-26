@@ -7,8 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../resource/assets_constant/image_constants.dart';
-import '../../../../shared/widgets/item_question.dart';
-import '../../../../shared/widgets/item_symptom.dart';
+import '../../../../shared/widgets/items/item_question.dart';
+import '../../../../shared/widgets/items/item_symptom.dart';
 
 part 'infor_page_children.dart';
 

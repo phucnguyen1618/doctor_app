@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 
 import '../../../../assets/constants/color_constants.dart';
 import '../../../../resource/assets_constant/image_constants.dart';
-import '../../../../shared/widgets/item_question.dart';
-import '../../../../shared/widgets/item_symptom.dart';
+import '../../../../shared/widgets/items/item_question.dart';
+import '../../../../shared/widgets/items/item_symptom.dart';
 
 part 'detail_infor_page_children.dart';
 

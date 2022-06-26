@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../shared/widgets/item_notification.dart';
+import '../../../shared/widgets/items/item_notification.dart';
 
 part 'notification_page_children.dart';
 

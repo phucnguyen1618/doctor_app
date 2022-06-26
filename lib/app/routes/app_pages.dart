@@ -193,6 +193,7 @@ final pages = [
       ScheduleBinding(),
       GroupBinding(),
       StatisticalBinding(),
+      ProfileBinding(),
     ],
   ),
   GetPage(
