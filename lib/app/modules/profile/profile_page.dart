@@ -2,6 +2,7 @@ import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/profile/profile_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:doctor_app/app/shared/styles/text_app_style.dart';
+import 'package:doctor_app/app/shared/widgets/badge_widget.dart';
 import 'package:doctor_app/app/shared/widgets/doctor_avatar_widget.dart';
 import 'package:doctor_app/app/shared/widgets/infor_widget.dart';
 import 'package:doctor_app/app/shared/widgets/tabbar/tab_bar_widget.dart';

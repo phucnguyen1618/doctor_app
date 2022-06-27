@@ -76,6 +76,24 @@ extension EditProfilePageChildren on EditProfilePage {
           ),
         ),
         _buildTextInput('Họ và tên', 'Nguyễn Thanh Bách', false),
+        _buildTextInput('CMND/CCCD/Passport', '046096000176', false),
+        _buildTextInput(
+          'Ngày/tháng/năm sinh',
+          '10/12/1996',
+          false,
+          icon: Padding(
+            padding: const EdgeInsets.only(right: 18.0),
+            child: SvgPicture.asset(
+              IconConstants.calendarIcon,
+              color: AppColor.accent8Color,
+            ),
+          ),
+        ),
+        _buildTextInput('Số điện thoại', '0977721212', false),
+        _buildTextInput(
+            'Địa chỉ',
+            '245E/1 Hoàng Văn Thụ Phường 1, Tân Bình, Thành phố Hồ Chí Minh',
+            false),
         _buildTextInput(
             'Trích dẫn yêu thích',
             "“Sức khỏe tốt và trí tuệ minh mẫn là hai điều hạnh phúc nhất của cuộc đời”",
@@ -85,41 +103,10 @@ extension EditProfilePageChildren on EditProfilePage {
           'Bác sĩ phụ trách chuyên môn tại phòng khám Doctor Anywhere Việt Nam. Gần 10 năm khám điều trị các bệnh Cơ xương khớp - Nội tổng quát.',
           true,
         ),
-        _buildLiteracy(),
+        _buildSpecialize('Chuyên môn', ['Tăng huyết áp']),
+        _buildSkillPersonal(
+            'Văn bằng', ['Tốt nghiệp Thạc sĩ tại Đại học Y Hà Nội']),
         _buildWorkPlace(),
-        const Padding(
-          padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
-          child: Text(
-            'Các mặt bệnh hay điều trị',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              fontSize: 12.0,
-              height: 1.3,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.greyColor,
-            ),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(228, 228, 228, 0.5),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
-          child: const Text(
-            "Nội khoa - Cơ Xương Khớp (Các bệnh Thoái hóa khớp, đau thần kinh tọa, đau vai gáy, hội chứng ống cổ tay, v.v.)",
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              fontSize: 14.0,
-              height: 1.43,
-              fontWeight: FontWeight.w600,
-              color: ColorConstants.titleColor,
-            ),
-          ),
-        ),
         const SizedBox(
           height: 30.0,
         ),
@@ -127,7 +114,8 @@ extension EditProfilePageChildren on EditProfilePage {
     );
   }
 
-  Widget _buildTextInput(String title, String content, bool isMultiline) {
+  Widget _buildTextInput(String title, String content, bool isMultiline,
+      {Widget? icon}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -172,6 +160,11 @@ extension EditProfilePageChildren on EditProfilePage {
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
               border: InputBorder.none,
+              suffixIcon: icon ?? const SizedBox(),
+              suffixIconConstraints: const BoxConstraints(
+                minWidth: 24.0,
+                minHeight: 24.0,
+              ),
             ),
           ),
         ),
@@ -179,15 +172,15 @@ extension EditProfilePageChildren on EditProfilePage {
     );
   }
 
-  Widget _buildLiteracy() {
+  Widget _buildSpecialize(String title, List<String> dataList) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0, bottom: 16.0),
           child: Text(
-            'Văn bằng',
-            style: TextStyle(
+            title,
+            style: const TextStyle(
               fontFamily: 'Inter',
               fontStyle: FontStyle.normal,
               height: 1.3,
@@ -200,10 +193,10 @@ extension EditProfilePageChildren on EditProfilePage {
         ListView.builder(
           padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 1,
+          itemCount: dataList.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return const ItemLiteracy();
+            return ItemSpecialize(content: dataList[index]);
           },
         ),
         const SizedBox(
@@ -240,6 +233,128 @@ extension EditProfilePageChildren on EditProfilePage {
     );
   }
 
+  Widget _buildSkillPersonal(String title, List<String> dataList) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0, bottom: 16.0),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              height: 1.3,
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              color: ColorConstants.greyColor,
+            ),
+          ),
+        ),
+        ListView.builder(
+          padding: EdgeInsets.zero,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: dataList.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return ItemLiteracy(content: dataList[index]);
+          },
+        ),
+        const SizedBox(
+          height: 20.0,
+        ),
+        Obx(
+          () => controller.isDeletedItemLiteracy.value
+              ? Container(
+                  width: double.infinity,
+                  height: 56.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    color: const Color(0xFF505D7C).withOpacity(0.2),
+                  ),
+                  child: MaterialButton(
+                    onPressed: () {
+                      controller.handleEventCancelDeleteItemLiteracy();
+                    },
+                    child: const Text(
+                      'Hủy',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF505D7C),
+                      ),
+                    ),
+                  ),
+                )
+              : _buildRowEditAndDelete(() {
+                  controller.handleEventDeleteLiteracyButtonPressed();
+                }),
+        )
+      ],
+    );
+  }
+
+  // Widget _buildLiteracy() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       const Padding(
+  //         padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
+  //         child: Text(
+  //           'Văn bằng',
+  //           style: TextStyle(
+  //             fontFamily: 'Inter',
+  //             fontStyle: FontStyle.normal,
+  //             height: 1.3,
+  //             fontSize: 12.0,
+  //             fontWeight: FontWeight.w500,
+  //             color: ColorConstants.greyColor,
+  //           ),
+  //         ),
+  //       ),
+  //       ListView.builder(
+  //         padding: EdgeInsets.zero,
+  //         physics: const NeverScrollableScrollPhysics(),
+  //         itemCount: 1,
+  //         shrinkWrap: true,
+  //         itemBuilder: (context, index) {
+  //           return ItemLiteracy(content: '',);
+  //         },
+  //       ),
+  //       const SizedBox(
+  //         height: 20.0,
+  //       ),
+  //       Obx(
+  //         () => controller.isDeletedItemLiteracy.value
+  //             ? Container(
+  //                 width: double.infinity,
+  //                 height: 56.0,
+  //                 decoration: BoxDecoration(
+  //                   borderRadius: BorderRadius.circular(8.0),
+  //                   color: const Color(0xFF505D7C).withOpacity(0.2),
+  //                 ),
+  //                 child: MaterialButton(
+  //                   onPressed: () {
+  //                     controller.handleEventCancelDeleteItemLiteracy();
+  //                   },
+  //                   child: const Text(
+  //                     'Hủy',
+  //                     style: TextStyle(
+  //                       fontSize: 16.0,
+  //                       fontWeight: FontWeight.w600,
+  //                       color: Color(0xFF505D7C),
+  //                     ),
+  //                   ),
+  //                 ),
+  //               )
+  //             : _buildRowEditAndDelete(() {
+  //                 controller.handleEventDeleteLiteracyButtonPressed();
+  //               }),
+  //       )
+  //     ],
+  //   );
+  // }
+
   Widget _buildWorkPlace() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,7 +362,7 @@ extension EditProfilePageChildren on EditProfilePage {
         const Padding(
           padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
           child: Text(
-            'Nơi công tác',
+            'Quá trình làm việc/công tác',
             style: TextStyle(
               fontFamily: 'Inter',
               fontStyle: FontStyle.normal,

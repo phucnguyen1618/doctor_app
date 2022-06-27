@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+part 'detail_page_children.dart';
+
 class DetailPage extends GetView<DetailController> {
   const DetailPage({Key? key}) : super(key: key);
 
@@ -28,7 +30,7 @@ class DetailPage extends GetView<DetailController> {
           ),
         ),
         title: const Text(
-          'Chi tiết',
+          'Chi tiết yêu cầu',
           style: TextStyle(
             fontSize: 18.0,
             fontWeight: FontWeight.w500,
@@ -54,14 +56,14 @@ class DetailPage extends GetView<DetailController> {
                   fontStyle: FontStyle.normal,
                   fontFamily: 'Inter',
                 ),
-                indicatorSize: TabBarIndicatorSize.tab,
+                indicatorSize: TabBarIndicatorSize.label,
                 indicatorColor: ColorConstants.backgroundColor,
                 tabs: const [
                   Tab(
                     text: 'Thông tin',
                   ),
                   Tab(
-                    text: 'Chuẩn đoán',
+                    text: 'Hồ sơ sức khỏe',
                   ),
                 ],
               ),
@@ -79,6 +81,7 @@ class DetailPage extends GetView<DetailController> {
           ],
         ),
       ),
+      bottomNavigationBar: _buildFooter(),
     );
   }
 }

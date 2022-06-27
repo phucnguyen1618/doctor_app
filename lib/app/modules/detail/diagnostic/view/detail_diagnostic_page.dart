@@ -1,8 +1,13 @@
+import 'package:doctor_app/app/shared/styles/text_app_style.dart';
+import 'package:doctor_app/app/shared/widgets/items/item_step.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../assets/constants/color_constants.dart';
+import '../../../../resource/assets_constant/icon_constants.dart';
+import '../../../../shared/constants/colors.dart';
 import '../../../../shared/widgets/images_widget.dart';
-import '../../../../shared/widgets/items/item_prescription.dart';
+import 'step_model.dart';
 
 part 'detail_diagnostic_page_children.dart';
 

@@ -31,4 +31,6 @@ class ImageConstants {
       AssetsConstants.imageConstants + 'image_doctor.png';
   static const String logoHospitalImage =
       AssetsConstants.imageConstants + 'image_logo_hospital.png';
+  static const String prescriptionImage =
+      AssetsConstants.imageConstants + 'image_prescription.png';
 }

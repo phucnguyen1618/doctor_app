@@ -68,23 +68,30 @@ extension ProfilePageChildren on ProfilePage {
             ),
           ),
           const SizedBox(height: 12.0),
-          Container(
-            decoration: BoxDecoration(
-              color: ColorConstants.accentColor.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            padding:
-                const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
-            child: const Text(
-              'Chuyên khoa tim mạch',
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontStyle: FontStyle.normal,
-                fontSize: 13.0,
-                fontWeight: FontWeight.w700,
-                color: ColorConstants.accentColor,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              BadgeWidget(
+                content: 'Khoa nhi',
+                textdColor: ColorConstants.accentColor,
               ),
-            ),
+              SizedBox(
+                width: 10.0,
+              ),
+              BadgeWidget(
+                content: 'Khoa dinh dưỡng',
+                textdColor: ColorConstants.accentColor,
+              ),
+              SizedBox(
+                width: 10.0,
+              ),
+              BadgeWidget(
+                content: '+2',
+                textdColor: ColorConstants.accentColor,
+              ),
+            ],
           ),
           const Padding(
             padding: EdgeInsets.only(top: 16.0, bottom: 20.0),

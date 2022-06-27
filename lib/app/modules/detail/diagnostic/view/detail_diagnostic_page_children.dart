@@ -5,6 +5,19 @@ extension DetailDiagnosticPageChildren on DetailDiagnosticPage {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const Text(
+          'Tiền sử dị ứng',
+          style: TextStyle(
+            fontStyle: FontStyle.normal,
+            fontFamily: 'Inter',
+            fontSize: 16.0,
+            fontWeight: FontWeight.w600,
+            color: ColorConstants.titleColor,
+          ),
+        ),
+        const SizedBox(
+          height: 16.0,
+        ),
         Container(
           padding: const EdgeInsets.all(20.0),
           decoration: BoxDecoration(
@@ -21,7 +34,7 @@ extension DetailDiagnosticPageChildren on DetailDiagnosticPage {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
-                      'Bác sĩ',
+                      'Nhóm dị ứng',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
@@ -32,7 +45,7 @@ extension DetailDiagnosticPageChildren on DetailDiagnosticPage {
                       ),
                     ),
                     Text(
-                      'Nguyễn Văn A',
+                      'Thuốc',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
@@ -52,7 +65,7 @@ extension DetailDiagnosticPageChildren on DetailDiagnosticPage {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
-                      'Chuyên khoa',
+                      'Biểu hiện dị ứng',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
@@ -63,74 +76,12 @@ extension DetailDiagnosticPageChildren on DetailDiagnosticPage {
                       ),
                     ),
                     Text(
-                      'Đa khoa',
+                      'Phản ứng',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
                         fontSize: 13.0,
                         height: 1.34,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.activeColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Thời gian khám',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        height: 1.34,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.greyColor,
-                      ),
-                    ),
-                    Text(
-                      '20/02/2021',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        fontSize: 13.0,
-                        height: 1.34,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.activeColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      'Triệu chứng',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        height: 1.34,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w500,
-                        color: ColorConstants.greyColor,
-                      ),
-                    ),
-                    Text(
-                      'Đau họng - Sốt - Cảm',
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        height: 1.34,
-                        fontSize: 13.0,
                         fontWeight: FontWeight.w500,
                         color: ColorConstants.activeColor,
                       ),
@@ -139,7 +90,7 @@ extension DetailDiagnosticPageChildren on DetailDiagnosticPage {
                 ),
               ),
               const Text(
-                'Hình ảnh',
+                'Mô tả',
                 style: TextStyle(
                   fontFamily: 'Inter',
                   fontStyle: FontStyle.normal,
@@ -148,154 +99,85 @@ extension DetailDiagnosticPageChildren on DetailDiagnosticPage {
                   color: ColorConstants.greyColor,
                 ),
               ),
-              const SizedBox(
-                height: 22.0,
+              Container(
+                padding:
+                    const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
+                margin: const EdgeInsets.only(top: 16.0, bottom: 20.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFC7DCFF),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: const Text(
+                  'Aspirin, Paracetamol',
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontStyle: FontStyle.normal,
+                    height: 1.43,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w600,
+                    color: ColorConstants.titleColor,
+                  ),
+                ),
               ),
               const ImagesWidget(),
             ],
           ),
         ),
-        _buildDiagnostic(),
-        _buildNote(),
         const SizedBox(
-          height: 30.0,
+          height: 24.0,
         ),
-        _buildPrescription(),
+        _buildHealthJourney(),
       ],
     );
   }
 
-  Widget _buildDiagnostic() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Chuẩn đoán của bác sĩ *̃',
-            style: TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500,
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              color: ColorConstants.greyColor,
-            ),
-          ),
-          const SizedBox(
-            height: 16.0,
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 23.0, top: 18.0, bottom: 18.0),
-            decoration: BoxDecoration(
-              color: ColorConstants.dividerColor.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            width: double.infinity,
-            height: 56.0,
-            child: const Text(
-              'Covid - 19',
-              style: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.normal,
-                fontFamily: 'Inter',
-                color: ColorConstants.pinColor,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNote() {
+  Widget _buildHealthJourney() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Ghi chú',
+          'Hành trình sức khoẻ',
           style: TextStyle(
-            fontSize: 12.0,
-            height: 1.3,
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Inter',
             fontStyle: FontStyle.normal,
-            color: ColorConstants.greyColor,
+            fontFamily: 'Inter',
+            fontSize: 16.0,
+            fontWeight: FontWeight.w600,
+            color: ColorConstants.titleColor,
           ),
+        ),
+        const SizedBox(
+          height: 22.0,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text(
+              '22/01/2022 - 23/01/2022',
+              style: TextAppStyle.bodyMediumStyle,
+            ),
+            SvgPicture.asset(
+              IconConstants.dateRangeFill,
+              fit: BoxFit.scaleDown,
+              color: AppColor.deactiveColor,
+            ),
+          ],
         ),
         const SizedBox(
           height: 16.0,
         ),
-        Container(
-          decoration: BoxDecoration(
-            color: ColorConstants.dividerColor.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          width: double.infinity,
-          height: 56.0,
-          child: const TextField(
-            style: TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.w600,
-              fontStyle: FontStyle.normal,
-              fontFamily: 'Inter',
-            ),
-            decoration: InputDecoration(
-              contentPadding:
-                  EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-              hintText: 'Nhập ghi chú ở đây',
-              hintStyle: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w600,
-                fontStyle: FontStyle.normal,
-                fontFamily: 'Inter',
-                height: 1.43,
-                color: ColorConstants.greyColor,
-              ),
-              border: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 2.0,
-                  color: ColorConstants.primaryColor,
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(8.0),
-                ),
-              ),
-              disabledBorder: InputBorder.none,
-              enabledBorder: InputBorder.none,
-            ),
-          ),
-        ),
+        _buildStepperCustom(),
       ],
     );
   }
 
-  Widget _buildPrescription() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Đơn thuốc',
-          style: TextStyle(
-            fontStyle: FontStyle.normal,
-            fontSize: 16.0,
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w600,
-            color: ColorConstants.pinColor,
-          ),
-        ),
-        const SizedBox(
-          height: 20.0,
-        ),
-        ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 2,
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return const ItemPrescription();
-          },
-        )
-      ],
-    );
+  Widget _buildStepperCustom() {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: steps.length,
+        itemBuilder: ((context, index) {
+          return ItemStep(step: steps[index]);
+        }));
   }
 }

@@ -87,4 +87,12 @@ class IconConstants {
       AssetsConstants.iconConstants + 'ic_award.svg';
   static const String downloadIcon =
       AssetsConstants.iconConstants + 'ic_download.svg';
+  static const String handleTelephoneFillIcon =
+      AssetsConstants.iconConstants + 'ic_handle_telephone_fill.svg';
+  static const String bloodIcon =
+      AssetsConstants.iconConstants + 'ic_blood.svg';
+  static const String dateRangeFillIcon =
+      AssetsConstants.iconConstants + 'ic_date_range_fill.svg';
+  static const String medicineDeliveryIcon =
+      AssetsConstants.iconConstants + 'ic_medicine_delivery.svg';
 }

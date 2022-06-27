@@ -1,27 +1,21 @@
+import 'package:doctor_app/app/resource/assets_constant/image_constants.dart';
 import 'package:get/get.dart';
 
 class DiagnosticController extends GetxController {
-  var isAddPrescription = false.obs;
-  var isDeletedItem = false.obs;
-  var value = 'Value 1'.obs;
-  var values = [
-    'Value 1',
-    'Value 2',
-    'Value 3',
-  ].obs;
-  var xOffset = 0.0.obs;
+  
+  RxList<String> imagePrescriptions = <String>[].obs;
 
   addPrescription() {
-    isAddPrescription.value = !isAddPrescription.value;
+    imagePrescriptions.add(ImageConstants.prescriptionImage);
+    imagePrescriptions.add(ImageConstants.girlImage);
+    imagePrescriptions.add(ImageConstants.prescriptionImage);
+    imagePrescriptions.add(ImageConstants.girlImage);
+    imagePrescriptions.add(ImageConstants.prescriptionImage);
+    imagePrescriptions.add(ImageConstants.girlImage);
+    imagePrescriptions.add(ImageConstants.prescriptionImage);
   }
 
-  handleEventDeletedButtonPrescription() {
-    if (!isDeletedItem.value) {
-      xOffset.value = -80.0;
-      isDeletedItem.value = true;
-    } else {
-      xOffset.value = 0.0;
-      isDeletedItem.value = false;
-    }
+  handleEventRemoveImagePrescription(int index) {
+    imagePrescriptions.removeAt(index);
   }
 }
