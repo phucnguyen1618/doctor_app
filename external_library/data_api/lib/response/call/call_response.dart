@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:ui_api/models/call_model.dart';
-import 'package:ui_api/response/base_response.dart';
+import 'package:data_api/models/call_model.dart';
+import 'package:data_api/response/base_response.dart';
 
 part 'call_response.g.dart';
 

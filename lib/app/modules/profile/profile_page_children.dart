@@ -55,43 +55,41 @@ extension ProfilePageChildren on ProfilePage {
             isOnline: true,
           ),
           const SizedBox(height: 24.0),
-          const Text(
-            'Ths. Bs\nVÕ THỊ MINH ĐỨC',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'SVN-Gotham',
-              fontStyle: FontStyle.normal,
-              fontSize: 18.0,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.titleColor,
-              height: 1.3,
+          Obx(
+            () => Text(
+              controller.doctorModel.value?.displayFullnameDoctor(
+                controller.doctorModel.value?.degree ?? '',
+                controller.doctorModel.value?.fullName ?? '',
+              ) ?? '',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontFamily: 'SVN-Gotham',
+                fontStyle: FontStyle.normal,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+                color: ColorConstants.titleColor,
+                height: 1.3,
+              ),
             ),
           ),
           const SizedBox(height: 12.0),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              BadgeWidget(
-                content: 'Khoa nhi',
-                textdColor: ColorConstants.accentColor,
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              BadgeWidget(
-                content: 'Khoa dinh dưỡng',
-                textdColor: ColorConstants.accentColor,
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              BadgeWidget(
-                content: '+2',
-                textdColor: ColorConstants.accentColor,
-              ),
-            ],
+          Obx(
+            () => controller.doctorModel.value != null
+                ? SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children:
+                          controller.doctorModel.value!.medicalSpecialists!
+                              .map(
+                                (item) => BadgeWidget(
+                                  content: item.toString(),
+                                  textdColor: ColorConstants.accentColor,
+                                ),
+                              )
+                              .toList(),
+                    ),
+                  )
+                : const SizedBox(),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 16.0, bottom: 20.0),
@@ -121,24 +119,27 @@ extension ProfilePageChildren on ProfilePage {
   }
 
   Widget _buildRowStatistical() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _rowMetrics(IconConstants.starIcon, '09', 'Năm kinh nghiệm'),
-        Container(
-          color: ColorConstants.dividerColor,
-          height: 60.0,
-          width: 1.0,
-        ),
-        _rowMetrics(IconConstants.heartIcon, '430', 'Lượt yêu thích'),
-        Container(
-          color: ColorConstants.dividerColor,
-          height: 60.0,
-          width: 1.0,
-        ),
-        _rowMetrics(IconConstants.supportIcon, '500', 'Lượt tư vấn'),
-      ],
+    return Obx(
+      () => Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _rowMetrics(IconConstants.starIcon,
+              '${controller.doctorModel.value?.experience}', 'Năm kinh nghiệm'),
+          Container(
+            color: ColorConstants.dividerColor,
+            height: 60.0,
+            width: 1.0,
+          ),
+          _rowMetrics(IconConstants.heartIcon, '430', 'Lượt yêu thích'),
+          Container(
+            color: ColorConstants.dividerColor,
+            height: 60.0,
+            width: 1.0,
+          ),
+          _rowMetrics(IconConstants.supportIcon, '500', 'Lượt tư vấn'),
+        ],
+      ),
     );
   }
 
@@ -235,6 +236,40 @@ extension ProfilePageChildren on ProfilePage {
         ),
         below,
       ],
+    );
+  }
+
+  Widget _buildCertificates(List<DoctorCertificatesModel> dataList) {
+    return ListView.separated(
+      itemCount: dataList.length,
+      shrinkWrap: true,
+      itemBuilder: ((context, index) {
+        return ItemPersonResult(
+          name: dataList[index].certificateName ?? '',
+          place: dataList[index].certificatePlace,
+          time: 'Năm ${dataList[index].certificateTime}',
+        );
+      }),
+      separatorBuilder: (BuildContext context, int index) => const SizedBox(
+        height: 16.0,
+      ),
+    );
+  }
+
+  Widget _buildWorkExperiences(List<DoctorWorkExperienceModel> dataList) {
+    return ListView.separated(
+      itemCount: dataList.length,
+      shrinkWrap: true,
+      itemBuilder: ((context, index) {
+        return ItemPersonResult(
+          name: dataList[index].jobTitle ?? '',
+          place: dataList[index].workplace,
+          time: 'Năm ${dataList[index].workTime}',
+        );
+      }),
+      separatorBuilder: (BuildContext context, int index) => const SizedBox(
+        height: 16.0,
+      ),
     );
   }
 

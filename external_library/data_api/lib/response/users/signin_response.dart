@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:ui_api/models/signin_model.dart';
-import 'package:ui_api/response/base_response.dart';
+import 'package:data_api/models/signin_model.dart';
+import 'package:data_api/response/base_response.dart';
 
 part 'signin_response.g.dart';
 

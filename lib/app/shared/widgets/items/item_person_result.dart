@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 
 class ItemPersonResult extends StatelessWidget {
-  final String address;
+  final String name;
   final String time;
-  final String? position;
+  final String? place;
 
   const ItemPersonResult({
     Key? key,
-    required this.address,
+    required this.name,
     required this.time,
-    required this.position,
+    required this.place,
   }) : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class ItemPersonResult extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          address,
+          name,
           style: const TextStyle(
             fontSize: 13.0,
             fontFamily: 'Inter',
@@ -38,9 +38,8 @@ class ItemPersonResult extends StatelessWidget {
             const SizedBox(
               width: 12.0,
             ),
-            position != null
-                ? SubtitleWidget(
-                    content: position!, color: AppColor.accent01Color)
+            place != null && place != ''
+                ? SubtitleWidget(content: place!, color: AppColor.accent01Color)
                 : const SizedBox(),
           ],
         ),

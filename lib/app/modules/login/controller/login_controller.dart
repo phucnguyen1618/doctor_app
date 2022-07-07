@@ -1,8 +1,7 @@
+import 'package:data_api/repository/doctor_app_repository.dart';
 import 'package:doctor_app/app/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ui_api/repository/doctor_app_repository.dart';
-import 'package:ui_api/request/users/signin_request.dart';
 
 import '../../../routes/app_routes.dart';
 

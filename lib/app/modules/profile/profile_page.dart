@@ -1,3 +1,5 @@
+import 'package:data_api/models/doctor_certificates_model.dart';
+import 'package:data_api/models/doctor_work_experience_model.dart';
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/profile/profile_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
@@ -37,62 +39,74 @@ class ProfilePage extends GetView<ProfileController> {
               _buildLabelInfor(
                 'Giới thiệu',
                 'Bác sĩ phụ trách chuyên môn tại phòng khám Doctor Anywhere Việt Nam. Gần 10 năm khám điều trị các bệnh Cơ xương khớp - Nội tổng quát.',
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const InforWidget(
-                        icon: IconConstants.personIcon, content: 'Nam'),
-                    const SizedBox(
-                      height: 12.0,
-                    ),
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.certificateIcon,
-                              content: '046096000176'),
-                        ),
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.calendarIcon,
-                              content: '10/12/1996'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12.0,
-                    ),
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.callingIcon,
-                              content: '0969427306'),
-                        ),
-                        Expanded(
-                          child: InforWidget(
-                              icon: IconConstants.messageIcon,
-                              content: 'vothiminhduc@gmail.com'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12.0,
-                    ),
-                    const InforWidget(
-                        icon: IconConstants.locationIcon,
-                        content:
-                            '245E/1 Hoàng Văn Thụ Phường 1, Tân Bình, Thành phố Hồ Chí Minh')
-                  ],
+                Obx(
+                  () => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      InforWidget(
+                          icon: IconConstants.personIcon,
+                          content: controller.doctorModel.value?.gender ?? ''),
+                      const SizedBox(
+                        height: 12.0,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: InforWidget(
+                                icon: IconConstants.certificateIcon,
+                                content: controller
+                                        .doctorModel.value?.identityNumber ??
+                                    ''),
+                          ),
+                          Expanded(
+                            child: InforWidget(
+                                icon: IconConstants.calendarIcon,
+                                content:
+                                    controller.doctorModel.value?.dateOfBirth ??
+                                        ''),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 12.0,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: InforWidget(
+                                icon: IconConstants.callingIcon,
+                                content:
+                                    controller.doctorModel.value?.phone ?? ''),
+                          ),
+                          Expanded(
+                            child: InforWidget(
+                                icon: IconConstants.messageIcon,
+                                content:
+                                    controller.doctorModel.value?.email ?? ''),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 12.0,
+                      ),
+                      InforWidget(
+                          icon: IconConstants.locationIcon,
+                          content:
+                              controller.doctorModel.value?.fullAddress ?? '')
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 20.0,
               ),
-              _buildLabelInfor(
-                'Chuyên môn',
-                'Nội khoa - Cơ Xương Khớp (Các bệnh Thoái hóa khớp, đau thần kinh tọa, đau vai gáy, hội chứng ống cổ tay, v.v.)',
-                const SizedBox(),
+              Obx(
+                () => _buildLabelInfor(
+                  'Chuyên môn',
+                  controller.doctorModel.value?.getMedicalExpertises(
+                      controller.doctorModel.value?.medicalExpertises ?? []),
+                  const SizedBox(),
+                ),
               ),
               const SizedBox(
                 height: 18.0,
@@ -100,19 +114,19 @@ class ProfilePage extends GetView<ProfileController> {
               _buildLabelInfor(
                 'Văn bằng',
                 null,
-                Container(
-                  padding: const EdgeInsets.only(left: 32.0),
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 12),
-                        child: Row(
-                          children: [
-                            Obx(
-                              () => InkWell(
+                Obx(
+                  () => Container(
+                    padding: const EdgeInsets.only(left: 32.0),
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: Row(
+                            children: [
+                              InkWell(
                                 onTap: () {
                                   controller.handleEventItemTabClicked();
                                 },
@@ -145,9 +159,7 @@ class ProfilePage extends GetView<ProfileController> {
                                       ],
                                     )),
                               ),
-                            ),
-                            Obx(
-                              () => InkWell(
+                              InkWell(
                                 onTap: () {
                                   controller.handleEventItemTabClicked();
                                 },
@@ -182,41 +194,18 @@ class ProfilePage extends GetView<ProfileController> {
                                       ],
                                     )),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      const ItemPersonResult(
-                        address: 'Đại học Y Dược TP.HCM',
-                        position: null,
-                        time: 'Năm 2014',
-                      ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                      const ItemPersonResult(
-                        address: 'Đại học ngoại ngữ Hà Nội',
-                        position: 'Cử nhân ngoại ngữ',
-                        time: 'Năm 2008',
-                      ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                      const ItemPersonResult(
-                        address: 'Đại học Y Dược TP.HCM',
-                        position: 'Bác sĩ đa khoa',
-                        time: 'Năm 2004',
-                      ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                      const ItemPersonResult(
-                        address:
-                            'Tốt nghiệp chuyên ngành BS Đa khoa tại Đại học Y Dược Thái Nguyên',
-                        position: 'Đại học Y khoa Phạm Ngọc Thạch',
-                        time: 'Năm 1996',
-                      ),
-                    ],
+                        controller.onItemTabClicked.value
+                            ? _buildCertificates(
+                                controller.doctorModel.value?.certificates ??
+                                    [])
+                            : _buildCertificates(controller
+                                    .doctorModel.value?.certificateOthers ??
+                                []),
+                      ],
+                    ),
                   ),
                 ),
                 icon: Padding(
@@ -236,55 +225,29 @@ class ProfilePage extends GetView<ProfileController> {
               const SizedBox(
                 height: 16.0,
               ),
-              _buildLabelInfor(
-                'Quá trình làm việc/công tác',
-                null,
-                Container(
-                  padding: const EdgeInsets.only(left: 32.0),
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      ItemPersonResult(
-                        address: 'Phòng khám Doctor Anywhere HCM',
-                        position: 'Bác sĩ trưởng khoa',
-                        time: '2017 - đến nay',
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      ItemPersonResult(
-                        address: 'Phòng khám Doctor Anywhere HCM',
-                        position: 'Bác sĩ trưởng khoa',
-                        time: 'Năm 2013 - 2017',
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      ItemPersonResult(
-                        address: 'Phòng khám Doctor Anywhere Hà Nội',
-                        position: 'Bác sĩ nội khoa',
-                        time: 'Năm 2012',
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                    ],
+              Obx(
+                () => _buildLabelInfor(
+                  'Quá trình làm việc/công tác',
+                  null,
+                  Container(
+                    padding: const EdgeInsets.only(left: 32.0),
+                    alignment: Alignment.centerLeft,
+                    child: _buildWorkExperiences(
+                        controller.doctorModel.value?.workExperiences ?? []),
                   ),
-                ),
-                icon: Padding(
-                  padding: const EdgeInsets.only(right: 12.0),
-                  child: SvgPicture.asset(
-                    IconConstants.hospital,
+                  icon: Padding(
+                    padding: const EdgeInsets.only(right: 12.0),
+                    child: SvgPicture.asset(
+                      IconConstants.hospital,
+                      color: AppColor.primaryColor,
+                    ),
+                  ),
+                  titleStyle: const TextStyle(
+                    fontSize: 16.0,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
                     color: AppColor.primaryColor,
                   ),
-                ),
-                titleStyle: const TextStyle(
-                  fontSize: 16.0,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w600,
-                  color: AppColor.primaryColor,
                 ),
               ),
             ],

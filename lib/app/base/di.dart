@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:get/get.dart';
-import 'package:ui_api/repository/doctor_app_repository.dart';
-import 'package:ui_api/network/dio_client.dart';
+import 'package:data_api/repository/doctor_app_repository.dart';
+import 'package:data_api/network/dio_client.dart';
 
 import '../shared/constants/common.dart';
 import '../shared/services/config_service.dart';
 import '../shared/services/storage_service.dart';
-import 'package:ui_api/repository/impl/doctor_app_repository_impl.dart';
-import 'package:ui_api/datasource/remote/doctor_app_api.dart';
+import 'package:data_api/repository/impl/doctor_app_repository_impl.dart';
+import 'package:data_api/datasource/remote/doctor_app_api.dart';
 
 class DependencyInjection {
   static Future init(String environment) async {
@@ -20,7 +20,7 @@ class DependencyInjection {
   
     // UI api
     final _dioUIAPI =
-        await DioClient.setup(baseUrl: config.value[UIAPIDomain] ?? '');
+        await DioClient.setup(baseUrl: config.value[ClientAPIDomain] ?? '');
     final uiAPI = DoctorAppUIAPI(_dioUIAPI);
     final DoctorAppRepository uiRepo = DoctorAppRepositoryImpl(uiAPI);
     Get.put(uiRepo);

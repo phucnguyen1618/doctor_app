@@ -66,6 +66,44 @@ class _DoctorAppUIAPI implements DoctorAppUIAPI {
     return value;
   }
 
+  @override
+  Future<DoctorModelListCommonResponse> getMedicalApiV1DoctorsFilter(
+      keywords, page, limmit) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'keywords': keywords,
+      r'page': page,
+      r'limmit': limmit
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<DoctorModelListCommonResponse>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/medical/api/v1/doctors/filter',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = DoctorModelListCommonResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<DoctorModelCommonResponse> getMedicalApiV1Doctor(id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<DoctorModelCommonResponse>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/medical/api/v1/doctors/${id}',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = DoctorModelCommonResponse.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

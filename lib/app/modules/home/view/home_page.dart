@@ -19,7 +19,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     double width = Get.width;
-    double height = Get.height - 370;
+    double height = Get.height;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

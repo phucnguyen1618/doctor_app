@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "714203904330",
+    "project_id": "gotrust---aicaredoctor",
+    "storage_bucket": "gotrust---aicaredoctor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714203904330:android:9f802bbcd2a7bb081829b3",
+        "android_client_info": {
+          "package_name": "com.phucnguyen.doctor_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714203904330-9q44l3nl3rsekjhj3spq6krv5bnhb3tm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk9X-sT65qc9mNhMblJYOzzzVK9IG8_R4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714203904330-9q44l3nl3rsekjhj3spq6krv5bnhb3tm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

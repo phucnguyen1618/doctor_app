@@ -13,6 +13,7 @@ class BadgeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(right: 10.0),
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
