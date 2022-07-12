@@ -44,7 +44,7 @@ class LoginController extends GetxController {
     focusNodeAccount.dispose();
   }
 
-  handleEventLoginButtonPressed() {
+  void handleEventLoginButtonPressed() {
     accountError.value =
         Validation.validatorPhoneNumber(usernameController.text);
     passError.value = Validation.validatorPassword(passwordController.text);

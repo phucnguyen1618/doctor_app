@@ -5,6 +5,7 @@ extension ContainerPageChildren on ContainerPage {
     return Obx(
       () => Card(
         color: ColorConstants.backgroundColor,
+        margin: EdgeInsets.zero,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(32.0),

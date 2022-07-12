@@ -58,9 +58,10 @@ extension ProfilePageChildren on ProfilePage {
           Obx(
             () => Text(
               controller.doctorModel.value?.displayFullnameDoctor(
-                controller.doctorModel.value?.degree ?? '',
-                controller.doctorModel.value?.fullName ?? '',
-              ) ?? '',
+                    controller.doctorModel.value?.degree ?? '',
+                    controller.doctorModel.value?.fullName ?? '',
+                  ) ??
+                  '',
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontFamily: 'SVN-Gotham',
@@ -242,6 +243,7 @@ extension ProfilePageChildren on ProfilePage {
   Widget _buildCertificates(List<DoctorCertificatesModel> dataList) {
     return ListView.separated(
       itemCount: dataList.length,
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: ((context, index) {
         return ItemPersonResult(
@@ -259,6 +261,7 @@ extension ProfilePageChildren on ProfilePage {
   Widget _buildWorkExperiences(List<DoctorWorkExperienceModel> dataList) {
     return ListView.separated(
       itemCount: dataList.length,
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemBuilder: ((context, index) {
         return ItemPersonResult(

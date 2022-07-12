@@ -20,7 +20,7 @@ class ProfileController extends BaseController {
 
   /* Action */
   handleEventEditProfileButtonPressed() {
-    Get.toNamed(Routes.EDIT);
+    Get.toNamed(Routes.EDIT, arguments: doctorModel.value);
   }
 
   handleEventItemTabClicked() {

@@ -19,250 +19,148 @@ extension LoginPageChildren on LoginPage {
           const SizedBox(
             height: 20.0,
           ),
-          const Text(
-            'Tài khoản',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontSize: 12.0,
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.greyColor,
-            ),
-          ),
           Obx(
-            () => Container(
-              margin: const EdgeInsets.only(top: 16.0),
-              decoration: BoxDecoration(
-                color: controller.isFocusAccount.value
-                    ? ColorConstants.backgroundColor
-                    : ColorConstants.textInputColor,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              width: double.infinity,
-              child: TextField(
-                keyboardType: TextInputType.phone,
-                focusNode: controller.focusNodeAccount,
-                controller: controller.usernameController,
+            () => _buildInputArea(
+              'Tài khoản',
+              controller.isFocusAccount.value
+                  ? ColorConstants.backgroundColor
+                  : ColorConstants.textInputColor,
+              controller.usernameController,
+              controller.focusNodeAccount,
+              error: Text(
+                controller.accountError.value,
                 style: const TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
-                decoration: const InputDecoration(
-                  contentPadding:
-                      EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
-                  border: InputBorder.none,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorConstants.primaryColor,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8.0),
-                    ),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorConstants.primaryColor,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8.0),
-                    ),
-                  ),
-                  disabledBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
+                  fontSize: 12.0,
+                  color: Colors.red,
                 ),
               ),
+              inputType: TextInputType.phone,
             ),
           ),
-          Obx(
-            () => controller.accountError.value.isNotEmpty
-                ? Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                    child: Text(
-                      controller.accountError.value,
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.red,
-                      ),
-                    ),
-                  )
-                : const SizedBox(height: 20.0,),
-          ),
-          const Text(
-            'Mật khẩu',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontStyle: FontStyle.normal,
-              fontSize: 12.0,
-              fontWeight: FontWeight.w500,
-              color: ColorConstants.greyColor,
-            ),
+          const SizedBox(
+            height: 20.0,
           ),
           Obx(
-            () => Container(
-              margin: const EdgeInsets.only(top: 16.0),
-              decoration: BoxDecoration(
-                color: controller.isFocusPassword.value
-                    ? ColorConstants.backgroundColor
-                    : ColorConstants.textInputColor,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              width: double.infinity,
-              child: TextField(
-                focusNode: controller.focusNodePassword,
-                controller: controller.passwordController,
-                obscureText: controller.isVisible.value,
+            () => _buildInputArea(
+              'Mật khẩu',
+              controller.isFocusPassword.value
+                  ? ColorConstants.backgroundColor
+                  : ColorConstants.textInputColor,
+              controller.passwordController,
+              controller.focusNodePassword,
+              error: Text(
+                controller.passError.value,
                 style: const TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(
-                      top: 18.0, bottom: 18.0, left: 23.0),
-                  suffixIcon: InkWell(
-                    onTap: () {
-                      controller.handleEventVisiblePassword();
-                    },
-                    child: controller.isFocusPassword.value
-                        ? Padding(
-                            padding: const EdgeInsets.only(right: 23.0),
-                            child: SvgPicture.asset(
-                              controller.isVisible.value
-                                  ? IconConstants.eye
-                                  : IconConstants.invisibleIcon,
-                            ),
-                          )
-                        : const SizedBox(),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorConstants.primaryColor,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8.0),
-                    ),
-                  ),
-                  disabledBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  focusedErrorBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorConstants.primaryColor,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8.0),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Obx(
-            () => controller.passError.value.isNotEmpty
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      controller.passError.value,
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.red,
-                      ),
-                    ),
-                  )
-                : const SizedBox(height: 16.0,),
-          ),
-          InkWell(
-            onTap: () {
-              controller.handleEventForgotPasswordTextPressed();
-            },
-            child: const Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                'Quên mật khẩu?',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
                   fontSize: 12.0,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.greyColor,
+                  color: Colors.red,
                 ),
               ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 30.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.0),
-              color: ColorConstants.primaryColor,
-            ),
-            width: double.infinity,
-            height: 56.0,
-            child: MaterialButton(
-              onPressed: () {
-                controller.handleEventLoginButtonPressed();
-              },
-              child: const Text(
-                'Đăng nhập',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Chưa có tài khoản?',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.greyColor,
-                ),
-              ),
-              const SizedBox(
-                width: 12.0,
-              ),
-              InkWell(
+              icon: InkWell(
                 onTap: () {
-                  controller.handleEventSignUpPressed();
+                  controller.handleEventVisiblePassword();
                 },
-                child: const Text(
-                  'Đăng ký ngay',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w500,
-                    color: ColorConstants.purpleColor,
-                  ),
-                ),
+                child: controller.isFocusPassword.value
+                    ? Padding(
+                        padding: const EdgeInsets.only(right: 23.0),
+                        child: SvgPicture.asset(
+                          controller.isVisible.value
+                              ? IconConstants.eye
+                              : IconConstants.invisibleIcon,
+                        ),
+                      )
+                    : const SizedBox(),
               ),
-            ],
+              isShow: controller.isVisible.value,
+              inputType: TextInputType.text,
+            ),
+          ),
+          const SizedBox(
+            height: 30.0,
+          ),
+          CustomButton(
+            content: 'Đăng nhập',
+            onPressed: () {
+              controller.handleEventLoginButtonPressed();
+            },
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildInputArea(
+    String label,
+    Color backgroundColor,
+    TextEditingController controller,
+    FocusNode focusNode, {
+    Widget? error,
+    Widget? icon,
+    bool? isShow,
+    TextInputType? inputType,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 12.0,
+            fontStyle: FontStyle.normal,
+            fontWeight: FontWeight.w500,
+            color: ColorConstants.greyColor,
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(top: 16.0),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          width: double.infinity,
+          child: TextField(
+            keyboardType: inputType ?? TextInputType.text,
+            focusNode: focusNode,
+            controller: controller,
+            style: const TextStyle(
+              fontFamily: 'Inter',
+              fontStyle: FontStyle.normal,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
+            obscureText: isShow ?? false,
+            decoration: InputDecoration(
+              contentPadding:
+                  const EdgeInsets.only(top: 18.0, bottom: 18.0, left: 23.0),
+              border: InputBorder.none,
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: ColorConstants.primaryColor,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8.0),
+                ),
+              ),
+              focusedErrorBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: ColorConstants.primaryColor,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8.0),
+                ),
+              ),
+              disabledBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              suffixIcon: icon ?? const SizedBox(),
+            ),
+          ),
+        ),
+        const SizedBox(height: 4.0),
+        error ?? const SizedBox(),
+      ],
     );
   }
 }
