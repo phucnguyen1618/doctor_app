@@ -15,9 +15,9 @@ class VideoCallController extends GetxController
   var yOffset = 0.0.obs;
 
   AnimationController? animController;
-  Rx<String> appId = ''.obs;
-  Rx<String> token = ''.obs;
-  Rx<String> channelName = ''.obs;
+  Rx<String> appId = '60103115945548c8b990d8663cc0d823'.obs;
+  Rx<String> token = '00660103115945548c8b990d8663cc0d823IAAtyaRns3HZQxpRz5NwBVyN1RfLGSutfAYyXkVMXlcnkuJyGcsAAAAAEACPl0pWp9fQYgEAAQCn19Bi'.obs;
+  Rx<String> channelName = 'video_call'.obs;
   RxnInt userId = RxnInt();
   late RtcEngine engine;
   var localUserJoined = false.obs;
@@ -36,7 +36,7 @@ class VideoCallController extends GetxController
   void onReady() async {
     super.onReady();
 
-    await call();
+  //  await call();
     await initAgora();
   }
 
@@ -71,23 +71,24 @@ class VideoCallController extends GetxController
       log("User leaved channel");
     }));
     await engine.joinChannel(
-        token.value, channelName.value, null, userId.value ?? 0);
+        token.value, channelName.value, null, 0);
   }
+
+  /* Action */
 
   handleEventEndCallClicked() {
     Get.offAndToNamed(Routes.DIAGNOSTIC);
   }
-
-  Future<void> call() async {
-    doctorRepository
-        .call(CallRequest('0386013468', '0969427306', true))
-        .then((response) {
-      if (response.isSuccess! && response.callModel != null) {
-        appId.value = response.callModel.appId ?? '';
-        token.value = response.callModel.token ?? '';
-        channelName.value = response.callModel.channelName ?? '';
-        userId.value = int.parse(response.callModel.uid ?? '0');
-      }
-    });
-  }
+  // Future<void> call() async {
+  //   doctorRepository
+  //       .call(CallRequest('0386013468', '0969427306', true))
+  //       .then((response) {
+  //     if (response.isSuccess! && response.callModel != null) {
+  //       appId.value = response.callModel.appId ?? '60103115945548c8b990d8663cc0d823';
+  //       token.value = response.callModel.token ?? '00660103115945548c8b990d8663cc0d823IABwzF1liL5K2lQmRC/FaNJSR1IUfq8++bNcTnLOXveAUeJyGcsAAAAAEACPl0pWqaLOYgEAAQCoos5i';
+  //       channelName.value = response.callModel.channelName ?? 'video_call';
+  //       userId.value = int.parse(response.callModel.uid ?? '0');
+  //     }
+  //   });
+  // }
 }

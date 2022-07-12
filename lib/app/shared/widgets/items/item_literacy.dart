@@ -1,3 +1,4 @@
+import 'package:data_api/models/doctor_certificates_model.dart';
 import 'package:doctor_app/app/modules/profile/edit/controller/editprofile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,7 +9,7 @@ import '../../../resource/assets_constant/icon_constants.dart';
 import '../../constants/colors.dart';
 
 class ItemLiteracy extends StatelessWidget {
-  final String content;
+  final DoctorCertificatesModel content;
 
   const ItemLiteracy({
     Key? key,
@@ -52,7 +53,7 @@ class ItemLiteracy extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 23.0, vertical: 18.0),
                   child: Text(
-                    content,
+                    content.certificateName ?? '',
                     textAlign: TextAlign.start,
                     style: const TextStyle(
                       fontFamily: 'Inter',
@@ -67,7 +68,7 @@ class ItemLiteracy extends StatelessWidget {
                 const SizedBox(
                   height: 16.0,
                 ),
-                _buildRowValue(),
+                _buildRowValue(content.certificateTime ?? '2018'),
               ],
             ),
           ),
@@ -76,7 +77,7 @@ class ItemLiteracy extends StatelessWidget {
     );
   }
 
-  Widget _buildRowValue() {
+  Widget _buildRowValue(String time) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -92,10 +93,10 @@ class ItemLiteracy extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Center(
+                Center(
                   child: Text(
-                    '2018',
-                    style: TextStyle(
+                    time,
+                    style: const TextStyle(
                       fontFamily: 'Inter',
                       height: 1.43,
                       fontStyle: FontStyle.normal,

@@ -77,7 +77,7 @@ class CreateAccountController extends GetxController {
 
   getTextPasswordInput(String content) {
     passValue.value = content;
-    passError.value = Validation.validatorPassword(content);
+    passError.value = Validation.validatorPassword(content) ?? '';
   }
 
   getTextConfirmPasswordInput(String content) {
@@ -118,7 +118,7 @@ class CreateAccountController extends GetxController {
   handleEventCreateButtonPressed() {
     usernameError.value = Validation.validatorUsername(usernameValue.value);
     emailError.value = Validation.validatorEmail(emailValue.value);
-    passError.value = Validation.validatorPassword(passValue.value);
+    passError.value = Validation.validatorPassword(passValue.value) ?? '';
     confirmError.value = Validation.validatorConfirmPassword(confirmPassValue.value, passValue.value);
     if (usernameError.value == '' &&
         emailError.value == '' &&

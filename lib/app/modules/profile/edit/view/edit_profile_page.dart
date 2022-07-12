@@ -1,3 +1,5 @@
+import 'package:data_api/models/doctor_certificates_model.dart';
+import 'package:data_api/models/doctor_work_experience_model.dart';
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/profile/edit/controller/editprofile_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
@@ -26,7 +28,7 @@ class EditProfilePage extends GetView<EditProfileController> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 34.0, left: 20.0, right: 20.0),
-            child: _buildContent(),
+            child: _buildContent(context),
           ),
         ),
       ),

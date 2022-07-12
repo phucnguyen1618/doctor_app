@@ -1,3 +1,4 @@
+import 'package:data_api/models/doctor_work_experience_model.dart';
 import 'package:doctor_app/app/modules/profile/edit/controller/editprofile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,7 +9,12 @@ import '../../../resource/assets_constant/icon_constants.dart';
 import '../../constants/colors.dart';
 
 class ItemWorkplace extends StatelessWidget {
-  const ItemWorkplace({Key? key}) : super(key: key);
+  final DoctorWorkExperienceModel content;
+
+  const ItemWorkplace({
+    Key? key,
+    required this.content,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +52,10 @@ class ItemWorkplace extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.symmetric(
                       horizontal: 23.0, vertical: 18.0),
-                  child: const Text(
-                    "Phòng khám Doctor Anywhere Hà Nội",
+                  child: Text(
+                    content.jobTitle ?? "Phòng khám Doctor Anywhere Hà Nội",
                     textAlign: TextAlign.start,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Inter',
                       fontStyle: FontStyle.normal,
                       height: 1.43,
@@ -62,7 +68,7 @@ class ItemWorkplace extends StatelessWidget {
                 const SizedBox(
                   height: 16.0,
                 ),
-                _buildRowValue(),
+                _buildRowValue(content.workTime?.split('đến') ?? []),
               ],
             ),
           ),
@@ -71,14 +77,14 @@ class ItemWorkplace extends StatelessWidget {
     );
   }
 
-  Widget _buildRowValue() {
+  Widget _buildRowValue(List<String> times) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Container(
             padding:
-                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 18.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               color: const Color.fromRGBO(228, 228, 228, 0.5),
@@ -87,10 +93,10 @@ class ItemWorkplace extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Center(
+                Center(
                   child: Text(
-                    'Từ',
-                    style: TextStyle(
+                    times[0],
+                    style: const TextStyle(
                       fontFamily: 'Inter',
                       fontStyle: FontStyle.normal,
                       height: 1.43,
@@ -100,14 +106,12 @@ class ItemWorkplace extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 20.0,
-                  height: 20.0,
-                  child: SvgPicture.asset(
-                    IconConstants.dateRangeFill,
-                    fit: BoxFit.scaleDown,
-                    color: AppColor.deactiveColor,
-                  ),
+                SvgPicture.asset(
+                  IconConstants.dateRangeFill,
+                  fit: BoxFit.scaleDown,
+                  color: AppColor.deactiveColor,
+                  width: 16.0,
+                  height: 16.0,
                 ),
               ],
             ),
@@ -119,7 +123,7 @@ class ItemWorkplace extends StatelessWidget {
         Expanded(
           child: Container(
             padding:
-                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 18.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),
               color: const Color.fromRGBO(228, 228, 228, 0.5),
@@ -128,10 +132,10 @@ class ItemWorkplace extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Center(
+                Center(
                   child: Text(
-                    'đến',
-                    style: TextStyle(
+                    times[1],
+                    style: const TextStyle(
                       fontFamily: 'Inter',
                       fontStyle: FontStyle.normal,
                       height: 1.43,
@@ -141,14 +145,12 @@ class ItemWorkplace extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 20.0,
-                  height: 20.0,
-                  child: SvgPicture.asset(
-                    IconConstants.dateRangeFill,
-                    fit: BoxFit.scaleDown,
-                    color: AppColor.deactiveColor,
-                  ),
+                SvgPicture.asset(
+                  IconConstants.dateRangeFill,
+                  fit: BoxFit.scaleDown,
+                  color: AppColor.deactiveColor,
+                  width: 16.0,
+                  height: 16.0,
                 ),
               ],
             ),

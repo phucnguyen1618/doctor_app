@@ -50,7 +50,7 @@ extension EditProfilePageChildren on EditProfilePage {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -75,38 +75,66 @@ extension EditProfilePageChildren on EditProfilePage {
             ),
           ),
         ),
-        _buildTextInput('Họ và tên', 'Nguyễn Thanh Bách', false),
-        _buildTextInput('CMND/CCCD/Passport', '046096000176', false),
+        _buildTextInput(
+          'Họ và tên',
+          controller.result.fullName ?? 'Nguyễn Thanh Bách',
+          false,
+        ),
+        _buildTextInput(
+          'CMND/CCCD/Passport',
+          controller.result.identityNumber ?? '046096000176',
+          false,
+        ),
         _buildTextInput(
           'Ngày/tháng/năm sinh',
-          '10/12/1996',
+          controller.result.dateOfBirth ?? '30/01/1998',
           false,
           icon: Padding(
             padding: const EdgeInsets.only(right: 18.0),
-            child: SvgPicture.asset(
-              IconConstants.calendarIcon,
-              color: AppColor.accent8Color,
+            child: InkWell(
+              onTap: () {
+                controller.showBottomSheetChooseBirthday(context);
+              },
+              child: SvgPicture.asset(
+                IconConstants.calendarIcon,
+                color: AppColor.accent8Color,
+              ),
             ),
           ),
         ),
-        _buildTextInput('Số điện thoại', '0977721212', false),
         _buildTextInput(
-            'Địa chỉ',
-            '245E/1 Hoàng Văn Thụ Phường 1, Tân Bình, Thành phố Hồ Chí Minh',
-            false),
+          'Số điện thoại',
+          controller.result.phone ?? '0977721212',
+          false,
+        ),
         _buildTextInput(
-            'Trích dẫn yêu thích',
-            "“Sức khỏe tốt và trí tuệ minh mẫn là hai điều hạnh phúc nhất của cuộc đời”",
-            true),
+          'Địa chỉ',
+          controller.result.fullAddress ??
+              'Số nhà 28, đường Ngô Đức Kế, tp.Vinh',
+          false,
+        ),
+        _buildTextInput(
+          'Trích dẫn yêu thích',
+          "“Sức khỏe tốt và trí tuệ minh mẫn là hai điều hạnh phúc nhất của cuộc đời”",
+          true,
+        ),
         _buildTextInput(
           'Giới thiệu',
           'Bác sĩ phụ trách chuyên môn tại phòng khám Doctor Anywhere Việt Nam. Gần 10 năm khám điều trị các bệnh Cơ xương khớp - Nội tổng quát.',
           true,
         ),
-        _buildSpecialize('Chuyên môn', ['Tăng huyết áp']),
+        _buildSpecialize(
+          'Chuyên môn',
+          controller.result.medicalSpecialists ?? [],
+        ),
         _buildSkillPersonal(
-            'Văn bằng', ['Tốt nghiệp Thạc sĩ tại Đại học Y Hà Nội']),
-        _buildWorkPlace(),
+          'Văn bằng',
+          controller.result.certificates ?? [],
+        ),
+        _buildWorkPlace(
+          'Quá trình làm việc/công tác',
+          controller.result.workExperiences ?? [],
+        ),
         const SizedBox(
           height: 30.0,
         ),
@@ -190,7 +218,7 @@ extension EditProfilePageChildren on EditProfilePage {
             ),
           ),
         ),
-        ListView.builder(
+        ListView.separated(
           padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: dataList.length,
@@ -198,6 +226,8 @@ extension EditProfilePageChildren on EditProfilePage {
           itemBuilder: (context, index) {
             return ItemSpecialize(content: dataList[index]);
           },
+          separatorBuilder: (BuildContext context, int index) =>
+              const SizedBox(height: 16.0),
         ),
         const SizedBox(
           height: 20.0,
@@ -233,7 +263,8 @@ extension EditProfilePageChildren on EditProfilePage {
     );
   }
 
-  Widget _buildSkillPersonal(String title, List<String> dataList) {
+  Widget _buildSkillPersonal(
+      String title, List<DoctorCertificatesModel> dataList) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -251,7 +282,7 @@ extension EditProfilePageChildren on EditProfilePage {
             ),
           ),
         ),
-        ListView.builder(
+        ListView.separated(
           padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: dataList.length,
@@ -259,6 +290,9 @@ extension EditProfilePageChildren on EditProfilePage {
           itemBuilder: (context, index) {
             return ItemLiteracy(content: dataList[index]);
           },
+          separatorBuilder: (BuildContext context, int index) => const SizedBox(
+            height: 20.0,
+          ),
         ),
         const SizedBox(
           height: 20.0,
@@ -355,15 +389,16 @@ extension EditProfilePageChildren on EditProfilePage {
   //   );
   // }
 
-  Widget _buildWorkPlace() {
+  Widget _buildWorkPlace(
+      String title, List<DoctorWorkExperienceModel> dataList) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(top: 20.0, bottom: 16.0),
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0, bottom: 16.0),
           child: Text(
-            'Quá trình làm việc/công tác',
-            style: TextStyle(
+            title,
+            style: const TextStyle(
               fontFamily: 'Inter',
               fontStyle: FontStyle.normal,
               height: 1.3,
@@ -373,14 +408,17 @@ extension EditProfilePageChildren on EditProfilePage {
             ),
           ),
         ),
-        ListView.builder(
+        ListView.separated(
           padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 1,
+          itemCount: dataList.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return const ItemWorkplace();
+            return ItemWorkplace(content: dataList[index]);
           },
+          separatorBuilder: (BuildContext context, int index) => const SizedBox(
+            height: 20.0,
+          ),
         ),
         const SizedBox(
           height: 20.0,
@@ -420,43 +458,40 @@ extension EditProfilePageChildren on EditProfilePage {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Expanded(
-          flex: 3,
-          child: Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-              color: ColorConstants.secondaryColor.withOpacity(0.2),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Thêm',
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                    color: ColorConstants.secondaryColor,
-                  ),
+        Container(
+          width: Get.width - 20 * 2 - 10 - 72,
+          padding: const EdgeInsets.symmetric(horizontal: 23.0, vertical: 18.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: ColorConstants.secondaryColor.withOpacity(0.2),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Thêm',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontStyle: FontStyle.normal,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w600,
+                  color: ColorConstants.secondaryColor,
                 ),
-                const SizedBox(
-                  width: 15.0,
+              ),
+              const SizedBox(
+                width: 15.0,
+              ),
+              SizedBox(
+                width: 20.0,
+                height: 20.0,
+                child: SvgPicture.asset(
+                  IconConstants.subtract,
+                  fit: BoxFit.scaleDown,
+                  color: ColorConstants.secondaryColor,
                 ),
-                SizedBox(
-                  width: 20.0,
-                  height: 20.0,
-                  child: SvgPicture.asset(
-                    IconConstants.subtract,
-                    fit: BoxFit.scaleDown,
-                    color: ColorConstants.secondaryColor,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         const SizedBox(
@@ -464,19 +499,18 @@ extension EditProfilePageChildren on EditProfilePage {
         ),
         InkWell(
           onTap: callback,
-          child: Expanded(
-            child: Container(
-              height: 56.0,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: const Color(0xFFFF754C).withOpacity(0.2),
-              ),
-              child: SvgPicture.asset(
-                IconConstants.trash,
-                color: const Color(0xFFFF754C),
-              ),
+          child: Container(
+            width: 72.0,
+            height: 56.0,
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              color: const Color(0xFFFF754C).withOpacity(0.2),
+            ),
+            child: SvgPicture.asset(
+              IconConstants.trash,
+              color: const Color(0xFFFF754C),
             ),
           ),
         ),

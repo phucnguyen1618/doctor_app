@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AppointmentNoticeWidget extends StatelessWidget {
-  const AppointmentNoticeWidget({Key? key}) : super(key: key);
+  final Function() onDetail;
+  final Function() onCall;
+
+  const AppointmentNoticeWidget({
+    Key? key,
+    required this.onDetail,
+    required this.onCall,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +22,7 @@ class AppointmentNoticeWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(24.0),
         boxShadow: [
           BoxShadow(
-            color:
-            Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
+            color: Color.fromARGB(Color.getAlphaFromOpacity(0.1), 14, 30, 58),
             spreadRadius: 0.0,
             blurRadius: 10.0,
             offset: const Offset(0.0, 4.0), // changes position of shadow
@@ -108,7 +114,7 @@ class AppointmentNoticeWidget extends StatelessWidget {
                         color: ColorConstants.primaryColor, width: 1.0),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: onDetail,
                     child: const Text(
                       'Chi tiết',
                       style: TextStyle(
@@ -133,7 +139,7 @@ class AppointmentNoticeWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: onCall,
                     child: const Text(
                       'Gọi ngay',
                       style: TextStyle(

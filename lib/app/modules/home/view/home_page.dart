@@ -18,27 +18,21 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    double width = Get.width;
-    double height = Get.height;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildHeader(),
-            SizedBox(
-              width: width,
-              height: height,
-              child: PageView.builder(
-                controller: controller.pageController,
-                itemCount: controller.pages.length,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return controller.pages[index];
-                },
-              ),
+      body: Column(
+        children: [
+          _buildHeader(),
+          Expanded(
+            child: PageView.builder(
+              controller: controller.pageController,
+              itemCount: controller.pages.length,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return controller.pages[index];
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

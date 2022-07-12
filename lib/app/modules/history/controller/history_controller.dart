@@ -1,4 +1,3 @@
-import 'package:doctor_app/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 class HistoryController extends GetxController {
@@ -18,6 +17,6 @@ class HistoryController extends GetxController {
   var serviceValue = 'Tất cả'.obs;
 
   onItemHistoryClicked() {
-    Get.toNamed(Routes.DETAIL);
+   // Get.toNamed(Routes.DETAIL);
   }
 }

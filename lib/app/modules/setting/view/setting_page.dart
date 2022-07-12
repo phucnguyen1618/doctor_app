@@ -81,16 +81,21 @@ class SettingPage extends GetView<SettingController> {
               const SizedBox(
                 height: 46.0,
               ),
-              const Text(
-                'Đăng xuất',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  height: 1.3,
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w500,
-                  color: ColorConstants.greyColor,
+              InkWell(
+                onTap: () {
+                  controller.logOut();
+                },
+                child: const Text(
+                  'Đăng xuất',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    height: 1.3,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w500,
+                    color: ColorConstants.greyColor,
+                  ),
                 ),
               ),
             ],

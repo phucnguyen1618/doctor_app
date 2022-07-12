@@ -9,8 +9,8 @@ class LoginController extends GetxController {
   var isVisible = true.obs;
   var isFocusPassword = false.obs;
   var isFocusAccount = false.obs;
-  var accountError = ''.obs;
-  var passError = ''.obs;
+  RxnString accountError = RxnString(null);
+  RxnString passError = RxnString(null);
   var accountValue = ''.obs;
   var passValue = ''.obs;
 
@@ -44,12 +44,12 @@ class LoginController extends GetxController {
     focusNodeAccount.dispose();
   }
 
-  handleEventLoginButtonPressed() {
+  void handleEventLoginButtonPressed() {
     accountError.value =
         Validation.validatorPhoneNumber(usernameController.text);
     passError.value = Validation.validatorPassword(passwordController.text);
-    if (accountError.value == '' && passError.value == '') {
-                Get.toNamed(Routes.CONTAINER);
+    if (accountError.value == null && passError.value == null) {
+      Get.toNamed(Routes.CONTAINER);
       // final signRequest =
       //     SignInRequest(usernameController.text, passwordController.text, null);
       // doctorRepository.signIn(signRequest).then((response) {
