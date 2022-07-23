@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../assets/constants/color_constants.dart';
 import '../../../../resource/assets_constant/icon_constants.dart';
 import '../../../../shared/constants/colors.dart';
-import '../../../../shared/widgets/images_widget.dart';
+import '../../../../shared/widgets/widget/images_widget.dart';
 import 'step_model.dart';
 
 part 'detail_diagnostic_page_children.dart';

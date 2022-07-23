@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../leading_message.dart';
+import '../widget/leading_message.dart';
 
 class ItemMessage extends StatelessWidget {
   const ItemMessage({Key? key, required this.index}) : super(key: key);

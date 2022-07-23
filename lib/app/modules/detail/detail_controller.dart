@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../resource/assets_constant/icon_constants.dart';
-import '../../shared/widgets/type_call_widget.dart';
+import '../../shared/widgets/widget/type_call_widget.dart';
 
 class DetailController extends GetxController
     with GetSingleTickerProviderStateMixin {

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../resource/assets_constant/icon_constants.dart';
 import '../../../shared/constants/colors.dart';
-import '../../../shared/widgets/images_widget.dart';
+import '../../../shared/widgets/widget/images_widget.dart';
 import '../../../shared/widgets/items/item_image_prescription.dart';
 
 part 'diagnostic_page_children.dart';

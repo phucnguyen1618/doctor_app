@@ -1,7 +1,7 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/forgotpassword/create/controller/createpassword_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
-import 'package:doctor_app/app/shared/widgets/dot_widget.dart';
+import 'package:doctor_app/app/shared/widgets/widget/dot_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

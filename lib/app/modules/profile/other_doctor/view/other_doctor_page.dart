@@ -1,6 +1,6 @@
 import 'package:doctor_app/app/modules/profile/other_doctor/controller/other_doctor_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/image_constants.dart';
-import 'package:doctor_app/app/shared/widgets/badge_widget.dart';
+import 'package:doctor_app/app/shared/widgets/widget/badge_widget.dart';
 import 'package:doctor_app/app/shared/widgets/circle/circle_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

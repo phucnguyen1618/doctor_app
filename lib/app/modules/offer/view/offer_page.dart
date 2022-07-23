@@ -7,7 +7,7 @@ import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
 import 'package:doctor_app/app/resource/assets_constant/image_constants.dart';
 import 'package:doctor_app/app/shared/widgets/items/item_question.dart';
 import 'package:doctor_app/app/shared/widgets/items/item_symptom.dart';
-import 'package:doctor_app/app/shared/widgets/patient_avatar_widget.dart';
+import 'package:doctor_app/app/shared/widgets/widget/patient_avatar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

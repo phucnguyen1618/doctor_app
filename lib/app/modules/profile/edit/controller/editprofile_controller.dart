@@ -3,6 +3,7 @@ import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/shared/widgets/bottom_sheet/show_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../../../shared/widgets/widget/choose_birthday_widget.dart';
 
@@ -40,7 +41,10 @@ class EditProfileController extends BaseController {
   showBottomSheetChooseBirthday(BuildContext context) {
     ShowBottomSheet.showBottomSheetChooseBirthday(
       context: context,
-      child: const ChooseBirthdayWidget(),
+      child: SingleChildScrollView(
+        child: const ChooseBirthdayWidget(),
+        controller: ModalScrollController.of(context),
+      ),
     );
   }
 

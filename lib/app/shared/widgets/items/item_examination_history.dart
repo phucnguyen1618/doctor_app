@@ -1,6 +1,6 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
-import 'package:doctor_app/app/shared/widgets/images_widget.dart';
-import 'package:doctor_app/app/shared/widgets/symptom_widget.dart';
+import 'package:doctor_app/app/shared/widgets/widget/images_widget.dart';
+import 'package:doctor_app/app/shared/widgets/widget/symptom_widget.dart';
 import 'package:flutter/material.dart';
 
 class ItemExaminationHistory extends StatelessWidget {
