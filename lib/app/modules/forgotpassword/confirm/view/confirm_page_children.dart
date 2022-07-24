@@ -24,7 +24,7 @@ extension ConfirmPageChildren on ConfirmPage {
           child: RichText(
             textAlign: TextAlign.center,
             text: const TextSpan(
-              text: 'Hãy điền mã OTP gồm 4 số vừa được gửi đến số điện thoại',
+              text: 'Điền mã OTP gồm 4 số gửi đến số điện thoại\n',
               style: TextStyle(
                 fontFamily: 'Inter',
                 fontStyle: FontStyle.normal,
@@ -34,7 +34,7 @@ extension ConfirmPageChildren on ConfirmPage {
               ),
               children: [
                 TextSpan(
-                  text: ' 0320366268',
+                  text: '0320366268',
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontStyle: FontStyle.normal,

@@ -18,4 +18,28 @@ class TextAppStyle {
     fontSize: 14.0,
     color: AppColor.deactiveColor,
   );
+
+  static TextStyle textCaption1Style({
+    Color? textColor,
+    double? height,
+    double? size,
+  }) {
+    return TextStyle(
+      fontSize: 13.0,
+      height: height,
+      color: textColor,
+    );
+  }
+
+  static TextStyle textCaption2Style({
+    Color? textColor,
+    double? height,
+    double? size,
+  }) {
+    return TextStyle(
+      fontSize: 13.0,
+      height: height,
+      color: textColor,
+    );
+  }
 }

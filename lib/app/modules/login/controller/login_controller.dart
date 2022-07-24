@@ -1,9 +1,9 @@
 import 'package:data_api/repository/doctor_app_repository.dart';
-import 'package:doctor_app/app/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_routes.dart';
+import '../../../shared/utils/validation.dart';
 
 class LoginController extends GetxController {
   var isVisible = true.obs;
@@ -19,6 +19,7 @@ class LoginController extends GetxController {
 
   FocusNode focusNodePassword = FocusNode();
   FocusNode focusNodeAccount = FocusNode();
+  String source = '[0-9]';
 
   final doctorRepository = Get.find<DoctorAppRepository>();
 
@@ -50,13 +51,6 @@ class LoginController extends GetxController {
     passError.value = Validation.validatorPassword(passwordController.text);
     if (accountError.value == null && passError.value == null) {
       Get.toNamed(Routes.CONTAINER);
-      // final signRequest =
-      //     SignInRequest(usernameController.text, passwordController.text, null);
-      // doctorRepository.signIn(signRequest).then((response) {
-      //   if (response.isSuccess! && response.signInModel != null) {
-      //     Get.toNamed(Routes.CONTAINER);
-      //   }
-      // });
     }
   }
 

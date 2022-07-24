@@ -7,7 +7,7 @@ extension CreatePasswordPageChildren on CreatePasswordPage {
       children: [
         const Center(
           child: Text(
-            'Đặt mật khẩu mới',
+            'Tạo mật khẩu mới',
             style: TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.w500,
@@ -22,7 +22,7 @@ extension CreatePasswordPageChildren on CreatePasswordPage {
           child: Padding(
             padding: EdgeInsets.only(left: 3.0, right: 3.0),
             child: Text(
-              'Nhập mật khẩu mới để đăng nhập và trải nghiệm các tính năng của ứng dụng AI.CARE Doctor',
+              'Tạo mật khẩu mới để bảo vệ an toàn cho tài khoản DoctorApp của bạn',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 12.0,

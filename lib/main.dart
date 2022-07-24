@@ -8,5 +8,4 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DependencyInjection.init(DEV_ENVIRONMENT);
   runApp(const MyApp());
-  configLoading();
 }

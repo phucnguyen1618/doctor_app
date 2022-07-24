@@ -2,7 +2,6 @@ import 'package:data_api/models/doctor_model.dart';
 import 'package:data_api/repository/doctor_app_repository.dart';
 import 'package:doctor_app/app/base/base_controller.dart';
 import 'package:doctor_app/app/routes/app_routes.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 import '../container/controller/container_controller.dart';

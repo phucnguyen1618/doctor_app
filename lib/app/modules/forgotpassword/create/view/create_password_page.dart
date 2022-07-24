@@ -1,6 +1,7 @@
 import 'package:doctor_app/app/assets/constants/color_constants.dart';
 import 'package:doctor_app/app/modules/forgotpassword/create/controller/createpassword_controller.dart';
 import 'package:doctor_app/app/resource/assets_constant/icon_constants.dart';
+import 'package:doctor_app/app/shared/widgets/button/custom_button.dart';
 import 'package:doctor_app/app/shared/widgets/widget/dot_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,7 +20,7 @@ class CreatePasswordPage extends GetView<CreatePasswordController> {
       body: SafeArea(
         top: true,
         child: Padding(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 28.0),
+          padding: const EdgeInsets.only(left: 23.0, right: 23.0, top: 28.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -38,30 +39,14 @@ class CreatePasswordPage extends GetView<CreatePasswordController> {
           ),
         ),
       ),
-      persistentFooterButtons: [
-        Container(
-          margin: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 24.0),
-          decoration: BoxDecoration(
-            color: ColorConstants.primaryColor,
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-          width: double.infinity,
-          height: 56.0,
-          child: MaterialButton(
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 23.0, right: 23.0),
+        child: CustomButton(
+            content: 'Tạo mật khẩu',
             onPressed: () {
               controller.handleEventContinueButtonPressed();
-            },
-            child: const Text(
-              'Xác nhận',
-              style: TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.w700,
-                color: ColorConstants.backgroundColor,
-              ),
-            ),
-          ),
-        ),
-      ],
+            }),
+      ),
     );
   }
 }

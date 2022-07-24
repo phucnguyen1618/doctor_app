@@ -19,59 +19,25 @@ extension LoginPageChildren on LoginPage {
           const SizedBox(
             height: 20.0,
           ),
-          Obx(
-            () => _buildInputArea(
-              'Tài khoản',
-              controller.isFocusAccount.value
-                  ? ColorConstants.backgroundColor
-                  : ColorConstants.textInputColor,
-              controller.usernameController,
-              controller.focusNodeAccount,
-              error: Text(
-                controller.accountError.value ?? '',
-                style: const TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.red,
-                ),
-              ),
-              inputType: TextInputType.phone,
-            ),
-          ),
+          _buildAccountInput(),
           const SizedBox(
             height: 20.0,
           ),
-          Obx(
-            () => _buildInputArea(
-              'Mật khẩu',
-              controller.isFocusPassword.value
-                  ? ColorConstants.backgroundColor
-                  : ColorConstants.textInputColor,
-              controller.passwordController,
-              controller.focusNodePassword,
-              error: Text(
-                controller.passError.value ?? '',
-                style: const TextStyle(
+          _buildPasswordInput(),
+          InkWell(
+            onTap: () {
+              controller.handleEventForgotPasswordTextPressed();
+            },
+            child: const Align(
+              child: Text(
+                'Quên mật khẩu?',
+                style: TextStyle(
                   fontSize: 12.0,
-                  color: Colors.red,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xFF808191),
                 ),
               ),
-              icon: InkWell(
-                onTap: () {
-                  controller.handleEventVisiblePassword();
-                },
-                child: controller.isFocusPassword.value
-                    ? Padding(
-                        padding: const EdgeInsets.only(right: 23.0),
-                        child: SvgPicture.asset(
-                          controller.isVisible.value
-                              ? IconConstants.eye
-                              : IconConstants.invisibleIcon,
-                        ),
-                      )
-                    : const SizedBox(),
-              ),
-              isShow: controller.isVisible.value,
-              inputType: TextInputType.text,
+              alignment: Alignment.centerRight,
             ),
           ),
           const SizedBox(
@@ -88,6 +54,67 @@ extension LoginPageChildren on LoginPage {
     );
   }
 
+  Widget _buildAccountInput() {
+    return Obx(
+      () => _buildInputArea(
+        'Tài khoản',
+        controller.isFocusAccount.value
+            ? ColorConstants.backgroundColor
+            : ColorConstants.textInputColor,
+        controller.usernameController,
+        controller.focusNodeAccount,
+        error: Text(
+          controller.accountError.value ?? '',
+          style: const TextStyle(
+            fontSize: 12.0,
+            color: Colors.red,
+          ),
+        ),
+        inputType: TextInputType.phone,
+        formatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.allow(RegExp(controller.source)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPasswordInput() {
+    return Obx(
+      () => _buildInputArea(
+        'Mật khẩu',
+        controller.isFocusPassword.value
+            ? ColorConstants.backgroundColor
+            : ColorConstants.textInputColor,
+        controller.passwordController,
+        controller.focusNodePassword,
+        error: Text(
+          controller.passError.value ?? '',
+          style: const TextStyle(
+            fontSize: 12.0,
+            color: Colors.red,
+          ),
+        ),
+        icon: InkWell(
+          onTap: () {
+            controller.handleEventVisiblePassword();
+          },
+          child: controller.isFocusPassword.value
+              ? Padding(
+                  padding: const EdgeInsets.only(right: 23.0),
+                  child: SvgPicture.asset(
+                    controller.isVisible.value
+                        ? IconConstants.eye
+                        : IconConstants.invisibleIcon,
+                  ),
+                )
+              : const SizedBox(),
+        ),
+        isShow: controller.isVisible.value,
+        inputType: TextInputType.text,
+      ),
+    );
+  }
+
   Widget _buildInputArea(
     String label,
     Color backgroundColor,
@@ -97,6 +124,7 @@ extension LoginPageChildren on LoginPage {
     Widget? icon,
     bool? isShow,
     TextInputType? inputType,
+    List<TextInputFormatter>? formatters,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,6 +148,7 @@ extension LoginPageChildren on LoginPage {
           width: double.infinity,
           child: TextField(
             keyboardType: inputType ?? TextInputType.text,
+            inputFormatters: formatters,
             focusNode: focusNode,
             controller: controller,
             style: const TextStyle(

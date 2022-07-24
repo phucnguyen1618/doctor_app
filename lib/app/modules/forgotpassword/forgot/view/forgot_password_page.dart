@@ -1,5 +1,7 @@
 import 'package:doctor_app/app/modules/forgotpassword/forgot/controller/forgotpassword_controller.dart';
+import 'package:doctor_app/app/shared/widgets/button/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +27,14 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
           _buildFormForgotPassword(),
         ],
       ),
-      bottomSheet: _buildFooter(),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 21.0),
+        child: CustomButton(
+            content: 'Tiếp theo',
+            onPressed: () {
+              controller.handleEventContinueButtonPressed();
+            }),
+      ),
     );
   }
 }

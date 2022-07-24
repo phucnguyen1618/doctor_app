@@ -6,10 +6,11 @@ import 'package:get/get.dart';
 import '../../../../assets/constants/color_constants.dart';
 import '../../../../resource/assets_constant/icon_constants.dart';
 import '../../../../resource/assets_constant/image_constants.dart';
-import '../../../../utils/circle_painter.dart';
-import '../../../../utils/curve_wave.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as rtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as rtcRemoteView;
+
+import '../../../../shared/utils/circle_painter.dart';
+import '../../../../shared/utils/curve_wave.dart';
 
 part 'video_call_page_children.dart';
 
